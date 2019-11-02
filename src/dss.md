@@ -6722,8 +6722,6 @@ iff
 returns May
 ```
 
-
-
 #### bid data
 
 ```act
@@ -10014,6 +10012,174 @@ iff
 
 returns Live
 ```
+
+### Mutators
+
+#### authorization
+
+```act
+behaviour rely-diff of Spotter
+interface rely(address usr)
+
+for all
+
+    May : uint256
+
+storage
+
+    wards[CALLER_ID] |-> May
+    wards[usr]       |-> _ => 1
+
+iff
+
+    May == 1
+    VCallValue == 0
+
+if
+
+    usr =/= CALLER_ID
+```
+
+```act
+behaviour rely-same of Spotter
+interface rely(address usr)
+
+for all
+
+    May : uint256
+
+storage
+
+    wards[CALLER_ID] |-> May => 1
+
+iff
+
+    May == 1
+    VCallValue == 0
+
+if
+
+    usr == CALLER_ID
+```
+
+```act
+behaviour deny-diff of Spotter
+interface deny(address usr)
+
+for all
+
+    May : uint256
+
+storage
+
+    wards[CALLER_ID] |-> May
+    wards[usr]       |-> _ => 0
+
+iff
+
+    May == 1
+    VCallValue == 0
+
+if
+
+    usr =/= CALLER_ID
+```
+
+```act
+behaviour deny-same of Spotter
+interface deny(address usr)
+
+for all
+
+    May : uint256
+
+storage
+
+    wards[CALLER_ID] |-> May => 0
+
+iff
+
+    May == 1
+    VCallValue == 0
+
+if
+
+    usr == CALLER_ID
+```
+
+#### change governance parameters
+
+```act
+behaviour file-pip of Spotter
+interface file(bytes32 ilk, bytes32 what, address pip_)
+
+for all
+
+    May  : uint256
+    Live : uint256
+    Pip  : address
+
+storage
+
+    wards[CALLER_ID] |-> May
+    ilks[ilk].pip    |-> Pip => pip_
+    live             |-> Live
+
+iff
+
+    May == 1
+    VCallValue == 0
+    Live == 1
+    what == #string2Word("pip")
+```
+
+```act
+behaviour file-par of Spotter
+interface file(bytes32 what, uint256 data)
+
+for all
+
+    May  : uint256
+    Live : uint256
+
+storage
+
+    wards[CALLER_ID] |-> May
+    par              |-> _ => data
+    live             |-> Live
+
+iff
+
+    May == 1
+    VCallValue == 0
+    Live == 1
+    what == #string2Word("par")
+```
+
+```act
+behaviour file-mat of Spotter
+interface file(bytes32 ilk, bytes32 what, uint256 data)
+
+for all
+
+    May  : uint256
+    Live : uint256
+
+storage
+
+    wards[CALLER_ID] |-> May
+    ilks[ilk].mat    |-> _ => data
+    live             |-> Live
+
+iff
+
+    May == 1
+    VCallValue == 0
+    Live == 1
+    what == #string2Word("mat")
+```
+
+#### disable governance actions
 
 ```act
 behaviour cage of Spotter
