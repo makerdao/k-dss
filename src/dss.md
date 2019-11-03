@@ -10199,3 +10199,90 @@ iff
     May == 1
     VCallValue == 0
 ```
+
+#### update `spot` value
+
+```act
+behaviour muluu of Spotter
+interface mul(uint256 x, uint256 y) internal
+
+stack
+
+    y : x : JMPTO : WS => JMPTO : x * y : WS
+
+iff in range uint256
+
+    x * y
+
+if
+
+    // TODO: strengthen
+    #sizeWordStack(WS) <= 1000
+```
+
+```act
+behaviour rdiv of Spotter
+interface rdiv(uint256 x, uint256 y) internal
+
+stack
+
+    y : x : JMPTO : WS => JMPTO : (x * #Ray) / y : WS
+
+iff
+
+    y =/= 0
+
+iff in range uint256
+
+    x * #Ray
+
+if
+
+    // TODO: strengthen
+    #sizeWordStack(WS) <= 1000
+```
+
+```act
+behaviour poke of Spotter
+interface poke(bytes32 ilk)
+
+for all
+
+    Pip : address DSValue
+    Mat : uint256
+    Vat : address Vat
+    Par : uint256
+
+    Owner : address
+    Has   : bool
+    Price : bytes32
+
+    Spot : uint256
+
+storage
+
+    ilks[ilk].pip |-> Pip
+    ilks[ilk].mat |-> Mat
+    vat           |-> Vat
+    par           |-> Par
+
+storage Pip
+
+    owner_has |-> #WordPackAddrUInt8(Owner, Has)
+    val       |-> Price
+
+storage Vat
+
+    ilks[ilk].spot |-> Spot => #if Has #then (((((Price * 1000000000) * #Ray) / Par) * #Ray) / Mat) #else 0 #fi
+
+iff
+
+    VCallValue == 0
+
+calls
+
+  DSValue.peek
+  Spotter.muluu
+  Spotter.rdiv
+  Vat.file-ilk
+```
