@@ -10257,7 +10257,9 @@ for all
     Has   : bool
     Price : bytes32
 
+    May  : uint256
     Spot : uint256
+    Live : uint256
 
 storage
 
@@ -10273,11 +10275,17 @@ storage Pip
 
 storage Vat
 
-    ilks[ilk].spot |-> Spot => #if Has #then (((((Price * 1000000000) * #Ray) / Par) * #Ray) / Mat) #else 0 #fi
+    wards[ACCT_ID] |-> May
+    ilks[ilk].spot |-> Spot => #if Has =/= 0 #then ((((Price * 1000000000 * #Ray) / Par) * #Ray) / Mat) #else 0 #fi
+    live           |-> Live
 
 iff
 
     VCallValue == 0
+    VCallDepth < 1024
+    (Has == 0) or ((Price * 1000000000 * #Ray <= maxUInt256) and (Par =/= 0) and (Mat =/= 0) and (((Price * 1000000000 * #Ray) / Par) * #Ray <= maxUInt256))
+    May == 1
+    Live == 1
 
 calls
 
