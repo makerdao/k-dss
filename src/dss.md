@@ -9031,7 +9031,7 @@ storage
 storage Spotter
   ilks[ilk].pip |-> DSValue
   ilks[ilk].mat |-> Mat_i
-  ilks[ilk].par |-> Par
+  par           |-> Par
 
 storage Vat
   ilks[ilk].Art  |-> Art_i
