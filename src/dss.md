@@ -8853,6 +8853,7 @@ for all
     PotLive  : uint256
     FlapLive : uint256
     FlopLive : uint256
+    FlopVow  : uint256
 
     CallerMay  : uint256
     EndMayVat  : uint256
@@ -8916,7 +8917,8 @@ storage Flapper
 storage Flopper
 
     wards[Vow] |-> VowMayFlop
-    live |-> FlopLive => 0
+    live       |-> FlopLive => 0
+    vow        |-> FlopVow  => Vow
 
 storage Spotter
 
@@ -8994,6 +8996,7 @@ for all
     VowLive  : uint256
     FlapLive : uint256
     FlopLive : uint256
+    FlopVow  : uint256
 
     CallerMay : uint256
     EndMayVat : uint256
@@ -9056,7 +9059,8 @@ storage Flapper
 storage Flopper
 
     wards[Vow] |-> VowMayFlop
-    live |-> FlopLive => 0
+    live       |-> FlopLive => 0
+    vow        |-> FlopVow  => Vow
 
 storage Spotter
 
@@ -9134,6 +9138,7 @@ for all
     VowLive  : uint256
     FlapLive : uint256
     FlopLive : uint256
+    FlopVow  : uint256
 
     CallerMay  : uint256
     EndMayVat  : uint256
@@ -9196,7 +9201,8 @@ storage Flapper
 storage Flopper
 
     wards[Vow] |-> VowMayFlop
-    live |-> FlopLive => 0
+    live       |-> FlopLive => 0
+    vow        |-> FlopVow  => Vow
 
 storage Spotter
 
