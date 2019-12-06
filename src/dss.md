@@ -4506,6 +4506,7 @@ for all
     Ash      : uint256
     FlapLive : uint256
     FlopLive : uint256
+    FlopVow  : uint256
 
 storage
 
@@ -4535,7 +4536,8 @@ storage Flapper
 storage Flopper
 
     wards[ACCT_ID] |-> MayFlop
-    live |-> FlopLive => 0
+    live           |-> FlopLive => 0
+    vow            |-> FlowVow  => ACCT_ID
 
 iff
 
@@ -4594,6 +4596,7 @@ for all
     Ash      : uint256
     FlapLive : uint256
     FlopLive : uint256
+    FlopVow  : uint256
 
 storage
 
@@ -4623,7 +4626,8 @@ storage Flapper
 storage Flopper
 
     wards[ACCT_ID] |-> MayFlop
-    live |-> FlopLive => 0
+    live           |-> FlopLive => 0
+    vow            |-> FlowVow  => ACCT_ID
 
 iff
 
@@ -4681,6 +4685,7 @@ for all
     Ash      : uint256
     FlapLive : uint256
     FlopLive : uint256
+    FlopVow  : uint256
 
 storage
 
@@ -4710,7 +4715,8 @@ storage Flapper
 storage Flopper
 
     wards[ACCT_ID] |-> MayFlop
-    live |-> FlopLive => 0
+    live           |-> FlopLive => 0
+    vow            |-> FlowVow  => ACCT_ID
 
 iff
 
