@@ -7667,6 +7667,27 @@ iff
 returns Gem
 ```
 
+#### Vow address
+
+```act
+behaviour vow of Flopper
+interface vow()
+
+for all
+
+    Vow : address
+
+storage
+
+    vow |-> Vow
+
+iff
+
+    VCallValue == 0
+
+returns Vow
+```
+
 #### minimum bid increment
 
 ```act
