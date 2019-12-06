@@ -5137,6 +5137,7 @@ for all
     Spot_i     : uint256
     Line_i     : uint256
     Dust_i     : uint256
+    CatMayVat  : uint256
     Ink_iu     : uint256
     Art_iu     : uint256
     CanFlux    : uint256
@@ -5288,6 +5289,7 @@ for all
     Spot_i     : uint256
     Line_i     : uint256
     Dust_i     : uint256
+    CatMayVat  : uint256
     Ink_iu     : uint256
     Art_iu     : uint256
     CanFlux    : uint256
