@@ -4506,7 +4506,7 @@ for all
     Ash      : uint256
     FlapLive : uint256
     FlopLive : uint256
-    FlopVow  : uint256
+    FlopVow  : address
 
 storage
 
@@ -4537,7 +4537,7 @@ storage Flopper
 
     wards[ACCT_ID] |-> MayFlop
     live           |-> FlopLive => 0
-    vow            |-> FlowVow  => ACCT_ID
+    vow            |-> FlopVow  => ACCT_ID
 
 iff
 
@@ -4580,23 +4580,23 @@ interface cage()
 
 for all
 
-    Vat     : address Vat
-    Flapper : address Flapper
-    Flopper : address Flopper
-    FlapVat : address
-    MayFlap : uint256
-    MayFlop : uint256
-    Dai_v   : uint256
-    Sin_v   : uint256
-    Dai_f   : uint256
-    Debt    : uint256
-    Vice    : uint256
+    Vat      : address Vat
+    Flapper  : address Flapper
+    Flopper  : address Flopper
+    FlapVat  : address
+    MayFlap  : uint256
+    MayFlop  : uint256
+    Dai_v    : uint256
+    Sin_v    : uint256
+    Dai_f    : uint256
+    Debt     : uint256
+    Vice     : uint256
     Live     : uint256
     Sin      : uint256
     Ash      : uint256
     FlapLive : uint256
     FlopLive : uint256
-    FlopVow  : uint256
+    FlopVow  : address
 
 storage
 
@@ -4627,7 +4627,7 @@ storage Flopper
 
     wards[ACCT_ID] |-> MayFlop
     live           |-> FlopLive => 0
-    vow            |-> FlowVow  => ACCT_ID
+    vow            |-> FlopVow  => ACCT_ID
 
 iff
 
@@ -4669,23 +4669,23 @@ interface cage()
 
 for all
 
-    Vat     : address Vat
-    Flapper : address Flapper
-    Flopper : address Flopper
-    FlapVat : address
-    MayFlap : uint256
-    MayFlop : uint256
-    Dai_v   : uint256
-    Sin_v   : uint256
-    Dai_f   : uint256
-    Debt    : uint256
-    Vice    : uint256
+    Vat      : address Vat
+    Flapper  : address Flapper
+    Flopper  : address Flopper
+    FlapVat  : address
+    MayFlap  : uint256
+    MayFlop  : uint256
+    Dai_v    : uint256
+    Sin_v    : uint256
+    Dai_f    : uint256
+    Debt     : uint256
+    Vice     : uint256
     Live     : uint256
     Sin      : uint256
     Ash      : uint256
     FlapLive : uint256
     FlopLive : uint256
-    FlopVow  : uint256
+    FlopVow  : address
 
 storage
 
@@ -4716,7 +4716,7 @@ storage Flopper
 
     wards[ACCT_ID] |-> MayFlop
     live           |-> FlopLive => 0
-    vow            |-> FlowVow  => ACCT_ID
+    vow            |-> FlopVow  => ACCT_ID
 
 iff
 
