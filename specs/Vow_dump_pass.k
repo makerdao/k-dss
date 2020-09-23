@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 9F8791500C3DE1AC73ED6E19C378BE6B328CACC88E0CD97B22E9960D48DFBF8C
+module 5BA3B60269F5D39AA530B884510F9D05A3B3007726A6613C8F8EB8FACD8275F3
   imports VERIFICATION
 
 // Vow_dump
@@ -27,7 +27,7 @@ rule [Vow.dump.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((VGas +Int 1115)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2188 +Int 1115 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

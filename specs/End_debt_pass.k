@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B2B17F16E0AE073B7E2216D06862E0836AFEAF106A639F750EDCFACE53D16787
+module 54032A1A20387D96841E7D071B050B3600BC6E924A6F908AB015010696F00417
   imports VERIFICATION
 
 // End_debt
@@ -27,7 +27,7 @@ rule [End.debt.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((VGas +Int 1052)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2202 +Int 1052 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

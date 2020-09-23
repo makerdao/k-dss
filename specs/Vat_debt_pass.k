@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module BD9217E1A745C6C51577E7DB1257E3B3305EDAAEAA4A6B485ED0D243469E80E8
+module 5A896EEF272B4FE4C3AF247EC2506B73C3D3A3C8BB2A52F6BD12F7EC21207574
   imports VERIFICATION
 
 // Vat_debt
@@ -27,7 +27,7 @@ rule [Vat.debt.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((VGas +Int 1052)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2195 +Int 1052 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

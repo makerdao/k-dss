@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module A218A2E52DF11ECE5FCB3ED7028DB2152B1D7549C02A4C9A4C96FE9B405744B5
+module ECBA8DDD516E3295C911DD9D2B0A3025E6FCF09888C02073E6652814743DA3FA
   imports VERIFICATION
 
 // Flapper_kicks
@@ -27,7 +27,7 @@ rule [Flapper.kicks.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((VGas +Int 1093)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2186 +Int 1093 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

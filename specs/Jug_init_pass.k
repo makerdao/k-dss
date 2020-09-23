@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 84EE3D805DD305395825AD4B346F9F635C679BDDE2159BA6C63385A240B5703B
+module 280BDD9DE21D0409D70B8C6D600D2ABE7241CE3BF07D0963DDBEBCC64FCE3335
   imports VERIFICATION
 
 // Jug_init
@@ -27,7 +27,7 @@ rule [Jug.init.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((((((VGas +Int 2132) +Int #if ((#lookup(ACCT_ID_STORAGE, hash2(ABI_ilk, 1)) ==Int 1000000000000000000000000000) orBool (notBool (#lookup(ACCT_ID_ORIG_STORAGE, hash2(ABI_ilk, 1)) ==Int #lookup(ACCT_ID_STORAGE, hash2(ABI_ilk, 1))))) #then 800 #else #if (#lookup(ACCT_ID_ORIG_STORAGE, hash2(ABI_ilk, 1)) ==Int 0) #then 20000 #else 5000 #fi #fi) +Int 19) +Int #if ((#lookup(ACCT_ID_STORAGE, (hash2(ABI_ilk, 1) +Int 1)) ==Int TIME) orBool (notBool (#lookup(ACCT_ID_ORIG_STORAGE, (hash2(ABI_ilk, 1) +Int 1)) ==Int #lookup(ACCT_ID_STORAGE, (hash2(ABI_ilk, 1) +Int 1))))) #then 800 #else #if (#lookup(ACCT_ID_ORIG_STORAGE, (hash2(ABI_ilk, 1) +Int 1)) ==Int 0) #then 20000 #else 5000 #fi #fi) +Int 4341)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2175 +Int ( Csstore( ISTANBUL , 1000000000000000000000000000 , #lookup( _2186 , hash2 ( _2110 , 1 ) ) , #lookup( _2188 , hash2 ( _2110 , 1 ) ) ) +Int ( Csstore( ISTANBUL , _2174 , #lookup( _2186 , ( hash2 ( _2110 , 1 ) +Int 1 ) ) , #lookup( _2188 , ( hash2 ( _2110 , 1 ) +Int 1 ) ) ) +Int 6492 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

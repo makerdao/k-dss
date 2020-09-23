@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module E20C391496F33CC19D6435C7214453F522F3C1A9BDA4D00CA76AABA9B38730DB
+module 98105E4D6336EE10A926814226669334C9D18C651178BBB57D8FCA511521EA69
   imports VERIFICATION
 
 // Jug_deny-diff
@@ -27,7 +27,7 @@ rule [Jug.deny-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((((VGas +Int 1281) +Int #if ((#lookup(ACCT_ID_STORAGE, hash2(ABI_usr, 0)) ==Int 0) orBool (notBool (#lookup(ACCT_ID_ORIG_STORAGE, hash2(ABI_usr, 0)) ==Int #lookup(ACCT_ID_STORAGE, hash2(ABI_usr, 0))))) #then 800 #else #if (#lookup(ACCT_ID_ORIG_STORAGE, hash2(ABI_usr, 0)) ==Int 0) #then 20000 #else 5000 #fi #fi) +Int 4339)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2168 +Int ( Csstore( ISTANBUL , 0 , #lookup( _2108 , hash2 ( _2125 , 0 ) ) , #lookup( _2112 , hash2 ( _2125 , 0 ) ) ) +Int 5620 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

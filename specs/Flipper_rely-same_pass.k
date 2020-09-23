@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module C254CD7CFEAA4AC27A7FA6E065D9EB552A36AADF4A888D646C2CBF6612CFE736
+module 615ADA992A5054465CECACBBCFE7C3315EB640BA3874C23D17ACD63794EC7430
   imports VERIFICATION
 
 // Flipper_rely-same
@@ -27,7 +27,7 @@ rule [Flipper.rely-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((VGas +Int 6399)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2184 +Int ( Csstore( ISTANBUL , 1 , #lookup( _2186 , hash2 ( _2193 , 0 ) ) , #lookup( _2194 , hash2 ( _2193 , 0 ) ) ) +Int 5599 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

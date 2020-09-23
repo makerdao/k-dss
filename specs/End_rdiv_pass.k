@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 972CF83531202D1D4F17DC8CB00C770A3F5F8782873CF1198513766A3723AE28
+module BBA86B99752E0BB3ACBD297DCECE16452BFD367DFFEB21BC98F9642B9D6792E3
   imports VERIFICATION
 
 // End_rdiv
@@ -27,7 +27,7 @@ rule [End.rdiv.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : (ABI_x *Int #Ray) /Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 14734 => 14774 </pc>
-        <gas> #gas(VGas) => #gas((VGas +Int 179)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2185 +Int 179 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

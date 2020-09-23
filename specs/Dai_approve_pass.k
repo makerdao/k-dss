@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B873FED6B366373B9DE76CB7BD4F93ABC3FBCACAD4E5EE7251D2F90F07EB9F49
+module AEB443573863C1CB23B4DEE6D6135B58BB38A7A2DB3C532E08DF868F783C53DE
   imports VERIFICATION
 
 // Dai_approve
@@ -27,7 +27,7 @@ rule [Dai.approve.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((((VGas +Int 490) +Int #if ((#lookup(ACCT_ID_STORAGE, hash2(ABI_usr, hash2(CALLER_ID, 3))) ==Int ABI_wad) orBool (notBool (#lookup(ACCT_ID_ORIG_STORAGE, hash2(ABI_usr, hash2(CALLER_ID, 3))) ==Int #lookup(ACCT_ID_STORAGE, hash2(ABI_usr, hash2(CALLER_ID, 3)))))) #then 800 #else #if (#lookup(ACCT_ID_ORIG_STORAGE, hash2(ABI_usr, hash2(CALLER_ID, 3))) ==Int 0) #then 20000 #else 5000 #fi #fi) +Int 1924)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2149 +Int ( Csstore( ISTANBUL , _2110 , #lookup( _2173 , hash2 ( _2109 , hash2 ( _2172 , 3 ) ) ) , #lookup( _2177 , hash2 ( _2109 , hash2 ( _2172 , 3 ) ) ) ) +Int 2414 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

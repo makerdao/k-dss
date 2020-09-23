@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module E99F9B07B4A1457919D3C1D1F1819DCDB829AD0DFE6BABDB5609268C43DA657C
+module EAD6CC6EAB37ED89D3E51F5B57B9068C5FA787A65561D28D773A8193C809FD58
   imports VERIFICATION
 
 // Cat_file-addr
@@ -27,7 +27,7 @@ rule [Cat.file-addr.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((((VGas +Int 2118) +Int #if ((#lookup(ACCT_ID_STORAGE, 4) ==Int ABI_data) orBool (notBool (#lookup(ACCT_ID_ORIG_STORAGE, 4) ==Int #lookup(ACCT_ID_STORAGE, 4)))) #then 800 #else #if (#lookup(ACCT_ID_ORIG_STORAGE, 4) ==Int 0) #then 20000 #else 5000 #fi #fi) +Int 4353)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2202 +Int ( Csstore( ISTANBUL , _2121 , #lookup( _2200 , 4 ) , #lookup( _2204 , 4 ) ) +Int 6471 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

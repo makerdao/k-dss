@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module CBBDA01D540B34084DCE2C80B057BB13559F5786588B3762A299C042D7548B62
+module 89E4CDBE83EA82ED6D93E7C281440B81BC91648F66D7EC6489908DCB3187ED29
   imports VERIFICATION
 
 // Vat_urns
@@ -27,7 +27,7 @@ rule [Vat.urns.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((VGas +Int 2153)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2154 +Int 2153 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

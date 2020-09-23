@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 75C7951489AB67D1543B3AA7A096D0D12B99633C6B3AE36830A5C68F4C102EFF
+module 95DA8A38C03D0CF040CFD83CBD21CF37D8F992ABED8765887767F9171D10B12D
   imports VERIFICATION
 
 // Dai_DOMAIN_SEPARATOR
@@ -27,7 +27,7 @@ rule [Dai.DOMAIN.SEPARATOR.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((VGas +Int 1050)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2195 +Int 1050 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

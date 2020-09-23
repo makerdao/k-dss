@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module ED4CA7895A0AFF2B6B0FE71C9174CBC7307A6E604BE1684F4BA9E968E12397FB
+module A72B37ABEE8E105624BD0A59A2593F7A326B99E5C73B369C51D8489FC0CB87C3
   imports VERIFICATION
 
 // Pot_cage
@@ -27,7 +27,7 @@ rule [Pot.cage.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((((((VGas +Int 1104) +Int #if ((#lookup(ACCT_ID_STORAGE, 8) ==Int 0) orBool (notBool (#lookup(ACCT_ID_ORIG_STORAGE, 8) ==Int #lookup(ACCT_ID_STORAGE, 8)))) #then 800 #else #if (#lookup(ACCT_ID_ORIG_STORAGE, 8) ==Int 0) #then 20000 #else 5000 #fi #fi) +Int 14) +Int #if ((#lookup(ACCT_ID_STORAGE, 3) ==Int 1000000000000000000000000000) orBool (notBool (#lookup(ACCT_ID_ORIG_STORAGE, 3) ==Int #lookup(ACCT_ID_STORAGE, 3)))) #then 800 #else #if (#lookup(ACCT_ID_ORIG_STORAGE, 3) ==Int 0) #then 20000 #else 5000 #fi #fi) +Int 4337)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2155 +Int ( Csstore( ISTANBUL , 0 , #lookup( _2110 , 8 ) , #lookup( _2113 , 8 ) ) +Int ( Csstore( ISTANBUL , 1000000000000000000000000000 , #lookup( _2110 , 3 ) , #lookup( _2113 , 3 ) ) +Int 5455 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

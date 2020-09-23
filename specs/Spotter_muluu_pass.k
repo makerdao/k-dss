@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B2E29473D8729DBB709A072B5057D2C56C427348ED7EB00211A5244D792453D6
+module FECBA3D2EE1F1C1E691FD0A1800C73D65E1D73C2782387428CCAD6108BB3B32E
   imports VERIFICATION
 
 // Spotter_muluu
@@ -27,7 +27,7 @@ rule [Spotter.muluu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x *Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 4107 => 4150 </pc>
-        <gas> #gas(VGas) => #gas(#if (ABI_y ==Int 0) #then (VGas +Int 54) #else (VGas +Int 106) #fi) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2177 +Int #if _2115 ==Int 0 #then 54 #else 106 #fi ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

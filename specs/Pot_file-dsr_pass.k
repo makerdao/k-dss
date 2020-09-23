@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 6C6E5434C7276C025AC656C14925DE9B12312371EE2C2F1E8E4265EE6F754388
+module 127C9FFF685EDF3DA414392C62DA2C403041F71175348E0A80A47B1C6597A169
   imports VERIFICATION
 
 // Pot_file-dsr
@@ -27,7 +27,7 @@ rule [Pot.file-dsr.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((((VGas +Int 2928) +Int #if ((#lookup(ACCT_ID_STORAGE, 3) ==Int ABI_data) orBool (notBool (#lookup(ACCT_ID_ORIG_STORAGE, 3) ==Int #lookup(ACCT_ID_STORAGE, 3)))) #then 800 #else #if (#lookup(ACCT_ID_ORIG_STORAGE, 3) ==Int 0) #then 20000 #else 5000 #fi #fi) +Int 4353)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2153 +Int ( Csstore( ISTANBUL , _2106 , #lookup( _2182 , 3 ) , #lookup( _2185 , 3 ) ) +Int 7281 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

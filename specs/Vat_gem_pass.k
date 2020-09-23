@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module ADA7E8487108635F708CD5A79A21CA305EAEFD0C3471D208ABD6A3129E53BE9C
+module 0034496FEFB6721C0A08178A45B7F21F1A40DE556B1CD72DF0BE06EF82DB7D5C
   imports VERIFICATION
 
 // Vat_gem
@@ -27,7 +27,7 @@ rule [Vat.gem.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((VGas +Int 1352)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2179 +Int 1352 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

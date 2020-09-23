@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module FF7D153D122A5557AC8BFDB2F88C1FB51014BD4BAEC58BD6BC962EA1B141BABF
+module 0433BC46C73639CD721AAB3E636CD66A6074BC64CC524B84153D9ED6DE34F5D5
   imports VERIFICATION
 
 // End_subuu
@@ -27,7 +27,7 @@ rule [End.subuu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x -Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 14664 => 14689 </pc>
-        <gas> #gas(VGas) => #gas((VGas +Int 54)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2199 +Int 54 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

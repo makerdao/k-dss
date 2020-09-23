@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module DC0BDBA1D1F233DD0C90673D948D7CE4893C11C2CEC2EE2609558411D042102A
+module 9D1297F2A1AE75E00DE49F952A9E68D34407AC00EBDF52FA6BFBCCB4146F84D9
   imports VERIFICATION
 
 // GemJoin_vat
@@ -27,7 +27,7 @@ rule [GemJoin.vat.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((VGas +Int 1054)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2151 +Int 1054 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

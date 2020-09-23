@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 166C71DB98EC5F060DBD982B3C133C76ED0F341DE646FB72682668C2C27DBA18
+module B574E86CCE293119FB817C41065E7DA92B2B5E25BE30F868F104C703AB029E77
   imports VERIFICATION
 
 // Pot_adduu
@@ -27,7 +27,7 @@ rule [Pot.adduu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 4851 => 4876 </pc>
-        <gas> #gas(VGas) => #gas((VGas +Int 54)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2153 +Int 54 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

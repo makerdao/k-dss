@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module EFC6600BFA0917253FD48E64424ADEC36F4AC9407144C26FFE1AEC4D3133F2FE
+module 648DDF741E476E562924C0693F50652D18D2689C41D96055849B88DA1361C5E6
   imports VERIFICATION
 
 // Flapper_ttl
@@ -27,7 +27,7 @@ rule [Flapper.ttl.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((VGas +Int 1098)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2202 +Int 1098 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

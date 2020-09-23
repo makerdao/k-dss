@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 350AE04C71CBCA12A2CB386E034FEF1952A43A5E478AF15C4B703C4D23803642
+module DA41EF5EC220D53A4E222321AB2AF1BE25C5F361D4471772AFECCBD9DDA1CEFF
   imports VERIFICATION
 
 // Pot_pie
@@ -27,7 +27,7 @@ rule [Pot.pie.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((VGas +Int 1215)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2195 +Int 1215 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

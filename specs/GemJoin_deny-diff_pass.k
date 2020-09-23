@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 8BF24E58B00DB9DC8AE72BE00B9B2BA5469261EE7D06830CDE414CE746BEBF1C
+module DBEA8EF7D60ED61190ED9865BEE51A37AD70A9001C0DE4470E78224033BBC292
   imports VERIFICATION
 
 // GemJoin_deny-diff
@@ -27,7 +27,7 @@ rule [GemJoin.deny-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((((VGas +Int 1259) +Int #if ((#lookup(ACCT_ID_STORAGE, hash2(ABI_usr, 0)) ==Int 0) orBool (notBool (#lookup(ACCT_ID_ORIG_STORAGE, hash2(ABI_usr, 0)) ==Int #lookup(ACCT_ID_STORAGE, hash2(ABI_usr, 0))))) #then 800 #else #if (#lookup(ACCT_ID_ORIG_STORAGE, hash2(ABI_usr, 0)) ==Int 0) #then 20000 #else 5000 #fi #fi) +Int 4339)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2193 +Int ( Csstore( ISTANBUL , 0 , #lookup( _2156 , hash2 ( _2121 , 0 ) ) , #lookup( _2191 , hash2 ( _2121 , 0 ) ) ) +Int 5598 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module AE15CF9FF56B6157A0DD57574593C17224787C7A5C8E8F0901DEE4089C1ED73D
+module CA2C89161EC74CCF016DA7CC65502FD386EB2F4DFA56309783C951D9FB53CECE
   imports VERIFICATION
 
 // Dai_deny-same
@@ -27,7 +27,7 @@ rule [Dai.deny-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((((VGas +Int 1326) +Int #if ((#lookup(ACCT_ID_STORAGE, hash2(CALLER_ID, 0)) ==Int 0) orBool (notBool (#lookup(ACCT_ID_ORIG_STORAGE, hash2(CALLER_ID, 0)) ==Int #lookup(ACCT_ID_STORAGE, hash2(CALLER_ID, 0))))) #then 800 #else #if (#lookup(ACCT_ID_ORIG_STORAGE, hash2(CALLER_ID, 0)) ==Int 0) #then 20000 #else 5000 #fi #fi) +Int 4339)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2112 +Int ( Csstore( ISTANBUL , 0 , #lookup( _2170 , hash2 ( _2115 , 0 ) ) , #lookup( _2172 , hash2 ( _2115 , 0 ) ) ) +Int 5665 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

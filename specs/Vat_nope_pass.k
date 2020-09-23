@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 1C02765AADE3ACCA90B9D5BD482D428EF4FA0E9C60A27F8C064EFA3BF8A03A91
+module 5CDE6E00F05F95C6B46A7ABD570102A3E2377342EA456DFBD6B3203400C7B3E2
   imports VERIFICATION
 
 // Vat_nope
@@ -27,7 +27,7 @@ rule [Vat.nope.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((((VGas +Int 458) +Int #if ((#lookup(ACCT_ID_STORAGE, hash2(ABI_usr, hash2(CALLER_ID, 1))) ==Int 0) orBool (notBool (#lookup(ACCT_ID_ORIG_STORAGE, hash2(ABI_usr, hash2(CALLER_ID, 1))) ==Int #lookup(ACCT_ID_STORAGE, hash2(ABI_usr, hash2(CALLER_ID, 1)))))) #then 800 #else #if (#lookup(ACCT_ID_ORIG_STORAGE, hash2(ABI_usr, hash2(CALLER_ID, 1))) ==Int 0) #then 20000 #else 5000 #fi #fi) +Int 4343)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2195 +Int ( Csstore( ISTANBUL , 0 , #lookup( _2157 , hash2 ( _2121 , hash2 ( _2197 , 1 ) ) ) , #lookup( _2161 , hash2 ( _2121 , hash2 ( _2197 , 1 ) ) ) ) +Int 4801 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

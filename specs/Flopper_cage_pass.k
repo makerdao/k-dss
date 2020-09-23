@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module C425BB8F2C41D9F1AA4B8BF4A365190AA16B285256617FE69B1A05E7A9E5B10F
+module 07ADF459A77E3179716D3A0406A0A9C036FC261BE176B81C8235B3154F9427DF
   imports VERIFICATION
 
 // Flopper_cage
@@ -27,7 +27,7 @@ rule [Flopper.cage.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((((((VGas +Int 1148) +Int #if ((#lookup(ACCT_ID_STORAGE, 8) ==Int 0) orBool (notBool (#lookup(ACCT_ID_ORIG_STORAGE, 8) ==Int #lookup(ACCT_ID_STORAGE, 8)))) #then 800 #else #if (#lookup(ACCT_ID_ORIG_STORAGE, 8) ==Int 0) #then 20000 #else 5000 #fi #fi) +Int 866) +Int #if ((#lookup(ACCT_ID_STORAGE, 9) ==Int CALLER_ID) orBool (notBool (#lookup(ACCT_ID_ORIG_STORAGE, 9) ==Int #lookup(ACCT_ID_STORAGE, 9)))) #then 800 #else #if (#lookup(ACCT_ID_ORIG_STORAGE, 9) ==Int 0) #then 20000 #else 5000 #fi #fi) +Int 4337)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2199 +Int ( Csstore( ISTANBUL , 0 , #lookup( _2196 , 8 ) , #lookup( _2202 , 8 ) ) +Int ( Csstore( ISTANBUL , _2106 , #lookup( _2196 , 9 ) , #lookup( _2202 , 9 ) ) +Int 6351 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

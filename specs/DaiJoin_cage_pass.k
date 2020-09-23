@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 2028D769A443433C87C8F8DD9E015B8A9F3536EB9059D211BEDCD7B738A97CFC
+module 59C4ABD13BD45061A6071697F7B463A9D4BADAB528970341722A536CDF3DDDE3
   imports VERIFICATION
 
 // DaiJoin_cage
@@ -27,7 +27,7 @@ rule [DaiJoin.cage.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((((VGas +Int 1126) +Int #if ((#lookup(ACCT_ID_STORAGE, 3) ==Int 0) orBool (notBool (#lookup(ACCT_ID_ORIG_STORAGE, 3) ==Int #lookup(ACCT_ID_STORAGE, 3)))) #then 800 #else #if (#lookup(ACCT_ID_ORIG_STORAGE, 3) ==Int 0) #then 20000 #else 5000 #fi #fi) +Int 4337)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2150 +Int ( Csstore( ISTANBUL , 0 , #lookup( _2106 , 3 ) , #lookup( _2109 , 3 ) ) +Int 5463 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

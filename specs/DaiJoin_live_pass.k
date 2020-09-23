@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 283958738DB3A3A3D87C37DD4F93E96DDC5E08862B5B34E2611DB09CE9A5B876
+module 7C2104B03FFEC698E006616E802429BB7761F36B091D200FB0DB47753571CC96
   imports VERIFICATION
 
 // DaiJoin_live
@@ -27,7 +27,7 @@ rule [DaiJoin.live.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((VGas +Int 1005)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2168 +Int 1005 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

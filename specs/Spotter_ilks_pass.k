@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module BF9734E445DED29491DAC340085904746D04E8CD1DAA9D7A84C9F2890F82E47D
+module 20C36AD553022D9D01761F59409E6BC05A699708B2BED4FDEDD2B7D0B2A10BC4
   imports VERIFICATION
 
 // Spotter_ilks
@@ -27,7 +27,7 @@ rule [Spotter.ilks.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((VGas +Int 2145)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2204 +Int 2145 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

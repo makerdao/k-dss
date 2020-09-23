@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module EE57B01B9FA8E7AE8643A4941F027EC2C1C89732C9461CBEB03D1BD71D9A6654
+module EEEAD35A9A577DC171C700DD446BF571E7A10EB174FD5DE9A95E06A38EA925FE
   imports VERIFICATION
 
 // Flopper_gem
@@ -27,7 +27,7 @@ rule [Flopper.gem.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((VGas +Int 1164)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2201 +Int 1164 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

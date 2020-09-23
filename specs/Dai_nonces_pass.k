@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 3E137534D608ACD22732297604BEE7DA02FBAA1364C20AB4F6219A892F0E9A32
+module 947C5FFF386225B3C1D2848649512E2801CBD554B88E9C37934612426F4BCFA0
   imports VERIFICATION
 
 // Dai_nonces
@@ -27,7 +27,7 @@ rule [Dai.nonces.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas((VGas +Int 1192)) </gas>
+        <gas> #gas(VGas) => #gas ( ( _2196 +Int 1192 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>
