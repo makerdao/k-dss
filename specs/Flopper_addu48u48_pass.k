@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module FA7E3FECE4BAC0B9380CDEC5919062D0D6ED6551E5DD039C20BD8577C840FE8F
+module E08C9443EC3BD86877BC2B29192366364F3450ADA552A0ECCC54B849CAE13DC3
   imports VERIFICATION
 
 // Flopper_addu48u48
@@ -27,7 +27,7 @@ rule [Flopper.addu48u48.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 8757 => 8798 </pc>
-        <gas> #gas(VGas) => #gas ( ( _2155 +Int 66 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 66 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

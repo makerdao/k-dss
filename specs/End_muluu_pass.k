@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module D41C3CEFE41DCD87CCBB44B9DB50C1E400DE5922BBF01FC779BDCAD10D685ADB
+module 7DD0703C9B6A40B8D744F1070FC5D1ED6F6F72F85A91897F2EB296E96B41A2DD
   imports VERIFICATION
 
 // End_muluu
@@ -27,7 +27,7 @@ rule [End.muluu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x *Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 14690 => 14733 </pc>
-        <gas> #gas(VGas) => #gas ( ( _2178 +Int #if _2113 ==Int 0 #then 54 #else 106 #fi ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int 0 #then 54 #else 106 #fi ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

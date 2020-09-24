@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 22259ABEDE60F7BC91D977CD158F3C97F15B2DAAC56159DCDDF5415F50F262C7
+module 1FF9FB53D174F2227A8FA98C9506B68C5D2D702A95AAD774D68AE06B1CB6C5CE
   imports VERIFICATION
 
 // DaiJoin_muluu
@@ -27,7 +27,7 @@ rule [DaiJoin.muluu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x *Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 2819 => 2862 </pc>
-        <gas> #gas(VGas) => #gas ( ( _2175 +Int #if _2115 ==Int 0 #then 54 #else 106 #fi ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int 0 #then 54 #else 106 #fi ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

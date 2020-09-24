@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module D7401C7E5ABC46763EC60DB6E34F55955CA87CB5ACF0FD53EE4222C41B55CD38
+module CBC6CCD950997EE1A2670665E7A8D2B7A77D4E36DE3D4E6A915861DA5195EFAD
   imports VERIFICATION
 
 // Vow_vat
@@ -27,7 +27,7 @@ rule [Vow.vat.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2151 +Int 1187 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 1187 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

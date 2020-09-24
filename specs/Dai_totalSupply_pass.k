@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module AE044FBF82C0EB4EAE2A6B813821776014556EE0A8E5E32902E8E176CA545ECB
+module 9A57EEFA67C67D464FC817D2DBCA701B9BFF2F54F5F9D9E8431E9E05089F4C3A
   imports VERIFICATION
 
 // Dai_totalSupply
@@ -27,7 +27,7 @@ rule [Dai.totalSupply.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2170 +Int 1073 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 1073 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

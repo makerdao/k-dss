@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module A55B874F02F4A95212902279C8BCFF71E40236531E53AC98FE21F38F27844748
+module 53BD7122E438AA6DCA73FAF9EB6744EF05B27D23DAD2AAE1EB5F9154DCA5CF68
   imports VERIFICATION
 
 // End_rely-same
@@ -27,7 +27,7 @@ rule [End.rely-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2183 +Int ( Csstore( ISTANBUL , 1 , #lookup( _2196 , hash2 ( _2186 , 0 ) ) , #lookup( _2198 , hash2 ( _2186 , 0 ) ) ) +Int 5621 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 1 , #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 0 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , 0 ) ) ) +Int 5621 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

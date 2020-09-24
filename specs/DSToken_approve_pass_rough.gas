@@ -1,1 +1,1 @@
-#gas ( ( _2172 +Int ( Csstore( ISTANBUL , _2126 , #lookup( _2110 , hash2 ( _2125 , hash2 ( _2178 , 2 ) ) ) , #lookup( _2114 , hash2 ( _2125 , hash2 ( _2178 , 2 ) ) ) ) +Int 3390 ) ) )
+#gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_wad , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_usr , hash2 ( CALLER_ID , 2 ) ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_usr , hash2 ( CALLER_ID , 2 ) ) ) ) +Int 3390 ) ) )

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module E9A0CEE257F7BEFEA9CE87DAE25A98E6AEC95816B5C375BA7774351786E7FDA2
+module 434B20153FCE576ED474052FC230626176414D0FA3EA3960CF5BE3FB63870171
   imports VERIFICATION
 
 // Spotter_wards
@@ -27,7 +27,7 @@ rule [Spotter.wards.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2164 +Int 1235 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 1235 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

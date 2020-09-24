@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 8A8AE17B5FF99CFB2C9F3A895ACC2FC78022CBADE209723CDB9F1A7164677E36
+module 2E8496B0E7E56E4D8662FCA011A6FE4B1915FEEE8DB7FFFC9F6B7B694759B91F
   imports VERIFICATION
 
 // Vow_Ash
@@ -27,7 +27,7 @@ rule [Vow.Ash.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2182 +Int 1117 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 1117 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

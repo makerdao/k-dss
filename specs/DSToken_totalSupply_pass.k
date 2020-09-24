@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module BE8FD343D93DF3E033ED333357318CE9867A67F9266A5CC97A2503CCD06A68F0
+module B6B62C41C61305B5EBFB7AF74B330FEBE80582784C72427BEC01C2B6C0614261
   imports VERIFICATION
 
 // DSToken_totalSupply
@@ -27,7 +27,7 @@ rule [DSToken.totalSupply.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2156 +Int 1125 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 1125 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

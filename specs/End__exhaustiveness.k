@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B4EBA9A6E86E13C042645A6C853EB13562655DABC101EF180F66D0D8A99CE2C9
+module 38A349A6D46A65B18C97F8D391486C6F169DE0639FD6988EEF023B23B360F5B5
   imports VERIFICATION
 
 // End__exhaustiveness
@@ -11,7 +11,7 @@ rule [End..exhaustiveness]:
   <schedule> ISTANBUL </schedule>
   <ethereum>
     <evm>
-      <output> _ => ?_ </output>
+      <output> .ByteArray </output>
       <statusCode> _ => EVMC_REVERT </statusCode>
       <endPC> _ => ?_ </endPC>
       <callStack> VCallStack </callStack>
@@ -22,7 +22,7 @@ rule [End..exhaustiveness]:
         <jumpDests> #computeValidJumpDests(End_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("poke", #bytes32(ABI_ilk)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("tick", #uint256(ABI_id)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
@@ -31,7 +31,7 @@ rule [End..exhaustiveness]:
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
-        <callDepth> VCallDepth => ?_ </callDepth>
+        <callDepth> VCallDepth </callDepth>
       </callState>
       <substate>
         <selfDestruct> VSelfDestruct </selfDestruct>
@@ -63,8 +63,6 @@ rule [End..exhaustiveness]:
     <network>
       <chainID> VChainId </chainID>
       <activeAccounts> SetItem(ACCT_ID)
-      SetItem(Pip)
-      SetItem(Vat)
       SetItem(1)
       SetItem(2)
       SetItem(3)

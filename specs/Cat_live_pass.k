@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module E0E277254F9B1B6E23C6F9B569F8D89D703C3FBC782ACB7E83D63BB106EABB74
+module 542000BF61DB44524A7A8E59AD96B9B695147285541FCFB636DE396303BAB036
   imports VERIFICATION
 
 // Cat_live
@@ -27,7 +27,7 @@ rule [Cat.live.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2171 +Int 1005 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 1005 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

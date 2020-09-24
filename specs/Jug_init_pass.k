@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 280BDD9DE21D0409D70B8C6D600D2ABE7241CE3BF07D0963DDBEBCC64FCE3335
+module BF4D34BB13AE8BCD91B121F7333099ADA1B4287B5DE11C15DD9D8097CDB0D355
   imports VERIFICATION
 
 // Jug_init
@@ -27,7 +27,7 @@ rule [Jug.init.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2175 +Int ( Csstore( ISTANBUL , 1000000000000000000000000000 , #lookup( _2186 , hash2 ( _2110 , 1 ) ) , #lookup( _2188 , hash2 ( _2110 , 1 ) ) ) +Int ( Csstore( ISTANBUL , _2174 , #lookup( _2186 , ( hash2 ( _2110 , 1 ) +Int 1 ) ) , #lookup( _2188 , ( hash2 ( _2110 , 1 ) +Int 1 ) ) ) +Int 6492 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 1000000000000000000000000000 , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_ilk , 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_ilk , 1 ) ) ) +Int ( Csstore( ISTANBUL , TIME , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_ilk , 1 ) +Int 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_ilk , 1 ) +Int 1 ) ) ) +Int 6492 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

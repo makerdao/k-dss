@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module E1D1149A69D204E3770DFE59F8B61583186C38C55DB17F60B3EA7CBC344E658A
+module BAAE90B8F0452657A383A8FAA6CB6ABE804EF6130098C613FF902C10456DE650
   imports VERIFICATION
 
 // Flapper_bids
@@ -27,7 +27,7 @@ rule [Flapper.bids.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2199 +Int 4839 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 4839 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

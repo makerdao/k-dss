@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module D9D2AF6854AC4A439229C89D5C633E4B8458F21C7BE6D4C29C35405A7494A7FC
+module 6E7F6012737E1470CE7215E568CAFB890E0C87D5AFD84407BE8148D24DD3F7D0
   imports VERIFICATION
 
 // Vow_flapper
@@ -27,7 +27,7 @@ rule [Vow.flapper.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2171 +Int 1098 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 1098 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

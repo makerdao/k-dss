@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 8AD31B0823A0CB460EB19A391E208EE21429FF07E53D8A82BE314565F960AAF7
+module 14FD60C4B1BAB554081535FA4F5C9FFBB4E90732FCAC0522F2A5A153E7E91A97
   imports VERIFICATION
 
 // Flipper_ilk
@@ -27,7 +27,7 @@ rule [Flipper.ilk.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2200 +Int 1027 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 1027 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

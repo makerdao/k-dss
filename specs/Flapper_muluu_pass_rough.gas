@@ -1,1 +1,1 @@
-#gas ( ( _2171 +Int #if _2111 ==Int 0 #then 54 #else 106 #fi ) )
+#gas ( ( VGas +Int #if ABI_y ==Int 0 #then 54 #else 106 #fi ) )

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 04FC94518717C43FB16661CCF33DAC734FF436DDA9D59950CDCD75B17ADB007C
+module 7C3768F1EA518971C033BDD1425A743C776C799CB349E7F175685C83476535B1
   imports VERIFICATION
 
 // Jug_base
@@ -27,7 +27,7 @@ rule [Jug.base.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2175 +Int 1116 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 1116 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

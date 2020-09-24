@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 6EDBDC7195885919F243BC9F214DFDA46856FB0EC664F259FC5B4139E4428F31
+module 3884ECFDAF157EDE526C9557BD46C398F4B7072EF4EF468CD7D8EBF1A6F5BCF8
   imports VERIFICATION
 
 // Flapper_rely-same
@@ -27,7 +27,7 @@ rule [Flapper.rely-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2198 +Int ( Csstore( ISTANBUL , 1 , #lookup( _2107 , hash2 ( _2201 , 0 ) ) , #lookup( _2110 , hash2 ( _2201 , 0 ) ) ) +Int 5643 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 1 , #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 0 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , 0 ) ) ) +Int 5643 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

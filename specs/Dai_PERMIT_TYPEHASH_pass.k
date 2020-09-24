@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 2D2E8E14FDFA44842A1489B1425F8D1CECD579528A0B35B8A444A2060EBA2517
+module 85E125621D9A7CD9633AC48A294CE87ECAB251302A4946907D6C1B6D981A7E50
   imports VERIFICATION
 
 // Dai_PERMIT_TYPEHASH
@@ -27,7 +27,7 @@ rule [Dai.PERMIT.TYPEHASH.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2186 +Int 323 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 323 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

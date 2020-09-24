@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B12A29B89EB58043F24FC02A0A6953442AEF6BDB023869A4BF5FE2E8789B76C2
+module CB2BE0F63AADF0FED1791F7BA2531E743ED1623DC1B2E8E250A36C694D9870A1
   imports VERIFICATION
 
 // Pot_chi
@@ -27,7 +27,7 @@ rule [Pot.chi.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2172 +Int 1093 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 1093 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

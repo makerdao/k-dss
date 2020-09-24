@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B4045F24EDC42465F1DD9F9384F0FAF94DA5857655DA09A9C53CABF684717C07
+module B11B1965FBB686BC047A9B3D578850A8F3E871E566FB3E9595A38542AE465F7F
   imports VERIFICATION
 
 // DSToken_transfer
@@ -27,7 +27,7 @@ rule [DSToken.transfer.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2165 +Int ( Csstore( ISTANBUL , ( #lookup( _2112 , hash2 ( _2173 , 1 ) ) -Int _2122 ) , #lookup( _2112 , hash2 ( _2173 , 1 ) ) , #lookup( _2114 , hash2 ( _2173 , 1 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( _2112 , hash2 ( _2121 , 1 ) ) +Int _2122 ) , #lookup( _2112 , hash2 ( _2121 , 1 ) ) , #lookup( _2114 , hash2 ( _2121 , 1 ) ) ) +Int 6391 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 1 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , 1 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_usr , 1 ) ) +Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_usr , 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_usr , 1 ) ) ) +Int 6391 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

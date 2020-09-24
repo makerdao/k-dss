@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 5BA0B3E1435B5CEA61458C5B782F9CD115257F34981183564C068965F3016F4A
+module 581B11DCF2C89BB7F0447D401E4E5F6F20918035D62509A3FD25A0317CE055B2
   imports VERIFICATION
 
 // Spotter_rdiv
@@ -27,7 +27,7 @@ rule [Spotter.rdiv.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : (ABI_x *Int #Ray) /Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 4151 => 4191 </pc>
-        <gas> #gas(VGas) => #gas ( ( _2203 +Int 179 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 179 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

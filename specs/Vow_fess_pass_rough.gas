@@ -1,0 +1,1 @@
+#gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( TIME , 4 ) ) +Int ABI_tab ) , #lookup( ACCT_ID_STORAGE , hash2 ( TIME , 4 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( TIME , 4 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , 5 ) +Int ABI_tab ) , #lookup( ACCT_ID_STORAGE , 5 ) , #lookup( ACCT_ID_ORIG_STORAGE , 5 ) ) +Int 7431 ) ) ) )

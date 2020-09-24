@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 5893B2DF3782B5E2978EB3951A71CAEFD8CDCADF9E63C131C0CED59689415EE5
+module B0A54340ABC017862662CA419E890A8F5CF647F1D8A66D77383D3FC832CB5301
   imports VERIFICATION
 
 // DSToken_mint
@@ -27,7 +27,7 @@ rule [DSToken.mint.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2184 +Int ( Csstore( ISTANBUL , ( #lookup( _2111 , hash2 ( _2131 , 1 ) ) +Int _2132 ) , #lookup( _2111 , hash2 ( _2131 , 1 ) ) , #lookup( _2115 , hash2 ( _2131 , 1 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( _2111 , 0 ) +Int _2132 ) , #lookup( _2111 , 0 ) , #lookup( _2115 , 0 ) ) +Int 5628 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 1 ) ) +Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_dst , 1 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , 0 ) +Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , 0 ) , #lookup( ACCT_ID_ORIG_STORAGE , 0 ) ) +Int 5628 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

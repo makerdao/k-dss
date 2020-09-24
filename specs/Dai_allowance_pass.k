@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 39A9AB0A3C499DEA62038505ECB15EEEFB48351CD8C3919E4A3CE8A16CCB75DD
+module 47A95F5A26AA6E1EE3F8DDC638BBC2C897BE75DB04840F2F2EB4140DFE070A47
   imports VERIFICATION
 
 // Dai_allowance
@@ -27,7 +27,7 @@ rule [Dai.allowance.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2179 +Int 1377 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 1377 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

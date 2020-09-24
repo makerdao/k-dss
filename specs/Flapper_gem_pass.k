@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 77A7F9A12662320D8086AFBA966B28F176E625DE97A3B1B6C3778D3C1EA9B25C
+module EB8D3EE5661B03BCFFC128EBF176AF4AA74F6A58899D5FCFDEC24A792E8708EB
   imports VERIFICATION
 
 // Flapper_gem
@@ -27,7 +27,7 @@ rule [Flapper.gem.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2188 +Int 1142 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 1142 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

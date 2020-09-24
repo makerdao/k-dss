@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module E117B58E7CECEBB09D1803B58A02BEA8B1D6321CF1BF280B313104B05EF6DBD8
+module 7F8E5F7DEDE9BA8BAC998059B41A90F56122B492FAF918A521D68C4C3C211137
   imports VERIFICATION
 
 // Vat_addui
@@ -27,7 +27,7 @@ rule [Vat.addui.pass]:
         <wordStack> chop(ABI_y) : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 13112 => 13174 </pc>
-        <gas> #gas(VGas) => #gas ( ( _2196 +Int #if 0 <=Int _2120 #then #if chop( _2120 ) <=Int 0 #then 114 #else 128 #fi #else 128 #fi ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if 0 <=Int ABI_y #then #if chop( ABI_y ) <=Int 0 #then 114 #else 128 #fi #else 128 #fi ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

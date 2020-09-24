@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B1D57EB88C7A7C21E17018CD6A627E87104A014ABC3B2D234FC2A4D73F9DCABC
+module 385CDCD84A39E1ED9C953DF39F5C23C856FD3AA3C31651AB7CC0CAFFDE65C042
   imports VERIFICATION
 
 // Cat_minuu
@@ -27,7 +27,7 @@ rule [Cat.minuu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : #if ABI_x >Int ABI_y #then ABI_y #else ABI_x #fi : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 6064 => 6091 </pc>
-        <gas> #gas(VGas) => #gas ( ( _2199 +Int #if _2122 <=Int _2123 #then 49 #else 59 #fi ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_x <=Int ABI_y #then 49 #else 59 #fi ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

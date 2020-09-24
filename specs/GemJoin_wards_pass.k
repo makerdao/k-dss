@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 48A9D1CAD34113E412E542C6F2757178B386EBDFFAFD1C425474D48060D547C0
+module FC9C80359F5B8A554B5E8C39D3F2DBEE5D0ED067CCD7937BD3FB6C91DA97369B
   imports VERIFICATION
 
 // GemJoin_wards
@@ -27,7 +27,7 @@ rule [GemJoin.wards.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2162 +Int 1235 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 1235 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

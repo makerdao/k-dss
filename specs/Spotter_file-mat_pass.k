@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module CF6E28F5EC29C2B519C3A409F971E02D691BA26EC2577A75B1AD0CA05BF44FBB
+module 7B0AC9EFB1AEE02915E10B800843C3BACF25F3CC4D522604C1B28E59B86049E4
   imports VERIFICATION
 
 // Spotter_file-mat
@@ -27,7 +27,7 @@ rule [Spotter.file-mat.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2162 +Int ( Csstore( ISTANBUL , _2116 , #lookup( _2106 , ( hash2 ( _2121 , 1 ) +Int 1 ) ) , #lookup( _2113 , ( hash2 ( _2121 , 1 ) +Int 1 ) ) ) +Int 6505 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_ilk , 1 ) +Int 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_ilk , 1 ) +Int 1 ) ) ) +Int 6505 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

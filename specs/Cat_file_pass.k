@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 0D6D4B54EBE80EB3C42C1E544AE6A77EE0DEB47BD299950E261C8CA842F8D69E
+module EDD8DDD9BB1AB76B94C7BBB2A3325740C97E10143E5DE66E27A1DC26E1A89669
   imports VERIFICATION
 
 // Cat_file
@@ -27,7 +27,7 @@ rule [Cat.file.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2167 +Int #if _2116 =/=Int 44963493217838844892687817059512192886801667728146837483730375534287777693696 #then ( Csstore( ISTANBUL , _2114 , #lookup( _2110 , ( hash2 ( _2120 , 1 ) +Int 2 ) ) , #lookup( _2113 , ( hash2 ( _2120 , 1 ) +Int 2 ) ) ) +Int 5687 ) #else ( Csstore( ISTANBUL , _2114 , #lookup( _2110 , ( hash2 ( _2120 , 1 ) +Int 1 ) ) , #lookup( _2113 , ( hash2 ( _2120 , 1 ) +Int 1 ) ) ) +Int 5660 ) #fi ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_what =/=Int 44963493217838844892687817059512192886801667728146837483730375534287777693696 #then ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_ilk , 1 ) +Int 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_ilk , 1 ) +Int 2 ) ) ) +Int 5687 ) #else ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_ilk , 1 ) +Int 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_ilk , 1 ) +Int 1 ) ) ) +Int 5660 ) #fi ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

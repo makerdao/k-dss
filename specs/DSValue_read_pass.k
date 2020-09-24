@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B89FE4B0FEE1318EADEE2A05437C1776802B8AD36A4F37DE4C76090086CAD322
+module 85561CA67695BC49EEAB7456B9F64BEC48B7F30885F7CE5DB21F81DE25F6870F
   imports VERIFICATION
 
 // DSValue_read
@@ -27,7 +27,7 @@ rule [DSValue.read.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2177 +Int 2043 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 2043 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

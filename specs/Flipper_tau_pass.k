@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module BFC66B4E545A6AF2EA4A9272796F25F0ADB38ABDD6B67ADE51ED3850B60A98BF
+module F1708820D1A0EA02FD1D9B9CC0F3D88C1B758CCE91216DDC96331469AF331165
   imports VERIFICATION
 
 // Flipper_tau
@@ -27,7 +27,7 @@ rule [Flipper.tau.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( _2150 +Int 1169 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 1169 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>
