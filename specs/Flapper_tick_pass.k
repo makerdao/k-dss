@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module C92FE0191DAA9C7E2CA0023D7D90397519B8A4AC23744439540B1470002ABDD0
+module 441DB69A2E9B2A6C3AD7D80F2B8E5810D8426C2102AA66FA8AD8EB0347C294C6
   imports VERIFICATION
 
 // Flapper_tick
@@ -27,7 +27,7 @@ rule [Flapper.tick.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( 1461501637330902918203684832716283019655932542975 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , 0 , ( TIME +Int 281474976710655 &Int ( #lookup( ACCT_ID_STORAGE , 5 ) /Int 281474976710656 ) ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) ) +Int 8639 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( 1461501637330902918203684832716283019655932542975 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , 0 , ( TIME +Int 281474976710655 &Int ( #lookup( ACCT_ID_STORAGE , 5 ) /Int 281474976710656 ) ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_1 ) +Int 8639 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module C987318D45C6159DA2843C96213715912B20BF3EBC03F77042774EBB32E99863
+module C5964AD6C66FF65317DF4E51BBE89D50B8C85C66C35B682343BED76D5F383C42
   imports VERIFICATION
 
 // Cat__exhaustiveness
@@ -22,7 +22,7 @@ rule [Cat..exhaustiveness]:
         <jumpDests> #computeValidJumpDests(Cat_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("tick", #uint256(ABI_id)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("fess", #uint256(ABI_tab)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>

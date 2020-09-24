@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 79E0197F74F5F3B78C089710A9F56DB84D49D6315296347D14DFCFFD97B171B0
+module AF0A97C6A9275B33EF91ED56E1F5126D0C7FB10C0E8F5B980CD402DEC0DE012A
   imports VERIFICATION
 
 // Pot__exhaustiveness
@@ -22,7 +22,7 @@ rule [Pot..exhaustiveness]:
         <jumpDests> #computeValidJumpDests(Pot_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("tick", #uint256(ABI_id)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("fess", #uint256(ABI_tab)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module E1854588E901D1F21779939DEE78F307BEF0901EE0D67D4DBDDF1006EE1E3D63
+module 06CF1B614AC882B5FCAD65A0FFE7035D95636CA687E15AF48D414FA913B8F4F9
   imports VERIFICATION
 
 // Spotter_cage
@@ -27,7 +27,7 @@ rule [Spotter.cage.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , #lookup( ACCT_ID_STORAGE , 4 ) , #lookup( ACCT_ID_ORIG_STORAGE , 4 ) ) +Int 5396 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , Junk_0 , Junk_2 ) +Int 5396 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 3D5C71B94CFC01B5EE55826B28DE87B2EEDCB41955D96E1C965CA6B1AB194139
+module D9C12433A79D61896E01474AD6BD50C95E2A7C86A8D4065A212DCBB6CA6AA251
   imports VERIFICATION
 
 // Vat__exhaustiveness
@@ -22,7 +22,7 @@ rule [Vat..exhaustiveness]:
         <jumpDests> #computeValidJumpDests(Vat_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("tick", #uint256(ABI_id)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("fess", #uint256(ABI_tab)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module D4415EE018D66308CC650D97258A937616636DCDC5B94DB805E58B6E861F3D06
+module 7FC73023CDC6AED890B2890F34E1839E1B9BD3A74CDBC202B05D42C096FC3D5C
   imports VERIFICATION
 
 // DaiJoin_deny-diff
@@ -27,7 +27,7 @@ rule [DaiJoin.deny-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_usr , 0 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_usr , 0 ) ) ) +Int 5598 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , Junk_0 , Junk_2 ) +Int 5598 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

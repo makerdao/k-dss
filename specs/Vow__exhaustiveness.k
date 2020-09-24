@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module C3E4697B8E747331E2FBFCF05991D2EA44D9B902B1BA73A3BBD9E916DF161C46
+module 84D31BDC942E60E2C3836754C220EB48FE76B0D5DE82F89025B583DBF03E5558
   imports VERIFICATION
 
 // Vow__exhaustiveness
@@ -22,7 +22,7 @@ rule [Vow..exhaustiveness]:
         <jumpDests> #computeValidJumpDests(Vow_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("tick", #uint256(ABI_id)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("fess", #uint256(ABI_tab)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>

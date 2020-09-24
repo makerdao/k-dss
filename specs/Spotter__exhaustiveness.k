@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 70B50B7F3781A9D83F487CC12EBF1281145CBCCF8BF62AB4B091B54900735CD2
+module AC5CB8B0E1C8BA81C54CD03349EC989F941E74D61E70C14FA59A81CC5F9A6A83
   imports VERIFICATION
 
 // Spotter__exhaustiveness
@@ -22,7 +22,7 @@ rule [Spotter..exhaustiveness]:
         <jumpDests> #computeValidJumpDests(Spotter_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("tick", #uint256(ABI_id)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("fess", #uint256(ABI_tab)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>

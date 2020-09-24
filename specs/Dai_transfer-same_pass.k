@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 182B2E22D3EE36AEC6FD44FC0F3A343B3E891B862D9860ECF7C6667CEFB4BEBF
+module 61D6A27314D8F168D6838FD3785CC51294E84C94AD01AD63B0B59631B33BBB93
   imports VERIFICATION
 
 // Dai_transfer-same
@@ -27,7 +27,7 @@ rule [Dai.transfer-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , 2 ) ) ) +Int ( Csstore( ISTANBUL , ( ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) ) -Int ABI_wad ) +Int ABI_wad ) , ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , 2 ) ) ) +Int 5374 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_0 ) +Int ( Csstore( ISTANBUL , ( ( SrcBal -Int ABI_wad ) +Int ABI_wad ) , ( SrcBal -Int ABI_wad ) , Junk_0 ) +Int 5374 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module EDD8DDD9BB1AB76B94C7BBB2A3325740C97E10143E5DE66E27A1DC26E1A89669
+module 19887A2183DBD5093952E720E381B4556F0B1137B3C4DCA776EF2A325A672763
   imports VERIFICATION
 
 // Cat_file
@@ -27,7 +27,7 @@ rule [Cat.file.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_what =/=Int 44963493217838844892687817059512192886801667728146837483730375534287777693696 #then ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_ilk , 1 ) +Int 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_ilk , 1 ) +Int 2 ) ) ) +Int 5687 ) #else ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_ilk , 1 ) +Int 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_ilk , 1 ) +Int 1 ) ) ) +Int 5660 ) #fi ) ) </gas>
+        <gas> #gas(VGas) => ABI_what =/=Int 44963493217838844892687817059512192886801667728146837483730375534287777693696 </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module FE32638A511D2ED3D935A1CFAE9B0F7313BAEF5E8202D14C1332505E5C8112D7
+module F9423D982699DEF3A28608131878A067BF27E0B2B257F2145946D9B516AA13D5
   imports VERIFICATION
 
 // DaiJoin__exhaustiveness
@@ -22,7 +22,7 @@ rule [DaiJoin..exhaustiveness]:
         <jumpDests> #computeValidJumpDests(DaiJoin_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("tick", #uint256(ABI_id)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("fess", #uint256(ABI_tab)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module C646ACC5E0BD06C7676F34D593C5FC9D1BC9D8E24C3A4B89C489EFAAF812CFA6
+module E8C845E780DCCC15C8E3C4F4D82EBA2FCC38C229198FE53813CFA0FD153E3E3A
   imports VERIFICATION
 
 // Dai_mint
@@ -27,7 +27,7 @@ rule [Dai.mint.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 2 ) ) +Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_dst , 2 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , 1 ) +Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , 1 ) , #lookup( ACCT_ID_ORIG_STORAGE , 1 ) ) +Int 5045 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( DstBal +Int ABI_wad ) , DstBal , Junk_1 ) +Int ( Csstore( ISTANBUL , ( TotalSupply +Int ABI_wad ) , TotalSupply , Junk_2 ) +Int 5045 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

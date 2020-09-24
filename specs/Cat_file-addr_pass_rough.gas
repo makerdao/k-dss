@@ -1,1 +1,1 @@
-#gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , 4 ) , #lookup( ACCT_ID_ORIG_STORAGE , 4 ) ) +Int 6471 ) ) )
+#gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Vow , Junk_1 ) +Int 6471 ) ) )

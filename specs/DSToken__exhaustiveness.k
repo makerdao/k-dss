@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module E6E294CA8D562895ED7865B3177554F9DC93114D65736E120144CD46D09B1E0C
+module F18CFDEC121E1101CDE264F9C3A9918022042E74F251A8737CEADF03CA633B4B
   imports VERIFICATION
 
 // DSToken__exhaustiveness
@@ -22,7 +22,7 @@ rule [DSToken..exhaustiveness]:
         <jumpDests> #computeValidJumpDests(DSToken_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("tick", #uint256(ABI_id)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("fess", #uint256(ABI_tab)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>

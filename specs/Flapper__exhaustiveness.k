@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 74569870C7BC72713DBA30D4BD1F9E8F33FA6E61D5A24759552C90F6D14EDC43
+module 657FE4ED7DE166FC380E80FDDA68D3D89F907AD78FAB2774B8759B642C2A18DD
   imports VERIFICATION
 
 // Flapper__exhaustiveness
@@ -22,7 +22,7 @@ rule [Flapper..exhaustiveness]:
         <jumpDests> #computeValidJumpDests(Flapper_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("tick", #uint256(ABI_id)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("fess", #uint256(ABI_tab)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>

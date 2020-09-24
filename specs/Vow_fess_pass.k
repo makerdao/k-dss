@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B443EC410DBF6454B8951AD2671B002B7EF288FAE27A116EEC9ECB33807006B1
+module D22AEB0EA84D1F11875459BDF89E9FDC570BB54B1D9056FFF4CB1F161539D2BE
   imports VERIFICATION
 
 // Vow_fess
@@ -27,7 +27,7 @@ rule [Vow.fess.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( TIME , 4 ) ) +Int ABI_tab ) , #lookup( ACCT_ID_STORAGE , hash2 ( TIME , 4 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( TIME , 4 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , 5 ) +Int ABI_tab ) , #lookup( ACCT_ID_STORAGE , 5 ) , #lookup( ACCT_ID_ORIG_STORAGE , 5 ) ) +Int 7431 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Sin_era +Int ABI_tab ) , Sin_era , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Sin +Int ABI_tab ) , Sin , Junk_2 ) +Int 7431 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

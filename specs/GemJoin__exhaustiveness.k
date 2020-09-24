@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 5F0B922D8BBB3F57A6C0C5EC001195F9F634547A91EF37EB7BA11EE7E523E05E
+module D5DC336D082A63FBD88B958BF8DD168EA09711E32107341939412A297F042685
   imports VERIFICATION
 
 // GemJoin__exhaustiveness
@@ -22,7 +22,7 @@ rule [GemJoin..exhaustiveness]:
         <jumpDests> #computeValidJumpDests(GemJoin_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("tick", #uint256(ABI_id)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("fess", #uint256(ABI_tab)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
