@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module F18CFDEC121E1101CDE264F9C3A9918022042E74F251A8737CEADF03CA633B4B
+module 41E38951F875C1B3EC7F7B92B2D47C80021FB277C09475DBE7B3C49A1BD7C871
   imports VERIFICATION
 
 // DSToken__exhaustiveness
@@ -11,7 +11,7 @@ rule [DSToken..exhaustiveness]:
   <schedule> ISTANBUL </schedule>
   <ethereum>
     <evm>
-      <output> .ByteArray </output>
+      <output> _ => ?_ </output>
       <statusCode> _ => EVMC_REVERT </statusCode>
       <endPC> _ => ?_ </endPC>
       <callStack> VCallStack </callStack>
@@ -22,7 +22,7 @@ rule [DSToken..exhaustiveness]:
         <jumpDests> #computeValidJumpDests(DSToken_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("fess", #uint256(ABI_tab)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("poke", #bytes32(ABI_ilk)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
@@ -31,7 +31,7 @@ rule [DSToken..exhaustiveness]:
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
-        <callDepth> VCallDepth </callDepth>
+        <callDepth> VCallDepth => ?_ </callDepth>
       </callState>
       <substate>
         <selfDestruct> VSelfDestruct </selfDestruct>
@@ -63,6 +63,8 @@ rule [DSToken..exhaustiveness]:
     <network>
       <chainID> VChainId </chainID>
       <activeAccounts> SetItem(ACCT_ID)
+      SetItem(Pip)
+      SetItem(Vat)
       SetItem(1)
       SetItem(2)
       SetItem(3)

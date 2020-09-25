@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 7DA53650C90AFD4384B423AF5E034517F6FCB78F337E56B76FFDA99D048A7F32
+module B867D199995B673D9129ECC08E0063564C3F51B29FD69ECE0CE3EF014DC05406
   imports VERIFICATION
 
 // Flipper__exhaustiveness
@@ -11,7 +11,7 @@ rule [Flipper..exhaustiveness]:
   <schedule> ISTANBUL </schedule>
   <ethereum>
     <evm>
-      <output> .ByteArray </output>
+      <output> _ => ?_ </output>
       <statusCode> _ => EVMC_REVERT </statusCode>
       <endPC> _ => ?_ </endPC>
       <callStack> VCallStack </callStack>
@@ -22,7 +22,7 @@ rule [Flipper..exhaustiveness]:
         <jumpDests> #computeValidJumpDests(Flipper_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("fess", #uint256(ABI_tab)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("poke", #bytes32(ABI_ilk)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
@@ -31,7 +31,7 @@ rule [Flipper..exhaustiveness]:
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
-        <callDepth> VCallDepth </callDepth>
+        <callDepth> VCallDepth => ?_ </callDepth>
       </callState>
       <substate>
         <selfDestruct> VSelfDestruct </selfDestruct>
@@ -63,6 +63,8 @@ rule [Flipper..exhaustiveness]:
     <network>
       <chainID> VChainId </chainID>
       <activeAccounts> SetItem(ACCT_ID)
+      SetItem(Pip)
+      SetItem(Vat)
       SetItem(1)
       SetItem(2)
       SetItem(3)

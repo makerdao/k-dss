@@ -1,0 +1,1 @@
+#lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 1 ) ) ==Int 0
