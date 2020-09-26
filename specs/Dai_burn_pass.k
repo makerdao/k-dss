@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module DA399B3D5CDEEEAAD782E951426134BEC67B38EADFEBAE7FD65629A3CDAC1449
+module 0CE14F2A2E274E9944E9EB2346800D5887DCE5DF5D97C7C43199B0E5746BD6F9
   imports VERIFICATION
 
 // Dai_burn
@@ -27,7 +27,7 @@ rule [Dai.burn.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => Junk_0 ==Int #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) ) </gas>
+        <gas> #gas(VGas) => SrcBal ==Int #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
