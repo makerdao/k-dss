@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 7467909CDE4BA77C5A1322294842346EAA729E1626CC7D30ED0FDF14622BE213
+module 733155265E7743236240A0E3FE9A2A7A7A44591CD0F3AD51A7A74714701CC05E
   imports VERIFICATION
 
 // Flapper_cage
@@ -257,7 +257,7 @@ rule [Vat.move-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Dai_src -Int ABI_rad ) , Dai_src , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Dai_dst +Int ABI_rad ) , Dai_dst , Junk_2 ) +Int 7943 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 5 ) ) -Int ABI_rad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 5 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , 5 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 5 ) ) +Int ABI_rad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 5 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_dst , 5 ) ) ) +Int 7943 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

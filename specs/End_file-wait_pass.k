@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 846DADF7313B175D2F139E42DBE770063536014FBE42A8E24025A4A8B6F2F4DF
+module ADAFB3FB5D5C24FF0E9CE0B00A2B274B25E3A4F32ABDF2A2840DEED2FE087A49
   imports VERIFICATION
 
 // End_file-wait
@@ -27,7 +27,7 @@ rule [End.file-wait.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Wait , Junk_1 ) +Int 6438 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , 8 ) , #lookup( ACCT_ID_ORIG_STORAGE , 8 ) ) +Int 6438 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module FF8B9E86A343177AD05B9D98BECD6B3DAD32491533041C47A097971F1FE8EBCA
+module 811C88FDFFE326A4EFDAA4194D13D1109C7A963E4B6A6A48EB0781E879A97D4E
   imports VERIFICATION
 
 // Flipper_kick
@@ -546,7 +546,7 @@ rule [Vat.flux-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_src -Int ABI_wad ) , Gem_src , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Gem_dst +Int ABI_wad ) , Gem_dst , Junk_2 ) +Int 8307 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , hash2 ( ABI_ilk , 4 ) ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , hash2 ( ABI_ilk , 4 ) ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , hash2 ( ABI_ilk , 4 ) ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , hash2 ( ABI_ilk , 4 ) ) ) +Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , hash2 ( ABI_ilk , 4 ) ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_dst , hash2 ( ABI_ilk , 4 ) ) ) ) +Int 8307 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

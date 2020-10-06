@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 7E83A2C61EA5E150766AF9F7FBDBFDC0C425A7439F0CED30A24377653F44E82C
+module 78C8D68A0A8556388F65A3A3F14DC03F7A5F61D09AF713EF86379042A23A9635
   imports VERIFICATION
 
 // Flipper_yank
@@ -353,7 +353,7 @@ rule [Vat.flux-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_src -Int ABI_wad ) , Gem_src , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Gem_dst +Int ABI_wad ) , Gem_dst , Junk_2 ) +Int 8307 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , hash2 ( ABI_ilk , 4 ) ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , hash2 ( ABI_ilk , 4 ) ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , hash2 ( ABI_ilk , 4 ) ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , hash2 ( ABI_ilk , 4 ) ) ) +Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , hash2 ( ABI_ilk , 4 ) ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_dst , hash2 ( ABI_ilk , 4 ) ) ) ) +Int 8307 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
@@ -559,7 +559,7 @@ rule [Vat.move-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Dai_src -Int ABI_rad ) , Dai_src , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Dai_dst +Int ABI_rad ) , Dai_dst , Junk_2 ) +Int 7943 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 5 ) ) -Int ABI_rad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 5 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , 5 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 5 ) ) +Int ABI_rad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 5 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_dst , 5 ) ) ) +Int 7943 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

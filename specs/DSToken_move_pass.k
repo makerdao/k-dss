@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 4FA7DF1451A883EF17051F4E4460C34A8C8AD397DB730B62C338F976C5ED77AA
+module 88355F9E1091FFEC0ED38E00EE64E4503360AD957182267D8FE518B67CDE887A
   imports VERIFICATION
 
 // DSToken_move
@@ -27,7 +27,10 @@ rule [DSToken.move.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 2 ) ) ) ==Int 115792089237316195423570985008687907853269984665640564039457584007913129639935 </gas>
+        <gas> #gas(VGas) => #if #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 2 ) ) ) ==Int 115792089237316195423570985008687907853269984665640564039457584007913129639935
+          #then   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 1 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , 1 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 1 ) ) +Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_dst , 1 ) ) ) +Int 7281 ) ) ) )
+          #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 2 ) ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 2 ) ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 2 ) ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 1 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , 1 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 1 ) ) +Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_dst , 1 ) ) ) +Int 9538 ) ) ) ) )
+        #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

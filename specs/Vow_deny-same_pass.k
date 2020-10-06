@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module F8C19E26B8CAF04FB767A2137992FF4C7722DE46AF8BC1324821916EE4F32E01
+module 480E1269F5109D8CE7BDFB3B8ED5AE0B644E56B89DE4E7D9066EFAFFE184A308
   imports VERIFICATION
 
 // Vow_deny-same
@@ -27,7 +27,7 @@ rule [Vow.deny-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , 1 , Junk_0 ) +Int 5643 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 0 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , 0 ) ) ) +Int 5643 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

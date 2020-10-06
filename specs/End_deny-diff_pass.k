@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 9F3028630A53B47A4850C188D221C5CFC0F79707BA186172B84FED012AC6AFBF
+module C5FFA943FA8F676EC3BC6BA5FEC79DD648BE418F902104168750E4B52F162B5C
   imports VERIFICATION
 
 // End_deny-diff
@@ -27,7 +27,7 @@ rule [End.deny-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , Junk_0 , Junk_2 ) +Int 5621 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_usr , 0 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_usr , 0 ) ) ) +Int 5621 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

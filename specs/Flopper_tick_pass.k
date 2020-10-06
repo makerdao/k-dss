@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 5535854BEA262A8BD1EFA84BDA6184FCA7CD645D46D10115F84F7085D8F2D31B
+module 112A4B5C20BE4B13AC07A1800CDE407877DD493E4554F9135E19A5F7FED47498
   imports VERIFICATION
 
 // Flopper_tick
@@ -27,7 +27,10 @@ rule [Flopper.tick.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 1 ) ) ==Int 0 </gas>
+        <gas> #gas(VGas) => #if #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 1 ) ) ==Int 0
+          #then   #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 1 ) ) ) +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( 1461501637330902918203684832716283019655932542975 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , 0 , ( TIME +Int 281474976710655 &Int ( #lookup( ACCT_ID_STORAGE , 6 ) /Int 281474976710656 ) ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) ) +Int 10526 ) ) ) )
+          #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( ( #lookup( ACCT_ID_STORAGE , 5 ) *Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 1 ) ) ) /Int 1000000000000000000 ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 1 ) ) ) +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( 1461501637330902918203684832716283019655932542975 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , 0 , ( TIME +Int 281474976710655 &Int ( #lookup( ACCT_ID_STORAGE , 6 ) /Int 281474976710656 ) ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) ) +Int 10578 ) ) ) )
+        #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module AB5000AA610C5C75825A040236A8D3FB939BF997A6E761294F51FD42A16CF61F
+module 362AF03AA8BAFC88CF0065092AAD3ABDF3CB7F3F445181C169D8977029FCAE8A
   imports VERIFICATION
 
 // Vow_file-addr-same
@@ -255,7 +255,7 @@ rule [Vat.nope.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , Junk_0 , Junk_1 ) +Int 4801 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_usr , hash2 ( CALLER_ID , 1 ) ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_usr , hash2 ( CALLER_ID , 1 ) ) ) ) +Int 4801 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
@@ -443,7 +443,7 @@ rule [Vat.hope.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 1 , Junk_0 , Junk_1 ) +Int 4824 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 1 , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_usr , hash2 ( CALLER_ID , 1 ) ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_usr , hash2 ( CALLER_ID , 1 ) ) ) ) +Int 4824 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

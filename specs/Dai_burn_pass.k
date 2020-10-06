@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 0CE14F2A2E274E9944E9EB2346800D5887DCE5DF5D97C7C43199B0E5746BD6F9
+module 37EC1B7A87D7C0C50926B565A36BD9DF15B4B32B4E4DD1F1963695DC042613E5
   imports VERIFICATION
 
 // Dai_burn
@@ -27,7 +27,13 @@ rule [Dai.burn.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => SrcBal ==Int #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) ) </gas>
+        <gas> #gas(VGas) => #if Junk_0 ==Int #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) )
+          #then   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , 2 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , 1 ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , 1 ) , #lookup( ACCT_ID_ORIG_STORAGE , 1 ) ) +Int 5153 ) ) ) )
+          #else   #if #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) ==Int 115792089237316195423570985008687907853269984665640564039457584007913129639935
+            #then   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 2 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , 2 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , 1 ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , 1 ) , #lookup( ACCT_ID_ORIG_STORAGE , 1 ) ) +Int 6146 ) ) ) )
+            #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 2 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , 2 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , 1 ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , 1 ) , #lookup( ACCT_ID_ORIG_STORAGE , 1 ) ) +Int 8403 ) ) ) ) )
+          #fi
+        #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 9742BE04AAD60E921946C133ADD145D5158C6F3FA3F91E06CC284B7273F08425
+module BA2612B76066CAA5F43A86D4606137F6C58AF6B448509BAEC01DBE9FC7BA1D95
   imports VERIFICATION
 
 // Dai_transfer-diff
@@ -27,7 +27,7 @@ rule [Dai.transfer-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_0 ) +Int ( Csstore( ISTANBUL , ( DstBal +Int ABI_wad ) , DstBal , Junk_1 ) +Int 5374 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , 2 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 2 ) ) +Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_dst , 2 ) ) ) +Int 5374 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module A55187C3AC30D058D543CA4B0D8C64D4688666F78A92EE0BCD1DED17CC361AD0
+module 320AAFD53E7C0A1D1CB972BA6901511FBBB122D83730E80E2E461823BAB73F2E
   imports VERIFICATION
 
 // Flapper_file
@@ -27,7 +27,13 @@ rule [Flapper.file.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => ABI_what =/=Int 44505821594576442305943786526067189028800094342624099485940320344354850865152 </gas>
+        <gas> #gas(VGas) => #if ABI_what =/=Int 44505821594576442305943786526067189028800094342624099485940320344354850865152
+          #then   #if ABI_what =/=Int 52673990083778647014426308045781012712597814653424946781269281625551751086080
+            #then   #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( 281474976710655 &Int #lookup( ACCT_ID_STORAGE , 5 ) , ABI_data ) , #lookup( ACCT_ID_STORAGE , 5 ) , #lookup( ACCT_ID_ORIG_STORAGE , 5 ) ) +Int 6549 ) ) )
+            #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , 281474976710655 &Int ( #lookup( ACCT_ID_STORAGE , 5 ) /Int 281474976710656 ) ) , #lookup( ACCT_ID_STORAGE , 5 ) , #lookup( ACCT_ID_ORIG_STORAGE , 5 ) ) +Int 6472 ) ) )
+          #fi
+          #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , 4 ) , #lookup( ACCT_ID_ORIG_STORAGE , 4 ) ) +Int 5592 ) ) )
+        #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

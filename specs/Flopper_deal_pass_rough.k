@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 6E253C401114A1BBA774402C9D6506EC1FCC1815842C36D200A2A41CF84D86A5
+module CFC7CBE209B37EFB6AC1EF3BA150213E3AF280B594D448741E0FE6920ED9C5CA
   imports VERIFICATION
 
 // Flopper_deal
@@ -279,7 +279,7 @@ rule [DSToken.mint.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_0 ) +Int ( Csstore( ISTANBUL , ( Supply +Int ABI_wad ) , Supply , Junk_1 ) +Int 5628 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 1 ) ) +Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_dst , 1 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , 0 ) +Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , 0 ) , #lookup( ACCT_ID_ORIG_STORAGE , 0 ) ) +Int 5628 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

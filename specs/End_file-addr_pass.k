@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 97FA774E099D0237862655075A6B10C8DA32821099827A6EC054F1F8E7CDAAAC
+module 8B737469A241CA42A152A078AB30A8B4C72C0A8D416456052481DCDD72561981
   imports VERIFICATION
 
 // End_file-addr
@@ -27,7 +27,19 @@ rule [End.file-addr.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => ABI_what =/=Int 53545100900685164813421173191694169757104383823456404290715674782982803030016 </gas>
+        <gas> #gas(VGas) => #if ABI_what =/=Int 53545100900685164813421173191694169757104383823456404290715674782982803030016
+          #then   #if ABI_what =/=Int 44951156777603103434328014148080614096119502149053393678412182219895500439552
+            #then   #if ABI_what =/=Int 53569857464831102565726701660972157447402325951339579467289042757373571104768
+              #then   #if ABI_what =/=Int 50855959668092463863795394395563447776014953332411712236454590144615435730944
+                #then   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , 5 ) , #lookup( ACCT_ID_ORIG_STORAGE , 5 ) ) +Int 7381 ) ) )
+                #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , 4 ) , #lookup( ACCT_ID_ORIG_STORAGE , 4 ) ) +Int 7354 ) ) )
+              #fi
+              #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , 3 ) , #lookup( ACCT_ID_ORIG_STORAGE , 3 ) ) +Int 7327 ) ) )
+            #fi
+            #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , 2 ) , #lookup( ACCT_ID_ORIG_STORAGE , 2 ) ) +Int 7300 ) ) )
+          #fi
+          #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , 1 ) , #lookup( ACCT_ID_ORIG_STORAGE , 1 ) ) +Int 7273 ) ) )
+        #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
