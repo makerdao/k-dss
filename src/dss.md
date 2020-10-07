@@ -1599,8 +1599,8 @@ for all
 
 storage
 
-    dai[CALLER_ID]   |-> Dai => Dai - rad
     sin[CALLER_ID]   |-> Sin => Sin - rad
+    dai[CALLER_ID]   |-> Dai => Dai - rad
     debt             |-> Debt  => Debt  - rad
     vice             |-> Vice  => Vice  - rad
 
