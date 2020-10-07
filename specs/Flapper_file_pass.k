@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 320AAFD53E7C0A1D1CB972BA6901511FBBB122D83730E80E2E461823BAB73F2E
+module 98C07D41B4F410CDED75D80CBA3D8ACA6C35AFA616E20A985DA8733A541A017F
   imports VERIFICATION
 
 // Flapper_file
@@ -27,13 +27,13 @@ rule [Flapper.file.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if ABI_what =/=Int 44505821594576442305943786526067189028800094342624099485940320344354850865152
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_what =/=Int 44505821594576442305943786526067189028800094342624099485940320344354850865152
           #then   #if ABI_what =/=Int 52673990083778647014426308045781012712597814653424946781269281625551751086080
-            #then   #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( 281474976710655 &Int #lookup( ACCT_ID_STORAGE , 5 ) , ABI_data ) , #lookup( ACCT_ID_STORAGE , 5 ) , #lookup( ACCT_ID_ORIG_STORAGE , 5 ) ) +Int 6549 ) ) )
-            #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , 281474976710655 &Int ( #lookup( ACCT_ID_STORAGE , 5 ) /Int 281474976710656 ) ) , #lookup( ACCT_ID_STORAGE , 5 ) , #lookup( ACCT_ID_ORIG_STORAGE , 5 ) ) +Int 6472 ) ) )
+            #then   ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( maxUInt48 &Int #lookup( ACCT_ID_STORAGE , 5 ) , ABI_data ) , #lookup( ACCT_ID_STORAGE , 5 ) , Junk_2 ) +Int 6549 )
+            #else   ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , maxUInt48 &Int ( #lookup( ACCT_ID_STORAGE , 5 ) /Int pow48 ) ) , #lookup( ACCT_ID_STORAGE , 5 ) , Junk_2 ) +Int 6472 )
           #fi
-          #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , 4 ) , #lookup( ACCT_ID_ORIG_STORAGE , 4 ) ) +Int 5592 ) ) )
-        #fi </gas>
+          #else   ( Csstore( ISTANBUL , ABI_data , Beg , Junk_1 ) +Int 5592 )
+        #fi ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

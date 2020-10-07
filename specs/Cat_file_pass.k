@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 07E2259632C0AFB0917CD71F2E99ACB4713F19AA8C8326C590C3A24F682435EB
+module 617170495BC83B7FA375A1F8F49EED82B07E874A70E75768D4622FD61D35C01F
   imports VERIFICATION
 
 // Cat_file
@@ -27,10 +27,10 @@ rule [Cat.file.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if ABI_what =/=Int 44963493217838844892687817059512192886801667728146837483730375534287777693696
-          #then   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_ilk , 1 ) +Int 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_ilk , 1 ) +Int 2 ) ) ) +Int 5687 ) ) )
-          #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_ilk , 1 ) +Int 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_ilk , 1 ) +Int 1 ) ) ) +Int 5660 ) ) )
-        #fi </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_what =/=Int 44963493217838844892687817059512192886801667728146837483730375534287777693696
+          #then   ( Csstore( ISTANBUL , ABI_data , Lump , Junk_2 ) +Int 5687 )
+          #else   ( Csstore( ISTANBUL , ABI_data , Chop , Junk_1 ) +Int 5660 )
+        #fi ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

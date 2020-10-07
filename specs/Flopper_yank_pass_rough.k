@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 892BE17EFF416D6D81CB22F9E9F92FDD4485A159962C25CCE0AFF78FB0AFD579
+module 4B187DD8E8CDE943DA1805C225811ED79AF8805C6DB29D62D497F92310055FA1
   imports VERIFICATION
 
 // Flopper_yank
@@ -303,7 +303,7 @@ rule [Vat.suck.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_u , 6 ) ) +Int ABI_rad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_u , 6 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_u , 6 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_v , 5 ) ) +Int ABI_rad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_v , 5 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_v , 5 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , 8 ) +Int ABI_rad ) , #lookup( ACCT_ID_STORAGE , 8 ) , #lookup( ACCT_ID_ORIG_STORAGE , 8 ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , 7 ) +Int ABI_rad ) , #lookup( ACCT_ID_STORAGE , 7 ) , #lookup( ACCT_ID_ORIG_STORAGE , 7 ) ) +Int 9564 ) ) ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Sin_u +Int ABI_rad ) , Sin_u , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Dai_v +Int ABI_rad ) , Dai_v , Junk_2 ) +Int ( Csstore( ISTANBUL , ( Vice +Int ABI_rad ) , Vice , Junk_4 ) +Int ( Csstore( ISTANBUL , ( Debt +Int ABI_rad ) , Debt , Junk_3 ) +Int 9564 ) ) ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

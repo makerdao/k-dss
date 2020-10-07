@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module E6AB8F416043315228808934A885CA992F03C3103D328E78554CCFE3391452F8
+module E338BD50D6D78CD6C350EDF71B5F45B638A405522C8767EDD53CB122CAE5C278
   imports VERIFICATION
 
 // Vow_file-data
@@ -27,19 +27,19 @@ rule [Vow.file-data.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if ABI_what =/=Int 53997340957412429895067051750943621944153400880766621884449106990766040809472
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_what =/=Int 53997340957412429895067051750943621944153400880766621884449106990766040809472
           #then   #if ABI_what =/=Int 44534135577605003919471500897319939133404684238988117736133714902325223489536
             #then   #if ABI_what =/=Int 52223454003520532521818011620553120514285894158190811441878945090350704754688
               #then   #if ABI_what =/=Int 45438761274771536696218149217700313413508355994188434642691977277387044814848
-                #then   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , 11 ) , #lookup( ACCT_ID_ORIG_STORAGE , 11 ) ) +Int 5744 ) ) )
-                #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , 8 ) , #lookup( ACCT_ID_ORIG_STORAGE , 8 ) ) +Int 5717 ) ) )
+                #then   ( Csstore( ISTANBUL , ABI_data , Hump , Junk_5 ) +Int 5744 )
+                #else   ( Csstore( ISTANBUL , ABI_data , Dump , Junk_2 ) +Int 5717 )
               #fi
-              #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , 9 ) , #lookup( ACCT_ID_ORIG_STORAGE , 9 ) ) +Int 5690 ) ) )
+              #else   ( Csstore( ISTANBUL , ABI_data , Sump , Junk_3 ) +Int 5690 )
             #fi
-            #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , 10 ) , #lookup( ACCT_ID_ORIG_STORAGE , 10 ) ) +Int 5663 ) ) )
+            #else   ( Csstore( ISTANBUL , ABI_data , Bump , Junk_4 ) +Int 5663 )
           #fi
-          #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , 7 ) , #lookup( ACCT_ID_ORIG_STORAGE , 7 ) ) +Int 5636 ) ) )
-        #fi </gas>
+          #else   ( Csstore( ISTANBUL , ABI_data , Wait , Junk_1 ) +Int 5636 )
+        #fi ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

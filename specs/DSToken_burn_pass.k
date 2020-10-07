@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 5E9E71594913286068C6A7315355CCE98FF45A3B982B7C7EBF10A9E85F5D61E5
+module 489C85DD3782B71BDB48C11D8FF0F7BF74855952A647C763E9FA187961DC703E
   imports VERIFICATION
 
 // DSToken_burn
@@ -27,10 +27,10 @@ rule [DSToken.burn.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if #lookup( ACCT_ID_STORAGE , hash2 ( 1461501637330902918203684832716283019655932542975 &Int #lookup( ACCT_ID_STORAGE , 4 ) , hash2 ( ABI_src , 2 ) ) ) ==Int 115792089237316195423570985008687907853269984665640564039457584007913129639935
-          #then   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 1 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , 1 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , 0 ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , 0 ) , #lookup( ACCT_ID_ORIG_STORAGE , 0 ) ) +Int 7641 ) ) ) )
-          #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( 1461501637330902918203684832716283019655932542975 &Int #lookup( ACCT_ID_STORAGE , 4 ) , hash2 ( ABI_src , 2 ) ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( 1461501637330902918203684832716283019655932542975 &Int #lookup( ACCT_ID_STORAGE , 4 ) , hash2 ( ABI_src , 2 ) ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( 1461501637330902918203684832716283019655932542975 &Int #lookup( ACCT_ID_STORAGE , 4 ) , hash2 ( ABI_src , 2 ) ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 1 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , 1 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , 0 ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , 0 ) , #lookup( ACCT_ID_ORIG_STORAGE , 0 ) ) +Int 9898 ) ) ) ) )
-        #fi </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Supply -Int ABI_wad ) , Supply , Junk_2 ) +Int #if #lookup( ACCT_ID_STORAGE , hash2 ( maxUInt160 &Int #lookup( ACCT_ID_STORAGE , 4 ) , hash2 ( ABI_src , 2 ) ) ) ==Int maxUInt256
+          #then   7641
+          #else   ( Csstore( ISTANBUL , ( Allowance -Int ABI_wad ) , Allowance , Junk_0 ) +Int 9898 )
+        #fi ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 582C5E54E7C039CA4865740872DA76B53E61097A41CF7FDC3F344C2870BB986B
+module CA9994CDEA29F0702E701D96C6F1CC564D4850F0DB59DC9EC2C55EAFC72114FB
   imports VERIFICATION
 
 // Vat_hope
@@ -27,7 +27,7 @@ rule [Vat.hope.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 1 , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_usr , hash2 ( CALLER_ID , 1 ) ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_usr , hash2 ( CALLER_ID , 1 ) ) ) ) +Int 4824 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 1 , Junk_0 , Junk_1 ) +Int 4824 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

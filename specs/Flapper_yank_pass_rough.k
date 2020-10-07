@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 14E8B4E50FBB53203F66D4FEF13C815CF0B4AFE823762DB694636BE4299656AC
+module 949C34EC6E371CB52C7E77175E9F420AA75B285E2CD42373D72CB92D5730FF75
   imports VERIFICATION
 
 // Flapper_yank
@@ -279,10 +279,10 @@ rule [DSToken.move.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 2 ) ) ) ==Int 115792089237316195423570985008687907853269984665640564039457584007913129639935
-          #then   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 1 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , 1 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 1 ) ) +Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_dst , 1 ) ) ) +Int 7281 ) ) ) )
-          #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 2 ) ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 2 ) ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 2 ) ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 1 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , 1 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 1 ) ) +Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_dst , 1 ) ) ) +Int 9538 ) ) ) ) )
-        #fi </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_2 ) +Int #if #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 2 ) ) ) ==Int maxUInt256
+          #then   7281
+          #else   ( Csstore( ISTANBUL , ( Allowance -Int ABI_wad ) , Allowance , Junk_0 ) +Int 9538 )
+        #fi ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

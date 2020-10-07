@@ -1,0 +1,7 @@
+#gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem +Int ABI_wad ) , Gem , Junk_1 ) +Int #if minUInt8 <=Int ABI_wad
+  #then   #if ABI_wad <=Int minUInt8
+    #then   6870
+    #else   6884
+  #fi
+  #else   6884
+#fi ) ) )

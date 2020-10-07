@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module D185900D76B102D30F6338088DCEB7E69FCD563769CBB890BE8A646B1FC79239
+module 4257CF0776423F3965FEAC4AC2E5B4C1BBA47C09ADB0CA2BAC18660B78F2DA16
   imports VERIFICATION
 
 // Vat_flux-same
@@ -27,7 +27,7 @@ rule [Vat.flux-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , hash2 ( ABI_ilk , 4 ) ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , hash2 ( ABI_ilk , 4 ) ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , hash2 ( ABI_ilk , 4 ) ) ) ) +Int ( Csstore( ISTANBUL , ( ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , hash2 ( ABI_ilk , 4 ) ) ) -Int ABI_wad ) +Int ABI_wad ) , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , hash2 ( ABI_ilk , 4 ) ) ) -Int ABI_wad ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , hash2 ( ABI_ilk , 4 ) ) ) ) +Int 8307 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_src -Int ABI_wad ) , Gem_src , Junk_1 ) +Int ( Csstore( ISTANBUL , ( ( Gem_src -Int ABI_wad ) +Int ABI_wad ) , ( Gem_src -Int ABI_wad ) , Junk_1 ) +Int 8307 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

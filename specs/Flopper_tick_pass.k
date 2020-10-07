@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 112A4B5C20BE4B13AC07A1800CDE407877DD493E4554F9135E19A5F7FED47498
+module 38AB77F6C959359470AF96395ADC34AD37F974CA4AB72DA0C1E296F17D87E3A6
   imports VERIFICATION
 
 // Flopper_tick
@@ -27,10 +27,10 @@ rule [Flopper.tick.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 1 ) ) ==Int 0
-          #then   #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 1 ) ) ) +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( 1461501637330902918203684832716283019655932542975 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , 0 , ( TIME +Int 281474976710655 &Int ( #lookup( ACCT_ID_STORAGE , 6 ) /Int 281474976710656 ) ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) ) +Int 10526 ) ) ) )
-          #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( ( #lookup( ACCT_ID_STORAGE , 5 ) *Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 1 ) ) ) /Int 1000000000000000000 ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 1 ) ) ) +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( 1461501637330902918203684832716283019655932542975 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , 0 , ( TIME +Int 281474976710655 &Int ( #lookup( ACCT_ID_STORAGE , 6 ) /Int 281474976710656 ) ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) ) +Int 10578 ) ) ) )
-        #fi </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 1 ) ) ==Int minUInt8
+          #then   ( Csstore( ISTANBUL , minUInt8 , Lot , Junk_2 ) +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( maxUInt160 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , minUInt8 , ( TIME +Int maxUInt48 &Int ( #lookup( ACCT_ID_STORAGE , 6 ) /Int pow48 ) ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_3 ) +Int 10526 ) )
+          #else   ( Csstore( ISTANBUL , ( ( Pad *Int Lot ) /Int 1000000000000000000 ) , Lot , Junk_2 ) +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( maxUInt160 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , minUInt8 , ( TIME +Int maxUInt48 &Int ( #lookup( ACCT_ID_STORAGE , 6 ) /Int pow48 ) ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_3 ) +Int 10578 ) )
+        #fi ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

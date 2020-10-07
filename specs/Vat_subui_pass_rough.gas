@@ -1,0 +1,7 @@
+#gas ( ( VGas +Int #if ( notBool ( minUInt8 <=Int ABI_y andBool ABI_y =/=Int minUInt8 ) )
+  #then   #if minUInt8 <=Int ABI_y
+    #then   114
+    #else   128
+  #fi
+  #else   128
+#fi ) )

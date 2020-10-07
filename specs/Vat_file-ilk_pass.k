@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 9678DAD2D4AE29F5E2487FEDB32FAAAD1E2695B2C3D9532B3A892A7B2A87497F
+module EF291D911536E909B7737037EC303ED6B8176EC04A9D54BB63CF1698B812E938
   imports VERIFICATION
 
 // Vat_file-ilk
@@ -27,13 +27,13 @@ rule [Vat.file-ilk.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if ABI_what =/=Int 52214633679529120849900229181229190823836184335472955378023737308807130251264
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_what =/=Int 52214633679529120849900229181229190823836184335472955378023737308807130251264
           #then   #if ABI_what =/=Int 49036068503847260643156492622631591831542628249327578363867825373603329736704
-            #then   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_ilk , 2 ) +Int 4 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_ilk , 2 ) +Int 4 ) ) ) +Int 6609 ) ) )
-            #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_ilk , 2 ) +Int 3 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_ilk , 2 ) +Int 3 ) ) ) +Int 6582 ) ) )
+            #then   ( Csstore( ISTANBUL , ABI_data , Dust , Junk_3 ) +Int 6609 )
+            #else   ( Csstore( ISTANBUL , ABI_data , Line , Junk_2 ) +Int 6582 )
           #fi
-          #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_ilk , 2 ) +Int 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_ilk , 2 ) +Int 2 ) ) ) +Int 6555 ) ) )
-        #fi </gas>
+          #else   ( Csstore( ISTANBUL , ABI_data , Spot , Junk_1 ) +Int 6555 )
+        #fi ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

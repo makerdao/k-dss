@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 2A554E3C991E4ECE2AC4F88B99FD2442D515E6C20D78BCE4AC7FCB61CED9C5B3
+module 2475F90156C55A7C7ACC327F7544A822E42069D3AC0DE8B3469E88ADFF92932A
   imports VERIFICATION
 
 // DSToken_burn-self
@@ -27,7 +27,7 @@ rule [DSToken.burn-self.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( 1461501637330902918203684832716283019655932542975 &Int #lookup( ACCT_ID_STORAGE , 4 ) , 1 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( 1461501637330902918203684832716283019655932542975 &Int #lookup( ACCT_ID_STORAGE , 4 ) , 1 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( 1461501637330902918203684832716283019655932542975 &Int #lookup( ACCT_ID_STORAGE , 4 ) , 1 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , 0 ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , 0 ) , #lookup( ACCT_ID_ORIG_STORAGE , 0 ) ) +Int 6648 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Supply -Int ABI_wad ) , Supply , Junk_2 ) +Int 6648 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

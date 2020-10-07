@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 90DAA6AA1948E59FB48017789E3CD003338C01D75049CA7E5225B4AD0E68683C
+module EED4B875AA624548ABC31588721E62A7B7EF0C3514CB4CF8095B3B225A1913D9
   imports VERIFICATION
 
 // Jug_rely-diff
@@ -27,7 +27,7 @@ rule [Jug.rely-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 1 , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_usr , 0 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_usr , 0 ) ) ) +Int 5598 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 1 , Junk_0 , Junk_2 ) +Int 5598 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 5E94E49926276C09ED9A7092402F9444D3130BC5ECEAC8453AE1B33DE3E6A881
+module 8F1BDFA9EBE96A4944A80DE1AEC29CADCDDB12DA3E5F1E321AF6E22838205276
   imports VERIFICATION
 
 // Dai_transferFrom-diff
@@ -27,13 +27,13 @@ rule [Dai.transferFrom-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if Junk_0 ==Int #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) )
-          #then   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , 2 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 2 ) ) +Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_dst , 2 ) ) ) +Int 5425 ) ) ) )
-          #else   #if #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) ==Int 115792089237316195423570985008687907853269984665640564039457584007913129639935
-            #then   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 2 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , 2 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 2 ) ) +Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_dst , 2 ) ) ) +Int 6418 ) ) ) )
-            #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 2 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , 2 ) ) ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 2 ) ) +Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_dst , 2 ) ) ) +Int 8675 ) ) ) ) )
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) +Int ( Csstore( ISTANBUL , ( DstBal +Int ABI_wad ) , DstBal , Junk_2 ) +Int #if SrcBal ==Int #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) )
+          #then   5425
+          #else   #if #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) ==Int maxUInt256
+            #then   6418
+            #else   ( Csstore( ISTANBUL , ( Allowed -Int ABI_wad ) , Allowed , Junk_0 ) +Int 8675 )
           #fi
-        #fi </gas>
+        #fi ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
