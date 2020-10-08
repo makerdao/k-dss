@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B56A3E74A17287FDDC316F88856B0718F424E761E836973E01226E944AD6F244
+module D62A151069BF6BEE9B87EF6585441572BBEBF7BB34A30A0E9587BDDADCECADFE
   imports VERIFICATION
 
 // Flopper_tick
@@ -27,9 +27,9 @@ rule [Flopper.tick.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if Lot ==Int 0
-          #then   ( Csstore( ISTANBUL , Lot , Lot , Junk_2 ) +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( maxUInt160 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Lot , ( TIME +Int maxUInt48 &Int ( #lookup( ACCT_ID_STORAGE , 6 ) /Int pow48 ) ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_3 ) +Int 10526 ) )
-          #else   ( Csstore( ISTANBUL , ( ( Pad *Int Lot ) /Int 1000000000000000000 ) , Lot , Junk_2 ) +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( maxUInt160 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , 0 , ( TIME +Int maxUInt48 &Int ( #lookup( ACCT_ID_STORAGE , 6 ) /Int pow48 ) ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_3 ) +Int 10578 ) )
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if Lot ==Int VCallValue
+          #then   ( Csstore( ISTANBUL , Lot , Lot , Junk_2 ) +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , Lot , ( TIME +Int Tau ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_3 ) +Int 10526 ) )
+          #else   ( Csstore( ISTANBUL , ( ( Pad *Int Lot ) /Int 1000000000000000000 ) , Lot , Junk_2 ) +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , VCallValue , ( TIME +Int Tau ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_3 ) +Int 10578 ) )
         #fi ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>

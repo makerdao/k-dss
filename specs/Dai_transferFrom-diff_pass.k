@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module FC588E11D19B594A268FF15B69B96FE0613AF242CC358566B23A07B07FDF058D
+module FF8579EA7E6701D9AE982DA2EB225709D82B4AD3C73C93D257046061DF3DBF69
   imports VERIFICATION
 
 // Dai_transferFrom-diff
@@ -27,7 +27,7 @@ rule [Dai.transferFrom-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) +Int ( Csstore( ISTANBUL , ( DstBal +Int ABI_wad ) , DstBal , Junk_2 ) +Int #if ABI_src ==Int CALLER_ID
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) +Int ( Csstore( ISTANBUL , ( DstBal +Int ABI_wad ) , DstBal , Junk_2 ) +Int #if SrcBal ==Int #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) )
           #then   5425
           #else   #if Allowed ==Int maxUInt256
             #then   6418

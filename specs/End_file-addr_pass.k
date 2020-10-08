@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 7A44BF2E44792255BCDB621374401357CA9249636458B2A04BB6D1400D527001
+module 1CEB19BDB949AD545D717B757C7F8262C6C88939729F6CFFF3D69106D273BDCB
   imports VERIFICATION
 
 // End_file-addr
@@ -38,7 +38,7 @@ rule [End.file-addr.pass]:
             #fi
             #else   ( Csstore( ISTANBUL , ABI_data , Cat , Junk_2 ) +Int 7300 )
           #fi
-          #else   ( Csstore( ISTANBUL , ABI_data , Vat , Junk_1 ) +Int 7273 )
+          #else   ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , May ) , #lookup( ACCT_ID_ORIG_STORAGE , May ) ) +Int 7273 )
         #fi ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>

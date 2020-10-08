@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 20EE051F27ABC377D3C23AD3D635EA8BEF99DBEC38B4B4649A830C33755E75B3
+module DDDE9FCB2F52631E09F8F176DF56F998F3C5EF1676780988CFA71CBF387D2060
   imports VERIFICATION
 
 // GemJoin_cage
@@ -27,7 +27,7 @@ rule [GemJoin.cage.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , Junk_0 , Junk_2 ) +Int 5463 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , VCallValue , Junk_0 , Junk_2 ) +Int 5463 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

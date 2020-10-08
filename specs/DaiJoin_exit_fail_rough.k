@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 9DAE8BD13EAC67D49D22286E274D2D020B0FB824803776A733A4AB9BD18B92BC
+module B789784822F7F8294DF1B4A8F8D11720CFB70C68D22A456B6E359B7F1E57AEE3
   imports VERIFICATION
 
 // DaiJoin_exit
@@ -690,7 +690,7 @@ rule [Dai.mint.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( DstBal +Int ABI_wad ) , DstBal , Junk_1 ) +Int ( Csstore( ISTANBUL , ( TotalSupply +Int ABI_wad ) , TotalSupply , Junk_2 ) +Int 5045 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( DstBal +Int ABI_wad ) , DstBal , Junk_1 ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , May ) +Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , May ) , Junk_2 ) +Int 5045 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 6C1D1905D71083A27450C1B00C9FCAF23A97DAB3FDF8D890AD58074BD2A76190
+module 74E7BB43B641A7D07FB16970E059866BFE50C72A5B0EA5F094227284244818C3
   imports VERIFICATION
 
 // Flopper_file
@@ -30,8 +30,8 @@ rule [Flopper.file.pass]:
         <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_what =/=Int 44505821594576442305943786526067189028800094342624099485940320344354850865152
           #then   #if ABI_what =/=Int 50831113381244017834160629274459250484386129340111898844856005057409758265344
             #then   #if ABI_what =/=Int 52673990083778647014426308045781012712597814653424946781269281625551751086080
-              #then   ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( maxUInt48 &Int #lookup( ACCT_ID_STORAGE , 6 ) , ABI_data ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6576 )
-              #else   ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , maxUInt48 &Int ( #lookup( ACCT_ID_STORAGE , 6 ) /Int pow48 ) ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6499 )
+              #then   ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( Ttl , ABI_data ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6576 )
+              #else   ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , Tau ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6499 )
             #fi
             #else   ( Csstore( ISTANBUL , ABI_data , Pad , Junk_2 ) +Int 5619 )
           #fi

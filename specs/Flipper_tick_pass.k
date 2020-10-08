@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 4D3593FF2C0D26B98E34687A4E2901206D07522AD85E51FC464C743650C0EED6
+module 90430DBD58BA2A40F9025AEFA1C577B394947FB7EEF3217C9D25CAEA1DC9E218
   imports VERIFICATION
 
 // Flipper_tick
@@ -27,7 +27,7 @@ rule [Flipper.tick.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( maxUInt160 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , 0 , ( TIME +Int maxUInt48 &Int ( #lookup( ACCT_ID_STORAGE , 5 ) /Int pow48 ) ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_1 ) +Int 8639 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , VCallValue , ( TIME +Int Tau ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_1 ) +Int 8639 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

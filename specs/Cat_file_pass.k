@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 617170495BC83B7FA375A1F8F49EED82B07E874A70E75768D4622FD61D35C01F
+module 841F64F283DD4B219180A59216845D78A5025207BC7975CE0FADEA3CBC5EF101
   imports VERIFICATION
 
 // Cat_file
@@ -28,8 +28,8 @@ rule [Cat.file.pass]:
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
         <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_what =/=Int 44963493217838844892687817059512192886801667728146837483730375534287777693696
-          #then   ( Csstore( ISTANBUL , ABI_data , Lump , Junk_2 ) +Int 5687 )
-          #else   ( Csstore( ISTANBUL , ABI_data , Chop , Junk_1 ) +Int 5660 )
+          #then   ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_ilk , May ) +Int 2 ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_ilk , May ) +Int 2 ) ) ) +Int 5687 )
+          #else   ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_ilk , May ) +Int May ) ) , #lookup( ACCT_ID_ORIG_STORAGE , ( hash2 ( ABI_ilk , May ) +Int May ) ) ) +Int 5660 )
         #fi ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>

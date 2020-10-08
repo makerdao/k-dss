@@ -1,4 +1,0 @@
-#gas ( ( VGas +Int ( Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) +Int ( Csstore( ISTANBUL , ( DstBal +Int ABI_wad ) , DstBal , Junk_2 ) +Int #if Allowed ==Int maxUInt256
-  #then   6404
-  #else   ( Csstore( ISTANBUL , ( Allowed -Int ABI_wad ) , Allowed , Junk_0 ) +Int 8661 )
-#fi ) ) ) )

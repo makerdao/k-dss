@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 9169EB1EC0628D2E3318F109A12777221C9FFCAEE6BDF9FD221FBC61003475FB
+module CC8009506844D296921606A1ED05F3F63D937FD73BD4B6B965F95AEEB33751AE
   imports VERIFICATION
 
 // Vow_file-addr-diff
@@ -264,7 +264,7 @@ rule [Vat.nope.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , Junk_0 , Junk_1 ) +Int 4801 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , VCallValue , Junk_0 , Junk_1 ) +Int 4801 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 58E117A106C836F3940B66C1C224AE3C94C3C087A558F42DBB70954CE872C295
+module 9B9EC2D9455CE9E3C1516B22B5BB6C9D49F0DDEC7D2A34E913CB1C1E578321BC
   imports VERIFICATION
 
 // DSToken_transferFrom
@@ -27,13 +27,13 @@ rule [DSToken.transferFrom.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_2 ) +Int #if ABI_src ==Int CALLER_ID
-          #then   6375
-          #else   #if Allowance ==Int maxUInt256
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if Junk_0 ==Int #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 2 ) ) )
+          #then   ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 1 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 1 ) ) , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_2 ) +Int 6375 ) )
+          #else   ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_2 ) +Int #if Allowance ==Int maxUInt256
             #then   7368
             #else   ( Csstore( ISTANBUL , ( Allowance -Int ABI_wad ) , Allowance , Junk_0 ) +Int 9625 )
-          #fi
-        #fi ) ) ) ) </gas>
+          #fi ) )
+        #fi ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

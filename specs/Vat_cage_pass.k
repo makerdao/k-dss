@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B2AD1D99515EB1A207BD07161A0E8175A509B033870CE2289B2850D4B7F8C07F
+module 63EF77807A14073438E95DC0A390202A97F94424F98E196FAB17342288E35A81
   imports VERIFICATION
 
 // Vat_cage
@@ -27,7 +27,7 @@ rule [Vat.cage.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , Lives , Junk_1 ) +Int 5445 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , VCallValue , Lives , Junk_1 ) +Int 5445 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

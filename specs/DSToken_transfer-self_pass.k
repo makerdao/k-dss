@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 081C93E0C2AAA97EEA2ED9420F98F64E4CC6611709D5B1233B0E72BF8BD5E5E5
+module E75097D73A43E7F7C35D5AE7EBE18E3F25A85CEFE6D6724B9452765CFBB4BBF6
   imports VERIFICATION
 
 // DSToken_transfer-self
@@ -27,7 +27,7 @@ rule [DSToken.transfer-self.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_u -Int ABI_wad ) , Gem_u , Junk_0 ) +Int ( Csstore( ISTANBUL , ( ( Gem_u -Int ABI_wad ) +Int ABI_wad ) , ( Gem_u -Int ABI_wad ) , Junk_0 ) +Int 6391 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_usr , 1 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_usr , 1 ) ) , Junk_0 ) +Int ( Csstore( ISTANBUL , ( ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_usr , 1 ) ) -Int ABI_wad ) +Int ABI_wad ) , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_usr , 1 ) ) -Int ABI_wad ) , Junk_0 ) +Int 6391 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

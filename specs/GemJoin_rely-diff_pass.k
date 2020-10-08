@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module ACBB6D2AE8B73CEBEA65EBD7804649955190C53F2460B50337248BA1AE96021C
+module DB788983D2B11505B9AB24B80C80E4008B1395FFEC68B33FCB927E7C3FE58311
   imports VERIFICATION
 
 // GemJoin_rely-diff
@@ -27,7 +27,7 @@ rule [GemJoin.rely-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 1 , Junk_0 , Junk_2 ) +Int 5621 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , May , Junk_0 , Junk_2 ) +Int 5621 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
