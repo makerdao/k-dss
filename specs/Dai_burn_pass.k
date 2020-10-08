@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 2F13461CC8D3C9B62D8C5338B2E5A8D455F9EE30DD12DA4AEF447F9A6F143737
+module 6EAF41412BC03D53B2986BCD3AE88038BFE2DB53637C1F6E824F5F8C53BB86F7
   imports VERIFICATION
 
 // Dai_burn
@@ -29,7 +29,7 @@ rule [Dai.burn.pass]:
         <pc> 0 => ?_ </pc>
         <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) +Int ( Csstore( ISTANBUL , ( TotalSupply -Int ABI_wad ) , TotalSupply , Junk_2 ) +Int #if Allowed ==Int #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) )
           #then   5153
-          #else   #if #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) ==Int maxUInt256
+          #else   #if Allowed ==Int maxUInt256
             #then   6146
             #else   ( Csstore( ISTANBUL , ( Allowed -Int ABI_wad ) , Allowed , Junk_0 ) +Int 8403 )
           #fi

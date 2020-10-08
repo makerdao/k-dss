@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module D3ED4FFB7188DBA1053517F1DF2CF125F8C36479173759ECEEF7E3A2B12A8144
+module FDEC1BF27C26B46F4E5ACAECFB05A489D4E5C78BD862CCC30F0E3B0595A6643C
   imports VERIFICATION
 
 // Dai_transferFrom-same
@@ -27,9 +27,9 @@ rule [Dai.transferFrom-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) +Int ( Csstore( ISTANBUL , ( ( SrcBal -Int ABI_wad ) +Int ABI_wad ) , ( SrcBal -Int ABI_wad ) , Junk_1 ) +Int #if SrcBal ==Int #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) )
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) +Int ( Csstore( ISTANBUL , ( ( SrcBal -Int ABI_wad ) +Int ABI_wad ) , ( SrcBal -Int ABI_wad ) , Junk_1 ) +Int #if Junk_0 ==Int #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) )
           #then   5425
-          #else   #if #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) ==Int maxUInt256
+          #else   #if Allowed ==Int maxUInt256
             #then   6418
             #else   ( Csstore( ISTANBUL , ( Allowed -Int ABI_wad ) , Allowed , Junk_0 ) +Int 8675 )
           #fi

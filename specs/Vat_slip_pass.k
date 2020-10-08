@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 248B18C3F8666F144AA6BDAD0B6C5CB40BF992705E24AE2F78EC79BB02693CB8
+module 16A39D2352667F1442829A027233C396312E58FDDC0105D0CCD82C841B4F10F6
   imports VERIFICATION
 
 // Vat_slip
@@ -27,8 +27,8 @@ rule [Vat.slip.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem +Int ABI_wad ) , Gem , Junk_1 ) +Int #if minUInt8 <=Int ABI_wad
-          #then   #if ABI_wad <=Int minUInt8
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem +Int ABI_wad ) , Gem , Junk_1 ) +Int #if 0 <=Int ABI_wad
+          #then   #if ABI_wad <=Int 0
             #then   6870
             #else   6884
           #fi
@@ -228,8 +228,8 @@ rule [Vat.addui.pass]:
         <wordStack> chop(ABI_y) : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 13112 => 13174 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if minUInt8 <=Int ABI_y
-          #then   #if chop( ABI_y ) <=Int minUInt8
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if 0 <=Int ABI_y
+          #then   #if chop( ABI_y ) <=Int 0
             #then   114
             #else   128
           #fi

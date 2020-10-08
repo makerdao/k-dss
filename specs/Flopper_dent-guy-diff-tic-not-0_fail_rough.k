@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module E8EDA7CE7756E57E2CD39768C1C885596E020DA64DFBF618AF750866F5A971E5
+module 8953E5621A8C8F6534C232C97C957E7D01B6D040EC1222C4C877D45407EDF778
   imports VERIFICATION
 
 // Flopper_dent-guy-diff-tic-not-0
@@ -313,7 +313,7 @@ rule [Flopper.muluu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x *Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 8685 => 8728 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int minUInt8
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int 0
           #then   54
           #else   106
         #fi ) ) </gas>

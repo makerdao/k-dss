@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module FDB5BC4E411F26E6E677CA9C6034A161F3572D0CD2BBC945F0504E12A22FDD57
+module 57B8C56EDA86E252DCC6E9E140C55F5D53E227FFA499512196E4E609C3BE98BF
   imports VERIFICATION
 
 // Vat_frob-diff-zero
@@ -391,8 +391,8 @@ rule [Vat.addui.pass]:
         <wordStack> chop(ABI_y) : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 13112 => 13174 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if minUInt8 <=Int ABI_y
-          #then   #if chop( ABI_y ) <=Int minUInt8
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if 0 <=Int ABI_y
+          #then   #if chop( ABI_y ) <=Int 0
             #then   114
             #else   128
           #fi
@@ -584,8 +584,8 @@ rule [Vat.subui.pass]:
         <wordStack> chop(ABI_y) : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x -Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 13304 => 13366 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ( notBool ( minUInt8 <=Int ABI_y andBool ABI_y =/=Int minUInt8 ) )
-          #then   #if minUInt8 <=Int ABI_y
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ( notBool ( 0 <=Int ABI_y andBool ABI_y =/=Int 0 ) )
+          #then   #if 0 <=Int ABI_y
             #then   114
             #else   128
           #fi
@@ -777,7 +777,7 @@ rule [Vat.mului.pass]:
         <wordStack> chop(ABI_y) : ABI_x : JMPTO : WS  =>  JMPTO : chop(ABI_x *Int ABI_y) : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 13175 => 13233 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int minUInt8
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int 0
           #then   96
           #else   132
         #fi ) ) </gas>
@@ -968,7 +968,7 @@ rule [Vat.muluu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x *Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 13234 => 13277 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int minUInt8
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int 0
           #then   54
           #else   106
         #fi ) ) </gas>

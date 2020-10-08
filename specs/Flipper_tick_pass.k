@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module A917A373A86E5C7A747F4E2F454F003B784D4B8A6A0968BFFA529ED3886F778B
+module 4D3593FF2C0D26B98E34687A4E2901206D07522AD85E51FC464C743650C0EED6
   imports VERIFICATION
 
 // Flipper_tick
@@ -27,7 +27,7 @@ rule [Flipper.tick.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( maxUInt160 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , minUInt8 , ( TIME +Int maxUInt48 &Int ( #lookup( ACCT_ID_STORAGE , 5 ) /Int pow48 ) ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_1 ) +Int 8639 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( maxUInt160 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , 0 , ( TIME +Int maxUInt48 &Int ( #lookup( ACCT_ID_STORAGE , 5 ) /Int pow48 ) ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_1 ) +Int 8639 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 9894D182BE67DDB4324253B3F559BF8017E909324F7B565E344FED78898D6B76
+module 6B95A74B5D105B344753064D0C774EDDF486A79F5857D622171155AE01501988
   imports VERIFICATION
 
 // Vat_fork-diff
@@ -298,8 +298,8 @@ rule [Vat.addui.pass]:
         <wordStack> chop(ABI_y) : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 13112 => 13174 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if minUInt8 <=Int ABI_y
-          #then   #if chop( ABI_y ) <=Int minUInt8
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if 0 <=Int ABI_y
+          #then   #if chop( ABI_y ) <=Int 0
             #then   114
             #else   128
           #fi
@@ -491,8 +491,8 @@ rule [Vat.subui.pass]:
         <wordStack> chop(ABI_y) : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x -Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 13304 => 13366 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ( notBool ( minUInt8 <=Int ABI_y andBool ABI_y =/=Int minUInt8 ) )
-          #then   #if minUInt8 <=Int ABI_y
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ( notBool ( 0 <=Int ABI_y andBool ABI_y =/=Int 0 ) )
+          #then   #if 0 <=Int ABI_y
             #then   114
             #else   128
           #fi
@@ -684,7 +684,7 @@ rule [Vat.muluu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x *Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 13234 => 13277 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int minUInt8
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int 0
           #then   54
           #else   106
         #fi ) ) </gas>

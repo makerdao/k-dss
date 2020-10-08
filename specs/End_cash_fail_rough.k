@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 516D8828DE660590F11AA0F7F9939966DD6525F6C3518660262DBDE1F12275DB
+module D4689429B8C26EF68D5B688C9EBEF535811F6F1363DAC6B82E0F8BA04AC8992E
   imports VERIFICATION
 
 // End_cash
@@ -458,7 +458,7 @@ rule [End.rmul.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : (ABI_x *Int ABI_y) /Int #Ray : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 14623 => 14663 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int minUInt8
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int 0
           #then   127
           #else   179
         #fi ) ) </gas>

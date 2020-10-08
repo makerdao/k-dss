@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 7615423CFE3549EC5077E0691F39CDB40BCAA81D2FADC05F749C8C925704F4D2
+module 8D28D9633E7EEE566EFA73CEA3C81B4879A561506CE195BD92FFE0600626BF3F
   imports VERIFICATION
 
 // Flipper_tend-guy-diff
@@ -515,7 +515,7 @@ rule [Flipper.muluu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x *Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 11396 => 11439 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int minUInt8
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int 0
           #then   54
           #else   106
         #fi ) ) </gas>

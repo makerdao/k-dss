@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 489C85DD3782B71BDB48C11D8FF0F7BF74855952A647C763E9FA187961DC703E
+module F23DFCFB4CCF97CE0B8D60E7C42169137249D6CA1AEA5447462FACC8E4B75B02
   imports VERIFICATION
 
 // DSToken_burn
@@ -27,7 +27,7 @@ rule [DSToken.burn.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Supply -Int ABI_wad ) , Supply , Junk_2 ) +Int #if #lookup( ACCT_ID_STORAGE , hash2 ( maxUInt160 &Int #lookup( ACCT_ID_STORAGE , 4 ) , hash2 ( ABI_src , 2 ) ) ) ==Int maxUInt256
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Supply -Int ABI_wad ) , Supply , Junk_2 ) +Int #if Allowance ==Int maxUInt256
           #then   7641
           #else   ( Csstore( ISTANBUL , ( Allowance -Int ABI_wad ) , Allowance , Junk_0 ) +Int 9898 )
         #fi ) ) ) ) </gas>

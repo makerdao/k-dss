@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 3150C158B88C294E713AC97F669AD059C8488A16B999E905899813150090AD71
+module 9DAE8BD13EAC67D49D22286E274D2D020B0FB824803776A733A4AB9BD18B92BC
   imports VERIFICATION
 
 // DaiJoin_exit
@@ -295,7 +295,7 @@ rule [DaiJoin.muluu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x *Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 2819 => 2862 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int minUInt8
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int 0
           #then   54
           #else   106
         #fi ) ) </gas>

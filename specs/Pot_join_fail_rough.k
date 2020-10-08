@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module F9C6A3653EA494C96281AC78C3F7BC209C2AD9009868E933FB74D3D09855C6DE
+module E5913BD992B818975A0840C9925A8DDA89A72AB5039857F7B708072A658897BB
   imports VERIFICATION
 
 // Pot_join
@@ -467,7 +467,7 @@ rule [Pot.muluu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x *Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 4877 => 4920 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int minUInt8
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int 0
           #then   54
           #else   106
         #fi ) ) </gas>

@@ -1,4 +1,4 @@
-#gas ( ( VGas +Int #if ABI_y ==Int minUInt8
+#gas ( ( VGas +Int #if ABI_y ==Int 0
   #then   127
   #else   179
 #fi ) )

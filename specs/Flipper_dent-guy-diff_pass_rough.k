@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 76D171DACE5EFEAF6DBF38543C76B0604F1A3809BE05558A718FFB4F59A05680
+module CE632A42F2FB9C855AFBC87A5271EBD5F20FFDC7D2409023CA2ED7306DC3D2D6
   imports VERIFICATION
 
 // Flipper_dent-guy-diff
@@ -372,7 +372,7 @@ rule [Flipper.muluu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x *Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 11396 => 11439 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int minUInt8
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int 0
           #then   54
           #else   106
         #fi ) ) </gas>

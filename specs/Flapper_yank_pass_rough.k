@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 949C34EC6E371CB52C7E77175E9F420AA75B285E2CD42373D72CB92D5730FF75
+module EDB99310A78D8E6CA5043A8442019CED5260DBBCD445DEAE3FEE5D11F554942D
   imports VERIFICATION
 
 // Flapper_yank
@@ -279,7 +279,7 @@ rule [DSToken.move.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_2 ) +Int #if #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 2 ) ) ) ==Int maxUInt256
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_2 ) +Int #if Allowance ==Int maxUInt256
           #then   7281
           #else   ( Csstore( ISTANBUL , ( Allowance -Int ABI_wad ) , Allowance , Junk_0 ) +Int 9538 )
         #fi ) ) ) ) </gas>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 4CBF08840EE9C94D11E42B5949F149E939FB1FA5BFF561F6548D9901C188AFC4
+module 7B347DBB0B746AA0D9A9159736D3779B3F001152A1B7D8A2813234DFE02B400E
   imports VERIFICATION
 
 // End_flow
@@ -299,7 +299,7 @@ rule [End.muluu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x *Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 14690 => 14733 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int minUInt8
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int 0
           #then   54
           #else   106
         #fi ) ) </gas>
@@ -676,7 +676,7 @@ rule [End.rmul.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : (ABI_x *Int ABI_y) /Int #Ray : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 14623 => 14663 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int minUInt8
+        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int 0
           #then   127
           #else   179
         #fi ) ) </gas>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module A992E4BCC991271B7EF73406BCF56FD7378FB3589C42DBE6CFDAA02C70DFB7D5
+module 35DE246C2000A679CE0404EA769CB1F76A643D2A349E1889514ED82E2225C7E8
   imports VERIFICATION
 
 // Jug_deny-same
@@ -27,7 +27,7 @@ rule [Jug.deny-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , minUInt8 , 1 , Junk_0 ) +Int 5620 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 0 ) ) , Junk_0 ) +Int 5620 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

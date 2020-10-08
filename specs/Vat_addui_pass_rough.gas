@@ -1,5 +1,5 @@
-#gas ( ( VGas +Int #if minUInt8 <=Int ABI_y
-  #then   #if chop( ABI_y ) <=Int minUInt8
+#gas ( ( VGas +Int #if 0 <=Int ABI_y
+  #then   #if chop( ABI_y ) <=Int 0
     #then   114
     #else   128
   #fi

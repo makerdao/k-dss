@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 8F1BDFA9EBE96A4944A80DE1AEC29CADCDDB12DA3E5F1E321AF6E22838205276
+module FC588E11D19B594A268FF15B69B96FE0613AF242CC358566B23A07B07FDF058D
   imports VERIFICATION
 
 // Dai_transferFrom-diff
@@ -27,9 +27,9 @@ rule [Dai.transferFrom-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) +Int ( Csstore( ISTANBUL , ( DstBal +Int ABI_wad ) , DstBal , Junk_2 ) +Int #if SrcBal ==Int #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) )
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) +Int ( Csstore( ISTANBUL , ( DstBal +Int ABI_wad ) , DstBal , Junk_2 ) +Int #if ABI_src ==Int CALLER_ID
           #then   5425
-          #else   #if #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) ==Int maxUInt256
+          #else   #if Allowed ==Int maxUInt256
             #then   6418
             #else   ( Csstore( ISTANBUL , ( Allowed -Int ABI_wad ) , Allowed , Junk_0 ) +Int 8675 )
           #fi

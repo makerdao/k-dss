@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module BC7368182328D97F0941807CB18FCC4C11B9D767E524BD57E6D77AC7EBD1B3BF
+module 17D0CBC0A963AE35DF6FDCB286EE1480D2860818358044A094A8BF9955F42B1F
   imports VERIFICATION
 
 // Vat_heal
@@ -77,7 +77,7 @@ rule [Vat.heal.pass.rough]:
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
           <code> Vat_bin_runtime </code>
-          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Vat.dai[CALLER_ID] <- Dai -Int ABI_rad ] [ #Vat.sin[CALLER_ID] <- Sin -Int ABI_rad ] [ #Vat.debt <- Debt  -Int ABI_rad ] [ #Vat.vice <- Vice  -Int ABI_rad ] </storage>
+          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Vat.sin[CALLER_ID] <- Sin -Int ABI_rad ] [ #Vat.dai[CALLER_ID] <- Dai -Int ABI_rad ] [ #Vat.debt <- Debt  -Int ABI_rad ] [ #Vat.vice <- Vice  -Int ABI_rad ] </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vat => ?_ </nonce>
         </account>
@@ -196,19 +196,19 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, Debt  -Int ABI_rad))
   andBool ((#rangeUInt(256, Vice  -Int ABI_rad)))))))))))))))))
 
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.dai[CALLER_ID]) ==Int Dai
   andBool #lookup(ACCT_ID_STORAGE, #Vat.sin[CALLER_ID]) ==Int Sin
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.dai[CALLER_ID]) ==Int Dai
   andBool #lookup(ACCT_ID_STORAGE, #Vat.debt) ==Int Debt
   andBool #lookup(ACCT_ID_STORAGE, #Vat.vice) ==Int Vice
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[CALLER_ID]) ==Int Junk_0
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.sin[CALLER_ID]) ==Int Junk_1
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.sin[CALLER_ID]) ==Int Junk_0
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[CALLER_ID]) ==Int Junk_1
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.debt) ==Int Junk_2
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.vice) ==Int Junk_3
-  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.sin[CALLER_ID]
-  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.debt
-  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.vice
+  andBool #Vat.sin[CALLER_ID] =/=Int #Vat.dai[CALLER_ID]
   andBool #Vat.sin[CALLER_ID] =/=Int #Vat.debt
   andBool #Vat.sin[CALLER_ID] =/=Int #Vat.vice
+  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.debt
+  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.vice
   andBool #Vat.debt =/=Int #Vat.vice 
 
 // Vat_subuu
