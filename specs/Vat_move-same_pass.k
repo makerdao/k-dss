@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 817970BA5C80C9F683400B5E65B0617B8ACB1E72C4BCDC9DC26331BC80F6B674
+module 7AE5A152D08975F6F004F7F6DE2DDF8D5AB760CFF81687131A9D7EC37D2C89BE
   imports VERIFICATION
 
 // Vat_move-same
@@ -27,7 +27,7 @@ rule [Vat.move-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 5 ) ) -Int ABI_rad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 5 ) ) , Junk_1 ) +Int ( Csstore( ISTANBUL , ( ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 5 ) ) -Int ABI_rad ) +Int ABI_rad ) , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_dst , 5 ) ) -Int ABI_rad ) , Junk_1 ) +Int 7943 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Dai_src -Int ABI_rad ) , Dai_src , Junk_1 ) +Int ( Csstore( ISTANBUL , ( ( Dai_src -Int ABI_rad ) +Int ABI_rad ) , ( Dai_src -Int ABI_rad ) , Junk_1 ) +Int 7943 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

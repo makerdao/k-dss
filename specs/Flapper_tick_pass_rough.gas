@@ -1,1 +1,1 @@
-#gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , VCallValue , ( TIME +Int Tau ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_1 ) +Int 8639 ) ) )
+#gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , 0 , ( TIME +Int Tau ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_1 ) +Int 8639 ) ) )

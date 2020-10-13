@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 992BFB750E58BBE0A7B8BD645D7377A21500E13AC0A6ED31CC568910243F6A53
+module 202160229818CA2007607627D5D27ED30EEAC9E4CBD3E920795786BD1445DEFE
   imports VERIFICATION
 
 // Spotter_deny-same
@@ -27,7 +27,7 @@ rule [Spotter.deny-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , VCallValue , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_usr , VCallValue ) ) , Junk_0 ) +Int 5620 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , 1 , Junk_0 ) +Int 5620 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

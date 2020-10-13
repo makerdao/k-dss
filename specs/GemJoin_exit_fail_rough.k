@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module F90F208D652B55D073509EDCD1E3EBBBB3250A00B71F14737AC467563AAC33A7
+module 2DFD7F962C3F0B005799CB96C08DCFFC71190B638EBA3AA6CC7DF9D792E9B060
   imports VERIFICATION
 
 // GemJoin_exit
@@ -290,7 +290,7 @@ rule [Vat.slip.pass]:
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
         <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem +Int ABI_wad ) , Gem , Junk_1 ) +Int #if 0 <=Int ABI_wad
-          #then   #if ABI_wad <=Int VCallValue
+          #then   #if ABI_wad <=Int 0
             #then   6870
             #else   6884
           #fi

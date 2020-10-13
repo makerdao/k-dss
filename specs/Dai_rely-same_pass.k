@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 6CDAA5DED460D7C6DE6B7451EA63FC9DD656440BD71995824F9FB3074D810D12
+module 00DC3EB02D3DFAAD642F962CC717100C2AB28D9204422C673CEA56957355964D
   imports VERIFICATION
 
 // Dai_rely-same
@@ -27,7 +27,7 @@ rule [Dai.rely-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , May , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_usr , VCallValue ) ) , Junk_0 ) +Int 5687 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 1 , 1 , Junk_0 ) +Int 5687 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

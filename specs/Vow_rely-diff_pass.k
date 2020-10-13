@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 687985A37541EDA90E78EF178DBF3607321604BB8F614729C48EE5B982873434
+module 051A7BC9A674BF6D74B29D9CA031ED4E8464191B273A960C47A6F876A1EA60B4
   imports VERIFICATION
 
 // Vow_rely-diff
@@ -27,7 +27,7 @@ rule [Vow.rely-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , May , Junk_0 , Junk_2 ) +Int 6488 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 1 , Junk_0 , Junk_2 ) +Int 6488 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

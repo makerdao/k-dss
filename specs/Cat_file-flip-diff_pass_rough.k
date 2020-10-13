@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module D50C86B70E8283B007A805E4C9402C66101C7B368A9C044E5658B2BF942824CF
+module 0A6C6472A0E3F742C99AD38375ED778D57E8CA03C06C7ACEA3316C8FC6B8CB77
   imports VERIFICATION
 
 // Cat_file-flip-diff
@@ -253,7 +253,7 @@ rule [Vat.nope.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , VCallValue , Junk_0 , Junk_1 ) +Int 4801 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , Junk_0 , Junk_1 ) +Int 4801 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

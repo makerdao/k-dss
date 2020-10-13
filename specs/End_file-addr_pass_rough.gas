@@ -9,5 +9,5 @@
     #fi
     #else   ( Csstore( ISTANBUL , ABI_data , Cat , Junk_2 ) +Int 7300 )
   #fi
-  #else   ( Csstore( ISTANBUL , ABI_data , #lookup( ACCT_ID_STORAGE , May ) , #lookup( ACCT_ID_ORIG_STORAGE , May ) ) +Int 7273 )
+  #else   ( Csstore( ISTANBUL , ABI_data , Vat , Junk_1 ) +Int 7273 )
 #fi ) )

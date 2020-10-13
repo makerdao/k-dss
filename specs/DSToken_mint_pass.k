@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module D9CB874B07A40F5DEB9F732A2BDA305B2CC283ECFD606115AFC3F700E52E0C64
+module 762337BB2F3DF6888430BEC73C603E84C17E3F8081A37E9E36DACB02E18BFDBB
   imports VERIFICATION
 
 // DSToken_mint
@@ -27,7 +27,7 @@ rule [DSToken.mint.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_0 ) +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , VCallValue ) +Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , VCallValue ) , Junk_1 ) +Int 5628 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_0 ) +Int ( Csstore( ISTANBUL , ( Supply +Int ABI_wad ) , Supply , Junk_1 ) +Int 5628 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

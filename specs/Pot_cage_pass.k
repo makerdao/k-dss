@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 121FED59943E940D835F71BF67271996D014BC4FBC6C2598419EF7F0E2EDAFE1
+module FFBAC1BF9C222C6F7B09EE74444728F1F140393223EC17EC59A8B1A2E9895FDA
   imports VERIFICATION
 
 // Pot_cage
@@ -27,7 +27,7 @@ rule [Pot.cage.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , VCallValue , Live , Junk_2 ) +Int ( Csstore( ISTANBUL , 1000000000000000000000000000 , Dsr , Junk_1 ) +Int 5455 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , Live , Junk_2 ) +Int ( Csstore( ISTANBUL , 1000000000000000000000000000 , Dsr , Junk_1 ) +Int 5455 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,1 +1,1 @@
-#gas ( ( VGas +Int ( Csstore( ISTANBUL , VCallValue , Live , Junk_2 ) +Int ( Csstore( ISTANBUL , 1000000000000000000000000000 , Dsr , Junk_1 ) +Int 5455 ) ) ) )
+#gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , Live , Junk_2 ) +Int ( Csstore( ISTANBUL , 1000000000000000000000000000 , Dsr , Junk_1 ) +Int 5455 ) ) ) )

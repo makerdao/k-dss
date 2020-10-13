@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module FD408E2E389BF6FD3B26C9D5991B25FDDCCD82422DB9E55D9573B5E6C670690F
+module AC43C3BA021FAF0088B6379205A39EA9267AC85415C07F4622E5BCCCABD2D8A1
   imports VERIFICATION
 
 // GemJoin_deny-same
@@ -27,7 +27,7 @@ rule [GemJoin.deny-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , VCallValue , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_usr , VCallValue ) ) , #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_usr , VCallValue ) ) ) +Int 5598 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , 1 , Junk_0 ) +Int 5598 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

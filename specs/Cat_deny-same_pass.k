@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module D6B3A4BDA7EF4E677CE38AACB33472DF85A8B2D2F2E453B8D21272FD99042182
+module B9DAC7D16742FC89108B35DDA2F7DC24329F154623607268A12836A8035A4C31
   imports VERIFICATION
 
 // Cat_deny-same
@@ -27,7 +27,7 @@ rule [Cat.deny-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , VCallValue , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_usr , VCallValue ) ) , Junk_0 ) +Int 5598 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , 1 , Junk_0 ) +Int 5598 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
