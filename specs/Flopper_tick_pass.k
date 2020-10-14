@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module BBCB73E820F2F35FA2F340C0B0C6BA4DD230715D21FC2A0BB2855D16D3FCEAA6
+module E122888DA5935D34090A4ADB066B7593368FDFBC3A386B5899A7C323545BB428
   imports VERIFICATION
 
 // Flopper_tick
@@ -28,7 +28,7 @@ rule [Flopper.tick.pass]:
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
         <gas> #gas(VGas) => #gas ( ( VGas +Int #if Lot ==Int 0
-          #then   ( Csstore( ISTANBUL , 0 , Lot , Junk_2 ) +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , 0 , ( TIME +Int Tau ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_3 ) +Int 10526 ) )
+          #then   ( Csstore( ISTANBUL , 0 , 0 , Junk_2 ) +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , 0 , ( TIME +Int Tau ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_3 ) +Int 10526 ) )
           #else   ( Csstore( ISTANBUL , ( ( Pad *Int Lot ) /Int 1000000000000000000 ) , Lot , Junk_2 ) +Int ( Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , 0 , ( TIME +Int Tau ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_3 ) +Int 10578 ) )
         #fi ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>

@@ -1,7 +1,0 @@
-#gas ( ( VGas +Int ( Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) +Int ( Csstore( ISTANBUL , ( DstBal +Int ABI_wad ) , DstBal , Junk_2 ) +Int #if SrcBal ==Int #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) )
-  #then   5425
-  #else   #if Allowed ==Int maxUInt256
-    #then   6418
-    #else   ( Csstore( ISTANBUL , ( Allowed -Int ABI_wad ) , Allowed , Junk_0 ) +Int 8675 )
-  #fi
-#fi ) ) ) )

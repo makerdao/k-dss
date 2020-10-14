@@ -1,4 +1,4 @@
-#gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Supply -Int ABI_wad ) , Supply , Junk_2 ) +Int #if #lookup( ACCT_ID_STORAGE , hash2 ( Owner , hash2 ( ABI_src , 2 ) ) ) ==Int maxUInt256
+#gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Supply -Int ABI_wad ) , Supply , Junk_2 ) +Int #if Allowance ==Int maxUInt256
   #then   7641
-  #else   ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( Owner , hash2 ( ABI_src , 2 ) ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( Owner , hash2 ( ABI_src , 2 ) ) ) , Junk_0 ) +Int 9898 )
+  #else   ( Csstore( ISTANBUL , ( Allowance -Int ABI_wad ) , Allowance , Junk_0 ) +Int 9898 )
 #fi ) ) ) )

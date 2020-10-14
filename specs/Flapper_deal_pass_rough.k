@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B626FBA1FC1E0A6414DD20A6E2D1FEBDE8F8AE9DD85D200D812A7178C09A27BB
+module 472B2E705F130B546379CD2D99376F2480AC1B72B800EF4EF4BCE8980E6436D1
   imports VERIFICATION
 
 // Flapper_deal
@@ -531,7 +531,7 @@ rule [DSToken.burn-self.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 1 ) ) -Int ABI_wad ) , #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , 1 ) ) , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Supply -Int ABI_wad ) , Supply , Junk_2 ) +Int 6648 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Supply -Int ABI_wad ) , Supply , Junk_2 ) +Int 6648 ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

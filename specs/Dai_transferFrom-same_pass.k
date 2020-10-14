@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module FDEC1BF27C26B46F4E5ACAECFB05A489D4E5C78BD862CCC30F0E3B0595A6643C
+module D2A8477B7E61EE9FEBE7B486313B37BA70500EBDECD5AC331C217DAA73E2C42E
   imports VERIFICATION
 
 // Dai_transferFrom-same
@@ -27,7 +27,7 @@ rule [Dai.transferFrom-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) +Int ( Csstore( ISTANBUL , ( ( SrcBal -Int ABI_wad ) +Int ABI_wad ) , ( SrcBal -Int ABI_wad ) , Junk_1 ) +Int #if Junk_0 ==Int #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) )
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) +Int ( Csstore( ISTANBUL , ( ( SrcBal -Int ABI_wad ) +Int ABI_wad ) , ( SrcBal -Int ABI_wad ) , Junk_1 ) +Int #if Allowed ==Int #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) )
           #then   5425
           #else   #if Allowed ==Int maxUInt256
             #then   6418
