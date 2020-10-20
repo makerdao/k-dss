@@ -1,0 +1,1 @@
+#gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Sin -Int Sin_t ) , Sin , Junk_1 ) +Int ( Csstore( ISTANBUL , 0 , Sin_t , Junk_2 ) +Int 7411 ) ) ) )

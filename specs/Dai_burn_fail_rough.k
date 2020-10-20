@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 5A36DA2E415A6B9B3E22AEF0933178F32054D61F5F8384353FB9481184FBD06D
+module 282F3BA386656287F5AC48AFEA13E9C4F6B0BCA644153171AD6D0AFCD84AA4FF
   imports VERIFICATION
 
 // Dai_burn
@@ -392,7 +392,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x -Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

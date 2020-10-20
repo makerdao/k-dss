@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 4311AE42C3BB5CC3DC558FDFC95071FDB028F9D1D7503B6FE0E37A4676ECF39D
+module 18874DD30971B3E0900EB8AE70A93B6673C85D7FFC6382CFD1DAE1C331AA7392
   imports VERIFICATION
 
 // Flapper_kick
@@ -490,7 +490,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_src]
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_dst]
   andBool #Vat.dai[ABI_src] =/=Int #Vat.dai[ABI_dst] 
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Flapper_addu48u48
@@ -677,7 +677,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(48, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

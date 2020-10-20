@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module C6EB5E8176C040DE6B36D5D8D146608827711053B207BBF2CF9685D94BD281D6
+module 82F9893DE91118BA3B675F5DEAEADC51B79A3D2223F1EDC87DF38032D208C565
   imports VERIFICATION
 
 // Vat_frob-same-nonzero
@@ -534,7 +534,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_subui
@@ -727,7 +727,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x -Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_mului
@@ -918,7 +918,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeSInt(256, ABI_x *Int ABI_y))))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_muluu
@@ -1108,7 +1108,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x *Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

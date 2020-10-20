@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B2F6616063E0414D04DBD1CA4ABE4F634B8FE3CD54CD512601EF8EFACB0B2957
+module F9B20E0A513D2A9AA567E5A12529344F27B8426FD7100145E59B40A097DBF0D4
   imports VERIFICATION
 
 // Vat_slip
@@ -392,7 +392,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

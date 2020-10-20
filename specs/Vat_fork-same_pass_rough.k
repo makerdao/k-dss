@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 0FF93C0F8DE57CC281E97124F3CDC1C953457AF16F92CB8631E14D387AA3F218
+module 8AD13BA1FC2F8195C6D20994E453FEDADCD8363C9C2B6DA6B300CA8E76DE3AA1
   imports VERIFICATION
 
 // Vat_fork-same
@@ -427,7 +427,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_subui
@@ -620,7 +620,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x -Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_muluu
@@ -810,7 +810,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x *Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

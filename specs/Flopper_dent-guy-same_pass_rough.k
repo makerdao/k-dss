@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 1F9E6EB4CC35DE35DD0797C7C417B562549721244B18ECBACDA225FE633F1E82
+module C9103D2D2EF7E79EC123A67F269D4F2D9D02806F20F1B16D87B626895F57B79B
   imports VERIFICATION
 
 // Flopper_dent-guy-same
@@ -440,7 +440,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x *Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Flopper_addu48u48
@@ -627,7 +627,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(48, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

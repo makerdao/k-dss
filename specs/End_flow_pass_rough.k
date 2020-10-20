@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 7B347DBB0B746AA0D9A9159736D3779B3F001152A1B7D8A2813234DFE02B400E
+module 7C7A3551C382EC5C787970E32805F8CC196D55EEA0FE7CA2C01FBD9E068CCB18
   imports VERIFICATION
 
 // End_flow
@@ -462,7 +462,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x *Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // End_subuu
@@ -649,7 +649,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x -Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // End_rmul
@@ -839,7 +839,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x *Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // End_rdiv
@@ -1027,7 +1027,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x *Int #Ray))))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_ilks
@@ -1241,7 +1241,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.ilks[ABI_ilk].spot =/=Int #Vat.ilks[ABI_ilk].line
   andBool #Vat.ilks[ABI_ilk].spot =/=Int #Vat.ilks[ABI_ilk].dust
   andBool #Vat.ilks[ABI_ilk].line =/=Int #Vat.ilks[ABI_ilk].dust 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

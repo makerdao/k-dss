@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B3E1712A27D74B89D09CE029E0916BB8A44EEFB30EFBB73A143CA2BE3A322E85
+module 36084EC836354CB6B92218EAD7B138B229D046D675735EA3FB8BF81B18AE8FB0
   imports VERIFICATION
 
 // End_skim-D
@@ -475,7 +475,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.ilks[ABI_ilk].spot =/=Int #Vat.ilks[ABI_ilk].line
   andBool #Vat.ilks[ABI_ilk].spot =/=Int #Vat.ilks[ABI_ilk].dust
   andBool #Vat.ilks[ABI_ilk].line =/=Int #Vat.ilks[ABI_ilk].dust 
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_urns
@@ -669,7 +669,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.urns[ABI_ilk][ABI_urn].ink) ==Int Junk_0
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.urns[ABI_ilk][ABI_urn].art) ==Int Junk_1
   andBool #Vat.urns[ABI_ilk][ABI_urn].ink =/=Int #Vat.urns[ABI_ilk][ABI_urn].art 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

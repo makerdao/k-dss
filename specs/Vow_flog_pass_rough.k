@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 08940698B36A03B3BA4982E5241EBA352F07C3051E4B8155F5A6BCC295DC5EB4
+module DA157545200D791492D14AF2ACC9A9EF750874C0AF0CF4B94793BCF1013D8AF8
   imports VERIFICATION
 
 // Vow_flog
@@ -387,7 +387,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vow_subuu
@@ -574,7 +574,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x -Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

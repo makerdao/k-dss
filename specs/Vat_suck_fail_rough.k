@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module DF04A68FE1A1C271E61301F8E59BF2434933D4E074D0B17C679AA8A00B2238B3
+module 657A82D719313B34D806CF8627D66E25B1B131B13E4EF87D7C51DB1D1B2CD61E
   imports VERIFICATION
 
 // Vat_suck
@@ -410,7 +410,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

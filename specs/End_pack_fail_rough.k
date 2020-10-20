@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 827611A54EA50C8B8D854468A3CA58A2C082DBE753D7B412D8D4D2B5E19D7C93
+module 545A3AB7B47E17EEDF33ECB8DD7B5A6F1F3EFA1AE002AE43E39FE9C8F8DCEA04
   imports VERIFICATION
 
 // End_pack
@@ -436,7 +436,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x *Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // End_adduu
@@ -623,7 +623,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_move-diff
@@ -828,7 +828,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_src]
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_dst]
   andBool #Vat.dai[ABI_src] =/=Int #Vat.dai[ABI_dst] 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

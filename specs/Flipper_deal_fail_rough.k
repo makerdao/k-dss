@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module FB8F2EFDB4CCF4FB766D5BEA1821325466EE271EC01D072BE45887FDD23DC204
+module D5954219519517E2C3445D22DDBA69599D88E7960EB4965BB178E22FFFE76E83
   imports VERIFICATION
 
 // Flipper_deal
@@ -491,7 +491,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.gem[ABI_ilk][ABI_src]
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.gem[ABI_ilk][ABI_dst]
   andBool #Vat.gem[ABI_ilk][ABI_src] =/=Int #Vat.gem[ABI_ilk][ABI_dst] 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

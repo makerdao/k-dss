@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module C8C905810D50822D53E3CEB9F21C1B915D245A39674D3C9695D0CD66F83BC4A9
+module 0A0B038DC09E7A91CAC8BE90A1D8DA317F01B95D8BF0F496F1D8368B684DBAD7
   imports VERIFICATION
 
 // End_skim-F
@@ -457,7 +457,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // End_subuu
@@ -644,7 +644,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x -Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // End_rmul
@@ -834,7 +834,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x *Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // End_minuu
@@ -1023,7 +1023,7 @@ andBool #rangeUInt(256, VChainId)
   andBool (#rangeUInt(256, VMemoryUsed)))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_ilks
@@ -1237,7 +1237,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.ilks[ABI_ilk].spot =/=Int #Vat.ilks[ABI_ilk].line
   andBool #Vat.ilks[ABI_ilk].spot =/=Int #Vat.ilks[ABI_ilk].dust
   andBool #Vat.ilks[ABI_ilk].line =/=Int #Vat.ilks[ABI_ilk].dust 
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_urns
@@ -1431,7 +1431,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.urns[ABI_ilk][ABI_urn].ink) ==Int Junk_0
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.urns[ABI_ilk][ABI_urn].art) ==Int Junk_1
   andBool #Vat.urns[ABI_ilk][ABI_urn].ink =/=Int #Vat.urns[ABI_ilk][ABI_urn].art 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

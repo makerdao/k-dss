@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 105F27D131807B872530CAB2CBF0D9036457D2482A695A946C79189B82AA6283
+module EFBE979FBAD9D7ABDB4D640F9D928A08EE811055158D823B218440B3102061E5
   imports VERIFICATION
 
 // Flapper_tend-guy-diff
@@ -488,7 +488,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(48, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Flapper_muluu
@@ -678,7 +678,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x *Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // DSToken_move
@@ -897,7 +897,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #DSToken.balances[ABI_src] =/=Int #DSToken.balances[ABI_dst]
   andBool #DSToken.balances[ABI_src] =/=Int #DSToken.owner_stopped
   andBool #DSToken.balances[ABI_dst] =/=Int #DSToken.owner_stopped 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

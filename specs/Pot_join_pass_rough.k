@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B63894301B407C9094F6C3A1561EAAF618BF58A6F7336A2507A24523E7D80A2A
+module 76893A9E574C2EE00D593B08AD1A4F31576E75AFD47CB3D69285EB9A53DD3C0F
   imports VERIFICATION
 
 // Pot_join
@@ -436,7 +436,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Pot_muluu
@@ -626,7 +626,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x *Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_move-diff
@@ -831,7 +831,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_src]
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_dst]
   andBool #Vat.dai[ABI_src] =/=Int #Vat.dai[ABI_dst] 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

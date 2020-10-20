@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 472B2E705F130B546379CD2D99376F2480AC1B72B800EF4EF4BCE8980E6436D1
+module 632DBF3DACF132994C3CBF828A1B7CC3C645C4EDDF9E141F8E72F2E3065BFEE8
   imports VERIFICATION
 
 // Flapper_deal
@@ -504,7 +504,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_src]
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_dst]
   andBool #Vat.dai[ABI_src] =/=Int #Vat.dai[ABI_dst] 
-[trusted]
+[trusted, matching(infGas)]
 
 
 // DSToken_burn-self
@@ -719,7 +719,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #DSToken.balances[ABI_src] =/=Int #DSToken.supply
   andBool #DSToken.balances[ABI_src] =/=Int #DSToken.owner_stopped
   andBool #DSToken.supply =/=Int #DSToken.owner_stopped 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

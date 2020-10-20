@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 6E253C401114A1BBA774402C9D6506EC1FCC1815842C36D200A2A41CF84D86A5
+module 74B359030C1934E381ABC764F471321B04558D094ED7F81F381F6FD84C082E16
   imports VERIFICATION
 
 // Flopper_deal
@@ -459,7 +459,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #DSToken.balances[ABI_dst] =/=Int #DSToken.supply
   andBool #DSToken.balances[ABI_dst] =/=Int #DSToken.owner_stopped
   andBool #DSToken.supply =/=Int #DSToken.owner_stopped 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

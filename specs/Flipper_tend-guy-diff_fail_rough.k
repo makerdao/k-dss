@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 77A0103E8B969111E39BAD5ACC6B761BBB18D5D8C192C17AA9DCE302A4553C1B
+module 3507330AE315282966218F1C4F421DD6074CBCF995369010335704FC69AF46EC
   imports VERIFICATION
 
 // Flipper_tend-guy-diff
@@ -492,7 +492,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(48, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Flipper_muluu
@@ -682,7 +682,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x *Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_move-diff
@@ -887,7 +887,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_src]
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_dst]
   andBool #Vat.dai[ABI_src] =/=Int #Vat.dai[ABI_dst] 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

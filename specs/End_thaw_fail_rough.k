@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module E9B675C486A0A0B71859B1B14B5A4D7C590DA7B8420126C81337A61E7892F268
+module BB3A2AD8D151902BCBCDA888BC8B8DD05A85B3E0D1AD42FEAEE5550678E3977B
   imports VERIFICATION
 
 // End_thaw
@@ -439,7 +439,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_dai
@@ -627,7 +627,7 @@ andBool #rangeUInt(256, VChainId)
 
   andBool #lookup(ACCT_ID_STORAGE, #Vat.dai[ABI_usr]) ==Int Rad
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[ABI_usr]) ==Int Junk_0 
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_debt
@@ -814,7 +814,7 @@ andBool #rangeUInt(256, VChainId)
 
   andBool #lookup(ACCT_ID_STORAGE, #Vat.debt) ==Int Debt
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.debt) ==Int Junk_0 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

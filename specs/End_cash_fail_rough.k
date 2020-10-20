@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module D4689429B8C26EF68D5B688C9EBEF535811F6F1363DAC6B82E0F8BA04AC8992E
+module D66589E96213068682EB79AA5BE022BE5719D67C6C9098FDC70253F7A48CCEDE
   imports VERIFICATION
 
 // End_cash
@@ -431,7 +431,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // End_rmul
@@ -621,7 +621,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x *Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_flux-diff
@@ -827,7 +827,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.gem[ABI_ilk][ABI_src]
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.gem[ABI_ilk][ABI_dst]
   andBool #Vat.gem[ABI_ilk][ABI_src] =/=Int #Vat.gem[ABI_ilk][ABI_dst] 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

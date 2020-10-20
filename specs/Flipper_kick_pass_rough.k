@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module DE2C4D1F676AC7F2675632277B07FE283881234D1756DDF2588F26AE73EFE4AB
+module 9AD9410322CA2E574EBC35F3FD898B61673D7EC5C63E4898C5137F9BD1B4C750
   imports VERIFICATION
 
 // Flipper_kick
@@ -515,7 +515,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(48, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_flux-diff
@@ -721,7 +721,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.gem[ABI_ilk][ABI_src]
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.gem[ABI_ilk][ABI_dst]
   andBool #Vat.gem[ABI_ilk][ABI_src] =/=Int #Vat.gem[ABI_ilk][ABI_dst] 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

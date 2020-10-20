@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 0BB4C938C571EE775C9B0C3653E89F087B295AAC76258024D8E657C28AC6DFD5
+module 5F4F5C6B704C6D79C658BFEB17EFF7BC2849FF722155C761D5962524D5100BE6
   imports VERIFICATION
 
 // Vow_file-addr-diff
@@ -421,7 +421,7 @@ andBool #rangeUInt(256, VChainId)
 
   andBool #lookup(ACCT_ID_STORAGE, #Vat.can[CALLER_ID][ABI_usr]) ==Int Junk_0
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.can[CALLER_ID][ABI_usr]) ==Int Junk_1 
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_hope
@@ -609,7 +609,7 @@ andBool #rangeUInt(256, VChainId)
 
   andBool #lookup(ACCT_ID_STORAGE, #Vat.can[CALLER_ID][ABI_usr]) ==Int Junk_0
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.can[CALLER_ID][ABI_usr]) ==Int Junk_1 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

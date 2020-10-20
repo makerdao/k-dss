@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module BB2119EAB92B54BAC6B9746DD4F52BD086C6D3F68059168BE3D3653612CD1A3C
+module E283DFB8A263D48470ABDA36FA0F85B755D1DF87BB210062450C956CA3E8E073
   imports VERIFICATION
 
 // Vow_fess
@@ -391,7 +391,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

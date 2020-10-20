@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module C11D9106CB70F2E2373774409A14D54DB49C10C62D37EF04B4190882FB7682DA
+module A883FC2D1888B80D77094D88359A151327CAE5394DA039D4F539ED46A73EDEE4
   imports VERIFICATION
 
 // Cat_file-flip-diff
@@ -418,7 +418,7 @@ andBool #rangeUInt(256, VChainId)
 
   andBool #lookup(ACCT_ID_STORAGE, #Vat.can[CALLER_ID][ABI_usr]) ==Int Junk_0
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.can[CALLER_ID][ABI_usr]) ==Int Junk_1 
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_hope
@@ -606,7 +606,7 @@ andBool #rangeUInt(256, VChainId)
 
   andBool #lookup(ACCT_ID_STORAGE, #Vat.can[CALLER_ID][ABI_usr]) ==Int Junk_0
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.can[CALLER_ID][ABI_usr]) ==Int Junk_1 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

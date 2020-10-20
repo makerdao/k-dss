@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 8953E5621A8C8F6534C232C97C957E7D01B6D040EC1222C4C877D45407EDF778
+module 48B031EB081D881D4A88C7C5FEACD59901355A65741A13D727F93D50C43B6A39
   imports VERIFICATION
 
 // Flopper_dent-guy-diff-tic-not-0
@@ -476,7 +476,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x *Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Flopper_addu48u48
@@ -663,7 +663,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(48, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_move-diff
@@ -868,7 +868,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_src]
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_dst]
   andBool #Vat.dai[ABI_src] =/=Int #Vat.dai[ABI_dst] 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

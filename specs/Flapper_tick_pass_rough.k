@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 5ACDF8122F6540A7B444517D7793C84711D830923C7E54E5BFF664E5722F174B
+module 835A8196850A0CCF979EF1556CA143456D5235E0A5047A05EC54039696F3A117
   imports VERIFICATION
 
 // Flapper_tick
@@ -386,7 +386,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(48, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

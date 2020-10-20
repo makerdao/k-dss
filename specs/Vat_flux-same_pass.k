@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 4257CF0776423F3965FEAC4AC2E5B4C1BBA47C09ADB0CA2BAC18660B78F2DA16
+module B4BCCCC7E561CBCA5A51AF5ED5E80C001D5B69352E67AB570947360C0F413763
   imports VERIFICATION
 
 // Vat_flux-same
@@ -384,7 +384,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x -Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_adduu
@@ -571,7 +571,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

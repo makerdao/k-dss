@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module EDB99310A78D8E6CA5043A8442019CED5260DBBCD445DEAE3FEE5D11F554942D
+module CBF040E024C0526F0098CCAA1E11E655EE9DC061478BE0AC9C20DA6EC450B383
   imports VERIFICATION
 
 // Flapper_yank
@@ -471,7 +471,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #DSToken.balances[ABI_src] =/=Int #DSToken.balances[ABI_dst]
   andBool #DSToken.balances[ABI_src] =/=Int #DSToken.owner_stopped
   andBool #DSToken.balances[ABI_dst] =/=Int #DSToken.owner_stopped 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module F95453D7CDFC27773845FD41D52DE4DA826DCE6885F8CC9AB16F5DD067ACF750
+module 65D5FD49D44EB4D93B4321D24175813347F792CCC496B9D8A79BAD1DA0FF712A
   imports VERIFICATION
 
 // Flopper_kick
@@ -433,7 +433,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(48, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

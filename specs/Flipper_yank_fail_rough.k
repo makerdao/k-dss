@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 7E83A2C61EA5E150766AF9F7FBDBFDC0C425A7439F0CED30A24377653F44E82C
+module D87E65FD0BAC91AB5E6E06E6ED28CDAB16818FEBAD72D48DED31C4F7C1B56177
   imports VERIFICATION
 
 // Flipper_yank
@@ -532,7 +532,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.gem[ABI_ilk][ABI_src]
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.gem[ABI_ilk][ABI_dst]
   andBool #Vat.gem[ABI_ilk][ABI_src] =/=Int #Vat.gem[ABI_ilk][ABI_dst] 
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_move-diff
@@ -737,7 +737,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_src]
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_dst]
   andBool #Vat.dai[ABI_src] =/=Int #Vat.dai[ABI_dst] 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

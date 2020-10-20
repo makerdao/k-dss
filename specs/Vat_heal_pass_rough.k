@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 17D0CBC0A963AE35DF6FDCB286EE1480D2860818358044A094A8BF9955F42B1F
+module 0DE9CA7A8AFE1B806B325BA91CFE95CB9BD478F1BBC861C5463F0336A83A951C
   imports VERIFICATION
 
 // Vat_heal
@@ -395,7 +395,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x -Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

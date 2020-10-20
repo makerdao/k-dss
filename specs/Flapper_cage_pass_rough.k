@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 7467909CDE4BA77C5A1322294842346EAA729E1626CC7D30ED0FDF14622BE213
+module BF1735CA5164C13814A93D70200D6AF3AD7984634C7C30FAFE77D78434CB9C1A
   imports VERIFICATION
 
 // Flapper_cage
@@ -435,7 +435,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_src]
   andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_dst]
   andBool #Vat.dai[ABI_src] =/=Int #Vat.dai[ABI_dst] 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

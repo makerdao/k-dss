@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 4E68AFD3B5AB88772524A5EC7D22D21E040583BF32B4569C28C30108AC2F1D04
+module 984248AAD107A49ED62708BB64B2288CD7E91FAE419749530457BEDD73C4CB48
   imports VERIFICATION
 
 // End_cage-ilk
@@ -504,7 +504,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x *Int #Ray))))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_ilks
@@ -718,7 +718,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.ilks[ABI_ilk].spot =/=Int #Vat.ilks[ABI_ilk].line
   andBool #Vat.ilks[ABI_ilk].spot =/=Int #Vat.ilks[ABI_ilk].dust
   andBool #Vat.ilks[ABI_ilk].line =/=Int #Vat.ilks[ABI_ilk].dust 
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Spotter_ilks
@@ -912,7 +912,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Spotter.ilks[ABI_ilk].pip) ==Int Junk_0
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Spotter.ilks[ABI_ilk].mat) ==Int Junk_1
   andBool #Spotter.ilks[ABI_ilk].pip =/=Int #Spotter.ilks[ABI_ilk].mat 
-[trusted]
+[trusted, matching(infGas)]
 
 
 // DSValue_read
@@ -1107,7 +1107,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #DSValue.owner_has) ==Int Junk_0
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #DSValue.val) ==Int Junk_1
   andBool #DSValue.owner_has =/=Int #DSValue.val 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

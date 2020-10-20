@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module CC95E29BF17BFDB3D9866FD22E2B98E3CB608BD7F7AA10D7924EE423554E7E5B
+module CF4D628CF47E88128A03401D7B93C484920212A641B0E785E56C2FA32AE2AECF
   imports VERIFICATION
 
 // Spotter_poke
@@ -458,7 +458,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #DSValue.owner_has) ==Int Junk_0
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #DSValue.val) ==Int Junk_1
   andBool #DSValue.owner_has =/=Int #DSValue.val 
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Spotter_muluu
@@ -648,7 +648,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x *Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Spotter_rdiv
@@ -836,7 +836,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x *Int #Ray))))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Vat_file-ilk
@@ -1061,7 +1061,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.ilks[ABI_ilk].line =/=Int #Vat.ilks[ABI_ilk].dust
   andBool #Vat.ilks[ABI_ilk].line =/=Int #Vat.live
   andBool #Vat.ilks[ABI_ilk].dust =/=Int #Vat.live 
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule

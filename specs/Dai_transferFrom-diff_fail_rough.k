@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 5B38A67998640CEBC9695F52E12D659F3790A2856C883814D732749CF6963C51
+module 4E171B3C9C33AC2B2EB3EFE1BF2A4C2FF2EDF9964860DE8627166DB8785140F4
   imports VERIFICATION
 
 // Dai_transferFrom-diff
@@ -394,7 +394,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x +Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 // Dai_subuu
@@ -581,7 +581,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, ABI_x -Int ABI_y)))))))
 
  
-[trusted]
+[trusted, matching(infGas)]
 
 
 endmodule
