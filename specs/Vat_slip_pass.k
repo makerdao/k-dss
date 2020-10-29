@@ -1,18 +1,18 @@
 requires "verification.k"
 
-module 734F4C03FB8FBBCFEC90540321D2545EC528F49C70CEB30814A068F24A8E6DF0
+module 7B50496C6C7AAD37D58119E9CFF88FF81167EF3E91987A8B367A46BCC7924EBA
   imports VERIFICATION
 
-// Vat_fold
-rule [Vat.fold.fail.rough]:
+// Vat_slip
+rule [Vat.slip.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
   <schedule> ISTANBUL </schedule>
   <ethereum>
     <evm>
-      <output> _ => ?_ </output>
-      <statusCode> _ => ?FAILURE:EndStatusCode </statusCode>
+      <output> .ByteArray </output>
+      <statusCode> _ => EVMC_SUCCESS </statusCode>
       <endPC> _ => ?_ </endPC>
       <callStack> VCallStack </callStack>
       <interimStates> _ </interimStates>
@@ -22,16 +22,22 @@ rule [Vat.fold.fail.rough]:
         <jumpDests> #computeValidJumpDests(Vat_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("fold", #bytes32(ABI_i), #address(ABI_u), #int256(ABI_rate)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("slip", #bytes32(ABI_ilk), #address(ABI_usr), #int256(ABI_wad)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => ?_ </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem +Int ABI_wad ) , Gem , Junk_1 ) +Int #if 0 <=Int ABI_wad
+          #then   #if ABI_wad <=Int 0
+            #then   6870
+            #else   6884
+          #fi
+          #else   6884
+        #fi ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
-        <callDepth> VCallDepth => ?_ </callDepth>
+        <callDepth> VCallDepth </callDepth>
       </callState>
       <substate>
         <selfDestruct> VSelfDestruct </selfDestruct>
@@ -77,7 +83,7 @@ rule [Vat.fold.fail.rough]:
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
           <code> Vat_bin_runtime </code>
-          <storage> ACCT_ID_STORAGE => ?_ACCT_ID_STORAGE </storage>
+          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Vat.gem[ABI_ilk][ABI_usr] <- Gem +Int ABI_wad ] </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vat => ?_ </nonce>
         </account>
@@ -180,60 +186,22 @@ andBool VCallDepth <=Int 1024
 andBool #rangeUInt(256, VCallValue)
 andBool #rangeUInt(256, VChainId)
 
-  andBool (#rangeBytes(32, ABI_i)
-  andBool (#rangeAddress(ABI_u)
-  andBool (#rangeSInt(256, ABI_rate)
+  andBool (#rangeBytes(32, ABI_ilk)
+  andBool (#rangeAddress(ABI_usr)
+  andBool (#rangeSInt(256, ABI_wad)
   andBool (#rangeUInt(256, May)
-  andBool (#rangeUInt(256, Rate_i)
-  andBool (#rangeUInt(256, Dai_u)
-  andBool (#rangeUInt(256, Art_i)
-  andBool (#rangeUInt(256, Debt)
+  andBool (#rangeUInt(256, Gem)
   andBool (#sizeByteArray(CD) <=Int 1250000000
   andBool (#rangeUInt(256, Junk_0)
   andBool (#rangeUInt(256, Junk_1)
-  andBool (#rangeUInt(256, Junk_2)
-  andBool (#rangeUInt(256, Junk_3)
-  andBool (#rangeUInt(256, Junk_4)
-  andBool (#rangeUInt(256, Junk_5))))))))))))))))
+  andBool (((May ==Int 1))
+  andBool (((VCallValue ==Int 0))
+  andBool ((#rangeUInt(256, Gem +Int ABI_wad)))))))))))))
 
   andBool #lookup(ACCT_ID_STORAGE, #Vat.wards[CALLER_ID]) ==Int May
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.ilks[ABI_i].rate) ==Int Rate_i
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.ilks[ABI_i].Art) ==Int Art_i
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.dai[ABI_u]) ==Int Dai_u
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.debt) ==Int Debt
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.live) ==Int Live
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.gem[ABI_ilk][ABI_usr]) ==Int Gem
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.wards[CALLER_ID]) ==Int Junk_0
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.ilks[ABI_i].rate) ==Int Junk_1
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.ilks[ABI_i].Art) ==Int Junk_2
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[ABI_u]) ==Int Junk_3
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.debt) ==Int Junk_4
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.live) ==Int Junk_5
-  andBool #Vat.wards[CALLER_ID] =/=Int #Vat.ilks[ABI_i].rate
-  andBool #Vat.wards[CALLER_ID] =/=Int #Vat.ilks[ABI_i].Art
-  andBool #Vat.wards[CALLER_ID] =/=Int #Vat.dai[ABI_u]
-  andBool #Vat.wards[CALLER_ID] =/=Int #Vat.debt
-  andBool #Vat.wards[CALLER_ID] =/=Int #Vat.live
-  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.ilks[ABI_i].Art
-  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.dai[ABI_u]
-  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.debt
-  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.live
-  andBool #Vat.ilks[ABI_i].Art =/=Int #Vat.dai[ABI_u]
-  andBool #Vat.ilks[ABI_i].Art =/=Int #Vat.debt
-  andBool #Vat.ilks[ABI_i].Art =/=Int #Vat.live
-  andBool #Vat.dai[ABI_u] =/=Int #Vat.debt
-  andBool #Vat.dai[ABI_u] =/=Int #Vat.live
-  andBool #Vat.debt =/=Int #Vat.live
-  andBool notBool (
-    ((((VCallValue:Int ==Int 0)))
-    andBool ((((May:Int ==Int 1)))
-    andBool ((((Live ==Int 1)))
-    andBool ((((Art_i:Int <=Int maxSInt256)))
-    andBool (((#rangeSInt(256, Art_i:Int *Int ABI_rate:Int)))
-    andBool ((#rangeUInt(256, Rate_i:Int +Int ABI_rate:Int))
-    andBool ((#rangeUInt(256, Dai_u:Int  +Int (Art_i:Int *Int ABI_rate:Int)))
-    andBool ((#rangeUInt(256, Debt:Int   +Int (Art_i:Int *Int ABI_rate:Int)))))))))))
-  ) 
-ensures
-?FAILURE =/=K EVMC_SUCCESS
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.gem[ABI_ilk][ABI_usr]) ==Int Junk_1
+  andBool #Vat.wards[CALLER_ID] =/=Int #Vat.gem[ABI_ilk][ABI_usr] 
 
 endmodule
