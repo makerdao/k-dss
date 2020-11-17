@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 8C838BBE468BEC91D0993435C1BDBD3C29FF5D6B3D08FF03B3943FE5B6E0EB54
+module 2FD891ACD7C16889D8028C9F1197F32B89A46232F123B35F7D45609E2B9C1CB2
   imports VERIFICATION
 
 // Vow_sump
-rule [Vow.sump.pass]:
+claim [Vow.sump.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

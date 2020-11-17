@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module D7395D1329A63284AEC8BCEA4DB8F95C7204DCDABF1A5F7157F0A230A4741DEC
+module E4FA7D3A1DD8C0E19A14338EF925B491F0645ACDE182BC048CB71089020D8A0D
   imports VERIFICATION
 
 // Flopper_kick
-rule [Flopper.kick.pass.rough]:
+claim [Flopper.kick.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -246,7 +246,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Flopper.bids[1 +Int Kicks].lot =/=Int #Flopper.bids[1 +Int Kicks].guy_tic_end 
 
 // Flopper_addu48u48
-rule [Flopper.addu48u48.pass]:
+claim [Flopper.addu48u48.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 74E7BB43B641A7D07FB16970E059866BFE50C72A5B0EA5F094227284244818C3
+module 78B57A6694BB82CC7C4E17D969AFD4F3E2DB05323B96BC1192191C906045E76A
   imports VERIFICATION
 
 // Flopper_file
-rule [Flopper.file.pass]:
+claim [Flopper.file.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -27,16 +27,7 @@ rule [Flopper.file.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_what =/=Int 44505821594576442305943786526067189028800094342624099485940320344354850865152
-          #then   #if ABI_what =/=Int 50831113381244017834160629274459250484386129340111898844856005057409758265344
-            #then   #if ABI_what =/=Int 52673990083778647014426308045781012712597814653424946781269281625551751086080
-              #then   ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( Ttl , ABI_data ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6576 )
-              #else   ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , Tau ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6499 )
-            #fi
-            #else   ( Csstore( ISTANBUL , ABI_data , Pad , Junk_2 ) +Int 5619 )
-          #fi
-          #else   ( Csstore( ISTANBUL , ABI_data , Beg , Junk_1 ) +Int 5592 )
-        #fi ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( Ttl , ABI_data ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6576 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , Tau ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6499 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Pad , Junk_2 ) +Int 5619 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Beg , Junk_1 ) +Int 5592 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

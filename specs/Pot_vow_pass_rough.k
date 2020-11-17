@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 941EB52D75934B03CE495DEB0451FE74349C3A2C9619F537925A7AE8B4CF41A6
+module 5E71F0678D0E354CC9C4D1B88C5952C036BEA7E88B328793CC870215466B204F
   imports VERIFICATION
 
 // Pot_vow
-rule [Pot.vow.pass.rough]:
+claim [Pot.vow.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

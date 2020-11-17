@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module BB3A2AD8D151902BCBCDA888BC8B8DD05A85B3E0D1AD42FEAEE5550678E3977B
+module ECDF5AB172D63674C49D6809C76D004F72A1E38AA979143713A2642DFB611E6C
   imports VERIFICATION
 
 // End_thaw
-rule [End.thaw.fail.rough]:
+claim [End.thaw.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -256,7 +256,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // End_adduu
-rule [End.adduu.pass]:
+claim [End.adduu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -443,7 +443,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vat_dai
-rule [Vat.dai.pass]:
+claim [Vat.dai.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -631,7 +631,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vat_debt
-rule [Vat.debt.pass]:
+claim [Vat.debt.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

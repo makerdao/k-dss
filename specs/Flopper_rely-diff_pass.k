@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module C08CD82B7740CB3BA5BEFD60BFB7E4F09CA5032DEE1DF80F6EDAF78C427327DA
+module DDBB3C1FB2DE01D059BFEB2050208E2A497FE877810D2F54FE3E5CD1A6659016
   imports VERIFICATION
 
 // Flopper_rely-diff
-rule [Flopper.rely-diff.pass]:
+claim [Flopper.rely-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

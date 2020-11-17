@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 0721DF4C35251E17FDA068D135A93B244B44D6DAC01ED5B32099687B571709C2
+module 488BC2A0FE170E596236779D71C3E348FCA71AA54C138A46498111289296CC17
   imports VERIFICATION
 
 // Flipper_deny-diff
-rule [Flipper.deny-diff.pass.rough]:
+claim [Flipper.deny-diff.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

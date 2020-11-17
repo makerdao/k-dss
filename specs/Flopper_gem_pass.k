@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module F5952516E8C8BD42F03D55BD233115FA6E8F2C48281E38E22BD8C265D413B89D
+module 9A128439A2049E9DAA819CEF0303F51FFA53B577077625090A62C0F2B689E39E
   imports VERIFICATION
 
 // Flopper_gem
-rule [Flopper.gem.pass]:
+claim [Flopper.gem.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

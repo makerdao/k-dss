@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 92AC1BE023FA512C4E66BD74182E044E656133813A201BE2261679D76CE1FEEC
+module 2EF5273450F432302D56AA583C602F06506C265D3BD04BCEBA97DEC4213394BF
   imports VERIFICATION
 
 // Vat_ilks
-rule [Vat.ilks.fail.rough]:
+claim [Vat.ilks.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 5CDB1A9C927BCB43FBB4A72DADD21A27D6FBDE8A133BA0E2C33C2064236114C6
+module FF00DF98FDB91485A4E2523CF7605CBC669EDA460E55D71DEAA79E8585F91106
   imports VERIFICATION
 
 // End_rely-diff
-rule [End.rely-diff.pass]:
+claim [End.rely-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

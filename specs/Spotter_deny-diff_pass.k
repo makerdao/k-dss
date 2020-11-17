@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 120EEE8407E7EFB9A1457806865BA16551C54CB100B05DC39633C57DC5B77CE1
+module 4E8DE4696BA3FA89CC43829105D7544CB119071BBC7CEAFF825FA8D72B805707
   imports VERIFICATION
 
 // Spotter_deny-diff
-rule [Spotter.deny-diff.pass]:
+claim [Spotter.deny-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

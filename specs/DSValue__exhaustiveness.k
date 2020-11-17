@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 41C3217DCEF1A98AF3964BE6360A544C62DA0D32490E2E69928B24C09121D6E0
+module AB05FA31560D04C96E2707D0CA826801305C839D11021F66D53F48CCE8C70DB5
   imports VERIFICATION
 
 // DSValue__exhaustiveness
-rule [DSValue..exhaustiveness]:
+claim [DSValue..exhaustiveness]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

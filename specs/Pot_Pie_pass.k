@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module AB0AFA680CE4646558F595A127A2481C952731143DCBAE86D060C4F58B848E63
+module FA5F14B22E547B1488BB0531C3A5FF4BFB3A0763CCE7F3F10ABF67644A87F724
   imports VERIFICATION
 
 // Pot_Pie
-rule [Pot.Pie.pass]:
+claim [Pot.Pie.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

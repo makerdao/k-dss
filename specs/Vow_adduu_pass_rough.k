@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module BE86F134A32EF67F248D87E8D48395AED939F06D9534F36C6DC27D847413CE25
+module 296DEEB3CB05581AEC856C339F6826C985A3AADB8B5D3BF04DC1A6DC0D361DD7
   imports VERIFICATION
 
 // Vow_adduu
-rule [Vow.adduu.pass.rough]:
+claim [Vow.adduu.pass.rough]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

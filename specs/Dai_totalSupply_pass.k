@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 9A57EEFA67C67D464FC817D2DBCA701B9BFF2F54F5F9D9E8431E9E05089F4C3A
+module C688179CF2854BF73FD30C44ECC298C08FCB26EF6BBDC86BB75EF99BB18BA8EA
   imports VERIFICATION
 
 // Dai_totalSupply
-rule [Dai.totalSupply.pass]:
+claim [Dai.totalSupply.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

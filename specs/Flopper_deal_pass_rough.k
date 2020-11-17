@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 74B359030C1934E381ABC764F471321B04558D094ED7F81F381F6FD84C082E16
+module AD0DC69ACD6E32570F418B4B7D10A7CBCC05190EB1F6369C9AF8A4179405EBEA
   imports VERIFICATION
 
 // Flopper_deal
-rule [Flopper.deal.pass.rough]:
+claim [Flopper.deal.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -256,7 +256,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #DSToken.supply =/=Int #DSToken.owner_stopped 
 
 // DSToken_mint
-rule [DSToken.mint.pass]:
+claim [DSToken.mint.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

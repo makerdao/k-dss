@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module A8FD337759AC99F343CA8E4CE307F6135EAE921345D61AEBB25EB0FB0C452D5D
+module 6E92D426566AB770E8BAAA6E8ED42276E0A07F1095DEC418D1D3A2EA2A55A4DA
   imports VERIFICATION
 
 // Flapper_tick
-rule [Flapper.tick.fail.rough]:
+claim [Flapper.tick.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -207,7 +207,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // Flapper_addu48u48
-rule [Flapper.addu48u48.pass]:
+claim [Flapper.addu48u48.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module CD7DF22FC710C7D66EABE5D48AF4BF69C934012F4019BB68937FD2F5369F1522
+module 57B64D8E292CD1274326A6FCD832E0086AA5A5616C81223E18D087F7A9896CC3
   imports VERIFICATION
 
 // Vat_nope
-rule [Vat.nope.fail.rough]:
+claim [Vat.nope.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

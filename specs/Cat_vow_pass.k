@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 1FEC8203755DA5B9C06006AB60659BC36F2C8E391A001FFCA4E5316A5F907BD4
+module 158B9B12C614C3AE993A707886E564022772CB00F06A4A0A5C0B49E0E4BB11E8
   imports VERIFICATION
 
 // Cat_vow
-rule [Cat.vow.pass]:
+claim [Cat.vow.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

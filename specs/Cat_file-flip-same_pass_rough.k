@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module D0CF8F22537E91F54AA52D58A5A26A501E9DB190D6581D6F28A9148FDB7BA44F
+module 336F8783B241DD97C73784B900C339EA027F7099B2A86ECE5C94D6AB2BE6CE14
   imports VERIFICATION
 
 // Cat_file-flip-same
-rule [Cat.file-flip-same.pass.rough]:
+claim [Cat.file-flip-same.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -225,7 +225,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.can[ACCT_ID][ABI_data]) ==Int Junk_4 
 
 // Vat_nope
-rule [Vat.nope.pass]:
+claim [Vat.nope.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -413,7 +413,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vat_hope
-rule [Vat.hope.pass]:
+claim [Vat.hope.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module B6CBFE5F66ED4F6723435B86F73C469C0FE94655958F75984615C48962FA3FC6
+module 82080B25BCDF2F2E2F04EC7E4F0AC16D51FB0D4D92867024885E6B7D92C07A94
   imports VERIFICATION
 
 // End_spot
-rule [End.spot.fail.rough]:
+claim [End.spot.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

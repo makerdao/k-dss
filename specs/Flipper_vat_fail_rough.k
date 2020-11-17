@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module A9DC4D55AB45BFBA3D7A039CF6A6DD0C35E1452A5BCC27CD6B8FA2586208E79B
+module A427417DD1C2141746F7B474CA5A3F5341CBB13F2DA754B93A782B3D5E923C19
   imports VERIFICATION
 
 // Flipper_vat
-rule [Flipper.vat.fail.rough]:
+claim [Flipper.vat.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

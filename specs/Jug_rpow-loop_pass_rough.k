@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 0F668CD41CA5B6F4DE6C29718A28A0257C57AA83794E65EC0E7640367C49DD88
+module B5FF4DE83CA49A7CC30962EDAC04F1C38B929DCB62FFD9AB2A706D016FF436EC
   imports VERIFICATION
 
 // Jug_rpow-loop
-rule [Jug.rpow-loop.pass.rough]:
+claim [Jug.rpow-loop.pass.rough]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

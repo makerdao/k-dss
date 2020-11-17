@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 43005A6C9EBA38DF1CE953E383C557D9A0AEC8DC95BFF3807BD347FCDBCA5BA1
+module 2F1AE27C183092E220CE4FCFD42DDB17192D77C55411ECB6FBF15FFA74696B5C
   imports VERIFICATION
 
 // End_vow
-rule [End.vow.pass.rough]:
+claim [End.vow.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 6DC783A322CCF059EC4857A7EDC1EC9BF86CAAE938E67BFA868AF33614281FDA
+module 1A8A698812E07125E90792EE0F438A3273788E97DB80473EDAA73F92ECF4FEF1
   imports VERIFICATION
 
 // Flopper_vat
-rule [Flopper.vat.pass]:
+claim [Flopper.vat.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

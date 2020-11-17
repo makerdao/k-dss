@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 93A74542F4762D7440017AA3D11F295DBE84844BE78ECA709A5714DFA6A43944
+module D46A9FB02133D0065B5E729D98B3697445326E2C222B4A62B884FA8AD3A40C2E
   imports VERIFICATION
 
 // Vow_flapper
-rule [Vow.flapper.pass.rough]:
+claim [Vow.flapper.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

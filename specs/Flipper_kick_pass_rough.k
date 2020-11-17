@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 9AD9410322CA2E574EBC35F3FD898B61673D7EC5C63E4898C5137F9BD1B4C750
+module 8438CEA41CB6390FDD04D1795DB0AD0808B44B4D7465706A991A45DBCD27A697
   imports VERIFICATION
 
 // Flipper_kick
-rule [Flipper.kick.pass.rough]:
+claim [Flipper.kick.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -332,7 +332,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.gem[Ilk][CALLER_ID] =/=Int #Vat.gem[Ilk][ACCT_ID] 
 
 // Flipper_addu48u48
-rule [Flipper.addu48u48.pass]:
+claim [Flipper.addu48u48.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -519,7 +519,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vat_flux-diff
-rule [Vat.flux-diff.pass]:
+claim [Vat.flux-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

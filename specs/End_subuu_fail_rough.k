@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module F885D916F8269289BEA994315C798B1B3C65B9E9684ABE3ACC67A81086BD510B
+module EE52644C79CB07D446A29DFE681D352C7F0011969F033E4D526DB2D1B321AB85
   imports VERIFICATION
 
 // End_subuu
-rule [End.subuu.fail.rough]:
+claim [End.subuu.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module E02FDB8AF95670906E1ACBCAEF5B71429B8D3E5402102B6A3BD856AA17DFD727
+module 6C78E2072BDC11F13730C9061E21D82BE43F76B6B1C3165812ACF1C7BD83CE2E
   imports VERIFICATION
 
 // Spotter_file-pip
-rule [Spotter.file-pip.pass]:
+claim [Spotter.file-pip.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

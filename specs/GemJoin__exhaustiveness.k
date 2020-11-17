@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 161C8C95EBF175BE578CAFCB1ACB830104CE385D0910858D94F18891AA72F365
+module B625CD14B30952270E19E475A95A35196704578FA421E3508D4EFCB18654C807
   imports VERIFICATION
 
 // GemJoin__exhaustiveness
-rule [GemJoin..exhaustiveness]:
+claim [GemJoin..exhaustiveness]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

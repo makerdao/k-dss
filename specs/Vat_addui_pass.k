@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module F5EEEECA024DAB42F5299890FF9F799CF4D427F3BC3E470A3F9F5700FAD77AE9
+module 40C1F061FFF003885C942AEE9480B05E2FF002ED1F0A811E006098184F55331C
   imports VERIFICATION
 
 // Vat_addui
-rule [Vat.addui.pass]:
+claim [Vat.addui.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -27,13 +27,7 @@ rule [Vat.addui.pass]:
         <wordStack> chop(ABI_y) : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 13112 => 13174 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if 0 <=Int ABI_y
-          #then   #if chop( ABI_y ) <=Int 0
-            #then   114
-            #else   128
-          #fi
-          #else   128
-        #fi ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 114 ) ) #Or #gas ( ( VGas +Int 128 ) ) #Or #gas ( ( VGas +Int 128 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

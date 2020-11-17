@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 97C2A568A0064148FEC2FED73C89699C1DD77621BEE39138398132A33471EF6D
+module EFFDC15F00234309F080FCA8535E58DBB62D41C94943888B208BC85ED8F0D8E8
   imports VERIFICATION
 
 // Jug__exhaustiveness
-rule [Jug..exhaustiveness]:
+claim [Jug..exhaustiveness]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

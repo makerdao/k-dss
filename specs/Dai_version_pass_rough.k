@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 5DBA16B990AA13A55CD1279B4B95C82912B99B36584FEB23913044B8BB624131
+module 8E27D7537C895B2CDD8043D303F7B22A4EB6947829AA0ACA8D91FFCE98F08E39
   imports VERIFICATION
 
 // Dai_version
-rule [Dai.version.pass.rough]:
+claim [Dai.version.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

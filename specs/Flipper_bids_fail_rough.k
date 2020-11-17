@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module EC46A8ECD7E9425E3766D6C685F2FF71DAA69C217497FA7B2AC28EAD93673E98
+module 3594C91A23FC4B4FC7DAD17B25073B830C43B0E7AFC8B6DED4E7D071906BD13A
   imports VERIFICATION
 
 // Flipper_bids
-rule [Flipper.bids.fail.rough]:
+claim [Flipper.bids.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

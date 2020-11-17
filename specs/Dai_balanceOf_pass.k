@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 82FD2693C6DAA5E73A6A3A9B198A32260427FEF478402D3B3106D95284FAE24C
+module 01194599FF5CB48C4B7AC871E4B398754EF36E0017329B2AF634FC284BD75EFC
   imports VERIFICATION
 
 // Dai_balanceOf
-rule [Dai.balanceOf.pass]:
+claim [Dai.balanceOf.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

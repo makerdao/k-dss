@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 4103AC97D96CA36813CD2EC858FDDB925487899A01C496AE3972142B5EA3E35F
+module 4B9B0F01CC6F55F5525703E033EF6977A675B7EDC19AFC77DA0E8521E48C9800
   imports VERIFICATION
 
 // Jug_rely-same
-rule [Jug.rely-same.fail.rough]:
+claim [Jug.rely-same.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

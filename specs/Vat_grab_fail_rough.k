@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 3C87CC946F02B352896357C526B6A57CB3A995B382CD5382DBF6BD50B5EFC191
+module 45EC59208CADF86A0A75BF5343C28223A6EF573F8EE2BFAD8DEE82728D200140
   imports VERIFICATION
 
 // Vat_grab
-rule [Vat.grab.fail.rough]:
+claim [Vat.grab.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

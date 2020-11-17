@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module A36322958F247163A16C0111E4702249BC4CA1571FD3F3FCF7A5312D0698D13A
+module 98F41160EF2FC39F176E5F2001C9558C1DC24D4324E9C726418156D851483B23
   imports VERIFICATION
 
 // Flopper_deny-same
-rule [Flopper.deny-same.pass]:
+claim [Flopper.deny-same.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

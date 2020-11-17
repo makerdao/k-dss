@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module B0D1D39B315060ABA4070AF4E84841B42A2E23609A97CE57D3D1D4F5582581BD
+module 4CF68F2D01B69526C8AABDE06145AB5F754BE360F6754D2007BA7CC98C3855D3
   imports VERIFICATION
 
 // Vat_slip
-rule [Vat.slip.pass.rough]:
+claim [Vat.slip.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module B39FAB4487D825CC6D50FE5DDB2E730BCA2341E9BF9DC676A7A011BB07E418D7
+module 79B594D7B384CD00F08B5ABDAFA512551033C171A9C4ACE680EF672201BB7629
   imports VERIFICATION
 
 // Flopper__exhaustiveness
-rule [Flopper..exhaustiveness]:
+claim [Flopper..exhaustiveness]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

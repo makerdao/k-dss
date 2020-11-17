@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 19E94D75A11292552945270BE44B7830B5447D0C3D2A0102986FDD6A87B350B2
+module 5CB5713C47AEF2AEE406B5C491769745992A695560EAFA224D4F8DBDF15ADEAB
   imports VERIFICATION
 
 // Cat_file
-rule [Cat.file.fail.rough]:
+claim [Cat.file.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

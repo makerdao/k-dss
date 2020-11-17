@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 12C0F8F36C366C7A2C417554F838527539782F40ECE53C3967FE4511D412F927
+module 16FA3295417C824B9C8FE6C209F9BFB8487605C6A190F9D2E843753A9F8BB876
   imports VERIFICATION
 
 // End_rdiv
-rule [End.rdiv.pass.rough]:
+claim [End.rdiv.pass.rough]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

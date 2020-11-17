@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module CA9994CDEA29F0702E701D96C6F1CC564D4850F0DB59DC9EC2C55EAFC72114FB
+module 4693D4BBC6844632AA0756CF113F6A220B057CE8B72C3CB5E112ABD305C6A0AB
   imports VERIFICATION
 
 // Vat_hope
-rule [Vat.hope.pass]:
+claim [Vat.hope.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module BE52CAC71A3F99FCE2ACDDCB85901EDA275783623BC403C0D260E106A3F15E26
+module 75D283C3AD83AA3B16101B5AFD0A4404B3433967E71C4B19C5050B99D1602353
   imports VERIFICATION
 
 // Vat_sin
-rule [Vat.sin.pass.rough]:
+claim [Vat.sin.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 251C08295D2484E1310F5B4721328D06B1DEAF6C5A87F89CEAA30769BFC07F15
+module 782E4B456F6F41BD424F4C35D667B6BD0C8C6D970441A017D1D5849E30E8D1AD
   imports VERIFICATION
 
 // GemJoin_wards
-rule [GemJoin.wards.pass.rough]:
+claim [GemJoin.wards.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

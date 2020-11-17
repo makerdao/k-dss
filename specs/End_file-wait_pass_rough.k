@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module F175289CA3217DFADCB805126629A9800DDF636FD498A0599FEC9AC70048E3FD
+module B23A14A203AB2344E57AC375B0045BAAEE8CE1436B82E4D56B10DDAA7844AD5F
   imports VERIFICATION
 
 // End_file-wait
-rule [End.file-wait.pass.rough]:
+claim [End.file-wait.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

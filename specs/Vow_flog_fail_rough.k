@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 8AF12F7DFD440D5EAE4CDD69F665D52231C1A91654207AF1BD937729968D1A3D
+module A67C03668CC23FAA661E9B1F36306BA09DA2EDA51A7DA64C4024C663333BDF0E
   imports VERIFICATION
 
 // Vow_flog
-rule [Vow.flog.fail.rough]:
+claim [Vow.flog.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -208,7 +208,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // Vow_adduu
-rule [Vow.adduu.pass]:
+claim [Vow.adduu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -395,7 +395,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vow_subuu
-rule [Vow.subuu.pass]:
+claim [Vow.subuu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

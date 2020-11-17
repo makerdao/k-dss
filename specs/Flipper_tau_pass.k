@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module F1708820D1A0EA02FD1D9B9CC0F3D88C1B758CCE91216DDC96331469AF331165
+module F0266191A0752B3FD56035C5D3BD4E9F4C880D1D77AD4CC72B0D5578B1444D7B
   imports VERIFICATION
 
 // Flipper_tau
-rule [Flipper.tau.pass]:
+claim [Flipper.tau.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

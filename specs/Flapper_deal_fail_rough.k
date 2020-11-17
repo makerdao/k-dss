@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module B2D043392A8EAF72975D8C3ABB8F92810DA4494DE2E9D391D6002C652499DA2F
+module 93AE02DDE5506A2DEAE18C253202A111196AC4E0FAFB8A5A1927C7CE6FE9D719
   imports VERIFICATION
 
 // Flapper_deal
-rule [Flapper.deal.fail.rough]:
+claim [Flapper.deal.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -307,7 +307,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // Vat_move-diff
-rule [Vat.move-diff.pass]:
+claim [Vat.move-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -512,7 +512,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // DSToken_burn-self
-rule [DSToken.burn-self.pass]:
+claim [DSToken.burn-self.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

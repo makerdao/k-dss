@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 7A44BF2E44792255BCDB621374401357CA9249636458B2A04BB6D1400D527001
+module 7637D12C35D90C4401B77BFDAC6AA3D9D70C47B08ABF14BE8E7ABB695C5C7027
   imports VERIFICATION
 
 // End_file-addr
-rule [End.file-addr.pass]:
+claim [End.file-addr.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -27,19 +27,7 @@ rule [End.file-addr.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_what =/=Int 53545100900685164813421173191694169757104383823456404290715674782982803030016
-          #then   #if ABI_what =/=Int 44951156777603103434328014148080614096119502149053393678412182219895500439552
-            #then   #if ABI_what =/=Int 53569857464831102565726701660972157447402325951339579467289042757373571104768
-              #then   #if ABI_what =/=Int 50855959668092463863795394395563447776014953332411712236454590144615435730944
-                #then   ( Csstore( ISTANBUL , ABI_data , Spot , Junk_5 ) +Int 7381 )
-                #else   ( Csstore( ISTANBUL , ABI_data , Pot , Junk_4 ) +Int 7354 )
-              #fi
-              #else   ( Csstore( ISTANBUL , ABI_data , Vow , Junk_3 ) +Int 7327 )
-            #fi
-            #else   ( Csstore( ISTANBUL , ABI_data , Cat , Junk_2 ) +Int 7300 )
-          #fi
-          #else   ( Csstore( ISTANBUL , ABI_data , Vat , Junk_1 ) +Int 7273 )
-        #fi ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Spot , Junk_5 ) +Int 7381 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Pot , Junk_4 ) +Int 7354 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Vow , Junk_3 ) +Int 7327 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Cat , Junk_2 ) +Int 7300 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Vat , Junk_1 ) +Int 7273 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

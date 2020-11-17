@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 67052731BD51A6D8BC7C45F0F97B6FBD0094C4E3E8847C44973382E0444F91FD
+module A6748D2C9302AEC61023E3F58F328C125905B76A549D1D73F296FF40D0ADD41D
   imports VERIFICATION
 
 // GemJoin_rely-same
-rule [GemJoin.rely-same.pass.rough]:
+claim [GemJoin.rely-same.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

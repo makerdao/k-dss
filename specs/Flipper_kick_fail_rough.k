@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 720F1DFA9F30A802A7A5BB70EA1917E5AFA633927407E3BAF590C5E67A24649E
+module 0F5640ABDC5C76085EE0F0638B09E24919FA327F0088FCCC1E4399AA2A2CACBA
   imports VERIFICATION
 
 // Flipper_kick
-rule [Flipper.kick.fail.rough]:
+claim [Flipper.kick.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -336,7 +336,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // Flipper_addu48u48
-rule [Flipper.addu48u48.pass]:
+claim [Flipper.addu48u48.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -523,7 +523,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vat_flux-diff
-rule [Vat.flux-diff.pass]:
+claim [Vat.flux-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

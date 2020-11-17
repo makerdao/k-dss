@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 617170495BC83B7FA375A1F8F49EED82B07E874A70E75768D4622FD61D35C01F
+module FC74DB222C58926455893E705433E35731DCB08263B7088EDEA3A5452E326705
   imports VERIFICATION
 
 // Cat_file
-rule [Cat.file.pass]:
+claim [Cat.file.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -27,10 +27,7 @@ rule [Cat.file.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_what =/=Int 44963493217838844892687817059512192886801667728146837483730375534287777693696
-          #then   ( Csstore( ISTANBUL , ABI_data , Lump , Junk_2 ) +Int 5687 )
-          #else   ( Csstore( ISTANBUL , ABI_data , Chop , Junk_1 ) +Int 5660 )
-        #fi ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Lump , Junk_2 ) +Int 5687 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Chop , Junk_1 ) +Int 5660 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

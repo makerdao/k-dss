@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module F23DFCFB4CCF97CE0B8D60E7C42169137249D6CA1AEA5447462FACC8E4B75B02
+module AE28B4DE275133320CCE359718FFD073A3BCDFA39D50EBC68ED0C71978856606
   imports VERIFICATION
 
 // DSToken_burn
-rule [DSToken.burn.pass]:
+claim [DSToken.burn.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -27,10 +27,7 @@ rule [DSToken.burn.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Supply -Int ABI_wad ) , Supply , Junk_2 ) +Int #if Allowance ==Int maxUInt256
-          #then   7641
-          #else   ( Csstore( ISTANBUL , ( Allowance -Int ABI_wad ) , Allowance , Junk_0 ) +Int 9898 )
-        #fi ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Supply -Int ABI_wad ) , Supply , Junk_2 ) +Int 7641 ) ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Allowance -Int ABI_wad ) , Allowance , Junk_0 ) +Int ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Supply -Int ABI_wad ) , Supply , Junk_2 ) +Int 9898 ) ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

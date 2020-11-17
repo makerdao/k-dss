@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 984248AAD107A49ED62708BB64B2288CD7E91FAE419749530457BEDD73C4CB48
+module 1DD2FAB49A518EA336EB9559A9540B39C7F3D2741ACEE13F696F70726775170F
   imports VERIFICATION
 
 // End_cage-ilk
-rule [End.cage-ilk.fail.rough]:
+claim [End.cage-ilk.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -320,7 +320,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // End_rdiv
-rule [End.rdiv.pass]:
+claim [End.rdiv.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -508,7 +508,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vat_ilks
-rule [Vat.ilks.pass]:
+claim [Vat.ilks.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -722,7 +722,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Spotter_ilks
-rule [Spotter.ilks.pass]:
+claim [Spotter.ilks.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -916,7 +916,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // DSValue_read
-rule [DSValue.read.pass]:
+claim [DSValue.read.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 6BFB5A9CD1F62667BF1F177D8ECCA39305897C3435559798EF02CB0B341C8460
+module 78FEE857F0988AA0AE753A6B66BFF6D62DC9D07222F950E05D559A47E89A4384
   imports VERIFICATION
 
 // Flapper_rely-same
-rule [Flapper.rely-same.fail.rough]:
+claim [Flapper.rely-same.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

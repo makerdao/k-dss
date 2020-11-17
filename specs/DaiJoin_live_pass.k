@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module D405B11A5108A5B95D31C85A42CC4DEFE9EBF0C0EDFE9A1BBFD8C26DBA125D79
+module 1154E7162E00E86C3F45DEB13F36EEAAC8FE411983F643152A1DB14A39C40CD9
   imports VERIFICATION
 
 // DaiJoin_live
-rule [DaiJoin.live.pass]:
+claim [DaiJoin.live.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

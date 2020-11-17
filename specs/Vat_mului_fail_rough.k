@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 3326E5DA67B7DE2B80E8290D4BD1303615E404E09D3BFB24C2A0E82DDBFBB9B7
+module 20525A7E7EC3621B0D5D306863342E2054F3B6FF819A1B8EA7B279648236490F
   imports VERIFICATION
 
 // Vat_mului
-rule [Vat.mului.fail.rough]:
+claim [Vat.mului.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

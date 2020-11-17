@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 3BD201C8A91F267F7D79C6968848540DA0AB87308CBC22164323854BCDB10033
+module 4A5DC90B831F57730D3D6BA5D9A519E070212723C5EDC5DAA4EF3771ABA7F946
   imports VERIFICATION
 
 // Cat_cage
-rule [Cat.cage.pass]:
+claim [Cat.cage.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

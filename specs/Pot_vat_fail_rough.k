@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module A00507FDB630B294A8763B461E0342FB82BD7D4669D7A51F10EDEEC7835D9FED
+module C640B19F943D3B3CA74023D35329CAD04C77B3012DD2036F43B6E914ACA72810
   imports VERIFICATION
 
 // Pot_vat
-rule [Pot.vat.fail.rough]:
+claim [Pot.vat.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 0B00789EAA2BF2E6DCA24052458ABE51838A0990E3FAEC6DF9A3522E7AA89556
+module 457B609D26C1F947523C5085B5353DAE03975397F53900E86FE4F78C634F2357
   imports VERIFICATION
 
 // Flipper_wards
-rule [Flipper.wards.fail.rough]:
+claim [Flipper.wards.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

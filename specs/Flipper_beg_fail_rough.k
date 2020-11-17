@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module A55216827C924768235BBA4A19151E7530D25ADA5A71792B5534931515C9EE8A
+module 7B236E2CE8A3EB61E0F3772EEE4C8B2355D7EE7DA982E263A0F0076F9713D989
   imports VERIFICATION
 
 // Flipper_beg
-rule [Flipper.beg.fail.rough]:
+claim [Flipper.beg.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

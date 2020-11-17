@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 4DFF5716A101F6D5A43AB8181F50F70C951204CF2CA17E8B8BF79A9719C0F0A0
+module 5D96F8E8E0922D9238ADB8822293C02FCD6A9E1AEBD363B35B5A9E16B422DB51
   imports VERIFICATION
 
 // DaiJoin_rely-diff
-rule [DaiJoin.rely-diff.fail.rough]:
+claim [DaiJoin.rely-diff.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

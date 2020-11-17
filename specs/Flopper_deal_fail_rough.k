@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module FC4D0C6FFB3DE24C2830141D59B18DA550D75ED2324115DD7CA28C7E45745025
+module 4AC9B12E4F46A2BAAC66E5E367001AB48BB1D2AE8817A7A70C9B5129ACE18E46
   imports VERIFICATION
 
 // Flopper_deal
-rule [Flopper.deal.fail.rough]:
+claim [Flopper.deal.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -260,7 +260,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // DSToken_mint
-rule [DSToken.mint.pass]:
+claim [DSToken.mint.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

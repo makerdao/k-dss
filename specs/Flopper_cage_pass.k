@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 09FB39ABE2F90138267B41CA05E4460C8A35CFE28B45C073A3243D7BA742896E
+module 71748481CBD32CAA0084144B3BB99B31828304E22C92FE286E017B931F178C35
   imports VERIFICATION
 
 // Flopper_cage
-rule [Flopper.cage.pass]:
+claim [Flopper.cage.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

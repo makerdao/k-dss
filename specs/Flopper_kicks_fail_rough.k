@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 3EBC04FF663D7A6B5BD63296B376BF8F94E670935B4CFE8F7C3DDDCA6C74477B
+module EFBCC88744B163B824650C2710DBC9E6889B8D008E2ABE8274F2693F2A50F084
   imports VERIFICATION
 
 // Flopper_kicks
-rule [Flopper.kicks.fail.rough]:
+claim [Flopper.kicks.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

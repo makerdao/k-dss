@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module C9ED8D64325BCB2E9ACF02C8456733CCA1DA082D1BEFA2BB957C59293C0EB101
+module 876526609A4D53B0D84B44368119CAB65ED40D91550689F0A70BFB1B6C9B8B87
   imports VERIFICATION
 
 // GemJoin_live
-rule [GemJoin.live.fail.rough]:
+claim [GemJoin.live.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

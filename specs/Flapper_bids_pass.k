@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module BAAE90B8F0452657A383A8FAA6CB6ABE804EF6130098C613FF902C10456DE650
+module 56E1D2D1603C9B7563882B0401E64BF342E666427292DB57A1D9E26C2CF0C7D4
   imports VERIFICATION
 
 // Flapper_bids
-rule [Flapper.bids.pass]:
+claim [Flapper.bids.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

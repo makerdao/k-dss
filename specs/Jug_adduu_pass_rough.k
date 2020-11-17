@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 29FD6BAA7A18CF297C04E19B36CA84258778C29DC8524CC322D9FF900A9585A1
+module 942A707643DBE18736E5155C719A2173E0B5A0F8D66B70615B40B05C6FE0BEEA
   imports VERIFICATION
 
 // Jug_adduu
-rule [Jug.adduu.pass.rough]:
+claim [Jug.adduu.pass.rough]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

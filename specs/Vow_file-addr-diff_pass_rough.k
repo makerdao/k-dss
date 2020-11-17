@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 5F4F5C6B704C6D79C658BFEB17EFF7BC2849FF722155C761D5962524D5100BE6
+module 7C805696B0E3014422DED6433F524BF8E85BD819EBF6EFB17AD9E8BEB01EC5F0
   imports VERIFICATION
 
 // Vow_file-addr-diff
-rule [Vow.file-addr-diff.pass.rough]:
+claim [Vow.file-addr-diff.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -237,7 +237,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.can[ACCT_ID][Flapper] =/=Int #Vat.can[ACCT_ID][ABI_data] 
 
 // Vat_nope
-rule [Vat.nope.pass]:
+claim [Vat.nope.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -425,7 +425,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vat_hope
-rule [Vat.hope.pass]:
+claim [Vat.hope.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

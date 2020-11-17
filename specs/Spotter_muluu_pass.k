@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 76FB3E0CB95AF0F41998742EAE90C48F0D0DB78E7D36A28F1ACC651A10A9CDE2
+module C8867112FCC4DF8213BA5CF8F15220DB91CD0C3BB67647575CFFBFE2F1320F0B
   imports VERIFICATION
 
 // Spotter_muluu
-rule [Spotter.muluu.pass]:
+claim [Spotter.muluu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -27,10 +27,7 @@ rule [Spotter.muluu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x *Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 4107 => 4150 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int 0
-          #then   54
-          #else   106
-        #fi ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 54 ) ) #Or #gas ( ( VGas +Int 106 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

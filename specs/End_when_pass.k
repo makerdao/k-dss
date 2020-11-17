@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module A6A7DE07FA3EC95D28D847569A027DFB81F250D8121E75581BBDC7D071E0B545
+module 8E774DCCF7F3982A74AE9FDBBC5326E85D3A6F6094D60B332CAA83871A90B199
   imports VERIFICATION
 
 // End_when
-rule [End.when.pass]:
+claim [End.when.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

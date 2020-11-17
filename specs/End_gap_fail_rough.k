@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 9E1B62683BC35AE6C9C9976D6418D0E06F473D7E1CDE31FC88053728CFF59858
+module 182338EBD42CDE1AB27E34429847D0A879D113F7009BEB045B7D83CF732457B8
   imports VERIFICATION
 
 // End_gap
-rule [End.gap.fail.rough]:
+claim [End.gap.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

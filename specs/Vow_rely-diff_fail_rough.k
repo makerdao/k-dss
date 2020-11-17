@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module C19CFB45E02CC2797C1758DB9CD4C5839F4283A89DD10A4F558287B29D63F75C
+module 508A9492668D9F013FB0ECB61E8FE1E642D5B5D9B10FC875273318E691981A12
   imports VERIFICATION
 
 // Vow_rely-diff
-rule [Vow.rely-diff.fail.rough]:
+claim [Vow.rely-diff.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

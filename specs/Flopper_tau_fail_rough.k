@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 633059E396609B82D4FBBA48E884607414638FEFC632643ED732E7296287A852
+module 8E15A61E8699F2996E8DE68BF072988DBDF8DEA59306F816B9A6B3A3C9E82C6C
   imports VERIFICATION
 
 // Flopper_tau
-rule [Flopper.tau.fail.rough]:
+claim [Flopper.tau.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module DF1C6DFF92BAFF21FBE8B4564A3682A336240E8466109ADB1E4B415C8880BDCE
+module 92DC8FE5356445C44775D06740F5E1B3F32F605DE40EF98D55C12B7F96DD5D17
   imports VERIFICATION
 
 // DSValue_peek
-rule [DSValue.peek.pass]:
+claim [DSValue.peek.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

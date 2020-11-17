@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module CBC6CCD950997EE1A2670665E7A8D2B7A77D4E36DE3D4E6A915861DA5195EFAD
+module CC306393C77CD37A9829EE058805A5E661A00D78411612743B0706FE2D4B6729
   imports VERIFICATION
 
 // Vow_vat
-rule [Vow.vat.pass]:
+claim [Vow.vat.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

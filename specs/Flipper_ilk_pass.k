@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 14FD60C4B1BAB554081535FA4F5C9FFBB4E90732FCAC0522F2A5A153E7E91A97
+module 8D4218C57F71D4A8CDC1BB107F8A21646866ED3D7619F09ADAC04E275E2B7F46
   imports VERIFICATION
 
 // Flipper_ilk
-rule [Flipper.ilk.pass]:
+claim [Flipper.ilk.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

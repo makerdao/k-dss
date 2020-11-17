@@ -1,4 +1,1 @@
-#gas ( ( VGas +Int #if ABI_x <=Int ABI_y
-  #then   49
-  #else   59
-#fi ) )
+#gas ( ( VGas +Int 49 ) ) #Or #gas ( ( VGas +Int 59 ) )

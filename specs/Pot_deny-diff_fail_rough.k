@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module DB7CFAA40E89CC3443BE0358BDE19CF898D01285332CCA7130FE39BDB6C9FCFF
+module D3EBF729320D3863FB6149B298CDA9DEDCE322587D5E89A188BD98CB75DC3D36
   imports VERIFICATION
 
 // Pot_deny-diff
-rule [Pot.deny-diff.fail.rough]:
+claim [Pot.deny-diff.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

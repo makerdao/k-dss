@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module F85BBF0D5D63005D184DFF2933F59C0DA4D06607A53FBF369236D13327BD6C68
+module 438CB571E529BCA4BDD67F9FC9E2B41BD779011D8D1B6027D62D08A8B752E431
   imports VERIFICATION
 
 // Spotter_muluu
-rule [Spotter.muluu.pass.rough]:
+claim [Spotter.muluu.pass.rough]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

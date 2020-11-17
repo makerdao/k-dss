@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module D5954219519517E2C3445D22DDBA69599D88E7960EB4965BB178E22FFFE76E83
+module 825E34D7CDC0B58D77533554D9F12F383C6DD7050EA411E12D3F6EA268BDD006
   imports VERIFICATION
 
 // Flipper_deal
-rule [Flipper.deal.fail.rough]:
+claim [Flipper.deal.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -289,7 +289,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // Vat_flux-diff
-rule [Vat.flux-diff.pass]:
+claim [Vat.flux-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

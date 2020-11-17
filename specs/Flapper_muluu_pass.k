@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 3ED216A6427B7D0E5EAB17BB50D9E6E58983C56C0327B5A08F022BF318BA2FA4
+module EF21B1E5C461B7AF93BB80AA3D4EFB7663220DA3B9C110449500B7D6C813D2CB
   imports VERIFICATION
 
 // Flapper_muluu
-rule [Flapper.muluu.pass]:
+claim [Flapper.muluu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -27,10 +27,7 @@ rule [Flapper.muluu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x *Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 8901 => 8944 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int 0
-          #then   54
-          #else   106
-        #fi ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 54 ) ) #Or #gas ( ( VGas +Int 106 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

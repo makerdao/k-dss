@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 41496C2544525E5DD37E904C3D9B833F463E3142DEF8D3DF8F89AF4C04141981
+module 4FA28753AB08F033F99BD4B0DED6F0B823C0D35CAE324F438CA3829F51F0E836
   imports VERIFICATION
 
 // Flapper_addu48u48
-rule [Flapper.addu48u48.pass]:
+claim [Flapper.addu48u48.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 7858370D2A5A59DC7CC168F77282615D124A87FC10BFDF5F43ED5649269319C2
+module C83E3181A44F40CF4EE8A7C423ECDEB6847FEDB9E90B345B94A65F3D82269E80
   imports VERIFICATION
 
 // Dai_burn
-rule [Dai.burn.pass.rough]:
+claim [Dai.burn.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -205,7 +205,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Dai.balanceOf[ABI_src] =/=Int #Dai.totalSupply 
 
 // Dai_subuu
-rule [Dai.subuu.pass]:
+claim [Dai.subuu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

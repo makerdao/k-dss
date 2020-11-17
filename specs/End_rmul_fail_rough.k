@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 5C98BA8802DD155B595DA4EC7371883C4B9F156E3135BBACF75DD547775E6D39
+module 839341CC8F79923A4964C8F82F6B04D600108583985A0E5493EB93060D82AD44
   imports VERIFICATION
 
 // End_rmul
-rule [End.rmul.fail.rough]:
+claim [End.rmul.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

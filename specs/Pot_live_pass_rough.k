@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module A72944D5CF0B15745A6EDCB5F3C0C41C93D5D21DFDFF6C85D2BC24D50F8FB1F0
+module 4F6FCC3C5934FCC2AB70B9328FDF9FA62878B672376718AE41A7634BB126F3AF
   imports VERIFICATION
 
 // Pot_live
-rule [Pot.live.pass.rough]:
+claim [Pot.live.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

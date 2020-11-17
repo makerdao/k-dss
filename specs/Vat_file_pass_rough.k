@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 02069C697E742BB244EA05369B4165B6427A422050820EEBF22D53BF1F037B36
+module 856EF7AB58E90C25D4428A09DEB22495D53034EDED434B618B8977CB630FFB32
   imports VERIFICATION
 
 // Vat_file
-rule [Vat.file.pass.rough]:
+claim [Vat.file.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

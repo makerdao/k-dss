@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module A5A424EDD5265A304464F199945582951B10A2F49921822909E15B626CC63363
+module FD890F2D849D23DC6817A0C6E1F1B756771CF83CBA12CD6C9199EB4F029FE090
   imports VERIFICATION
 
 // Dai_nonces
-rule [Dai.nonces.fail.rough]:
+claim [Dai.nonces.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

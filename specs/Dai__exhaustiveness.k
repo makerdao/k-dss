@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 84C083E8EF58686F49C45CF82675684DB947E9D11C0760E0981E1270496F3000
+module 77FF750F51EBC975BA04E442536FF99E28B5D0B747DFD766412D057716549259
   imports VERIFICATION
 
 // Dai__exhaustiveness
-rule [Dai..exhaustiveness]:
+claim [Dai..exhaustiveness]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

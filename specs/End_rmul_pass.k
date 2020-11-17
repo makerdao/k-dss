@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 41C664A3F0395EF65E50A19DD5EFE0FA97CDD6F42E199D3E3A0BB5F56DFBC9B1
+module DDC26FEC09DC1F8558D8BDDF61D03FA3CDE9FE8F3E9C4AA3A4B63390591F268A
   imports VERIFICATION
 
 // End_rmul
-rule [End.rmul.pass]:
+claim [End.rmul.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -27,10 +27,7 @@ rule [End.rmul.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : (ABI_x *Int ABI_y) /Int #Ray : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 14623 => 14663 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int 0
-          #then   127
-          #else   179
-        #fi ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 127 ) ) #Or #gas ( ( VGas +Int 179 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

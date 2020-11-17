@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 2FA0F84E1A4DA02BBD120A98801F92005A6365DA15071997CCF96D66117737FC
+module 9D42F18CCE51918BDAE3069CD819C436959F82CA0B64BB470B4ECF95EA07C586
   imports VERIFICATION
 
 // Vow__exhaustiveness
-rule [Vow..exhaustiveness]:
+claim [Vow..exhaustiveness]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

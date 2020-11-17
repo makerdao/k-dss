@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module E283DFB8A263D48470ABDA36FA0F85B755D1DF87BB210062450C956CA3E8E073
+module 156209257EE80E23DCCB7C4B3CB6DAA97A826FF767F60473D08979EE8BC8CF99
   imports VERIFICATION
 
 // Vow_fess
-rule [Vow.fess.fail.rough]:
+claim [Vow.fess.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -208,7 +208,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // Vow_adduu
-rule [Vow.adduu.pass]:
+claim [Vow.adduu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

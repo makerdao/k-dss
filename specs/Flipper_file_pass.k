@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 23C7659CE1BA00BE4475C1F55ADCE2D40D9CD5CDE78943F2378EA249C8D79E47
+module D2610D5F2A8D6E07563B32A428985FA3D85D45CED244730F8512B0BD0A14BFE6
   imports VERIFICATION
 
 // Flipper_file
-rule [Flipper.file.pass]:
+claim [Flipper.file.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -27,13 +27,7 @@ rule [Flipper.file.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_what =/=Int 44505821594576442305943786526067189028800094342624099485940320344354850865152
-          #then   #if ABI_what =/=Int 52673990083778647014426308045781012712597814653424946781269281625551751086080
-            #then   ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( Ttl , ABI_data ) , #lookup( ACCT_ID_STORAGE , 5 ) , Junk_2 ) +Int 6549 )
-            #else   ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , Tau ) , #lookup( ACCT_ID_STORAGE , 5 ) , Junk_2 ) +Int 6472 )
-          #fi
-          #else   ( Csstore( ISTANBUL , ABI_data , Beg , Junk_1 ) +Int 5592 )
-        #fi ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( Ttl , ABI_data ) , #lookup( ACCT_ID_STORAGE , 5 ) , Junk_2 ) +Int 6549 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , Tau ) , #lookup( ACCT_ID_STORAGE , 5 ) , Junk_2 ) +Int 6472 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Beg , Junk_1 ) +Int 5592 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

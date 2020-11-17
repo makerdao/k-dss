@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 84DE5CD0416F0EC8AEFEF34C61B3DC078FFBBC19447FA80B7AA1F412431D3844
+module B162222DF62862079CDF37058808498F6C15CD91C5DEFDD83A39CBE2AA1059FE
   imports VERIFICATION
 
 // Pot_muluu
-rule [Pot.muluu.pass.rough]:
+claim [Pot.muluu.pass.rough]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

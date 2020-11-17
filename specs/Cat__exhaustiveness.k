@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module E23FA07728FAD2DFBF0B57BF80CBFC7AF0F7D9F111A36EAAB9FC46AB9BEABBC1
+module 4CBB0BD46E1B0E8A182153CA2C63CEB7FAF979BB92F4509113EEFC777A9F8A11
   imports VERIFICATION
 
 // Cat__exhaustiveness
-rule [Cat..exhaustiveness]:
+claim [Cat..exhaustiveness]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

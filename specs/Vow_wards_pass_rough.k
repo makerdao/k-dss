@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 0A2471C79E57BF6B10A53D697D7FEE51266A78EF76A92536AAD9723F55C916B5
+module E5D50F9F7E48AC55D58EF4B303EA15BBB9FD55BFB3D960B52432FFD02E2A3D77
   imports VERIFICATION
 
 // Vow_wards
-rule [Vow.wards.pass.rough]:
+claim [Vow.wards.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

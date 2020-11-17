@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module C905DEB2F2781A39571AC06AF1BD0073AA9F60ACB73A4177458926A274150564
+module 6362F6D5E42AF4044474381E80A4174D7BF2E51DDB8415866E1D38FBC6144A1E
   imports VERIFICATION
 
 // Flopper_file
-rule [Flopper.file.pass.rough]:
+claim [Flopper.file.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

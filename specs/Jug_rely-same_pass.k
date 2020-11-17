@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 27BFFFA1628559634DF99A0E65EC512B648263389D3181791466A24109D1F1FA
+module 1AFFBE80448105F25B23ED559845E8F5663A88E698B84B0F8093F628C73CB216
   imports VERIFICATION
 
 // Jug_rely-same
-rule [Jug.rely-same.pass]:
+claim [Jug.rely-same.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module DB7E03EFBBAAB3FC23CDAFC876420320E4D7E7908AC37DF652E8788BE5BDF7F8
+module 61C9A990066EB72450BA2776E1875652CB2A95E616FEA8130FFC86F378B157E3
   imports VERIFICATION
 
 // End_cage-ilk
-rule [End.cage-ilk.pass.rough]:
+claim [End.cage-ilk.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -316,7 +316,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #DSValue.owner_has =/=Int #DSValue.val 
 
 // End_rdiv
-rule [End.rdiv.pass]:
+claim [End.rdiv.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -504,7 +504,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vat_ilks
-rule [Vat.ilks.pass]:
+claim [Vat.ilks.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -718,7 +718,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Spotter_ilks
-rule [Spotter.ilks.pass]:
+claim [Spotter.ilks.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -912,7 +912,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // DSValue_read
-rule [DSValue.read.pass]:
+claim [DSValue.read.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

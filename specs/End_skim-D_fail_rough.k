@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 36084EC836354CB6B92218EAD7B138B229D046D675735EA3FB8BF81B18AE8FB0
+module 32785BEAFA7B588E7B61999BFED0FC30FE999100CC654083ADF3E673CEB60F20
   imports VERIFICATION
 
 // End_skim-D
-rule [End.skim-D.fail.rough]:
+claim [End.skim-D.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -265,7 +265,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // Vat_ilks
-rule [Vat.ilks.pass]:
+claim [Vat.ilks.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -479,7 +479,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vat_urns
-rule [Vat.urns.pass]:
+claim [Vat.urns.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

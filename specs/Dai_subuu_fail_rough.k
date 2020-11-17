@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 82B25B546A8CEC4EA23A8E81EA347B7354BE0A58F11383856CDA19CE427C437B
+module 7016D4DE762043E47FADDBBC2B451DFF3B71ED3B8AC76E51050BEB2002A7FE8D
   imports VERIFICATION
 
 // Dai_subuu
-rule [Dai.subuu.fail.rough]:
+claim [Dai.subuu.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

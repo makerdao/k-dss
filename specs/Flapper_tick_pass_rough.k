@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 835A8196850A0CCF979EF1556CA143456D5235E0A5047A05EC54039696F3A117
+module 53F382E8BAEAF3DE430B0E5FC23BED33F4138EDB932ED37FDB1B458152630222
   imports VERIFICATION
 
 // Flapper_tick
-rule [Flapper.tick.pass.rough]:
+claim [Flapper.tick.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -203,7 +203,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Flapper.ttl_tau =/=Int #Flapper.bids[ABI_id].guy_tic_end 
 
 // Flapper_addu48u48
-rule [Flapper.addu48u48.pass]:
+claim [Flapper.addu48u48.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

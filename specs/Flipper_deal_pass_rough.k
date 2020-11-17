@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 65A14CE838568DF994FCFCB9A84E9EE85970F0F8492EB3C01F89384D90E77B1A
+module 61F5B20E17D05E20F2900F464C2BBC4C6181DA7F34EE8288579FC8637536B63C
   imports VERIFICATION
 
 // Flipper_deal
-rule [Flipper.deal.pass.rough]:
+claim [Flipper.deal.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -285,7 +285,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.gem[Ilk][ACCT_ID] =/=Int #Vat.gem[Ilk][Guy] 
 
 // Vat_flux-diff
-rule [Vat.flux-diff.pass]:
+claim [Vat.flux-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

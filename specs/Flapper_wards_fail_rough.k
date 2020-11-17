@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module FD2825253B0D56208ACAD11FB0ABA119FD8C6753E90F102F233EF023FC4656C3
+module D30A81F6A8C374360DEC4C5466C0D4FCDD61D4D373FE1D9BD722DEFCC462CE26
   imports VERIFICATION
 
 // Flapper_wards
-rule [Flapper.wards.fail.rough]:
+claim [Flapper.wards.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 0FCEF4CF2FA7C39E7678DE93E11ED5FE4A2F753191E4C3918EE0CC2CB9B6A19C
+module EE5C1742CFAA700A6DE74A17927BA25312ABC495CFFC596C2BD100D83F21E05E
   imports VERIFICATION
 
 // End_tag
-rule [End.tag.pass]:
+claim [End.tag.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

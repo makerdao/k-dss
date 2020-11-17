@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 90A21A2E97D148BBF66311AB286E8C8D732DB8F71E9B6C7FBD3033D416FF06E0
+module 4968BA6F1ED01F861BB303C191F2D63D2117888B6769557A9806C01F24D855AF
   imports VERIFICATION
 
 // Flopper_addu48u48
-rule [Flopper.addu48u48.pass.rough]:
+claim [Flopper.addu48u48.pass.rough]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

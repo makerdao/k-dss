@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 5FD6AE2268A93A9A31077793D0BF4CDC6035C0CE7AF4593885144FE788ED62E7
+module F69B262DE4D262CB542BE6AC5B8A70FD27CB3E8B319BE35C83104A1521152E70
   imports VERIFICATION
 
 // Flipper_ttl
-rule [Flipper.ttl.fail.rough]:
+claim [Flipper.ttl.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

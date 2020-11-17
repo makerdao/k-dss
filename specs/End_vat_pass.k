@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module D3CC5694EB3562537EBFA3C73E24C5FDEF8769A7C1E4C19E0C97821C79543913
+module 0D19AB8162B1B8CD445AC696A535722608FC1C417900A270352BF3B9BE9D10B1
   imports VERIFICATION
 
 // End_vat
-rule [End.vat.pass]:
+claim [End.vat.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

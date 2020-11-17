@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 43982A6875E250979FF8B0E59B4BC03748F93752B33053EB75EC0BA87E0B4215
+module 4FAF8AE4E941F792E1B7DEF33DC6B0BB1B01F250C24496E71427950372F39900
   imports VERIFICATION
 
 // Vow_file-addr-diff
-rule [Vow.file-addr-diff.fail.rough]:
+claim [Vow.file-addr-diff.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -241,7 +241,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // Vat_nope
-rule [Vat.nope.pass]:
+claim [Vat.nope.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -429,7 +429,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vat_hope
-rule [Vat.hope.pass]:
+claim [Vat.hope.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

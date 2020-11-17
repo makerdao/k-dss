@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 0E490D79F8CD5939558CA297351768AAFF4D1336BC9A95797BFE79C72FC235CF
+module 062A0BBC3E6743156B405AD9720E0F2DAA9908D2AECE3539BB79886C5D85D159
   imports VERIFICATION
 
 // Vow_subuu
-rule [Vow.subuu.fail.rough]:
+claim [Vow.subuu.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

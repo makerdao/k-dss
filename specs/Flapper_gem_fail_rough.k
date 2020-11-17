@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module C5675BA3EB7158414B98A08438829E2C4CC4D3816B0C86E73E30F714298843A5
+module 29B4FF156D8456DC995C617D8C6D5B54C5FBEF21DBE32C79FA44A2988AD16671
   imports VERIFICATION
 
 // Flapper_gem
-rule [Flapper.gem.fail.rough]:
+claim [Flapper.gem.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

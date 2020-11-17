@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 1DB19F5AA8B51E2F556F814EA082B1A0BC565382EEC6BB92C98BDD339085F83A
+module F8615EC36BF881FD4227F5DFF65356FB26B210B2524E939792EA254BFD590849
   imports VERIFICATION
 
 // Flapper_beg
-rule [Flapper.beg.pass]:
+claim [Flapper.beg.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

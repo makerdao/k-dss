@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 2D10C2530F5C844C5586C5B62C2A143309A71AA63D4B9BFDCC65E583538C335E
+module BC447DDA713020B8AF212788CD0CF583FA4385DC06AB1EE024D98BE8050410F2
   imports VERIFICATION
 
 // Vow_rely-same
-rule [Vow.rely-same.pass.rough]:
+claim [Vow.rely-same.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

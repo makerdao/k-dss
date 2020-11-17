@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 10F4E8F4AB7285E5E2749721C0519B35B84BF42802EA380AA730BF33379D97C9
+module EE2559AC9DFD7C5589FC251B86B8238FFCBFB9E04DA2DF8582C7CC03A712FDBF
   imports VERIFICATION
 
 // End_bag
-rule [End.bag.pass]:
+claim [End.bag.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

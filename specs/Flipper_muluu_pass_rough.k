@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 076184F251E5BA0A15F6502AD7DDCB9F8EAC8CCE6145DA0118F33A8D9740DE72
+module A0CCE0E717C43E441EF6055270E78200252333F8F7368B22BC8C36CC5254059F
   imports VERIFICATION
 
 // Flipper_muluu
-rule [Flipper.muluu.pass.rough]:
+claim [Flipper.muluu.pass.rough]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

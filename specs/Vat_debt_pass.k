@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module DD0FE52FEAD22A720F7E0B0149D23DFF02066F0E44709E19636D65D65B2B7D98
+module 654BAD41B73CE3D4AA458F839750E66AE940BB033DE95A058BDEF4270FCCFAE2
   imports VERIFICATION
 
 // Vat_debt
-rule [Vat.debt.pass]:
+claim [Vat.debt.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

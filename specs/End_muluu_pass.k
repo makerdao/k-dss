@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 541F9D70A7FF732E6ECC093D37BCA9105C420996AB7A6150D95C803863BA8294
+module 12914FCBCD4BED06579521FCFE0B8FDF6021143692272C23287A1BC2F8E2456A
   imports VERIFICATION
 
 // End_muluu
-rule [End.muluu.pass]:
+claim [End.muluu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -27,10 +27,7 @@ rule [End.muluu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x *Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 14690 => 14733 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int 0
-          #then   54
-          #else   106
-        #fi ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 54 ) ) #Or #gas ( ( VGas +Int 106 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

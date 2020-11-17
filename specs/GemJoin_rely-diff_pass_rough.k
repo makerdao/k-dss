@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module DD35E835D043EE17AF2A13659894D4D6C4A84104787AB8CCFE3145A39AAB632C
+module B151F0B814D9B718327E00E7AFFF174C4D4BD26FCE9FD3CD7062FB6B798B8440
   imports VERIFICATION
 
 // GemJoin_rely-diff
-rule [GemJoin.rely-diff.pass.rough]:
+claim [GemJoin.rely-diff.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

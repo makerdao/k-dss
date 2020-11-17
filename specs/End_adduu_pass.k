@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 4A87235529D1E88B110188942C6E1CAAB5D79D67EDF0298A31A3EC61B68EF64A
+module D7AEF74CFE95A2E33015DE2513C8CE1EDD7A056D65088DBAB5A976D9D6C0EBB9
   imports VERIFICATION
 
 // End_adduu
-rule [End.adduu.pass]:
+claim [End.adduu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

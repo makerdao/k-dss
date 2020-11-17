@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 1DF3BDD0DBF567A47EB7FF7640836C614B6CB3F4780F851132F4766E35BE35B4
+module 533188AD56D1B72CC7180D4134AB7FD60C5C80F90337511DEF4444B3928761FC
   imports VERIFICATION
 
 // Dai_transfer-same
-rule [Dai.transfer-same.fail.rough]:
+claim [Dai.transfer-same.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -197,7 +197,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // Dai_adduu
-rule [Dai.adduu.pass]:
+claim [Dai.adduu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -384,7 +384,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Dai_subuu
-rule [Dai.subuu.pass]:
+claim [Dai.subuu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

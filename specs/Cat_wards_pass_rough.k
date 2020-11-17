@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module F342637A0EDB2AA5B38607A7F7E71187BB6FEF49FF6338E4711FEE5715229445
+module 93BCEC8B598CCCA79D1577F2AE770924A843F018A79B425DDC2C6340E3150F0A
   imports VERIFICATION
 
 // Cat_wards
-rule [Cat.wards.pass.rough]:
+claim [Cat.wards.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

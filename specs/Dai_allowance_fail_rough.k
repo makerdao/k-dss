@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 8F4B9240E4A0E82CBD187D2C76E74618F4FFA1D59F8C8E0D5BC8E526A8724024
+module 63F88CC50AF01829DECCE70446DF3A28B98900256591C07C21014912AC7AC5A1
   imports VERIFICATION
 
 // Dai_allowance
-rule [Dai.allowance.fail.rough]:
+claim [Dai.allowance.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

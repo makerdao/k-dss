@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module CFE0E99A072B9E6A993CA7ECDB9D596C950BF35D106203B7E090B316D931C172
+module 641C83EB6290A4ABAC97C77AB9262DF63A959B2691EAC9831316A3D2C7B43D66
   imports VERIFICATION
 
 // Cat_file-flip-same
-rule [Cat.file-flip-same.fail.rough]:
+claim [Cat.file-flip-same.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -229,7 +229,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // Vat_nope
-rule [Vat.nope.pass]:
+claim [Vat.nope.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -417,7 +417,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vat_hope
-rule [Vat.hope.pass]:
+claim [Vat.hope.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

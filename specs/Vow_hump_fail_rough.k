@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module BF0D582E5B61961D918DC3E988A214AD99E29896CF455DCF02008E5A1523D7D1
+module D83DF43AABACCB0569AB93C4EAEC457507F1C2D4E415873BC395F7403390C8C5
   imports VERIFICATION
 
 // Vow_hump
-rule [Vow.hump.fail.rough]:
+claim [Vow.hump.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

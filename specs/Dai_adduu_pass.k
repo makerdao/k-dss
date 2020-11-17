@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module DE00B81601A667E4E5C4C09F51C5A72370E3EB792F40912A113C9C897C8F03D9
+module 217B8B428DF4A8C5576B0F8CC688AD713553162D68C87173701F21989C2CD299
   imports VERIFICATION
 
 // Dai_adduu
-rule [Dai.adduu.pass]:
+claim [Dai.adduu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

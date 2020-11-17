@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module ACFCA0700019160631141A044C96B6808343373812FBD76FCC72B5E271910A14
+module F2FC09AED2E42B1F1BB76B838ABA80579B8384CD0279FAE4D6DEDF10AF273B54
   imports VERIFICATION
 
 // Dai_approve
-rule [Dai.approve.pass]:
+claim [Dai.approve.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

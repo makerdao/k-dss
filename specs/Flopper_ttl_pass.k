@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 33A2FEBD7D90B19C0317E8FFDE5C77A9D4091DBC00FC8B3B4A548C3192E14454
+module 5A75969C8E8500A1246E9AB6CBFF709F7A90EEAEEDC1E88ACBA5E711594B8242
   imports VERIFICATION
 
 // Flopper_ttl
-rule [Flopper.ttl.pass]:
+claim [Flopper.ttl.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

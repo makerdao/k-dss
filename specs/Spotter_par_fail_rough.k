@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module F10C73F1A6507DEA2BE01E82867E068B95DDD57F295E78866171094846558FB0
+module 1E9F162281397157069C26D3B0FF972973BCCABCAA02AFD275A4CB4292C71E7F
   imports VERIFICATION
 
 // Spotter_par
-rule [Spotter.par.fail.rough]:
+claim [Spotter.par.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

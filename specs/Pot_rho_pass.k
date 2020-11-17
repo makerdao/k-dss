@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 9919CE4F5F8EC95F14AEA01ACB2659AC200B95FECC86F293D7F4C749FF9A00D4
+module 920730CFD31495A10D1A7935777DFD82C6DF3342A5F0269BCF51ECAA6431C386
   imports VERIFICATION
 
 // Pot_rho
-rule [Pot.rho.pass]:
+claim [Pot.rho.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

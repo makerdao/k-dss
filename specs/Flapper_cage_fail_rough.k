@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module B8E24F6040F211326CB3A80306F5CB71325F9ADABACE9719B72A5FE6D38CAAE8
+module 35DB16B9C96C1825AA78B2570399F7F48812CB1CACDC8A3D5E66F7AE87EFB21C
   imports VERIFICATION
 
 // Flapper_cage
-rule [Flapper.cage.fail.rough]:
+claim [Flapper.cage.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -238,7 +238,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // Vat_move-diff
-rule [Vat.move-diff.pass]:
+claim [Vat.move-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

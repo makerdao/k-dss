@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 2475F90156C55A7C7ACC327F7544A822E42069D3AC0DE8B3469E88ADFF92932A
+module 54308F7E08374D0FFA0A08D092AB835AB5D4B8CCB74CC5FFAC8EBBC097ACC982
   imports VERIFICATION
 
 // DSToken_burn-self
-rule [DSToken.burn-self.pass]:
+claim [DSToken.burn-self.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

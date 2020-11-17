@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 5D56DA273E55D05316E757B4AEDDC935A8C6F38F0106ECDBE92F51E65020EF8F
+module C7D3634F5B0FB4474A4E64EBDD756643066A40B7E741CD639063F0D5E6D6238E
   imports VERIFICATION
 
 // GemJoin_vat
-rule [GemJoin.vat.fail.rough]:
+claim [GemJoin.vat.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

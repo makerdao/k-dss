@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module D4D40227F4D955979C964644C44A625A84D3426452362FC4671A180B8AAEB25C
+module F282F0E6619A57E090D69AA77836D8CAE9457BCCCF5820988AFCAC3DFE7D9F8D
   imports VERIFICATION
 
 // Vat_deny-diff
-rule [Vat.deny-diff.fail.rough]:
+claim [Vat.deny-diff.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

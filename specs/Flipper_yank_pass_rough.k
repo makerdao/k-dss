@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module AFB15DAEF0875D52D51D5D318ABE95E656AEC1EE57F58B71735C9E6A00917EA2
+module AD3C40CD4429F43EE83C929BAB91B275A13C28F8B7A1600BFDE743FC01B41BE2
   imports VERIFICATION
 
 // Flipper_yank
-rule [Flipper.yank.pass.rough]:
+claim [Flipper.yank.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -326,7 +326,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.dai[CALLER_ID] =/=Int #Vat.dai[Guy] 
 
 // Vat_flux-diff
-rule [Vat.flux-diff.pass]:
+claim [Vat.flux-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -532,7 +532,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vat_move-diff
-rule [Vat.move-diff.pass]:
+claim [Vat.move-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

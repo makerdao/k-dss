@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 5B061BA098F62B4A0770FF623D5449CC6E59F1D4775C026A826C00B9386EC3B3
+module 76E89933B6545B2AD068E2C7DF40BB675AA3DB63F1BAEEA756E40AE2C7BBF7AE
   imports VERIFICATION
 
 // Spotter_rdiv
-rule [Spotter.rdiv.fail.rough]:
+claim [Spotter.rdiv.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

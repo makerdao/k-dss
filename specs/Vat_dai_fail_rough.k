@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module E1769515FE57C597A86CCE7E874925D46293110575CB99B9433ED80FB9C8A17E
+module 226DFD858B6E488D1EFA3EE439A42425FD72D1E4E6AEB0F4036419A76D1ABA1E
   imports VERIFICATION
 
 // Vat_dai
-rule [Vat.dai.fail.rough]:
+claim [Vat.dai.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

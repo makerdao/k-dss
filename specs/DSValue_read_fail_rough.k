@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 2AB5A0B9890353ED16B30D7C755B70249B91117153241DA8ACCFB2FD10DD18BF
+module 8ABD46D0FF9AC11E90A8C8EA0E0AFA46D24913E5A8DD7F8BB61301538A1F6557
   imports VERIFICATION
 
 // DSValue_read
-rule [DSValue.read.fail.rough]:
+claim [DSValue.read.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

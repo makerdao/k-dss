@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module CB6CB68E9429576EFF57A99D82C063DCBBBA92C8C2FE5F6BED1FEBFA57358501
+module D6AF4B05B53281EEA47939E94D53ED114DE4D4FDCEB50C132CF064C540FBC96F
   imports VERIFICATION
 
 // Cat_file-addr
-rule [Cat.file-addr.pass]:
+claim [Cat.file-addr.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

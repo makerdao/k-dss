@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 4134D6C01404A60D9BA99218D9B73267C1C03CB66EAB0DDBA8FFC3A7C5610226
+module 1E5043455952424D6B0466D08E1E8B37D0F54B2A330A1509D5E1187E9D1293A3
   imports VERIFICATION
 
 // DaiJoin_deny-same
-rule [DaiJoin.deny-same.pass.rough]:
+claim [DaiJoin.deny-same.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

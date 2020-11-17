@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 21E97ECBB1970BAE054EF7AE7303F5AFE0FDA263F9DD295E59F9758DA5D18335
+module FC2955D9D47E461C4DC231C0B6B014701DF1DE92E469DA48675B2930CA010EAB
   imports VERIFICATION
 
 // Vat_adduu
-rule [Vat.adduu.pass]:
+claim [Vat.adduu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

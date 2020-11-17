@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module B544CEAF34B7D1035A8997A07C6FCD74C0063ABD3CC97FDC85AF24EAE3D3EAA5
+module 3EDD9372329711E3589816E5378F3C80E1071DA33AF31ABB772E5B53A0456B56
   imports VERIFICATION
 
 // Vow_deny-diff
-rule [Vow.deny-diff.pass]:
+claim [Vow.deny-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

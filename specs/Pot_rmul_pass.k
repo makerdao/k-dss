@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 87B9B0A31903D0F78CF103A554D44C0553AD52A3DB5639080EDCB76BCC10AAC2
+module D9C006EEFFA7D044DE3C2136FAAAFDE1CA0FDFE1A56B6D72128C52352A3E031C
   imports VERIFICATION
 
 // Pot_rmul
-rule [Pot.rmul.pass]:
+claim [Pot.rmul.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -27,10 +27,7 @@ rule [Pot.rmul.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : (ABI_x *Int ABI_y) /Int #Ray : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 5145 => 5185 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int 0
-          #then   127
-          #else   179
-        #fi ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 127 ) ) #Or #gas ( ( VGas +Int 179 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

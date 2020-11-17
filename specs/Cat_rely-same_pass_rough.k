@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module EE8058DA64F689F4B5EC771C93D845859D5ACC08A368D232E3CBB55667717264
+module 18F873409B78CF89BB1CE13170F6BE9788689A9531E8F49623F57CC1ECC7BB19
   imports VERIFICATION
 
 // Cat_rely-same
-rule [Cat.rely-same.pass.rough]:
+claim [Cat.rely-same.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

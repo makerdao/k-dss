@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 41E38951F875C1B3EC7F7B92B2D47C80021FB277C09475DBE7B3C49A1BD7C871
+module 1007D26B65A971DC3F5B3FFE5A273F88B2062E3CA252887B2B8241BBFDD2C4B8
   imports VERIFICATION
 
 // DSToken__exhaustiveness
-rule [DSToken..exhaustiveness]:
+claim [DSToken..exhaustiveness]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

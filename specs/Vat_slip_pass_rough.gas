@@ -1,7 +1,1 @@
-#gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem +Int ABI_wad ) , Gem , Junk_1 ) +Int #if 0 <=Int ABI_wad
-  #then   #if ABI_wad <=Int 0
-    #then   6870
-    #else   6884
-  #fi
-  #else   6884
-#fi ) ) )
+#gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem +Int ABI_wad ) , Gem , Junk_1 ) +Int 6870 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem +Int ABI_wad ) , Gem , Junk_1 ) +Int 6884 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem +Int ABI_wad ) , Gem , Junk_1 ) +Int 6884 ) ) )

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module B867D199995B673D9129ECC08E0063564C3F51B29FD69ECE0CE3EF014DC05406
+module 8C5D24EBEEF83C2F3743F24B94862ECD049A5A428FB5E44083B4CE9F6B4EB6A3
   imports VERIFICATION
 
 // Flipper__exhaustiveness
-rule [Flipper..exhaustiveness]:
+claim [Flipper..exhaustiveness]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

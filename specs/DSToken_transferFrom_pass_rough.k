@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 1346568904F5875CE695FB9ADD68F55EB26F879DBC4326ADC4B7435FF8922D71
+module 72E4C0998DCA5FDF715964A36E4AD091BB24EDDF7EDEAD34F80B60F957D435E1
   imports VERIFICATION
 
 // DSToken_transferFrom
-rule [DSToken.transferFrom.pass.rough]:
+claim [DSToken.transferFrom.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

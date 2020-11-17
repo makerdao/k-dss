@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 9F059B87D59A97D2AA385ED8DB9A4999798EC179E480D97FEDACC1B152D3CA31
+module BF1558704E51D80A0F39373D721FF91B70E7BB0DFAE982F35E653E8DAEF1F12E
   imports VERIFICATION
 
 // Spotter__exhaustiveness
-rule [Spotter..exhaustiveness]:
+claim [Spotter..exhaustiveness]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

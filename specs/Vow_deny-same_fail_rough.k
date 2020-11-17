@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module A229D0908980E103C35D68B97A331CBDD1C38E60AEF73950557AD649057654EB
+module 1C21D9302FA9255D4A057835A6F6694EA3AFFA669CCE27361E2214FE07F20565
   imports VERIFICATION
 
 // Vow_deny-same
-rule [Vow.deny-same.fail.rough]:
+claim [Vow.deny-same.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

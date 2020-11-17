@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 87F4393F5FF461DDE2D0FF3D5A2A789035D33D0B6AFC00A82F18DF532D5E3645
+module 9EF3C451E8F647D47CB8BF435ACB5A51E0B619B98119A6C4230588C173E72E20
   imports VERIFICATION
 
 // Jug_ilks
-rule [Jug.ilks.pass]:
+claim [Jug.ilks.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

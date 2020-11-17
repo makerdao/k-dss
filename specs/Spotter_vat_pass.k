@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 53C454A05678668E6FFD7DEEF9A36EDECF22616059F84E2D4C3707D6D282AF95
+module EF39051C79C735E30E13079C4723DD8D1728458CBF6E073B98B1EC3793BE2BC3
   imports VERIFICATION
 
 // Spotter_vat
-rule [Spotter.vat.pass]:
+claim [Spotter.vat.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

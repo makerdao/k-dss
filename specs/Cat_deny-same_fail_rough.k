@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module A400B367556A43348DBD1015E5D323550598A75FCBCFC4C17C85714109DA1F21
+module E3BFB865511BE6A57C5A6A5E8347D19073529EE57B83D2168E0253209A14050E
   imports VERIFICATION
 
 // Cat_deny-same
-rule [Cat.deny-same.fail.rough]:
+claim [Cat.deny-same.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

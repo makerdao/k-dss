@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 4A1B382A12B5EEFB8EF8CCE691B88F48166FFB9753EB30668EE42CECF87A11D7
+module DAA1663E2BA3F16614A29D2790FA5D1D972A04C0027B6D5710C6B462A2781AE5
   imports VERIFICATION
 
 // Vat_move-diff
-rule [Vat.move-diff.pass]:
+claim [Vat.move-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -207,7 +207,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.dai[ABI_src] =/=Int #Vat.dai[ABI_dst] 
 
 // Vat_adduu
-rule [Vat.adduu.pass]:
+claim [Vat.adduu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -394,7 +394,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vat_subuu
-rule [Vat.subuu.pass]:
+claim [Vat.subuu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

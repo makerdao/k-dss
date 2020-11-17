@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 2651D71154B1F2E2D353F7CE38EAB96F7FC467BA1637B440EF3DCC269BF8876E
+module 3E62B31D058D351442A10E5756CEA0AE07927CC538679FA444E7C69504A259F1
   imports VERIFICATION
 
 // Jug_file-base
-rule [Jug.file-base.pass]:
+claim [Jug.file-base.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

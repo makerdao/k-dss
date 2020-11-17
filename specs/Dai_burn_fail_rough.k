@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 282F3BA386656287F5AC48AFEA13E9C4F6B0BCA644153171AD6D0AFCD84AA4FF
+module 21B33E1077E2AAE6A0082AFE7E4A20E98320CEF2E32AF4902602F0D1FE2D6886
   imports VERIFICATION
 
 // Dai_burn
-rule [Dai.burn.fail.rough]:
+claim [Dai.burn.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -209,7 +209,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // Dai_subuu
-rule [Dai.subuu.pass]:
+claim [Dai.subuu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

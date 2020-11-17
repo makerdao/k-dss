@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module E58F06EC696FFA4F8D8EEDFB784F05BD4A82A70A958E4E03254CA4B31C05AD4F
+module BE96F7D968460DA7B8F0CB25C7F9C2A53F896C2A0986008F40E5137F7DF1EF8C
   imports VERIFICATION
 
 // Vow_Ash
-rule [Vow.Ash.pass.rough]:
+claim [Vow.Ash.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 543D8812CC5116AA46A37862378082FE6BBFE701A63FA4BC77B51D1029B03DD3
+module 60CA75E640B1CD91A5D2E8F02C84C6DB3779C1972D8173F1250F063F962927FC
   imports VERIFICATION
 
 // End_muluu
-rule [End.muluu.pass.rough]:
+claim [End.muluu.pass.rough]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 1C5CB397BBB4D16B78AB1D5813786E1CA9E6723B8AE3AA2B0CBFC2E5D955A2A6
+module D342C2E4F4D9932AE0F4A23F4B946D2A7279B4D5C222351B1DF6889F889EBF0B
   imports VERIFICATION
 
 // GemJoin_dec
-rule [GemJoin.dec.pass.rough]:
+claim [GemJoin.dec.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

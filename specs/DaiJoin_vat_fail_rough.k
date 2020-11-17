@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module CAD78F1E9035D55C0D58838F62C3FA9398008ADE0F08384009E45EA48BB84C22
+module F5B2F7C710C1CCC34C794A098A958F32402A2A8562B07F2BC54C4BA050DA8AB6
   imports VERIFICATION
 
 // DaiJoin_vat
-rule [DaiJoin.vat.fail.rough]:
+claim [DaiJoin.vat.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

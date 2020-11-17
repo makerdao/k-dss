@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 3D20BC7FBE18CB50E0B4E91F805B253BC4F2201ED27BD5973DA837DBB0D34DBA
+module 4354FA3D78AC670527A24E3B8B3242C1D48E1C7EC39D64D72B62FE88A074F507
   imports VERIFICATION
 
 // Vat_heal
-rule [Vat.heal.fail.rough]:
+claim [Vat.heal.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -216,7 +216,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // Vat_subuu
-rule [Vat.subuu.pass]:
+claim [Vat.subuu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

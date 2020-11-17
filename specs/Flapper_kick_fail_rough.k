@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 8701217A5BBC9CBC6E558D65DE710B4A831905B886EAE58248AB67FB17D11465
+module A71AD9C61B03A957BB6300F06013771BCE4BA182A42F1B190A3B6A3A39FFB175
   imports VERIFICATION
 
 // Flapper_kick
-rule [Flapper.kick.fail.rough]:
+claim [Flapper.kick.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -293,7 +293,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // Vat_move-diff
-rule [Vat.move-diff.pass]:
+claim [Vat.move-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -498,7 +498,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Flapper_addu48u48
-rule [Flapper.addu48u48.pass]:
+claim [Flapper.addu48u48.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

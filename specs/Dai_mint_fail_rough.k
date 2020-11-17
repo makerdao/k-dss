@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 47C2F2422484A3434AF8D9D5FAF65A622514748BB452AE71651D71F8D2B4472B
+module AD240A7CDEC7DC2A73A6EFB230AD193D261709078A58BA21B14E2DDD3C2C4E75
   imports VERIFICATION
 
 // Dai_mint
-rule [Dai.mint.fail.rough]:
+claim [Dai.mint.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -208,7 +208,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // Dai_adduu
-rule [Dai.adduu.pass]:
+claim [Dai.adduu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

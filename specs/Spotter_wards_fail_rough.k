@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 9000D11BA3B859FE870F008C6E41A5749AEACC3304DB941CC36AC169897AB404
+module 5B2F0876B7919B0DFA832ABD4C18AC4BF11D17476119AB3F189C0CCDDD2165CB
   imports VERIFICATION
 
 // Spotter_wards
-rule [Spotter.wards.fail.rough]:
+claim [Spotter.wards.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 827E2B549064486CD07A375935130CAB74495D3919EBEC048EC2065D2BDAAD0C
+module C4B3D367048E2121908C5F11723C74AEABBB3C7F3DD5A6D622C2883942B0DA6B
   imports VERIFICATION
 
 // End_wards
-rule [End.wards.pass]:
+claim [End.wards.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

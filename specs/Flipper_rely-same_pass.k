@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 49680EDEB7087760B9D36A6F4400570CF3B449E73E727176FB30DA72DEBA91CA
+module 3F886C323B8D267F88FCCAD87B3837E5D20285F69AE01EB156ADC752D956F684
   imports VERIFICATION
 
 // Flipper_rely-same
-rule [Flipper.rely-same.pass]:
+claim [Flipper.rely-same.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 05F824D8BBBF828A854649190EAF702D259C14C33FE33DF37E6D8E8775C3225F
+module E242CC7F57F6433DFBDC9E52F9EF1FD0EA0F2369930A48BA5B7B0F232AF81C99
   imports VERIFICATION
 
 // Flipper_tick
-rule [Flipper.tick.fail.rough]:
+claim [Flipper.tick.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -207,7 +207,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // Flipper_addu48u48
-rule [Flipper.addu48u48.pass]:
+claim [Flipper.addu48u48.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 698A106532D004E311F7CC6A1B3F8AA0F58C052BDB65AB756BB8FC598AA4EAD1
+module 3872EF3A9E4C6A4D30A3573A56F8C4C2DBDD0F99037748826A9EDD2501E23C8C
   imports VERIFICATION
 
 // Pot_chi
-rule [Pot.chi.pass.rough]:
+claim [Pot.chi.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

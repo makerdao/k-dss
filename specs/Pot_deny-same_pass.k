@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module CA812F0CEE797CB1094283AE0488170F42559915B776C747213789B256CC5CFE
+module 045AD1F6FDD4DC4ABA361376AA69034DE98E60AC2622695DB16213BD3A284598
   imports VERIFICATION
 
 // Pot_deny-same
-rule [Pot.deny-same.pass]:
+claim [Pot.deny-same.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

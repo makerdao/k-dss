@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module D87E65FD0BAC91AB5E6E06E6ED28CDAB16818FEBAD72D48DED31C4F7C1B56177
+module FC5F6EE041EEA0980846194EA7FA6116A67B291C9F462116A617725522203B5F
   imports VERIFICATION
 
 // Flipper_yank
-rule [Flipper.yank.fail.rough]:
+claim [Flipper.yank.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -330,7 +330,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // Vat_flux-diff
-rule [Vat.flux-diff.pass]:
+claim [Vat.flux-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -536,7 +536,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vat_move-diff
-rule [Vat.move-diff.pass]:
+claim [Vat.move-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module F0E4AE10BD5771CB9226B4B19E13EB2F54C532A6805F49A9F4C90A14F36E5CDD
+module 9956F63086D93CEE1F2B34FE81E9A47A594718D6B83ADC1CFBA02FA5868FCF4A
   imports VERIFICATION
 
 // Dai_rely-same
-rule [Dai.rely-same.pass.rough]:
+claim [Dai.rely-same.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

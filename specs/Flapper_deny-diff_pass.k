@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module A079356FB339FBDEE5811DF4F2B829B79298D9CF5C9C44BA7A1EC5FF264389BB
+module F7184C88902CCDC40CF77EC4CE802C9AF43FC34C047622958CCC58C9431DFA8D
   imports VERIFICATION
 
 // Flapper_deny-diff
-rule [Flapper.deny-diff.pass]:
+claim [Flapper.deny-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

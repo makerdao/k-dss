@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 83D502B35269DFB5E81235CB6244644CF5907CC8DD2B3949A9AB14A411589276
+module 22F6020F74838E47452ED9C1BC03CEEDDEDC5A1257A2912D1162931763F0B860
   imports VERIFICATION
 
 // Spotter_cage
-rule [Spotter.cage.pass.rough]:
+claim [Spotter.cage.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

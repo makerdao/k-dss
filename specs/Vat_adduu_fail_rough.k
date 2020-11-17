@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 6FC5D510CC9776ABF2CC72CA34FBC03ABF1BD683707D5D85556C86719FBCF7CD
+module 448DFDFC0E6B14C1329C4C226A75135902A76AF95F0E812085A8D4B8E7D1CBB7
   imports VERIFICATION
 
 // Vat_adduu
-rule [Vat.adduu.fail.rough]:
+claim [Vat.adduu.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

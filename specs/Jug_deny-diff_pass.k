@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 8EA334233C0E49CB1303A027FA08354FC60548D3AE201FCE3710E87F5DAD2154
+module 059327CC0B8F90A51497FCF73BB7338113FF88D577367D53F9623EC1F329DABC
   imports VERIFICATION
 
 // Jug_deny-diff
-rule [Jug.deny-diff.pass]:
+claim [Jug.deny-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 3A64F04BE3BEBD0931A26DFE53494F4501572E81CE10F0CDD099067EBE98C8C0
+module 87ACEBB4E98832758019A7BC798171C1877E601D0489C4C1317C7F27EDB83BE8
   imports VERIFICATION
 
 // Vow_file-addr-same
-rule [Vow.file-addr-same.pass.rough]:
+claim [Vow.file-addr-same.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -232,7 +232,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.can[ACCT_ID][Flapper]) ==Int Junk_4 
 
 // Vat_nope
-rule [Vat.nope.pass]:
+claim [Vat.nope.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -420,7 +420,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vat_hope
-rule [Vat.hope.pass]:
+claim [Vat.hope.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

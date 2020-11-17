@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 576B7E55F7BA85226B6E73F9ACCA6D55F9ABFE096CB60861500D2158915A5894
+module F225BF9861481D1D5F1847FA4A0B708F9121CA9B344E575AF83319480156BE0B
   imports VERIFICATION
 
 // DaiJoin_wards
-rule [DaiJoin.wards.fail.rough]:
+claim [DaiJoin.wards.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

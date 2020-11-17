@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module E9658F9902A1430D27844F65AC85C5E1CF63C3BCDD88F8408301D055C06E699B
+module A39BF095C2303CBDC6FC4243922630B8C76AA1612A95DF193DFA5B8945F0F967
   imports VERIFICATION
 
 // Vat_rely-diff
-rule [Vat.rely-diff.pass.rough]:
+claim [Vat.rely-diff.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

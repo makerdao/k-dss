@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 3220DB027907B6177FD40882C695777FC68BF510F0B5FD9DCC6A7753D76FD006
+module C606B263625A4BCBD4A6506137B5D878F8AA9DB0900256E9AE0E5CF0B470E942
   imports VERIFICATION
 
 // Dai_transferFrom-diff
-rule [Dai.transferFrom-diff.pass.rough]:
+claim [Dai.transferFrom-diff.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -207,7 +207,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Dai.balanceOf[ABI_src] =/=Int #Dai.balanceOf[ABI_dst] 
 
 // Dai_adduu
-rule [Dai.adduu.pass]:
+claim [Dai.adduu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -394,7 +394,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Dai_subuu
-rule [Dai.subuu.pass]:
+claim [Dai.subuu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

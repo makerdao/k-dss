@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module D7C420B469D170551A23A406EC15CA4F724E152259EC2E68FFC27B3A66096971
+module 16ADA53B09EFCAA4B336CD8D62147C681C3C86F1CF89B15E3991D4202BC30D13
   imports VERIFICATION
 
 // Pot_dsr
-rule [Pot.dsr.fail.rough]:
+claim [Pot.dsr.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

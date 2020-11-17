@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 23EAE1BB2D2348540B3FBE7ED6BF0510828979954D2A490E91F9466875BD1F6B
+module B18A88FDE95FC196CAED951E8C9DADE9D01E5812A041D42CEF3ECF06B585915E
   imports VERIFICATION
 
 // Vow_flopper
-rule [Vow.flopper.fail.rough]:
+claim [Vow.flopper.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

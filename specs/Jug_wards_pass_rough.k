@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module B6314CF0C6332E0959F1B9E89B32FDFE65EB3F1687BE3F420049D28E27FC99A6
+module 2B62A748B301F023573933045D9714C7091F0D4473425F953E3511F056B0C5E9
   imports VERIFICATION
 
 // Jug_wards
-rule [Jug.wards.pass.rough]:
+claim [Jug.wards.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

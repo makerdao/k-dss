@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 38E1EB8939EC41AC3E1D604532B48DA23681A08116B30E5385A37AB982E07914
+module 3C9CC1FBE590ACD45954638FA70DAC0B48D78930A2C4A432E602503B3C548B75
   imports VERIFICATION
 
 // Jug_file-vow
-rule [Jug.file-vow.pass.rough]:
+claim [Jug.file-vow.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

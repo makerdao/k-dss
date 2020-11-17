@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 5F87E6EE9C07C8C3CD175C7872821B2170CFE28A96B2C34C9F5DC6B747AD1C9E
+module 3D88761602FFB566AC02CE94E4333EF3604B9F34E5BA3EC7D4DC589230414786
   imports VERIFICATION
 
 // Vat_rely-same
-rule [Vat.rely-same.fail.rough]:
+claim [Vat.rely-same.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

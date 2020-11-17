@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module CC5A85448AD41FC19E6BCDA4ED92CC4A2A915F7C10C5152DCDFF3B5BFD4F1DDB
+module CD5EB649E5540E1BA94C9EC8BE69EEDDEFF9FFEF71E291B7302E1BDF8EFDBAAD
   imports VERIFICATION
 
 // DSToken_balanceOf
-rule [DSToken.balanceOf.fail.rough]:
+claim [DSToken.balanceOf.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

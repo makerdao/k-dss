@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 138BBA4B5284D1035530FDDD11BE2A7929236653266E9080CCD4E751E338BBCB
+module E7AFAA974B2E44503779C0D05BCBC153D9D81945F33016142340F8C05F86C274
   imports VERIFICATION
 
 // Pot_rely-same
-rule [Pot.rely-same.pass.rough]:
+claim [Pot.rely-same.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

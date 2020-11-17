@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module A2017FB746B03D953D2DD4B3BEBEC68484A1B9CF81D1C783A12FC8E30688C08E
+module 6C3348BE58C87DC1403CC1EF5DC1B38F87B4FADBC1F5C20A95F7289AF5513E6A
   imports VERIFICATION
 
 // DaiJoin_muluu
-rule [DaiJoin.muluu.pass]:
+claim [DaiJoin.muluu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -27,10 +27,7 @@ rule [DaiJoin.muluu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x *Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 2819 => 2862 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_y ==Int 0
-          #then   54
-          #else   106
-        #fi ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 54 ) ) #Or #gas ( ( VGas +Int 106 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

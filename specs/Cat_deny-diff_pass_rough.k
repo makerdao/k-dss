@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 57C5211228A4556053085E43E974C14D605903AAF17FEF0C1D7677D54FDF0A13
+module A63E628442E29110166150414D8AA94B2CD00F3DE4730095900BD60C28571D8E
   imports VERIFICATION
 
 // Cat_deny-diff
-rule [Cat.deny-diff.pass.rough]:
+claim [Cat.deny-diff.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

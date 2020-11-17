@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module D1C336D26B179E1E1D7708B8635A7F77BA9018E03D32D4E57B9E972BF166E104
+module A30B79147C2D6E80CBB389ECBAA5ABC8CE0F39BEBC9DD41FBB87B3850BCB996D
   imports VERIFICATION
 
 // End_thaw
-rule [End.thaw.pass.rough]:
+claim [End.thaw.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -252,7 +252,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.dai[Vow] =/=Int #Vat.debt 
 
 // End_adduu
-rule [End.adduu.pass]:
+claim [End.adduu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -439,7 +439,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vat_dai
-rule [Vat.dai.pass]:
+claim [Vat.dai.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -627,7 +627,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vat_debt
-rule [Vat.debt.pass]:
+claim [Vat.debt.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

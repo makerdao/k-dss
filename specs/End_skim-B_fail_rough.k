@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 5A76A6E4522C44196599933115A9AC41F0AB149A18E93ABBD6D086E9D0613BC5
+module 37D9B541FC52A9F9C6208E0611CAC7324C76B96B4C24E42C58475238F4A0AE50
   imports VERIFICATION
 
 // End_skim-B
-rule [End.skim-B.fail.rough]:
+claim [End.skim-B.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

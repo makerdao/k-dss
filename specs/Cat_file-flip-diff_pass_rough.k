@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module C83BD1145BC7FA1B01F429A922C37C0EC64FE7413DA795DA7D1B0435DEDA6B7A
+module F19BE5A8C0EF3BDA75ED21D213EAA8BEEA82CA35ADCFE209C9187CE0CB0C5312
   imports VERIFICATION
 
 // Cat_file-flip-diff
-rule [Cat.file-flip-diff.pass.rough]:
+claim [Cat.file-flip-diff.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -230,7 +230,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.can[ACCT_ID][Flip] =/=Int #Vat.can[ACCT_ID][ABI_data] 
 
 // Vat_nope
-rule [Vat.nope.pass]:
+claim [Vat.nope.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -418,7 +418,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vat_hope
-rule [Vat.hope.pass]:
+claim [Vat.hope.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

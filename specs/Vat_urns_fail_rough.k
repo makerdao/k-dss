@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 3C5D92B1AD3E35AEE10BE41FDA1B93110E910FC1B1A73EA4554863C007E9B0C2
+module 109C25647B93C3CFF7FB3785695CC5CCBC2CEBB9698A5C7989E33E10B51006F3
   imports VERIFICATION
 
 // Vat_urns
-rule [Vat.urns.fail.rough]:
+claim [Vat.urns.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

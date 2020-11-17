@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module B6B62C41C61305B5EBFB7AF74B330FEBE80582784C72427BEC01C2B6C0614261
+module BA89A957E944047375FDF3DFEC79DB8A916DCD6DA51E4AE2404CBE8BB2CFEEA3
   imports VERIFICATION
 
 // DSToken_totalSupply
-rule [DSToken.totalSupply.pass]:
+claim [DSToken.totalSupply.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

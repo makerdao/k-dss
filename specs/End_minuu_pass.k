@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 9BB4FCE1CB9C64D8D1D2CC4B493B13A7C5FAF6E8808C5AB3FC8F0E01F974E044
+module E5F7B1B7A60241C7AC8BF05D40305726B86922679A6E060DE4191830DC698C29
   imports VERIFICATION
 
 // End_minuu
-rule [End.minuu.pass]:
+claim [End.minuu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -27,10 +27,7 @@ rule [End.minuu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : #if ABI_x <=Int ABI_y #then ABI_x #else ABI_y #fi : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 14801 => 14826 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int #if ABI_x <=Int ABI_y
-          #then   49
-          #else   59
-        #fi ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int 49 ) ) #Or #gas ( ( VGas +Int 59 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module F4576F8915793BA7ED372F4669BFB2E57A9800CAE522ED7865F1D39DE69A8D82
+module C543592C62FA79CAA91BF6E7B5F027AFA1DD6C25D407AEADBFD30CDECD3C20D9
   imports VERIFICATION
 
 // Pot__exhaustiveness
-rule [Pot..exhaustiveness]:
+claim [Pot..exhaustiveness]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

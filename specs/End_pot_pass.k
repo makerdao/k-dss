@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 30CD131D67A26492C93E3BE5A7E453A96AD84B678AE925113C57A5446DDB36BE
+module 070B39B6DA11C34F4932A7BDBFEEC8F6550A163D6FF8691823D34A5D01963D5A
   imports VERIFICATION
 
 // End_pot
-rule [End.pot.pass]:
+claim [End.pot.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

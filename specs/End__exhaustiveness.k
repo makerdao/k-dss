@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module B4EBA9A6E86E13C042645A6C853EB13562655DABC101EF180F66D0D8A99CE2C9
+module 2804306422E22073BC1BFBF2D23D0C4C2BD74753649C3EC216628E6DA5809995
   imports VERIFICATION
 
 // End__exhaustiveness
-rule [End..exhaustiveness]:
+claim [End..exhaustiveness]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

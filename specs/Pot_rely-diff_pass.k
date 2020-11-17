@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module A97B5956063D075C12985A4F7830DE00B6B3FDE7629F6655D4D83BF6A7EF29B2
+module 96DDC8D1AF31526165B835C8C174C07FF5C69F48785173A88263F83C2B4775B2
   imports VERIFICATION
 
 // Pot_rely-diff
-rule [Pot.rely-diff.pass]:
+claim [Pot.rely-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

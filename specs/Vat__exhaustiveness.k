@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 93259233F8DC28911E4CA9487B1DF2705F9C727E230E4562965511284D323C4B
+module 46EBD0A7988925923DCBC81299F7D5D153DA66DFB5E9DA5912ABA93B49A76AE4
   imports VERIFICATION
 
 // Vat__exhaustiveness
-rule [Vat..exhaustiveness]:
+claim [Vat..exhaustiveness]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

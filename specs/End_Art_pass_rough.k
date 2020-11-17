@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 8171A42B0418D114ABC20A4BA665BFF6C26F7A79EB637029427C200351BC55B6
+module B19D9CF128C9090E7BC418EF2B67AE799046EDC40C06E25B6937E29B60023810
   imports VERIFICATION
 
 // End_Art
-rule [End.Art.pass.rough]:
+claim [End.Art.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

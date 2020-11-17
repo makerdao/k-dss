@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module C489B1CB39D68D2D29257C36DC0A1ABB7C2507EB27591A2648EB0D29290BA18E
+module 23F1BEFFFE3719E452C03730A52D42BA0537C07CD0AE7A9CB2F64014643519DC
   imports VERIFICATION
 
 // Vat_gem
-rule [Vat.gem.fail.rough]:
+claim [Vat.gem.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

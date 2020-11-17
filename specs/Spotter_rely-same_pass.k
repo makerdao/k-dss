@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 6419099DD5F2C1684B954DAC619F04A0B8F340D00C84ACEA794BCB37803F5721
+module 8D51615EC0CF6AB9A678A012B6F17F48E6BFD4981EE104C849557D746AB050EF
   imports VERIFICATION
 
 // Spotter_rely-same
-rule [Spotter.rely-same.pass]:
+claim [Spotter.rely-same.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

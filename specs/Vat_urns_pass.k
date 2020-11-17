@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 38AFB5D56520F2CBC93655B97CF46D2A0EA089455B48BAFF016B0B971BE59FF1
+module 25270AE2C72BD918422AA30CF9223B7AA3863B9D20D804DE4ADBB4D35967F743
   imports VERIFICATION
 
 // Vat_urns
-rule [Vat.urns.pass]:
+claim [Vat.urns.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 10832575B5A8A06A2F3AD66258BFCDF926CA51D1A931ED0799653E73A3CA04A2
+module F291CEFC1494FF4F82996BBE075791F523E3C31080AA1CDB893C4B329DF564F2
   imports VERIFICATION
 
 // Jug_rely-diff
-rule [Jug.rely-diff.pass.rough]:
+claim [Jug.rely-diff.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

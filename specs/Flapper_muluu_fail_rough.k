@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 232713D87EC3DB7DBB1BD33829B6D75C29689508F3DD2CEA3CA5ADD418A8F0EF
+module 369729A1381E230EE0B252A57E0E9AE23E7258ABECCEEAC5DA5F7FD1F7D21F68
   imports VERIFICATION
 
 // Flapper_muluu
-rule [Flapper.muluu.fail.rough]:
+claim [Flapper.muluu.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

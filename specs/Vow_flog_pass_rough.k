@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module DA157545200D791492D14AF2ACC9A9EF750874C0AF0CF4B94793BCF1013D8AF8
+module 480408B5EBF5782347B1FDF865F13348482467584E4FC0ADA2ECD1117DC053EC
   imports VERIFICATION
 
 // Vow_flog
-rule [Vow.flog.pass.rough]:
+claim [Vow.flog.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -204,7 +204,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vow.Sin =/=Int #Vow.sin[ABI_t] 
 
 // Vow_adduu
-rule [Vow.adduu.pass]:
+claim [Vow.adduu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -391,7 +391,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vow_subuu
-rule [Vow.subuu.pass]:
+claim [Vow.subuu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

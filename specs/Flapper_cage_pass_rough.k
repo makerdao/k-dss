@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module BF1735CA5164C13814A93D70200D6AF3AD7984634C7C30FAFE77D78434CB9C1A
+module DB327251BEC6B74AC4D04CA92244D7AEEB2A41D7A43D040C42C34B8755466F00
   imports VERIFICATION
 
 // Flapper_cage
-rule [Flapper.cage.pass.rough]:
+claim [Flapper.cage.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -234,7 +234,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.dai[ACCT_ID] =/=Int #Vat.dai[CALLER_ID] 
 
 // Vat_move-diff
-rule [Vat.move-diff.pass]:
+claim [Vat.move-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

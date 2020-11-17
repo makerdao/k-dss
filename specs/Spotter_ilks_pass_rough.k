@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 936B4AC9A3F960F050A2A1DF69DEE8D3AEED3CB56B16D1669098B200B459DD58
+module 9336260222A7E4ECE05D4681148D9A2E413A64A0AA4A44B7036A010B93D53FAC
   imports VERIFICATION
 
 // Spotter_ilks
-rule [Spotter.ilks.pass.rough]:
+claim [Spotter.ilks.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

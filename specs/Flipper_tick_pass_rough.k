@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 5BCBC9DE65D36F06AE5646569532658A99661B7C462C993E6D6A917D3FB46C8A
+module 217229D95F31B9ED8D704F987FE66F5893A3A3733FD331294838173ABA3C36AA
   imports VERIFICATION
 
 // Flipper_tick
-rule [Flipper.tick.pass.rough]:
+claim [Flipper.tick.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -203,7 +203,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Flipper.ttl_tau =/=Int #Flipper.bids[ABI_id].guy_tic_end 
 
 // Flipper_addu48u48
-rule [Flipper.addu48u48.pass]:
+claim [Flipper.addu48u48.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

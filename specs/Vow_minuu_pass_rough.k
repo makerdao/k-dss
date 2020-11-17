@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module F90DE98B46E979F43354E5A721D88B4C7384CDF9A06653E8D3D437AF3B847282
+module 4E579856D2AABB8FB87F2D14EF2A8D6F1B84A6CAD0FFE7A78CB3DDA5C76CCCE2
   imports VERIFICATION
 
 // Vow_minuu
-rule [Vow.minuu.pass.rough]:
+claim [Vow.minuu.pass.rough]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

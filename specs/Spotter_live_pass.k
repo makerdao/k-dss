@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 420A896567BA96160EFF03F0680BA58E40D52F69366FADD63DC872B0547CAD0B
+module 3003735EDEC108D2A23935C964E17770C92331DD3C73D36BDAAC9A049EBDA46F
   imports VERIFICATION
 
 // Spotter_live
-rule [Spotter.live.pass]:
+claim [Spotter.live.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

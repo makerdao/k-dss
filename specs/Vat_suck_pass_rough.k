@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 303CD5B0D0C22267ACF3CB336F9FDB5AD383F924CC9354B21E8EA97130386B4B
+module 628EEB8EEFA55EF6E2B127BA18CE84E097CC7A0539F28890139B2CFF793CFDCB
   imports VERIFICATION
 
 // Vat_suck
-rule [Vat.suck.pass.rough]:
+claim [Vat.suck.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -223,7 +223,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.debt =/=Int #Vat.vice 
 
 // Vat_adduu
-rule [Vat.adduu.pass]:
+claim [Vat.adduu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

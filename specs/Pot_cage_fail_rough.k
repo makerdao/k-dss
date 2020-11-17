@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 7C8C56E8BDC1FA1C145BFBEEE070114155828CF5778EDA222C9D7D746EB98F27
+module 4910BB5A73F85BC3EFFDD2E0E1D6BF8322FB1EE74A22A929A88A5B13D83A3EEC
   imports VERIFICATION
 
 // Pot_cage
-rule [Pot.cage.fail.rough]:
+claim [Pot.cage.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

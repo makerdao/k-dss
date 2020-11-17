@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module B4DD8B7D3D0F21813853FA131F6D7FC69B6D88A0621CEFFB836AB9E4242DD5CE
+module 7164B0C771BDD88F0D3311FE29F70196CF47EC3EBCCFD6225EBD0172E099C010
   imports VERIFICATION
 
 // DaiJoin_cage
-rule [DaiJoin.cage.pass.rough]:
+claim [DaiJoin.cage.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

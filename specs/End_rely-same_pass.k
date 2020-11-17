@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 7843E6ECBB521E9DA0DD85EDEC58F503282D76717CBFD4F0B70471265096211C
+module 35D9800B7A5D2C6C23349F7F35A789F89EF0F46DB99A2B4781CBCE9B94384816
   imports VERIFICATION
 
 // End_rely-same
-rule [End.rely-same.pass]:
+claim [End.rely-same.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

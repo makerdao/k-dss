@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module A0564A9A696B0B46985D5143FC588E1F15B381DA2E0866C16BF3DBF8681839A1
+module 63C58C01658DC17A19C94D5EC5497DBA61C516FAC5CF61A62A3F5F5DF6C80418
   imports VERIFICATION
 
 // DSToken_mint
-rule [DSToken.mint.fail.rough]:
+claim [DSToken.mint.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

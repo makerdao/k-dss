@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module BAD57C7C2251BE1225D7F5D26B34613573C4CCD0AE17EBBBEFDF17323D1D4170
+module 217655AD351A58FB199517DCE097C5AFB94450F07E7996725749C20E4F071DF2
   imports VERIFICATION
 
 // Vow_fess
-rule [Vow.fess.pass.rough]:
+claim [Vow.fess.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -204,7 +204,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vow.sin[TIME] =/=Int #Vow.Sin 
 
 // Vow_adduu
-rule [Vow.adduu.pass]:
+claim [Vow.adduu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 24FFDC37E50726DFFE66E139CEEFADB22F583984837554AA320914D9E635D932
+module FA2FCC2622D7ED6B30EFBA0F2CE55B8FD939B3230EB82099163214AE4EECCFDB
   imports VERIFICATION
 
 // End_file-addr
-rule [End.file-addr.pass.rough]:
+claim [End.file-addr.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

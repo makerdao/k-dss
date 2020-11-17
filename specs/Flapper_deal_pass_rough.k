@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 632DBF3DACF132994C3CBF828A1B7CC3C645C4EDDF9E141F8E72F2E3065BFEE8
+module E96E299EBF1C719E34AEA80B91749467706AF5E4D11A7457AE2BBCAF9ABC3E81
   imports VERIFICATION
 
 // Flapper_deal
-rule [Flapper.deal.pass.rough]:
+claim [Flapper.deal.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -303,7 +303,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #DSToken.balances[ACCT_ID] =/=Int #DSToken.supply 
 
 // Vat_move-diff
-rule [Vat.move-diff.pass]:
+claim [Vat.move-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -508,7 +508,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // DSToken_burn-self
-rule [DSToken.burn-self.pass]:
+claim [DSToken.burn-self.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

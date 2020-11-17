@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module A48637075C551E881C4182879DA2E05ED8EB2C38374F2EEA12846C53A9387745
+module 1E65F652FDED57EC42D93CE22C05DC88AA49EA0EA921952EC54DD805951CD881
   imports VERIFICATION
 
 // Dai_decimals
-rule [Dai.decimals.fail.rough]:
+claim [Dai.decimals.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 99C0F4F6C4FF1ADF8FF993544F0FED7B89CE92712A6D26EB1B53FBBC41447664
+module AB1D4143A141AE952782F62926D04B7F4CAC6405F54623AB79236B83944F104F
   imports VERIFICATION
 
 // Cat_ilks
-rule [Cat.ilks.pass.rough]:
+claim [Cat.ilks.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

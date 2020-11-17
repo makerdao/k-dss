@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 93579B7A4C9BAECB69D5C77C83BCCBB749F372BB440948C4D65B897E8BDA4F20
+module 89A757C7510D876BD764755C603592BE91CE7C63BDD2136DE468F37304E12C8B
   imports VERIFICATION
 
 // Pot_rpow-loop
-rule [Pot.rpow-loop.pass.rough]:
+claim [Pot.rpow-loop.pass.rough]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

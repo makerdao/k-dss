@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 67761C0987D50D8DEEA88CBB8E767DD767DB5DE1929EEC596BA409A80272F88C
+module D09112770F178DD6052E3B36FE18CF131F3A90C40E0CCA32054C19BDFF7DFB2A
   imports VERIFICATION
 
 // End_debt
-rule [End.debt.fail.rough]:
+claim [End.debt.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

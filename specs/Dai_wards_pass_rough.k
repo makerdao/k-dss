@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module A2D46DCCCC06D1BBD9DACC812CB0B59F4CC7A22C06B446F727ABCE16FC938809
+module 857C986C193111ED43B6F293AFBE0A5F2CE19E00D16196A897649F0889AB4317
   imports VERIFICATION
 
 // Dai_wards
-rule [Dai.wards.pass.rough]:
+claim [Dai.wards.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

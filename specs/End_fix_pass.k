@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module C4AE154676A73B1DAC6E341F6F8F9C2EB3815B83AF5469B238A85ABFFE95C097
+module 6271941B03EEE8E2CC83BFAAA2ACEC24A2B7F087F45635E406BF0626AF45292A
   imports VERIFICATION
 
 // End_fix
-rule [End.fix.pass]:
+claim [End.fix.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

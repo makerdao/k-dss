@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 3BF67264CC25ADE0D7F02116A0C5BDC8320F8637C9F8DB7A5A9B2BB47147039D
+module B19CC4EDC72CBF1C084E525B29086AC89E0A0531B81FFCA46639559FBF70D332
   imports VERIFICATION
 
 // Vat_move-same
-rule [Vat.move-same.fail.rough]:
+claim [Vat.move-same.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -204,7 +204,7 @@ ensures
 ?FAILURE =/=K EVMC_SUCCESS
 
 // Vat_subuu
-rule [Vat.subuu.pass]:
+claim [Vat.subuu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -391,7 +391,7 @@ andBool #rangeUInt(256, VChainId)
 
 
 // Vat_adduu
-rule [Vat.adduu.pass]:
+claim [Vat.adduu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

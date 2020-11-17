@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 72E6BE30541C5A1A448146C203BC3ADA303F5E93A6F497092F9783E22A05B027
+module A846DDE2F4D3B9CFD5103EFE825F3C84B43A73BAF2A6EBE9566C3F313C40C4A9
   imports VERIFICATION
 
 // GemJoin_cage
-rule [GemJoin.cage.fail.rough]:
+claim [GemJoin.cage.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

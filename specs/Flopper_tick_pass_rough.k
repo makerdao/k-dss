@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 4A427217CBEEF0BF279AC880F322F0F8499217F7AD63285C1BDF6B4745087D4B
+module D729B176DF82FB181FB048D73D678EFD82122B3BFA31A313F4E3400ED0E47A79
   imports VERIFICATION
 
 // Flopper_tick
-rule [Flopper.tick.pass.rough]:
+claim [Flopper.tick.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -217,7 +217,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #Flopper.bids[ABI_id].lot =/=Int #Flopper.bids[ABI_id].guy_tic_end 
 
 // Flopper_addu48u48
-rule [Flopper.addu48u48.pass]:
+claim [Flopper.addu48u48.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

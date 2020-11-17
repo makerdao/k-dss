@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module C46C79D0D427DD74B678C2B1F34798D702A4B1ED79A64AC4F67B7A3E86E8930F
+module 5F8E90C14E65B26C65DA52946243DA31D2E08DCCEDAD6BDA15C20B93B0FA4BB0
   imports VERIFICATION
 
 // GemJoin_ilk
-rule [GemJoin.ilk.fail.rough]:
+claim [GemJoin.ilk.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 01633263E4CDCDC72DFFC59E1F3E3F20ED678CD05288BF50F3DCF338EA1C7404
+module D4D2B72F4857CE5876446AA43DEB2712C3A9400736A0077AA7D7A313DA5EB5EC
   imports VERIFICATION
 
 // DaiJoin_muluu
-rule [DaiJoin.muluu.fail.rough]:
+claim [DaiJoin.muluu.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

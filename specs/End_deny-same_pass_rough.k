@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 0B6CB3D484896C44D849BDE9E9AFFDDC14CF7F4CA7B3BAB9D50CABB14971D14C
+module 49DD9719AC157381A5F57EC31979A8FE05059051BFE49DCAFF6C9F95C3A91C50
   imports VERIFICATION
 
 // End_deny-same
-rule [End.deny-same.pass.rough]:
+claim [End.deny-same.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

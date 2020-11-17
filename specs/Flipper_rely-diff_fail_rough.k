@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module ACB9B398B18B64CC00F618C1507870B915E08D34B7FA2FA6EDCDD1E1F9735DF0
+module A20471CC6AA0F6A6ED82DC2822E7A74144F535E7617A0465C4D91263E344642B
   imports VERIFICATION
 
 // Flipper_rely-diff
-rule [Flipper.rely-diff.fail.rough]:
+claim [Flipper.rely-diff.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

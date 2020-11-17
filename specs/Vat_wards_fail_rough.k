@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module FA6A5E8E76DF96AC04DF51B292A7869501C31BF15A6C33733F0C57C3B39D51F0
+module 1014A23F2AE4957AF295AB08C25CDC3E371B7697AB1B63200B6E73C8E2EF3E9C
   imports VERIFICATION
 
 // Vat_wards
-rule [Vat.wards.fail.rough]:
+claim [Vat.wards.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

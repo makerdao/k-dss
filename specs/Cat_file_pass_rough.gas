@@ -1,4 +1,1 @@
-#gas ( ( VGas +Int #if ABI_what =/=Int 44963493217838844892687817059512192886801667728146837483730375534287777693696
-  #then   ( Csstore( ISTANBUL , ABI_data , Lump , Junk_2 ) +Int 5687 )
-  #else   ( Csstore( ISTANBUL , ABI_data , Chop , Junk_1 ) +Int 5660 )
-#fi ) )
+#gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Lump , Junk_2 ) +Int 5687 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Chop , Junk_1 ) +Int 5660 ) ) )

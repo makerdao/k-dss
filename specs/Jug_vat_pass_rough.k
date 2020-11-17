@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 336FAD8EA7B43CA2965C9C1A9BA625B87D7672CC606D398AB263D6DB04A0B8DD
+module 40FAE7E4471B5EBA75AA28A750E1E653F12A18498E560E3CAB41050F86FFBF6B
   imports VERIFICATION
 
 // Jug_vat
-rule [Jug.vat.pass.rough]:
+claim [Jug.vat.pass.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>

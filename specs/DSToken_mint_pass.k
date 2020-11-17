@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 762337BB2F3DF6888430BEC73C603E84C17E3F8081A37E9E36DACB02E18BFDBB
+module E4C7686BBBD2FDEEEA394A6C618E8BE2ED3216E7ADF1D53ED4A1C7910EEF8791
   imports VERIFICATION
 
 // DSToken_mint
-rule [DSToken.mint.pass]:
+claim [DSToken.mint.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
