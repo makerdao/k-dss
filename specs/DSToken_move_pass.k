@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module D07C1EE5AA197342937AACFFD099BF3A04123B79E359F31DFF9A1224D9A94B3E
+module A7B0857459096513B45271FB391FF25303342A24BC81184072C014F2D8BBD341
   imports VERIFICATION
 
 // DSToken_move
@@ -27,7 +27,8 @@ claim [DSToken.move.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_2 ) +Int 7281 ) ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Allowance -Int ABI_wad ) , Allowance , Junk_0 ) +Int ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_2 ) +Int 9538 ) ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_2 ) +Int 7281 ) ) ) )
+           #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Allowance -Int ABI_wad ) , Allowance , Junk_0 ) +Int ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_2 ) +Int 9538 ) ) ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

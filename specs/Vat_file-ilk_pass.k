@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 265EFF66256AE4E5A1D734E7CD2FE49F266EFEA57F7ED484E37541CCF5E58FEB
+module 4DB459846A32ED3C3D6F48A3FDEB1A78F43CC3BD1C918C745FADB052BF77C614
   imports VERIFICATION
 
 // Vat_file-ilk
@@ -27,7 +27,9 @@ claim [Vat.file-ilk.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Dust , Junk_3 ) +Int 6609 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Line , Junk_2 ) +Int 6582 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Spot , Junk_1 ) +Int 6555 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Dust , Junk_3 ) +Int 6609 ) ) )
+           #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Line , Junk_2 ) +Int 6582 ) ) )
+           #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Spot , Junk_1 ) +Int 6555 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

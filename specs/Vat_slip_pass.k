@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 2E09B30AAF259751F00C801AC367706F6AF7BD81EBB8D34D913E6124E922CC30
+module 1068EC87BFB51C965A96C76EA3C58724A356C0B367E40D63D8F2CEC2D3D26DFE
   imports VERIFICATION
 
 // Vat_slip
@@ -27,7 +27,9 @@ claim [Vat.slip.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem +Int ABI_wad ) , Gem , Junk_1 ) +Int 6870 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem +Int ABI_wad ) , Gem , Junk_1 ) +Int 6884 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem +Int ABI_wad ) , Gem , Junk_1 ) +Int 6884 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem +Int ABI_wad ) , Gem , Junk_1 ) +Int 6870 ) ) )
+           #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem +Int ABI_wad ) , Gem , Junk_1 ) +Int 6884 ) ) )
+           #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem +Int ABI_wad ) , Gem , Junk_1 ) +Int 6884 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

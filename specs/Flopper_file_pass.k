@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 78B57A6694BB82CC7C4E17D969AFD4F3E2DB05323B96BC1192191C906045E76A
+module E984A80800146382D128E8EF9EC433431040914C19F50CC386177C13CD2753AF
   imports VERIFICATION
 
 // Flopper_file
@@ -27,7 +27,10 @@ claim [Flopper.file.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( Ttl , ABI_data ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6576 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , Tau ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6499 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Pad , Junk_2 ) +Int 5619 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Beg , Junk_1 ) +Int 5592 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( Ttl , ABI_data ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6576 ) ) )
+           #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , Tau ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6499 ) ) )
+           #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Pad , Junk_2 ) +Int 5619 ) ) )
+           #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Beg , Junk_1 ) +Int 5592 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

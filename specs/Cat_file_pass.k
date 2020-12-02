@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module FC74DB222C58926455893E705433E35731DCB08263B7088EDEA3A5452E326705
+module 503DB1F26D52AA9A020284032490C9948635AD63F587352DAA73E27F1A546E5D
   imports VERIFICATION
 
 // Cat_file
@@ -27,7 +27,10 @@ claim [Cat.file.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Lump , Junk_2 ) +Int 5687 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Chop , Junk_1 ) +Int 5660 ) ) ) </gas>
+        <gas> #gas(VGas) => #if ABI_what =/=Int 44963493217838844892687817059512192886801667728146837483730375534287777693696
+          #then   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Lump , Junk_2 ) +Int 5687 ) ) )
+          #else   #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Chop , Junk_1 ) +Int 5660 ) ) )
+        #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

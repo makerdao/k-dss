@@ -1,1 +1,4 @@
-#gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( Ttl , ABI_data ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6576 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , Tau ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6499 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Pad , Junk_2 ) +Int 5619 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Beg , Junk_1 ) +Int 5592 ) ) )
+  #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( Ttl , ABI_data ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6576 ) ) )
+   #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , Tau ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6499 ) ) )
+   #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Pad , Junk_2 ) +Int 5619 ) ) )
+   #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Beg , Junk_1 ) +Int 5592 ) ) )

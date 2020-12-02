@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 7637D12C35D90C4401B77BFDAC6AA3D9D70C47B08ABF14BE8E7ABB695C5C7027
+module 07AAEBF1E85639FDBE5899960ACAA3CE7BB4F375BC9FF15D997DDD13A9C181A6
   imports VERIFICATION
 
 // End_file-addr
@@ -27,7 +27,11 @@ claim [End.file-addr.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Spot , Junk_5 ) +Int 7381 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Pot , Junk_4 ) +Int 7354 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Vow , Junk_3 ) +Int 7327 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Cat , Junk_2 ) +Int 7300 ) ) ) #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Vat , Junk_1 ) +Int 7273 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Spot , Junk_5 ) +Int 7381 ) ) )
+           #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Pot , Junk_4 ) +Int 7354 ) ) )
+           #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Vow , Junk_3 ) +Int 7327 ) ) )
+           #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Cat , Junk_2 ) +Int 7300 ) ) )
+           #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Vat , Junk_1 ) +Int 7273 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

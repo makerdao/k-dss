@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module EF21B1E5C461B7AF93BB80AA3D4EFB7663220DA3B9C110449500B7D6C813D2CB
+module 7B223FBE4E15F9E4E644AE4182A35832F08EDFBDE0F0DE481F7D196175032FEF
   imports VERIFICATION
 
 // Flapper_muluu
@@ -27,7 +27,10 @@ claim [Flapper.muluu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x *Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 8901 => 8944 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 54 ) ) #Or #gas ( ( VGas +Int 106 ) ) </gas>
+        <gas> #gas(VGas) => #if ABI_y ==Int 0
+          #then   #gas ( ( VGas +Int 54 ) )
+          #else   #gas ( ( VGas +Int 106 ) )
+        #fi </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

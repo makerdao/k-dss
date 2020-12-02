@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module D9C006EEFFA7D044DE3C2136FAAAFDE1CA0FDFE1A56B6D72128C52352A3E031C
+module 2624A48B0ABE0DF161C76890978F6FC985EF1D2D9B51214F1320E1CE2F27F6B2
   imports VERIFICATION
 
 // Pot_rmul
@@ -27,7 +27,10 @@ claim [Pot.rmul.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : (ABI_x *Int ABI_y) /Int #Ray : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 5145 => 5185 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 127 ) ) #Or #gas ( ( VGas +Int 179 ) ) </gas>
+        <gas> #gas(VGas) => #if ABI_y ==Int 0
+          #then   #gas ( ( VGas +Int 127 ) )
+          #else   #gas ( ( VGas +Int 179 ) )
+        #fi </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>
