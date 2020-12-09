@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 53F382E8BAEAF3DE430B0E5FC23BED33F4138EDB932ED37FDB1B458152630222
+module E65919888CC97B81A2B09D7E06E8E27FCCFE154D317B82BEADEC5B9B302F4F0A
   imports VERIFICATION
 
 // Flapper_tick
@@ -226,7 +226,7 @@ claim [Flapper.addu48u48.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 8945 => 8986 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 66 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -66 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

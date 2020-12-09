@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 418113DA69872D072DF689588F1F97262664F263A0800E91101ADF5DCE9BE030
+module 5EF45C3FF1528EB58817C188B87FC88123A19822CC2F478DBDE19D7E300BCFF1
   imports VERIFICATION
 
 // Flipper_addu48u48
@@ -27,7 +27,7 @@ claim [Flipper.addu48u48.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 11354 => 11395 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 66 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -66 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

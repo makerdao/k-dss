@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 6AFAC1DD3AC505E49E88E47FD009C3C306B988F738754844118A7AB8FC54C9F8
+module B855EE04DE3EA3E54B495DA1B88A802D85609A1704D3C586BA8148651BC7F5C1
   imports VERIFICATION
 
 // End_rmul
@@ -28,8 +28,8 @@ claim [End.rmul.pass]:
         <localMem> _ </localMem>
         <pc> 14623 => 14663 </pc>
         <gas> #gas(VGas) => #if ABI_y ==Int 0
-          #then   #gas ( ( VGas +Int 127 ) )
-          #else   #gas ( ( VGas +Int 179 ) )
+          #then   #gas ( ( VGas +Int -127 ) )
+          #else   #gas ( ( VGas +Int -179 ) )
         #fi </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>

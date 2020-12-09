@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 7C805696B0E3014422DED6433F524BF8E85BD819EBF6EFB17AD9E8BEB01EC5F0
+module 87BE95656F7509914EC0D955E13C615ED73B143119CA5B7A6F513CCBB4670E8F
   imports VERIFICATION
 
 // Vow_file-addr-diff
@@ -260,7 +260,7 @@ claim [Vat.nope.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , Junk_0 , Junk_1 ) +Int 4801 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Junk_0 , Junk_1 ) ) +Int -4801 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
@@ -448,7 +448,7 @@ claim [Vat.hope.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 1 , Junk_0 , Junk_1 ) +Int 4824 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( VGas -Int Csstore( ISTANBUL , 1 , Junk_0 , Junk_1 ) ) +Int -4824 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 951B37B8A67C78DD68DE2B7DC00F9E4E5866A2D6044C66C3CFFFA9953EB71E64
+module 9222477325AF796A99DD661EBF4CFEA5176AC5DB5B34CE02BEA50C93324CBBA7
   imports VERIFICATION
 
 // Dai_deny-diff
@@ -27,7 +27,7 @@ claim [Dai.deny-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , Junk_0 , Junk_2 ) +Int 5665 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Junk_0 , Junk_2 ) ) +Int -5665 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

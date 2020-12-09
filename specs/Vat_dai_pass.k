@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 32B51448D240ABC47CAD571A59E56A02D8105AC818F56AA0474FDD2E66866267
+module DA3B01859C70352C964C788B38FA30A516EEF6468358583C92EEB9138E2A8739
   imports VERIFICATION
 
 // Vat_dai
@@ -27,7 +27,7 @@ claim [Vat.dai.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 1236 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -1236 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

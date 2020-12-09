@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 0F5640ABDC5C76085EE0F0638B09E24919FA327F0088FCCC1E4399AA2A2CACBA
+module 6407A472658BF3BA4CD5344FFF17B180CB98DD7EC1A1DE52D628E3EB25C0BE0E
   imports VERIFICATION
 
 // Flipper_kick
@@ -359,7 +359,7 @@ claim [Flipper.addu48u48.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 11354 => 11395 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 66 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -66 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>
@@ -546,7 +546,7 @@ claim [Vat.flux-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_src -Int ABI_wad ) , Gem_src , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Gem_dst +Int ABI_wad ) , Gem_dst , Junk_2 ) +Int 8307 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Gem_src -Int ABI_wad ) , Gem_src , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Gem_dst +Int ABI_wad ) , Gem_dst , Junk_2 ) ) +Int -8307 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

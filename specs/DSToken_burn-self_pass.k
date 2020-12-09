@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 54308F7E08374D0FFA0A08D092AB835AB5D4B8CCB74CC5FFAC8EBBC097ACC982
+module F8C7FBFF59462FC01A302325B81CC68450F9FEE969DED5CC1869EC1E7BFBCE9A
   imports VERIFICATION
 
 // DSToken_burn-self
@@ -27,7 +27,7 @@ claim [DSToken.burn-self.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) +Int ( Csstore( ISTANBUL , ( Supply -Int ABI_wad ) , Supply , Junk_2 ) +Int 6648 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Supply -Int ABI_wad ) , Supply , Junk_2 ) ) +Int -6648 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

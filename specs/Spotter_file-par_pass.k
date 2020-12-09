@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 85FE52F7B31E8850D2EC2ED5E692695B5F1521452CD6A98DBF18B7391DD4FB57
+module E1E55205282EE03F5517B989AE39BCAA12E8FB75B299C972A6F1ACF0B1DA39D8
   imports VERIFICATION
 
 // Spotter_file-par
@@ -27,7 +27,7 @@ claim [Spotter.file-par.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Junk_0 , Junk_2 ) +Int 6414 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_data , Junk_0 , Junk_2 ) ) +Int -6414 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

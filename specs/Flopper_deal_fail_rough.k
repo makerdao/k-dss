@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 4AC9B12E4F46A2BAAC66E5E367001AB48BB1D2AE8817A7A70C9B5129ACE18E46
+module 8AE77652745D68238B63FEDA47283412BA9B783711B2C48FD1207E2726A50DD2
   imports VERIFICATION
 
 // Flopper_deal
@@ -283,7 +283,7 @@ claim [DSToken.mint.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_0 ) +Int ( Csstore( ISTANBUL , ( Supply +Int ABI_wad ) , Supply , Junk_1 ) +Int 5628 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Supply +Int ABI_wad ) , Supply , Junk_1 ) ) +Int -5628 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

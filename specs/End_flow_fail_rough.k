@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 5D2FF26BCB69C203AA77E302BB0A5CC26556BEA0DD6D7D16F838712356545DAB
+module D1432AE25A0E227438E705CC840E4A84E9C1C3635B1735C52FEF6E0EC3FE41E3
   imports VERIFICATION
 
 // End_flow
@@ -304,8 +304,8 @@ claim [End.muluu.pass]:
         <localMem> _ </localMem>
         <pc> 14690 => 14733 </pc>
         <gas> #gas(VGas) => #if ABI_y ==Int 0
-          #then   #gas ( ( VGas +Int 54 ) )
-          #else   #gas ( ( VGas +Int 106 ) )
+          #then   #gas ( ( VGas +Int -54 ) )
+          #else   #gas ( ( VGas +Int -106 ) )
         #fi </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
@@ -493,7 +493,7 @@ claim [End.subuu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x -Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 14664 => 14689 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 54 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -54 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>
@@ -681,8 +681,8 @@ claim [End.rmul.pass]:
         <localMem> _ </localMem>
         <pc> 14623 => 14663 </pc>
         <gas> #gas(VGas) => #if ABI_y ==Int 0
-          #then   #gas ( ( VGas +Int 127 ) )
-          #else   #gas ( ( VGas +Int 179 ) )
+          #then   #gas ( ( VGas +Int -127 ) )
+          #else   #gas ( ( VGas +Int -179 ) )
         #fi </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
@@ -870,7 +870,7 @@ claim [End.rdiv.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : (ABI_x *Int #Ray) /Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 14734 => 14774 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 179 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -179 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>
@@ -1058,7 +1058,7 @@ claim [Vat.ilks.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 4594 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -4594 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

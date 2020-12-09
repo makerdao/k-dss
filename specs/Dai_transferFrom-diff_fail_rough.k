@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 160CC9D9BCBDC6F4DF49C9261150AB766DBDFEDB7FEDF11E383AC1F5994A4EE4
+module EB2AA992C47CD65898565794DEBA1B06B930C40C3EDF5F17AE30E107B9F46DCE
   imports VERIFICATION
 
 // Dai_transferFrom-diff
@@ -234,7 +234,7 @@ claim [Dai.adduu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 7825 => 7850 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 54 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -54 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>
@@ -421,7 +421,7 @@ claim [Dai.subuu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x -Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 7799 => 7824 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 54 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -54 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B46D977E8A856729E61C24A33EE28B61D8E1F1FA00A53CBB76AD0D41BA348D5B
+module AB3D469A0C78287A3F9971DED8C32896C3FE9076FF3A32269D9EB5A05BCF786C
   imports VERIFICATION
 
 // Flipper_file
@@ -27,9 +27,14 @@ claim [Flipper.file.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( Ttl , ABI_data ) , #lookup( ACCT_ID_STORAGE , 5 ) , Junk_2 ) +Int 6549 ) ) )
-           #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , Tau ) , #lookup( ACCT_ID_STORAGE , 5 ) , Junk_2 ) +Int 6472 ) ) )
-           #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Beg , Junk_1 ) +Int 5592 ) ) ) </gas>
+        <gas> #gas(VGas) => #if ABI_what ==Int 44505821594576442305943786526067189028800094342624099485940320344354850865152
+          #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_data , Beg , Junk_1 ) ) +Int -5592 ) )
+          #else   #if   ABI_what ==Int 52673990083778647014426308045781012712597814653424946781269281625551751086080
+             #And ABI_data <Int pow48
+            #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , Tau ) , #lookup( ACCT_ID_STORAGE , 5 ) , Junk_2 ) ) +Int -6472 ) )
+            #else   #gas ( ( ( VGas -Int Csstore( ISTANBUL , #WordPackUInt48UInt48 ( Ttl , ABI_data ) , #lookup( ACCT_ID_STORAGE , 5 ) , Junk_2 ) ) +Int -6549 ) )
+          #fi
+        #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

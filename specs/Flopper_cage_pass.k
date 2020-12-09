@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 71748481CBD32CAA0084144B3BB99B31828304E22C92FE286E017B931F178C35
+module EDDD332F2A879E46D48DF4787E517D0378EAED6EAAF7B4407D4D48E9C5FA735C
   imports VERIFICATION
 
 // Flopper_cage
@@ -27,7 +27,7 @@ claim [Flopper.cage.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , Live , Junk_1 ) +Int ( Csstore( ISTANBUL , CALLER_ID , Vow , Junk_2 ) +Int 6351 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Live , Junk_1 ) ) -Int Csstore( ISTANBUL , CALLER_ID , Vow , Junk_2 ) ) +Int -6351 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

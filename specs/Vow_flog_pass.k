@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module C9EA7FD57B2D54D0B05EF312129E1FEB88962972DAC5E2F7C1F0EE1031384B6B
+module C966B4775C64136DBECCF8B8480C3FF382745EF2A91EF7682FF8D1FE2C48ACB7
   imports VERIFICATION
 
 // Vow_flog
@@ -27,7 +27,7 @@ claim [Vow.flog.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Sin -Int Sin_t ) , Sin , Junk_1 ) +Int ( Csstore( ISTANBUL , 0 , Sin_t , Junk_2 ) +Int 7411 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Sin -Int Sin_t ) , Sin , Junk_1 ) ) -Int Csstore( ISTANBUL , 0 , Sin_t , Junk_2 ) ) +Int -7411 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
@@ -227,7 +227,7 @@ claim [Vow.adduu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 9777 => 9802 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 54 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -54 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>
@@ -414,7 +414,7 @@ claim [Vow.subuu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x -Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 9803 => 9828 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 54 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -54 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

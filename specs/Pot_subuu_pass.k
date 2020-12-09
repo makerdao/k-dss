@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 5751AF540A009F53FEC5207838F6F8151CA899438FD6415417B6B1EC19D2E2B6
+module B26A1DDC7CA22EECCCA32F77A67EA34229933E5F53AA1A8BBDA79617CC79CBBE
   imports VERIFICATION
 
 // Pot_subuu
@@ -27,7 +27,7 @@ claim [Pot.subuu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x -Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 4921 => 4946 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 54 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -54 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

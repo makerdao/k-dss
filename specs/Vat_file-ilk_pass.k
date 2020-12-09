@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 4DB459846A32ED3C3D6F48A3FDEB1A78F43CC3BD1C918C745FADB052BF77C614
+module 06DA06A935487F825ADC9D19379A2ACC945BBC00635833DEC639DCBF377739C5
   imports VERIFICATION
 
 // Vat_file-ilk
@@ -27,9 +27,13 @@ claim [Vat.file-ilk.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Dust , Junk_3 ) +Int 6609 ) ) )
-           #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Line , Junk_2 ) +Int 6582 ) ) )
-           #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Spot , Junk_1 ) +Int 6555 ) ) ) </gas>
+        <gas> #gas(VGas) => #if ABI_what ==Int 49036068503847260643156492622631591831542628249327578363867825373603329736704
+          #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_data , Line , Junk_2 ) ) +Int -6582 ) )
+          #else   #if ABI_what ==Int 52214633679529120849900229181229190823836184335472955378023737308807130251264
+            #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_data , Spot , Junk_1 ) ) +Int -6555 ) )
+            #else   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_data , Dust , Junk_3 ) ) +Int -6609 ) )
+          #fi
+        #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

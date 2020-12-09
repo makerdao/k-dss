@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module EE2559AC9DFD7C5589FC251B86B8238FFCBFB9E04DA2DF8582C7CC03A712FDBF
+module 1A2998A0F264AA79BD299CDB0DA12EC76390BA9B4896651BB0BC6C732A8DD880
   imports VERIFICATION
 
 // End_bag
@@ -27,7 +27,7 @@ claim [End.bag.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 1237 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -1237 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

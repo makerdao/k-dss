@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 167DB2880A9377CFD9A99930A033396353F74A7BF66B5CFD020531DCC82C2407
+module A610B625BC980C6A01186CD86747940A43263047D0F5944A03B5BB9EBD4E47C3
   imports VERIFICATION
 
 // Flapper_tau
@@ -27,7 +27,7 @@ claim [Flapper.tau.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 1169 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -1169 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

@@ -1,3 +1,8 @@
-  #gas ( ( VGas +Int 114 ) )
-   #Or #gas ( ( VGas +Int 128 ) )
-   #Or #gas ( ( VGas +Int 128 ) )
+#if   ABI_y <Int 0
+   #And 0 <=Int ( ABI_x +Int ABI_y )
+  #then   #gas ( ( VGas +Int -128 ) )
+  #else   #if chop( ABI_y ) <=Int 0
+    #then   #gas ( ( VGas +Int -114 ) )
+    #else   #gas ( ( VGas +Int -128 ) )
+  #fi
+#fi

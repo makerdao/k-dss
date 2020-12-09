@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module ECDF5AB172D63674C49D6809C76D004F72A1E38AA979143713A2642DFB611E6C
+module ED5754BA44AB4D356182DB82CC83040AF78793C684B27EDD3C6ACB0485EADC5E
   imports VERIFICATION
 
 // End_thaw
@@ -279,7 +279,7 @@ claim [End.adduu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 14775 => 14800 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 54 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -54 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>
@@ -466,7 +466,7 @@ claim [Vat.dai.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 1236 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -1236 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>
@@ -654,7 +654,7 @@ claim [Vat.debt.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 1052 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -1052 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

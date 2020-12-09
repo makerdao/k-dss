@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 5995E472DAD742CAA17E819AAD633BEFD813960AC8BCF225EA40D5E71131994D
+module 2012E865F1C27234B6120E9A01F5DD90D0A18BCC0B9A6ABDDD2924169D10BB12
   imports VERIFICATION
 
 // DSToken_approve
@@ -27,7 +27,7 @@ claim [DSToken.approve.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_wad , Allowed , Junk_0 ) +Int 3390 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_wad , Allowed , Junk_0 ) ) +Int -3390 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

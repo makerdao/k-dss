@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module C1F78820B96BAE58090BE224F5901939C59C0679D83A4B01818B3B7B2006746E
+module A5F96B70AFBD9B0F516292591F0CC0CC1E6FA373640C2712D5D38C5756439BA9
   imports VERIFICATION
 
 // Jug_file-vow
@@ -27,7 +27,7 @@ claim [Jug.file-vow.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Vow , Junk_1 ) +Int 6493 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_data , Vow , Junk_1 ) ) +Int -6493 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

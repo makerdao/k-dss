@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 92DC8FE5356445C44775D06740F5E1B3F32F605DE40EF98D55C12B7F96DD5D17
+module 1990D1A43C0D43F4F236B1497C986AF5CA83060887E4B59C082D333F2F992A10
   imports VERIFICATION
 
 // DSValue_peek
@@ -27,7 +27,7 @@ claim [DSValue.peek.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 2012 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -2012 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module DF8FD2B6B0F2A36433C3A0C324A96DFAA9C43564B99E4E556A113C7C3D6A075C
+module CDA0589228EA65487DF6FC8C1C4653677C3CCF1318F87D8FF0DF675E605F8776
   imports VERIFICATION
 
 // DSToken_balanceOf
@@ -27,7 +27,7 @@ claim [DSToken.balanceOf.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 1307 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -1307 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module F6F118822210A57C00803B6E17D2CFFE3300C776D01C70EE16DEC7923259AA99
+module 174C5173AFA873425F12D4E80FD85BE762C36334F74E95E34927C3F0CF1DD471
   imports VERIFICATION
 
 // Pot_cage
@@ -27,7 +27,7 @@ claim [Pot.cage.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , Live , Junk_2 ) +Int ( Csstore( ISTANBUL , 1000000000000000000000000000 , Dsr , Junk_1 ) +Int 5455 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Live , Junk_2 ) ) -Int Csstore( ISTANBUL , 1000000000000000000000000000 , Dsr , Junk_1 ) ) +Int -5455 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

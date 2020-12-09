@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 686E5102B01648A0034E7C7A02CB310A6BC76940BF9DA4E1BFF3062246764759
+module 76D1CE776D3C220C135441C055C5911594E6EDDF6F4CA9E374AF6A8DF89E966D
   imports VERIFICATION
 
 // Pot_rely-same
@@ -27,7 +27,7 @@ claim [Pot.rely-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 1 , 1 , Junk_0 ) +Int 5599 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( VGas -Int Csstore( ISTANBUL , 1 , 1 , Junk_0 ) ) +Int -5599 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

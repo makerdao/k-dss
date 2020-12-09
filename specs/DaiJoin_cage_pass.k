@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B612EE4652B181B1916A7B15E795C4DC6BB04FBFE10983A67B6D96EA0C5C3C62
+module 8C25C25137B9EEFBE53AF97D4B33EDF52FCC2F62007BFB5D343FD521529BF9DA
   imports VERIFICATION
 
 // DaiJoin_cage
@@ -27,7 +27,7 @@ claim [DaiJoin.cage.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , Junk_0 , Junk_2 ) +Int 5463 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Junk_0 , Junk_2 ) ) +Int -5463 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 3003735EDEC108D2A23935C964E17770C92331DD3C73D36BDAAC9A049EBDA46F
+module 11F7E829505005FAF095F6ECF12FD285788B10E5419C057442E10DC19D3B94E7
   imports VERIFICATION
 
 // Spotter_live
@@ -27,7 +27,7 @@ claim [Spotter.live.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 1027 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -1027 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

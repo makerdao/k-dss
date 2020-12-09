@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 26B5D3676AA97919C9AD6B58AE5669E9FF2A31E00D8FFFEAB77CDBF843009C66
+module 3E509978399D617210A629936748F92E597E3A40DB830394D4428B9A912966DB
   imports VERIFICATION
 
 // Vow_flopper
@@ -27,7 +27,7 @@ claim [Vow.flopper.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 1076 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -1076 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 61C9A990066EB72450BA2776E1875652CB2A95E616FEA8130FFC86F378B157E3
+module 0978FE17A5E08E2A6EB0DB9AEE4BE03484D3576B65A783D9791C214C1D911BC6
   imports VERIFICATION
 
 // End_cage-ilk
@@ -339,7 +339,7 @@ claim [End.rdiv.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : (ABI_x *Int #Ray) /Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 14734 => 14774 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 179 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -179 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>
@@ -527,7 +527,7 @@ claim [Vat.ilks.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 4594 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -4594 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>
@@ -741,7 +741,7 @@ claim [Spotter.ilks.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 2145 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -2145 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>
@@ -935,7 +935,7 @@ claim [DSValue.read.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 2043 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -2043 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

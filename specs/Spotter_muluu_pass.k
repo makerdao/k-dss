@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 9CB3CAE2468C7A9974D95EC42639384E3A5945E12B98C027E845EEB5F0705E07
+module 647A8FC0C1F285E4F65A54D199E9677C938C97052B9BE4F7BF8F53756622B780
   imports VERIFICATION
 
 // Spotter_muluu
@@ -28,8 +28,8 @@ claim [Spotter.muluu.pass]:
         <localMem> _ </localMem>
         <pc> 4107 => 4150 </pc>
         <gas> #gas(VGas) => #if ABI_y ==Int 0
-          #then   #gas ( ( VGas +Int 54 ) )
-          #else   #gas ( ( VGas +Int 106 ) )
+          #then   #gas ( ( VGas +Int -54 ) )
+          #else   #gas ( ( VGas +Int -106 ) )
         #fi </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 4A5DC90B831F57730D3D6BA5D9A519E070212723C5EDC5DAA4EF3771ABA7F946
+module 1DB17EDA30F4FE506B6BB0EEB58CF9B31BD3B80BBE4CA062F199D02C6B971184
   imports VERIFICATION
 
 // Cat_cage
@@ -27,7 +27,7 @@ claim [Cat.cage.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , Live , Junk_1 ) +Int 5507 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Live , Junk_1 ) ) +Int -5507 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module E6B027A146DF0FAB5A20928F06ABEC3B194B6C2A637B036BA85C4FE011150ADE
+module E7BCD32B21D9D4A5F9F056B4F39D0A7D8478233B4701F62BB8FFFA712FEE8E85
   imports VERIFICATION
 
 // Dai_transfer-same
@@ -27,7 +27,7 @@ claim [Dai.transfer-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_0 ) +Int ( Csstore( ISTANBUL , ( ( SrcBal -Int ABI_wad ) +Int ABI_wad ) , ( SrcBal -Int ABI_wad ) , Junk_0 ) +Int 5374 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_0 ) ) -Int Csstore( ISTANBUL , ( ( SrcBal -Int ABI_wad ) +Int ABI_wad ) , ( SrcBal -Int ABI_wad ) , Junk_0 ) ) +Int -5374 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
@@ -216,7 +216,7 @@ claim [Dai.adduu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 7825 => 7850 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 54 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -54 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>
@@ -403,7 +403,7 @@ claim [Dai.subuu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x -Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 7799 => 7824 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 54 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -54 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

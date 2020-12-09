@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 3E70A60291AFE610173BA3D96A74D5F489D948207CACC2717F7242BF0976B289
+module 1A24F9C6117A43C29BE2E2D3D289357C95C27D93C19C568CB3DA84971C2E2936
   imports VERIFICATION
 
 // Flipper_muluu
@@ -28,8 +28,8 @@ claim [Flipper.muluu.pass]:
         <localMem> _ </localMem>
         <pc> 11396 => 11439 </pc>
         <gas> #gas(VGas) => #if ABI_y ==Int 0
-          #then   #gas ( ( VGas +Int 54 ) )
-          #else   #gas ( ( VGas +Int 106 ) )
+          #then   #gas ( ( VGas +Int -54 ) )
+          #else   #gas ( ( VGas +Int -106 ) )
         #fi </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>

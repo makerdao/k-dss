@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 20C24E646CBAEBBCB684E37E2018D4BDC0D9F7867D30ED596CDE4ACD484F584B
+module 6EA4D78B4A586DF0EC55D0048910C9295EE7E5BDE0446D079BCDE3B8EBEDDE82
   imports VERIFICATION
 
 // Pot_dsr
@@ -27,7 +27,7 @@ claim [Pot.dsr.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 1072 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -1072 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module F2FC09AED2E42B1F1BB76B838ABA80579B8384CD0279FAE4D6DEDF10AF273B54
+module 4E6F65C6BB15002EE1143613CBB1ACD64BBDD2964F52D56A4E36CD44A1386DBC
   imports VERIFICATION
 
 // Dai_approve
@@ -27,7 +27,7 @@ claim [Dai.approve.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_wad , Allowed , Junk_0 ) +Int 2414 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_wad , Allowed , Junk_0 ) ) +Int -2414 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

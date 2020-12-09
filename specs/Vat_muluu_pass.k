@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module A333261CD645CE07BF4C8D877612841E306DC7B242896C8FE5C94A2BEFDC4CCC
+module 52DA24CCA64E4C4D8B80B4A3516BCADE6FCE695B812C53F7A7569885EB7F2668
   imports VERIFICATION
 
 // Vat_muluu
@@ -28,8 +28,8 @@ claim [Vat.muluu.pass]:
         <localMem> _ </localMem>
         <pc> 13234 => 13277 </pc>
         <gas> #gas(VGas) => #if ABI_y ==Int 0
-          #then   #gas ( ( VGas +Int 54 ) )
-          #else   #gas ( ( VGas +Int 106 ) )
+          #then   #gas ( ( VGas +Int -54 ) )
+          #else   #gas ( ( VGas +Int -106 ) )
         #fi </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>

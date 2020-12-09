@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 158B9B12C614C3AE993A707886E564022772CB00F06A4A0A5C0B49E0E4BB11E8
+module 7836B034925DBDAD5A04FAE0E652681EA75DD875E32F692A4D71181ED3A040C9
   imports VERIFICATION
 
 // Cat_vow
@@ -27,7 +27,7 @@ claim [Cat.vow.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 1120 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -1120 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

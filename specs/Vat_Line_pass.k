@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 4CCC32C4FC8AF79D695420C734BD44D0666B775A2A8E9F087FF67C737DE1C13E
+module 59880181045964F9CC64F40415C5639B786ACBD277F95494549B0F8080F78D14
   imports VERIFICATION
 
 // Vat_Line
@@ -27,7 +27,7 @@ claim [Vat.Line.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 1116 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -1116 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

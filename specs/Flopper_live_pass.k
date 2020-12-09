@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module A986549CECCBAEDDC964208AB9643E01E5F769FBB9BA9E361B498D5E90D8452D
+module 9139D17DDB91B2955796F3BC1756A90A18D0BA7CB9E289F4896B21A74C3A5076
   imports VERIFICATION
 
 // Flopper_live
@@ -27,7 +27,7 @@ claim [Flopper.live.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 1072 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -1072 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module C84D260A02896D441E0A8F0DA65DA31EE222C23AB4A8567E571A7777D4C38638
+module 67467FE8E07D9414C96DDF90DB66F37D522BECA4ADE29CDFF60963D6A50036B1
   imports VERIFICATION
 
 // Vat_deny-diff
@@ -27,7 +27,7 @@ claim [Vat.deny-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 0 , Junk_0 , Junk_2 ) +Int 6448 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Junk_0 , Junk_2 ) ) +Int -6448 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,1 +1,1 @@
-#gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_addr , Vow , Junk_1 ) +Int 6515 ) ) )
+#gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_addr , Vow , Junk_1 ) ) +Int -6515 ) )

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module E0782C59FE90FA5E3F5BE02E5E12AE3704198AF011547A0DB3331BB50757F1A8
+module CB0AD28B9B8F3FEE03CB0D2985B986E660A5C8BFD9C400AD167C897E4B080405
   imports VERIFICATION
 
 // Vat_frob-diff-nonzero
@@ -402,8 +402,8 @@ claim [Vat.muluu.pass]:
         <localMem> _ </localMem>
         <pc> 13234 => 13277 </pc>
         <gas> #gas(VGas) => #if ABI_y ==Int 0
-          #then   #gas ( ( VGas +Int 54 ) )
-          #else   #gas ( ( VGas +Int 106 ) )
+          #then   #gas ( ( VGas +Int -54 ) )
+          #else   #gas ( ( VGas +Int -106 ) )
         #fi </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>

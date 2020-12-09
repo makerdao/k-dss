@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 732BDF9038422A8A3ED1C1F471758E54D5F31EFD3FAA7EC498EE7E3F1E6C371A
+module 2FEF629E4CAF57FBAD30039A1549D875261A19E6FCB5559CE8255B3AB8E6F0E1
   imports VERIFICATION
 
 // End_skim-E
@@ -289,7 +289,7 @@ claim [Vat.ilks.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 4594 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -4594 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>
@@ -503,7 +503,7 @@ claim [Vat.urns.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 2153 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -2153 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

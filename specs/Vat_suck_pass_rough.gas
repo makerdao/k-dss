@@ -1,0 +1,1 @@
+#gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Sin_u +Int ABI_rad ) , Sin_u , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Dai_v +Int ABI_rad ) , Dai_v , Junk_2 ) ) -Int Csstore( ISTANBUL , ( Vice +Int ABI_rad ) , Vice , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Debt +Int ABI_rad ) , Debt , Junk_3 ) ) +Int -9564 ) )

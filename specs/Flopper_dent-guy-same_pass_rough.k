@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 403FDB2E33030256F52A1D93357A19D20BFE71020127234C26067197B4480549
+module C272D4E81E7E7968620B6B358C06704C85EAAA74DB73ECA928DD052FECA7D6C7
   imports VERIFICATION
 
 // Flopper_dent-guy-same
@@ -278,8 +278,8 @@ claim [Flopper.muluu.pass]:
         <localMem> _ </localMem>
         <pc> 8685 => 8728 </pc>
         <gas> #gas(VGas) => #if ABI_y ==Int 0
-          #then   #gas ( ( VGas +Int 54 ) )
-          #else   #gas ( ( VGas +Int 106 ) )
+          #then   #gas ( ( VGas +Int -54 ) )
+          #else   #gas ( ( VGas +Int -106 ) )
         #fi </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
@@ -467,7 +467,7 @@ claim [Flopper.addu48u48.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 8757 => 8798 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 66 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -66 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

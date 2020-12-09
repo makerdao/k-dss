@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 359D05A1A503035516DA3AB26E6B1CA062DE3D87CFCF234D7D70BBFF50BB3612
+module 97C0ADC3515505B831301DD23D835053077D78E1FAC33A84E34114423D18E0BA
   imports VERIFICATION
 
 // End_live
@@ -27,7 +27,7 @@ claim [End.live.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 1095 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -1095 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

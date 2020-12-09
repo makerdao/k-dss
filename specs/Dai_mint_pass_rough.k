@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B60487D37B5C24E82DB55685E60D20E424FB23741D1E966812F2D129C32A9849
+module 6CCBE6E2F44EA82C2AF5635BCD58B9112D45A919C37ABB217BCB4BAE7AAC38DB
   imports VERIFICATION
 
 // Dai_mint
@@ -227,7 +227,7 @@ claim [Dai.adduu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 7825 => 7850 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 54 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -54 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

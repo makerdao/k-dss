@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 920730CFD31495A10D1A7935777DFD82C6DF3342A5F0269BCF51ECAA6431C386
+module 16BCA87F54443B98C8165651FEA4B67C030938C7F6151ADF36E59171AE976218
   imports VERIFICATION
 
 // Pot_rho
@@ -27,7 +27,7 @@ claim [Pot.rho.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 1073 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -1073 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

@@ -1,4 +1,4 @@
 #if ABI_y ==Int 0
-  #then   #gas ( ( VGas +Int 127 ) )
-  #else   #gas ( ( VGas +Int 179 ) )
+  #then   #gas ( ( VGas +Int -127 ) )
+  #else   #gas ( ( VGas +Int -179 ) )
 #fi

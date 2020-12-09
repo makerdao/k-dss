@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 6B60EF1B2BA6B49EA6E2EEA9E01FE4DAE9D2A082616D260D7C2A12054D8E1AE0
+module C7DA00F9EAF74C9CE68E833786EEC9CB5E881B7613F6778C623C7DDBD64C2E51
   imports VERIFICATION
 
 // Spotter_par
@@ -27,7 +27,7 @@ claim [Spotter.par.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 1094 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -1094 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 4354FA3D78AC670527A24E3B8B3242C1D48E1C7EC39D64D72B62FE88A074F507
+module 56E1B23DE34CDCADDFDF2648F06767EB8F9AF66D02116B5041EB6BBB34D021B7
   imports VERIFICATION
 
 // Vat_heal
@@ -239,7 +239,7 @@ claim [Vat.subuu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x -Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 13060 => 13085 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 54 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -54 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

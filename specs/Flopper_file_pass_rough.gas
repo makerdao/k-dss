@@ -1,4 +1,11 @@
-  #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( Ttl , ABI_data ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6576 ) ) )
-   #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , Tau ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6499 ) ) )
-   #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Pad , Junk_2 ) +Int 5619 ) ) )
-   #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Beg , Junk_1 ) +Int 5592 ) ) )
+#if ABI_what ==Int 50831113381244017834160629274459250484386129340111898844856005057409758265344
+  #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_data , Pad , Junk_2 ) ) +Int -5619 ) )
+  #else   #if ABI_what ==Int 44505821594576442305943786526067189028800094342624099485940320344354850865152
+    #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_data , Beg , Junk_1 ) ) +Int -5592 ) )
+    #else   #if   ABI_what ==Int 52673990083778647014426308045781012712597814653424946781269281625551751086080
+       #And ABI_data <Int pow48
+      #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , Tau ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) ) +Int -6499 ) )
+      #else   #gas ( ( ( VGas -Int Csstore( ISTANBUL , #WordPackUInt48UInt48 ( Ttl , ABI_data ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) ) +Int -6576 ) )
+    #fi
+  #fi
+#fi

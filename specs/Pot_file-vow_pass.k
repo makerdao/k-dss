@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 74F5843E6D3A21954905A0B988F241D60E794E91CC40486DE897A1407566EED5
+module 77C50E7948185704466D8D934784EC0AB1CFAED8E51298747953B3E7D7C922FF
   imports VERIFICATION
 
 // Pot_file-vow
@@ -27,7 +27,7 @@ claim [Pot.file-vow.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_addr , Vow , Junk_1 ) +Int 6515 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_addr , Vow , Junk_1 ) ) +Int -6515 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 47171BFAB4EEACE6C153113C1F96956139B078368154106A19966C32A18DC367
+module 2DA202BBF24BBCE8C22E8B11D874C0D18335E561689729826E18365027063D50
   imports VERIFICATION
 
 // Jug_init
@@ -27,7 +27,7 @@ claim [Jug.init.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 1000000000000000000000000000 , 0 , Junk_1 ) +Int ( Csstore( ISTANBUL , TIME , Rho , Junk_2 ) +Int 6492 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , 1000000000000000000000000000 , 0 , Junk_1 ) ) -Int Csstore( ISTANBUL , TIME , Rho , Junk_2 ) ) +Int -6492 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

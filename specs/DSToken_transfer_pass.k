@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 2C6E90927853F7C546657140670FD7523F2B75CCEC26C3C19FB07745C0A2C9E6
+module ED1B2DB266B175404838A802242E6EF242CAC5ACECE3D3E5229125FF146747DC
   imports VERIFICATION
 
 // DSToken_transfer
@@ -27,7 +27,7 @@ claim [DSToken.transfer.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , ( Gem_c -Int ABI_wad ) , Gem_c , Junk_0 ) +Int ( Csstore( ISTANBUL , ( Gem_u +Int ABI_wad ) , Gem_u , Junk_1 ) +Int 6391 ) ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Gem_c -Int ABI_wad ) , Gem_c , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Gem_u +Int ABI_wad ) , Gem_u , Junk_1 ) ) +Int -6391 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

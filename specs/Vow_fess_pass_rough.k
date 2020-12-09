@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 217655AD351A58FB199517DCE097C5AFB94450F07E7996725749C20E4F071DF2
+module 72FCA671F634510CAF1AC2E23451796FB15EB5578B4CB2B451BDE09CF5AC59C7
   imports VERIFICATION
 
 // Vow_fess
@@ -227,7 +227,7 @@ claim [Vow.adduu.pass]:
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 9777 => 9802 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 54 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -54 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

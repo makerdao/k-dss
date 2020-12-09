@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module E984A80800146382D128E8EF9EC433431040914C19F50CC386177C13CD2753AF
+module A471D8AE1D9BF0C8E46E7B3748EA5EB78C866895F6D70683C7F866FD28B7E1F5
   imports VERIFICATION
 
 // Flopper_file
@@ -27,10 +27,17 @@ claim [Flopper.file.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( Ttl , ABI_data ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6576 ) ) )
-           #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , Tau ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) +Int 6499 ) ) )
-           #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Pad , Junk_2 ) +Int 5619 ) ) )
-           #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Beg , Junk_1 ) +Int 5592 ) ) ) </gas>
+        <gas> #gas(VGas) => #if ABI_what ==Int 50831113381244017834160629274459250484386129340111898844856005057409758265344
+          #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_data , Pad , Junk_2 ) ) +Int -5619 ) )
+          #else   #if ABI_what ==Int 44505821594576442305943786526067189028800094342624099485940320344354850865152
+            #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_data , Beg , Junk_1 ) ) +Int -5592 ) )
+            #else   #if   ABI_what ==Int 52673990083778647014426308045781012712597814653424946781269281625551751086080
+               #And ABI_data <Int pow48
+              #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , Tau ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) ) +Int -6499 ) )
+              #else   #gas ( ( ( VGas -Int Csstore( ISTANBUL , #WordPackUInt48UInt48 ( Ttl , ABI_data ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) ) +Int -6576 ) )
+            #fi
+          #fi
+        #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 0A48D1C3A870BBA964FEEFD39EF1F9E7627FABF4FFFEE58E511918E1D45EEFBA
+module C038D95890952E64E9E5D658A2E4C464DB627B7B1D962C96A9AB1A425BF05B74
   imports VERIFICATION
 
 // GemJoin_dec
@@ -27,7 +27,7 @@ claim [GemJoin.dec.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 1049 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -1049 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

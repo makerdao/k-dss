@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module FFE23F67D16FE18DAF63A178C01A842AFDBE0E7C2BB0E78388E632FB8A49D8BC
+module AE614A1AA5C9D50B442AFE49A81A8C747AA5802FA05F4A65DC634D4B748D1F20
   imports VERIFICATION
 
 // Flapper_live
@@ -27,7 +27,7 @@ claim [Flapper.live.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 1028 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -1028 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

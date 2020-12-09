@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module EC484DE8F933B339E133050786B810B92DA4EF803DDEEFF031179D0BB4E8CA22
+module B858F2E2EE1C8A38CBACE4399C88045FA0EA56D32C94E9F607FBFD9F430BCFDC
   imports VERIFICATION
 
 // Jug_wards
@@ -27,7 +27,7 @@ claim [Jug.wards.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int 1235 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -1235 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>

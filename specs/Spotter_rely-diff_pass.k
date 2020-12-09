@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 14ABB017DB37A1727BEC45206A69E8A562B6622B436A49292B41CAC9D941AFB5
+module 2E03919CB054C5CBC364EB1EFDED772412F134DC3C42FCBC4E466B03EAA5D38A
   imports VERIFICATION
 
 // Spotter_rely-diff
@@ -27,7 +27,7 @@ claim [Spotter.rely-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 1 , Junk_0 , Junk_2 ) +Int 5687 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( VGas -Int Csstore( ISTANBUL , 1 , Junk_0 , Junk_2 ) ) +Int -5687 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

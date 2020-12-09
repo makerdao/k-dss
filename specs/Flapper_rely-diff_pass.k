@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 2CE44536239FED7EC21E19EBD247F642CEC8C469C40A1D2A6E8E4594718D4F7F
+module E6C3F750D5611C9409396295ECE539AB80FF2DF596CC3302A7594E0F09B43EDC
   imports VERIFICATION
 
 // Flapper_rely-diff
@@ -27,7 +27,7 @@ claim [Flapper.rely-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int ( Csstore( ISTANBUL , 1 , Junk_0 , Junk_2 ) +Int 5643 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( VGas -Int Csstore( ISTANBUL , 1 , Junk_0 , Junk_2 ) ) +Int -5643 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

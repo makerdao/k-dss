@@ -1,5 +1,13 @@
-  #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Spot , Junk_5 ) +Int 7381 ) ) )
-   #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Pot , Junk_4 ) +Int 7354 ) ) )
-   #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Vow , Junk_3 ) +Int 7327 ) ) )
-   #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Cat , Junk_2 ) +Int 7300 ) ) )
-   #Or #gas ( ( VGas +Int ( Csstore( ISTANBUL , ABI_data , Vat , Junk_1 ) +Int 7273 ) ) )
+#if ABI_what ==Int 50855959668092463863795394395563447776014953332411712236454590144615435730944
+  #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_data , Pot , Junk_4 ) ) +Int -7354 ) )
+  #else   #if ABI_what ==Int 53569857464831102565726701660972157447402325951339579467289042757373571104768
+    #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_data , Vow , Junk_3 ) ) +Int -7327 ) )
+    #else   #if ABI_what ==Int 44951156777603103434328014148080614096119502149053393678412182219895500439552
+      #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_data , Cat , Junk_2 ) ) +Int -7300 ) )
+      #else   #if ABI_what ==Int 53545100900685164813421173191694169757104383823456404290715674782982803030016
+        #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_data , Vat , Junk_1 ) ) +Int -7273 ) )
+        #else   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_data , Spot , Junk_5 ) ) +Int -7381 ) )
+      #fi
+    #fi
+  #fi
+#fi
