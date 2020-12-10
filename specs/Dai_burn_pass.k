@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module AA3B560BBEEDC82C4500F6C26AB40C3F82B6028A133348CB59BC7481F30E8FF8
+module 7B61A260FFB02CF9CD3FFE3C1FB754AAFACE10A4CB21537ACCADC4F12193CC2A
   imports VERIFICATION
 
 // Dai_burn
@@ -27,18 +27,9 @@ claim [Dai.burn.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if   ABI_src ==Int CALLER_ID
-           #And hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) =/=Int hash2 ( CALLER_ID , 2 )
-           #And hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) =/=Int 1
-           #And hash2 ( CALLER_ID , 2 ) =/=Int 1
-           #And #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) ) ==Int SrcBal
-           #And #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) ) ==Int Allowed
-           #And #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) ) ==Int Junk_0
-           #And #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , 2 ) ) ==Int Junk_1
+        <gas> #gas(VGas) => #if ( ABI_src ==Int CALLER_ID andBool ( hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) =/=Int hash2 ( CALLER_ID , 2 ) andBool ( hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) =/=Int 1 andBool ( hash2 ( CALLER_ID , 2 ) =/=Int 1 andBool ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) ) ==Int Allowed andBool ( #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) ) ==Int Junk_0 andBool ( #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , 2 ) ) ==Int Junk_1 andBool #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) ) ==Int SrcBal ) ) ) ) ) ) )
           #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( TotalSupply -Int ABI_wad ) , TotalSupply , Junk_2 ) ) +Int -5153 ) )
-          #else   #if   #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) ==Int maxUInt256
-             #And Allowed ==Int maxUInt256
-             #And ( ( maxUInt256 ==Int maxUInt256 orBool ABI_wad <=Int maxUInt256 ) orBool ABI_src ==Int CALLER_ID )
+          #else   #if ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) ==Int maxUInt256 andBool ( Allowed ==Int maxUInt256 andBool ( ( maxUInt256 ==Int maxUInt256 orBool ABI_wad <=Int maxUInt256 ) orBool ABI_src ==Int CALLER_ID ) ) )
             #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( TotalSupply -Int ABI_wad ) , TotalSupply , Junk_2 ) ) +Int -6146 ) )
             #else   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Allowed -Int ABI_wad ) , Allowed , Junk_0 ) ) -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( TotalSupply -Int ABI_wad ) , TotalSupply , Junk_2 ) ) +Int -8403 ) )
           #fi

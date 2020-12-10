@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 7A5F49B271AF24E3A41A432FA40D30F17853025796907244AC12629361F443D3
+module 9CB2F13C03CE23C4BA454D26B70209A4EDA9F3DD5C506559FE358820EA87CDA6
   imports VERIFICATION
 
 // Vat_slip
@@ -27,8 +27,7 @@ claim [Vat.slip.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if   ABI_wad <Int 0
-           #And 0 <=Int ( Gem +Int ABI_wad )
+        <gas> #gas(VGas) => #if ( ABI_wad <Int 0 andBool 0 <=Int ( Gem +Int ABI_wad ) )
           #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ( Gem +Int ABI_wad ) , Gem , Junk_1 ) ) +Int -6884 ) )
           #else   #if ABI_wad <=Int 0
             #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ( Gem +Int ABI_wad ) , Gem , Junk_1 ) ) +Int -6870 ) )

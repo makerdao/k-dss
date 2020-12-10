@@ -1,5 +1,4 @@
-#if   ABI_y <Int 0
-   #And 0 <=Int ( ABI_x +Int ABI_y )
+#if ( ABI_y <Int 0 andBool 0 <=Int ( ABI_x +Int ABI_y ) )
   #then   #gas ( ( VGas +Int -128 ) )
   #else   #if chop( ABI_y ) <=Int 0
     #then   #gas ( ( VGas +Int -114 ) )

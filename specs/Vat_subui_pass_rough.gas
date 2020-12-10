@@ -1,7 +1,6 @@
-#if   ABI_y =/=Int 0
-   #And 0 <=Int ABI_y
+#if ( ABI_y =/=Int 0 andBool 0 <=Int ABI_y )
   #then   #gas ( ( VGas +Int -128 ) )
-  #else   #if 0 <=Int ABI_y
+  #else   #if ( 0 <=Int ABI_y andBool ( notBool ( 0 <=Int ABI_y andBool ABI_y ==Int 1 ) ) )
     #then   #gas ( ( VGas +Int -114 ) )
     #else   #gas ( ( VGas +Int -128 ) )
   #fi

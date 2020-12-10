@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 13BC3AB3FDD42DBAB7FCDC689FCE90F92D66E3D16E015EE3FEFB4BDF63D4B49C
+module 7E8CEE26B155C09DD95BC181D854961693C11B26E2881F4AAA2C0823B7BE5035
   imports VERIFICATION
 
 // Dai_transferFrom-same
@@ -27,14 +27,9 @@ claim [Dai.transferFrom-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if   CALLER_ID ==Int ABI_src
-           #And hash2 ( ABI_src , hash2 ( ABI_src , 3 ) ) =/=Int hash2 ( ABI_src , 2 )
-           #And #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , hash2 ( ABI_src , 3 ) ) ) ==Int Allowed
-           #And #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , hash2 ( ABI_src , 3 ) ) ) ==Int Junk_0
+        <gas> #gas(VGas) => #if ( CALLER_ID ==Int ABI_src andBool ( hash2 ( ABI_src , hash2 ( ABI_src , 3 ) ) =/=Int hash2 ( ABI_src , 2 ) andBool ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , hash2 ( ABI_src , 3 ) ) ) ==Int Allowed andBool #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , hash2 ( ABI_src , 3 ) ) ) ==Int Junk_0 ) ) )
           #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( ( SrcBal -Int ABI_wad ) +Int ABI_wad ) , ( SrcBal -Int ABI_wad ) , Junk_1 ) ) +Int -5425 ) )
-          #else   #if   #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) ==Int maxUInt256
-             #And Allowed ==Int maxUInt256
-             #And ( ABI_wad <=Int maxUInt256 orBool ABI_src ==Int CALLER_ID )
+          #else   #if ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) ==Int maxUInt256 andBool ( Allowed ==Int maxUInt256 andBool ( ABI_wad <=Int maxUInt256 orBool ABI_src ==Int CALLER_ID ) ) )
             #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( ( SrcBal -Int ABI_wad ) +Int ABI_wad ) , ( SrcBal -Int ABI_wad ) , Junk_1 ) ) +Int -6418 ) )
             #else   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Allowed -Int ABI_wad ) , Allowed , Junk_0 ) ) -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( ( SrcBal -Int ABI_wad ) +Int ABI_wad ) , ( SrcBal -Int ABI_wad ) , Junk_1 ) ) +Int -8675 ) )
           #fi

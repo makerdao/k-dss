@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module A471D8AE1D9BF0C8E46E7B3748EA5EB78C866895F6D70683C7F866FD28B7E1F5
+module DF2A76BC7135397D6386B258933E118ADB5508688A36F4FE15E4CFB5D14C8DD4
   imports VERIFICATION
 
 // Flopper_file
@@ -31,8 +31,7 @@ claim [Flopper.file.pass]:
           #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_data , Pad , Junk_2 ) ) +Int -5619 ) )
           #else   #if ABI_what ==Int 44505821594576442305943786526067189028800094342624099485940320344354850865152
             #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_data , Beg , Junk_1 ) ) +Int -5592 ) )
-            #else   #if   ABI_what ==Int 52673990083778647014426308045781012712597814653424946781269281625551751086080
-               #And ABI_data <Int pow48
+            #else   #if ( ABI_what ==Int 52673990083778647014426308045781012712597814653424946781269281625551751086080 andBool ABI_data <Int pow48 )
               #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , Tau ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) ) +Int -6499 ) )
               #else   #gas ( ( ( VGas -Int Csstore( ISTANBUL , #WordPackUInt48UInt48 ( Ttl , ABI_data ) , #lookup( ACCT_ID_STORAGE , 6 ) , Junk_3 ) ) +Int -6576 ) )
             #fi

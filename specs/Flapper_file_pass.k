@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module FA682C73526BA90EAF8428576E1866314EBE6C2026BE25F2412CB64D67685133
+module B08E481890D1CE39A18A8061A416B98B39BFBACE76B16E65B16D3E72BD378BA3
   imports VERIFICATION
 
 // Flapper_file
@@ -29,8 +29,7 @@ claim [Flapper.file.pass]:
         <pc> 0 => ?_ </pc>
         <gas> #gas(VGas) => #if ABI_what ==Int 44505821594576442305943786526067189028800094342624099485940320344354850865152
           #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_data , Beg , Junk_1 ) ) +Int -5592 ) )
-          #else   #if   ABI_what ==Int 52673990083778647014426308045781012712597814653424946781269281625551751086080
-             #And ABI_data <Int pow48
+          #else   #if ( ABI_what ==Int 52673990083778647014426308045781012712597814653424946781269281625551751086080 andBool ABI_data <Int pow48 )
             #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , #WordPackUInt48UInt48 ( ABI_data , Tau ) , #lookup( ACCT_ID_STORAGE , 5 ) , Junk_2 ) ) +Int -6472 ) )
             #else   #gas ( ( ( VGas -Int Csstore( ISTANBUL , #WordPackUInt48UInt48 ( Ttl , ABI_data ) , #lookup( ACCT_ID_STORAGE , 5 ) , Junk_2 ) ) +Int -6549 ) )
           #fi
