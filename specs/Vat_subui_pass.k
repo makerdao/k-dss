@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 8603149432BF708A0C6A8156E8BE64C5F67B582B5D4C518425599067031A3159
+module 05445512CDE5803416421F7AB59430EA7D60D267597718CAA834928561E56DCD
   imports VERIFICATION
 
 // Vat_subui
@@ -29,7 +29,7 @@ claim [Vat.subui.pass]:
         <pc> 13304 => 13366 </pc>
         <gas> #gas(VGas) => #if ( ABI_y =/=Int 0 andBool 0 <=Int ABI_y )
           #then   #gas ( ( VGas +Int -128 ) )
-          #else   #if ( 0 <=Int ABI_y andBool ( notBool ( 0 <=Int ABI_y andBool ABI_y ==Int 1 ) ) )
+          #else   #if 0 <=Int ABI_y
             #then   #gas ( ( VGas +Int -114 ) )
             #else   #gas ( ( VGas +Int -128 ) )
           #fi

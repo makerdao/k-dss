@@ -1,39 +1,33 @@
 requires "verification.k"
 
-module 338F9315A6C936F29461B3915645DA4651045550BA59E3295D830791BF74A141
+module 567B49BCAC473F6E105BDD5B95638FF932B2166C41827FC20051B1835717CD5F
   imports VERIFICATION
 
-// Dai_burn
-claim [Dai.burn.pass]:
+// Flopper_kick
+claim [Flopper.kick.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
   <schedule> ISTANBUL </schedule>
   <ethereum>
     <evm>
-      <output> .ByteArray </output>
+      <output> _ => #buf(32, 1 +Int Kicks) </output>
       <statusCode> _ => EVMC_SUCCESS </statusCode>
       <endPC> _ => ?_ </endPC>
       <callStack> VCallStack </callStack>
       <interimStates> _ </interimStates>
       <touchedAccounts> _ => ?_ </touchedAccounts>
       <callState>
-        <program> Dai_bin_runtime </program>
-        <jumpDests> #computeValidJumpDests(Dai_bin_runtime) </jumpDests>
+        <program> Flopper_bin_runtime </program>
+        <jumpDests> #computeValidJumpDests(Flopper_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("burn", #address(ABI_src), #uint256(ABI_wad)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("kick", #address(ABI_gal), #uint256(ABI_lot), #uint256(ABI_bid)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if ( ABI_src ==Int CALLER_ID andBool ( hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) =/=Int hash2 ( CALLER_ID , 2 ) andBool ( hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) =/=Int 1 andBool ( hash2 ( CALLER_ID , 2 ) =/=Int 1 andBool ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) ) ==Int SrcBal andBool ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) ) ==Int Allowed andBool ( #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) ) ==Int Junk_0 andBool #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , 2 ) ) ==Int Junk_1 ) ) ) ) ) ) )
-          #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( TotalSupply -Int ABI_wad ) , TotalSupply , Junk_2 ) ) +Int -5153 ) )
-          #else   #if ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) ==Int maxUInt256 andBool ( Allowed ==Int maxUInt256 andBool ( ( maxUInt256 ==Int maxUInt256 orBool ABI_wad <=Int maxUInt256 ) orBool ABI_src ==Int CALLER_ID ) ) )
-            #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( TotalSupply -Int ABI_wad ) , TotalSupply , Junk_2 ) ) +Int -6146 ) )
-            #else   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Allowed -Int ABI_wad ) , Allowed , Junk_0 ) ) -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( TotalSupply -Int ABI_wad ) , TotalSupply , Junk_2 ) ) +Int -8403 ) )
-          #fi
-        #fi </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Kicks +Int 1 ) , Kicks , Junk_2 ) ) -Int Csstore( ISTANBUL , ABI_bid , Old_bid , Junk_4 ) ) -Int Csstore( ISTANBUL , ABI_lot , Old_lot , Junk_5 ) ) -Int Csstore( ISTANBUL , ABI_gal |Int 115792089237316195423570985007226406215939081747436879206741300988257197096960 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ( Kicks +Int 1 ) , 1 ) +Int 2 ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ( Kicks +Int 1 ) , 1 ) +Int 2 ) ) , Junk_6 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( ABI_gal , Old_tic , ( TIME +Int Tau ) ) , ABI_gal |Int 115792089237316195423570985007226406215939081747436879206741300988257197096960 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ( Kicks +Int 1 ) , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -8987 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
@@ -82,10 +76,10 @@ claim [Dai.burn.pass]:
         <account>
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
-          <code> Dai_bin_runtime </code>
-          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Dai.allowance[ABI_src][CALLER_ID] <- #if (ABI_src ==Int CALLER_ID orBool Allowed ==Int maxUInt256) #then Allowed #else Allowed -Int ABI_wad #fi ] [ #Dai.balanceOf[ABI_src] <- SrcBal -Int ABI_wad ] [ #Dai.totalSupply <- TotalSupply -Int ABI_wad ] </storage>
+          <code> Flopper_bin_runtime </code>
+          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Flopper.kicks <- 1 +Int Kicks ]  [ #Flopper.bids[1 +Int Kicks].bid <- ABI_bid ] [ #Flopper.bids[1 +Int Kicks].lot <- ABI_lot ] [ #Flopper.bids[1 +Int Kicks].guy_tic_end <- #WordPackAddrUInt48UInt48(ABI_gal, Old_tic, TIME +Int Tau) ] </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
-          <nonce> Nonce_Dai => ?_ </nonce>
+          <nonce> Nonce_Flopper => ?_ </nonce>
         </account>
         <account>
           <acctID> 1 </acctID>
@@ -186,32 +180,73 @@ andBool VCallDepth <=Int 1024
 andBool #rangeUInt(256, VCallValue)
 andBool #rangeUInt(256, VChainId)
 
-  andBool (#rangeAddress(ABI_src)
-  andBool (#rangeUInt(256, ABI_wad)
-  andBool (#rangeUInt(256, SrcBal)
-  andBool (#rangeUInt(256, TotalSupply)
-  andBool (#rangeUInt(256, Allowed)
-  andBool (#sizeByteArray(CD) <=Int 1250000000
+  andBool (#rangeAddress(ABI_gal)
+  andBool (#rangeUInt(256, ABI_lot)
+  andBool (#rangeUInt(256, ABI_bid)
+  andBool (#rangeUInt(256, Live)
+  andBool (#rangeUInt(256, Kicks)
+  andBool (#rangeUInt(48, Ttl)
+  andBool (#rangeUInt(48, Tau)
+  andBool (#rangeUInt(256, Old_lot)
+  andBool (#rangeUInt(256, Old_bid)
+  andBool (#rangeAddress(Old_guy)
+  andBool (#rangeUInt(48, Old_tic)
+  andBool (#rangeUInt(48, Old_end)
+  andBool (#rangeUInt(256, Ward)
+  andBool ((#sizeByteArray(CD) <=Int 1250000000)
+  andBool ((#notPrecompileAddress(Old_guy))
+  andBool ((#rangeUInt(48, TIME))
   andBool (#rangeUInt(256, Junk_0)
   andBool (#rangeUInt(256, Junk_1)
   andBool (#rangeUInt(256, Junk_2)
-  andBool (((#rangeUInt(256, SrcBal -Int ABI_wad)))
-  andBool (((#rangeUInt(256, TotalSupply -Int ABI_wad)))
-  andBool (((Allowed ==Int maxUInt256) orBool (ABI_wad <=Int Allowed) orBool (ABI_src ==Int CALLER_ID))
-  andBool ((VCallValue ==Int 0))))))))))))))
+  andBool (#rangeUInt(256, Junk_3)
+  andBool (#rangeUInt(256, Junk_4)
+  andBool (#rangeUInt(256, Junk_5)
+  andBool (#rangeUInt(256, Junk_6)
+  andBool ((((Ward ==Int 1)))
+  andBool ((((Live ==Int 1)))
+  andBool ((((VCallValue ==Int 0)))
+  andBool (((#rangeUInt(256, Kicks +Int 1)))
+  andBool ((#rangeUInt(48, TIME +Int Tau))))))))))))))))))))))))))))))
 
-  andBool #lookup(ACCT_ID_STORAGE, #Dai.allowance[ABI_src][CALLER_ID]) ==Int Allowed
-  andBool #lookup(ACCT_ID_STORAGE, #Dai.balanceOf[ABI_src]) ==Int SrcBal
-  andBool #lookup(ACCT_ID_STORAGE, #Dai.totalSupply) ==Int TotalSupply
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Dai.allowance[ABI_src][CALLER_ID]) ==Int Junk_0
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Dai.balanceOf[ABI_src]) ==Int Junk_1
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Dai.totalSupply) ==Int Junk_2
-  andBool #Dai.allowance[ABI_src][CALLER_ID] =/=Int #Dai.balanceOf[ABI_src]
-  andBool #Dai.allowance[ABI_src][CALLER_ID] =/=Int #Dai.totalSupply
-  andBool #Dai.balanceOf[ABI_src] =/=Int #Dai.totalSupply 
+  andBool #lookup(ACCT_ID_STORAGE, #Flopper.wards[CALLER_ID]) ==Int Ward
+  andBool #lookup(ACCT_ID_STORAGE, #Flopper.live) ==Int Live
+  andBool #lookup(ACCT_ID_STORAGE, #Flopper.kicks) ==Int Kicks
+  andBool #lookup(ACCT_ID_STORAGE, #Flopper.ttl_tau) ==Int #WordPackUInt48UInt48(Ttl, Tau)
+  andBool #lookup(ACCT_ID_STORAGE, #Flopper.bids[1 +Int Kicks].bid) ==Int Old_bid
+  andBool #lookup(ACCT_ID_STORAGE, #Flopper.bids[1 +Int Kicks].lot) ==Int Old_lot
+  andBool #lookup(ACCT_ID_STORAGE, #Flopper.bids[1 +Int Kicks].guy_tic_end) ==Int #WordPackAddrUInt48UInt48(Old_guy, Old_tic, Old_end)
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flopper.wards[CALLER_ID]) ==Int Junk_0
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flopper.live) ==Int Junk_1
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flopper.kicks) ==Int Junk_2
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flopper.ttl_tau) ==Int Junk_3
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flopper.bids[1 +Int Kicks].bid) ==Int Junk_4
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flopper.bids[1 +Int Kicks].lot) ==Int Junk_5
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flopper.bids[1 +Int Kicks].guy_tic_end) ==Int Junk_6
+  andBool #Flopper.wards[CALLER_ID] =/=Int #Flopper.live
+  andBool #Flopper.wards[CALLER_ID] =/=Int #Flopper.kicks
+  andBool #Flopper.wards[CALLER_ID] =/=Int #Flopper.ttl_tau
+  andBool #Flopper.wards[CALLER_ID] =/=Int #Flopper.bids[1 +Int Kicks].bid
+  andBool #Flopper.wards[CALLER_ID] =/=Int #Flopper.bids[1 +Int Kicks].lot
+  andBool #Flopper.wards[CALLER_ID] =/=Int #Flopper.bids[1 +Int Kicks].guy_tic_end
+  andBool #Flopper.live =/=Int #Flopper.kicks
+  andBool #Flopper.live =/=Int #Flopper.ttl_tau
+  andBool #Flopper.live =/=Int #Flopper.bids[1 +Int Kicks].bid
+  andBool #Flopper.live =/=Int #Flopper.bids[1 +Int Kicks].lot
+  andBool #Flopper.live =/=Int #Flopper.bids[1 +Int Kicks].guy_tic_end
+  andBool #Flopper.kicks =/=Int #Flopper.ttl_tau
+  andBool #Flopper.kicks =/=Int #Flopper.bids[1 +Int Kicks].bid
+  andBool #Flopper.kicks =/=Int #Flopper.bids[1 +Int Kicks].lot
+  andBool #Flopper.kicks =/=Int #Flopper.bids[1 +Int Kicks].guy_tic_end
+  andBool #Flopper.ttl_tau =/=Int #Flopper.bids[1 +Int Kicks].bid
+  andBool #Flopper.ttl_tau =/=Int #Flopper.bids[1 +Int Kicks].lot
+  andBool #Flopper.ttl_tau =/=Int #Flopper.bids[1 +Int Kicks].guy_tic_end
+  andBool #Flopper.bids[1 +Int Kicks].bid =/=Int #Flopper.bids[1 +Int Kicks].lot
+  andBool #Flopper.bids[1 +Int Kicks].bid =/=Int #Flopper.bids[1 +Int Kicks].guy_tic_end
+  andBool #Flopper.bids[1 +Int Kicks].lot =/=Int #Flopper.bids[1 +Int Kicks].guy_tic_end 
 
-// Dai_subuu
-claim [Dai.subuu.pass]:
+// Flopper_addu48u48
+claim [Flopper.addu48u48.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -225,16 +260,16 @@ claim [Dai.subuu.pass]:
       <interimStates> _ </interimStates>
       <touchedAccounts> _ => ?_ </touchedAccounts>
       <callState>
-        <program> Dai_bin_runtime </program>
-        <jumpDests> #computeValidJumpDests(Dai_bin_runtime) </jumpDests>
+        <program> Flopper_bin_runtime </program>
+        <jumpDests> #computeValidJumpDests(Flopper_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
         <callData> _ => ?_ </callData>
         <callValue> VCallValue </callValue>
-        <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x -Int ABI_y : WS </wordStack>
+        <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
-        <pc> 7799 => 7824 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int -54 ) ) </gas>
+        <pc> 8757 => 8798 </pc>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -66 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>
@@ -283,10 +318,10 @@ claim [Dai.subuu.pass]:
         <account>
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
-          <code> Dai_bin_runtime </code>
+          <code> Flopper_bin_runtime </code>
           <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE  </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
-          <nonce> Nonce_Dai => ?_ </nonce>
+          <nonce> Nonce_Flopper => ?_ </nonce>
         </account>
         <account>
           <acctID> 1 </acctID>
@@ -387,11 +422,11 @@ andBool VCallDepth <=Int 1024
 andBool #rangeUInt(256, VCallValue)
 andBool #rangeUInt(256, VChainId)
 
-  andBool (#rangeUInt(256, ABI_x)
-  andBool (#rangeUInt(256, ABI_y)
+  andBool (#rangeUInt(48, ABI_x)
+  andBool (#rangeUInt(48, ABI_y)
   andBool ((#sizeWordStack(WS) <=Int 100)
   andBool (#rangeUInt(256, VMemoryUsed)
-  andBool ((#rangeUInt(256, ABI_x -Int ABI_y)))))))
+  andBool ((#rangeUInt(48, ABI_x +Int ABI_y)))))))
 
  
 [trusted, matching(infGas)]

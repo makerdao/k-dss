@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module BFD42B3027E193250ED13D9222BCD4392A516DF2E6E58868EC0743A35102F6A0
+module 304789C45B6FE2B9207E94AAA7745F9788AA1A5D7755CA43F11B868221593CAE
   imports VERIFICATION
 
 // GemJoin_join
@@ -508,7 +508,7 @@ claim [DSToken.transferFrom.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if ( CALLER_ID ==Int ABI_src andBool ( hash2 ( ABI_src , hash2 ( ABI_src , 2 ) ) =/=Int hash2 ( ABI_src , 1 ) andBool ( hash2 ( ABI_src , hash2 ( ABI_src , 2 ) ) =/=Int hash2 ( ABI_dst , 1 ) andBool ( hash2 ( ABI_src , hash2 ( ABI_src , 2 ) ) =/=Int 4 andBool ( #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , hash2 ( ABI_src , 2 ) ) ) ==Int Junk_0 andBool #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , hash2 ( ABI_src , 2 ) ) ) ==Int Allowance ) ) ) ) )
+        <gas> #gas(VGas) => #if ( CALLER_ID ==Int ABI_src andBool ( hash2 ( ABI_src , hash2 ( ABI_src , 2 ) ) =/=Int hash2 ( ABI_src , 1 ) andBool ( hash2 ( ABI_src , hash2 ( ABI_src , 2 ) ) =/=Int hash2 ( ABI_dst , 1 ) andBool ( hash2 ( ABI_src , hash2 ( ABI_src , 2 ) ) =/=Int 4 andBool ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , hash2 ( ABI_src , 2 ) ) ) ==Int Allowance andBool #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , hash2 ( ABI_src , 2 ) ) ) ==Int Junk_0 ) ) ) ) )
           #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_2 ) ) +Int -6375 ) )
           #else   #if ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 2 ) ) ) ==Int maxUInt256 andBool ( Allowance ==Int maxUInt256 andBool ( ( maxUInt256 ==Int maxUInt256 orBool ABI_src ==Int CALLER_ID ) orBool ABI_wad <=Int maxUInt256 ) ) )
             #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_2 ) ) +Int -7368 ) )
