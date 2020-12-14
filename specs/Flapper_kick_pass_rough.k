@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 41930E2FE4F106C6348709C7904C5F16ACC2340075F68554D30FA2C02426D972
+module 0F8B6CD69D0F85356118A2359844021D0A8433DF65629B97FB00CB8345BF2A4F
   imports VERIFICATION
 
 // Flapper_kick
@@ -86,7 +86,7 @@ claim [Flapper.kick.pass.rough]:
           <acctID> Vat </acctID>
           <balance> Vat_balance </balance>
           <code> Vat_bin_runtime </code>
-          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.dai[ACCT_ID] <- Dai_v +Int ABI_lot ] [ #Vat.dai[CALLER_ID] <- Dai_c -Int ABI_lot ] </storage>
+          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.dai[CALLER_ID] <- Dai_c -Int ABI_lot ] [ #Vat.dai[ACCT_ID] <- Dai_v +Int ABI_lot ] </storage>
           <origStorage> Vat_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vat => ?_ </nonce>
         </account>
@@ -279,14 +279,14 @@ andBool #rangeUInt(256, VChainId)
   andBool #Flapper.bids[1 +Int Kicks].lot =/=Int #Flapper.live
   andBool #Flapper.bids[1 +Int Kicks].guy_tic_end =/=Int #Flapper.live
   andBool #lookup(Vat_STORAGE, #Vat.can[CALLER_ID][ACCT_ID]) ==Int CanMove
-  andBool #lookup(Vat_STORAGE, #Vat.dai[ACCT_ID]) ==Int Dai_v
   andBool #lookup(Vat_STORAGE, #Vat.dai[CALLER_ID]) ==Int Dai_c
+  andBool #lookup(Vat_STORAGE, #Vat.dai[ACCT_ID]) ==Int Dai_v
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.can[CALLER_ID][ACCT_ID]) ==Int Junk_8
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[ACCT_ID]) ==Int Junk_9
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[CALLER_ID]) ==Int Junk_10
-  andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[ACCT_ID]
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[CALLER_ID]) ==Int Junk_9
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[ACCT_ID]) ==Int Junk_10
   andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[CALLER_ID]
-  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.dai[CALLER_ID] 
+  andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[ACCT_ID]
+  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.dai[ACCT_ID] 
 
 // Vat_move-diff
 claim [Vat.move-diff.pass]:

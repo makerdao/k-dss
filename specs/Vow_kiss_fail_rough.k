@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 5A557005C4DE32C443261609823951D4F14ECDB95325BC7E99AAF6F268C3F931
+module 1D370C151A5FC7FCBA75FA8AD261B8855231586486AAE0E528DABBE69DE5085E
   imports VERIFICATION
 
 // Vow_kiss
@@ -213,20 +213,20 @@ andBool #rangeUInt(256, VChainId)
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.vat) ==Int Junk_0
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.Ash) ==Int Junk_1
   andBool #Vow.vat =/=Int #Vow.Ash
-  andBool #lookup(Vat_STORAGE, #Vat.dai[ACCT_ID]) ==Int Joy
   andBool #lookup(Vat_STORAGE, #Vat.sin[ACCT_ID]) ==Int Awe
-  andBool #lookup(Vat_STORAGE, #Vat.vice) ==Int Vice
+  andBool #lookup(Vat_STORAGE, #Vat.dai[ACCT_ID]) ==Int Joy
   andBool #lookup(Vat_STORAGE, #Vat.debt) ==Int Debt
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[ACCT_ID]) ==Int Junk_2
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.sin[ACCT_ID]) ==Int Junk_3
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.vice) ==Int Junk_4
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.debt) ==Int Junk_5
-  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.sin[ACCT_ID]
-  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.vice
-  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.debt
-  andBool #Vat.sin[ACCT_ID] =/=Int #Vat.vice
+  andBool #lookup(Vat_STORAGE, #Vat.vice) ==Int Vice
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.sin[ACCT_ID]) ==Int Junk_2
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[ACCT_ID]) ==Int Junk_3
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.debt) ==Int Junk_4
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.vice) ==Int Junk_5
+  andBool #Vat.sin[ACCT_ID] =/=Int #Vat.dai[ACCT_ID]
   andBool #Vat.sin[ACCT_ID] =/=Int #Vat.debt
-  andBool #Vat.vice =/=Int #Vat.debt
+  andBool #Vat.sin[ACCT_ID] =/=Int #Vat.vice
+  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.debt
+  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.vice
+  andBool #Vat.debt =/=Int #Vat.vice
   andBool notBool (
     (((ABI_rad:Int <=Int Joy:Int))
     andBool (((ABI_rad:Int <=Int Ash:Int))

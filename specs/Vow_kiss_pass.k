@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 9CEFD107AC661001023270EBE5A6A500D30FCC680A985CDD02AC60508F3E2C66
+module 162E44F11AB969A27BA4A632840C6060625A76E2CFA288A887069F0D447B487F
   imports VERIFICATION
 
 // Vow_kiss
-claim [Vow.kiss.pass.rough]:
+claim [Vow.kiss.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -27,7 +27,7 @@ claim [Vow.kiss.pass.rough]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => ?_ </gas>
+        <gas> #gas(VGas) => #gas ( ( #gas ( ( ( ( ( #gas ( ( ( VGas +Int -3494 ) /Int 64 ) ) +Int ( ( VGas -Int ( ( VGas +Int -3494 ) /Int 64 ) ) +Int -4730 ) ) -Int Csstore( ISTANBUL , ( Ash -Int ABI_rad ) , Ash , Junk_1 ) ) +Int -3393 ) /Int 64 ) ) +Int ( ( ( ( ( ( ( ( #gas ( ( ( VGas +Int -3494 ) /Int 64 ) ) +Int ( ( VGas -Int ( ( VGas +Int -3494 ) /Int 64 ) ) +Int -4730 ) ) -Int Csstore( ISTANBUL , ( Ash -Int ABI_rad ) , Ash , Junk_1 ) ) -Int ( ( ( ( #gas ( ( ( VGas +Int -3494 ) /Int 64 ) ) +Int ( ( VGas -Int ( ( VGas +Int -3494 ) /Int 64 ) ) +Int -4730 ) ) -Int Csstore( ISTANBUL , ( Ash -Int ABI_rad ) , Ash , Junk_1 ) ) +Int -3393 ) /Int 64 ) ) -Int Csstore( ISTANBUL , ( Awe -Int ABI_rad ) , Awe , Junk_2 ) ) -Int Csstore( ISTANBUL , ( Joy -Int ABI_rad ) , Joy , Junk_3 ) ) -Int Csstore( ISTANBUL , ( Vice -Int ABI_rad ) , Vice , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Debt -Int ABI_rad ) , Debt , Junk_4 ) ) +Int -16377 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

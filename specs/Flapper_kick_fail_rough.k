@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module A27ECC854CB84331CCA707C4EBD64720D0A20BAE5BD57E22E3A2B6919E6FA806
+module F34774F5AE3DB2370955EE1FE07F241BDADCC0DFE2405F93F28E3FA1156F822F
   imports VERIFICATION
 
 // Flapper_kick
@@ -270,14 +270,14 @@ andBool #rangeUInt(256, VChainId)
   andBool #Flapper.bids[1 +Int Kicks].lot =/=Int #Flapper.live
   andBool #Flapper.bids[1 +Int Kicks].guy_tic_end =/=Int #Flapper.live
   andBool #lookup(Vat_STORAGE, #Vat.can[CALLER_ID][ACCT_ID]) ==Int CanMove
-  andBool #lookup(Vat_STORAGE, #Vat.dai[ACCT_ID]) ==Int Dai_v
   andBool #lookup(Vat_STORAGE, #Vat.dai[CALLER_ID]) ==Int Dai_c
+  andBool #lookup(Vat_STORAGE, #Vat.dai[ACCT_ID]) ==Int Dai_v
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.can[CALLER_ID][ACCT_ID]) ==Int Junk_8
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[ACCT_ID]) ==Int Junk_9
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[CALLER_ID]) ==Int Junk_10
-  andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[ACCT_ID]
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[CALLER_ID]) ==Int Junk_9
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[ACCT_ID]) ==Int Junk_10
   andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[CALLER_ID]
-  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.dai[CALLER_ID]
+  andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[ACCT_ID]
+  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.dai[ACCT_ID]
   andBool notBool (
     ((((May:Int ==Int 1)))
     andBool ((((Live:Int ==Int 1)))

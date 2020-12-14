@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 7E18427B6011C37257D9AE37C8646218CD6532BE9785260DBE149D5B22F55808
+module 0A29251C34688825206978CB7C8AD578BB6607941ACCD2C89053F6DBA7880E4E
   imports VERIFICATION
 
-// DaiJoin_join
-claim [DaiJoin.join.pass.rough]:
+// DaiJoin_exit
+claim [DaiJoin.exit.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -22,12 +22,57 @@ claim [DaiJoin.join.pass.rough]:
         <jumpDests> #computeValidJumpDests(DaiJoin_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("join", #address(ABI_usr), #uint256(ABI_wad)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("exit", #address(ABI_usr), #uint256(ABI_wad)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => ?_ </gas>
+        <gas> #gas(VGas) => #gas ( ( #gas ( ( ( ( #gas ( ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -2962
+          #else   -3014
+        #fi ) -Int ( ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -3662
+          #else   -3714
+        #fi ) -Int ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -3662
+          #else   -3714
+        #fi ) /Int 64 ) ) +Int 700 ) ) ) +Int ( ( ( ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -3662
+          #else   -3714
+        #fi ) -Int ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -3662
+          #else   -3714
+        #fi ) /Int 64 ) ) -Int Csstore( ISTANBUL , ( Dai_c -Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_c , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Dai_a +Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_a , Junk_5 ) ) +Int -7943 ) ) +Int -2429 ) /Int 64 ) ) +Int ( ( ( ( ( #gas ( ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -2962
+          #else   -3014
+        #fi ) -Int ( ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -3662
+          #else   -3714
+        #fi ) -Int ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -3662
+          #else   -3714
+        #fi ) /Int 64 ) ) +Int 700 ) ) ) +Int ( ( ( ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -3662
+          #else   -3714
+        #fi ) -Int ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -3662
+          #else   -3714
+        #fi ) /Int 64 ) ) -Int Csstore( ISTANBUL , ( Dai_c -Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_c , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Dai_a +Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_a , Junk_5 ) ) +Int -7943 ) ) -Int ( ( ( #gas ( ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -2962
+          #else   -3014
+        #fi ) -Int ( ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -3662
+          #else   -3714
+        #fi ) -Int ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -3662
+          #else   -3714
+        #fi ) /Int 64 ) ) +Int 700 ) ) ) +Int ( ( ( ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -3662
+          #else   -3714
+        #fi ) -Int ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -3662
+          #else   -3714
+        #fi ) /Int 64 ) ) -Int Csstore( ISTANBUL , ( Dai_c -Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_c , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Dai_a +Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_a , Junk_5 ) ) +Int -7943 ) ) +Int -2429 ) /Int 64 ) ) -Int Csstore( ISTANBUL , ( Dai_u +Int ABI_wad ) , Dai_u , Junk_7 ) ) -Int Csstore( ISTANBUL , ( Supply +Int ABI_wad ) , Supply , Junk_8 ) ) +Int -11844 ) ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
@@ -87,7 +132,7 @@ claim [DaiJoin.join.pass.rough]:
           <acctID> Vat </acctID>
           <balance> Vat_balance </balance>
           <code> Vat_bin_runtime </code>
-          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.dai[ACCT_ID] <- Dai_a -Int (#Ray *Int ABI_wad) ] [ #Vat.dai[ABI_usr] <- Dai_u +Int (#Ray *Int ABI_wad) ] </storage>
+          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.dai[CALLER_ID] <- Dai_c -Int #Ray *Int ABI_wad ] [ #Vat.dai[ACCT_ID] <- Dai_a +Int #Ray *Int ABI_wad ] </storage>
           <origStorage> Vat_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vat => ?_ </nonce>
         </account>
@@ -95,7 +140,7 @@ claim [DaiJoin.join.pass.rough]:
           <acctID> Dai </acctID>
           <balance> Dai_balance </balance>
           <code> Dai_bin_runtime </code>
-          <storage> Dai_STORAGE => Dai_STORAGE [ #Dai.balanceOf[CALLER_ID] <- Dai_c -Int ABI_wad ] [ #Dai.totalSupply <- Supply -Int ABI_wad ] [ #Dai.allowance[CALLER_ID][ACCT_ID] <- #if Allowed ==Int maxUInt256 #then Allowed #else Allowed -Int ABI_wad #fi ] </storage>
+          <storage> Dai_STORAGE => Dai_STORAGE [ #Dai.balanceOf[ABI_usr] <- Dai_u  +Int ABI_wad ] [ #Dai.totalSupply <- Supply +Int ABI_wad ] </storage>
           <origStorage> Dai_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Dai => ?_ </nonce>
         </account>
@@ -202,12 +247,13 @@ andBool #rangeUInt(256, VChainId)
   andBool (#rangeUInt(256, ABI_wad)
   andBool (#rangeAddress(Vat)
   andBool (#rangeAddress(Dai)
-  andBool (#rangeUInt(256, Supply)
-  andBool (#rangeUInt(256, Dai_c)
-  andBool (#rangeUInt(256, Dai_a)
-  andBool (#rangeUInt(256, Dai_u)
-  andBool (#rangeUInt(256, Allowed)
+  andBool (#rangeUInt(256, Live)
+  andBool (#rangeUInt(256, May)
   andBool (#rangeUInt(256, Can)
+  andBool (#rangeUInt(256, Dai_c)
+  andBool (#rangeUInt(256, Dai_u)
+  andBool (#rangeUInt(256, Dai_a)
+  andBool (#rangeUInt(256, Supply)
   andBool (#rangeUInt(256, Vat_balance)
   andBool (#rangeUInt(256, Dai_balance)
   andBool ((#sizeByteArray(CD) <=Int 1250000000)
@@ -215,8 +261,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#notPrecompileAddress(Dai))
   andBool ((ACCT_ID =/=Int Vat)
   andBool ((ACCT_ID =/=Int Dai)
-  andBool ((ACCT_ID =/=Int CALLER_ID)
-  andBool ((ACCT_ID =/=Int ABI_usr)
+  andBool ((CALLER_ID =/=Int ACCT_ID)
   andBool ((Vat =/=Int 0)
   andBool ((Dai =/=Int 0)
   andBool (#rangeUInt(256, Junk_0)
@@ -227,38 +272,45 @@ andBool #rangeUInt(256, VChainId)
   andBool (#rangeUInt(256, Junk_5)
   andBool (#rangeUInt(256, Junk_6)
   andBool (#rangeUInt(256, Junk_7)
-  andBool (((VCallValue ==Int 0))
+  andBool (#rangeUInt(256, Junk_8)
+  andBool (((May ==Int 1))
+  andBool (((Can ==Int 1))
+  andBool (((Live ==Int 1))
   andBool (((VCallDepth <Int 1024))
-  andBool ((((Allowed ==Int maxUInt256) orBool (ABI_wad <=Int Allowed)))
+  andBool (((VCallValue ==Int 0))
   andBool ((#rangeUInt(256, #Ray *Int ABI_wad))
-  andBool ((#rangeUInt(256, Dai_a -Int #Ray *Int ABI_wad))
-  andBool ((#rangeUInt(256, Dai_u +Int #Ray *Int ABI_wad))
-  andBool ((#rangeUInt(256, Dai_c -Int ABI_wad))
-  andBool ((#rangeUInt(256, Supply -Int ABI_wad)))))))))))))))))))))))))))))))))))))))
+  andBool ((#rangeUInt(256, Dai_c -Int #Ray *Int ABI_wad))
+  andBool ((#rangeUInt(256, Dai_a +Int #Ray *Int ABI_wad))
+  andBool ((#rangeUInt(256, Dai_u +Int ABI_wad))
+  andBool ((#rangeUInt(256, Supply +Int ABI_wad))))))))))))))))))))))))))))))))))))))))))
 
   andBool #lookup(ACCT_ID_STORAGE, #DaiJoin.vat) ==Int Vat
   andBool #lookup(ACCT_ID_STORAGE, #DaiJoin.dai) ==Int Dai
+  andBool #lookup(ACCT_ID_STORAGE, #DaiJoin.live) ==Int Live
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #DaiJoin.vat) ==Int Junk_0
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #DaiJoin.dai) ==Int Junk_1
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #DaiJoin.live) ==Int Junk_2
   andBool #DaiJoin.vat =/=Int #DaiJoin.dai
-  andBool #lookup(Vat_STORAGE, #Vat.can[ACCT_ID][ACCT_ID]) ==Int Can
+  andBool #DaiJoin.vat =/=Int #DaiJoin.live
+  andBool #DaiJoin.dai =/=Int #DaiJoin.live
+  andBool #lookup(Vat_STORAGE, #Vat.can[CALLER_ID][ACCT_ID]) ==Int Can
+  andBool #lookup(Vat_STORAGE, #Vat.dai[CALLER_ID]) ==Int Dai_c
   andBool #lookup(Vat_STORAGE, #Vat.dai[ACCT_ID]) ==Int Dai_a
-  andBool #lookup(Vat_STORAGE, #Vat.dai[ABI_usr]) ==Int Dai_u
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.can[ACCT_ID][ACCT_ID]) ==Int Junk_2
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[ACCT_ID]) ==Int Junk_3
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[ABI_usr]) ==Int Junk_4
-  andBool #Vat.can[ACCT_ID][ACCT_ID] =/=Int #Vat.dai[ACCT_ID]
-  andBool #Vat.can[ACCT_ID][ACCT_ID] =/=Int #Vat.dai[ABI_usr]
-  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.dai[ABI_usr]
-  andBool #lookup(Dai_STORAGE, #Dai.balanceOf[CALLER_ID]) ==Int Dai_c
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.can[CALLER_ID][ACCT_ID]) ==Int Junk_3
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[CALLER_ID]) ==Int Junk_4
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[ACCT_ID]) ==Int Junk_5
+  andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[CALLER_ID]
+  andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[ACCT_ID]
+  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.dai[ACCT_ID]
+  andBool #lookup(Dai_STORAGE, #Dai.wards[ACCT_ID]) ==Int May
+  andBool #lookup(Dai_STORAGE, #Dai.balanceOf[ABI_usr]) ==Int Dai_u
   andBool #lookup(Dai_STORAGE, #Dai.totalSupply) ==Int Supply
-  andBool #lookup(Dai_STORAGE, #Dai.allowance[CALLER_ID][ACCT_ID]) ==Int Allowed
-  andBool #lookup(Dai_ORIG_STORAGE, #Dai.balanceOf[CALLER_ID]) ==Int Junk_5
-  andBool #lookup(Dai_ORIG_STORAGE, #Dai.totalSupply) ==Int Junk_6
-  andBool #lookup(Dai_ORIG_STORAGE, #Dai.allowance[CALLER_ID][ACCT_ID]) ==Int Junk_7
-  andBool #Dai.balanceOf[CALLER_ID] =/=Int #Dai.totalSupply
-  andBool #Dai.balanceOf[CALLER_ID] =/=Int #Dai.allowance[CALLER_ID][ACCT_ID]
-  andBool #Dai.totalSupply =/=Int #Dai.allowance[CALLER_ID][ACCT_ID] 
+  andBool #lookup(Dai_ORIG_STORAGE, #Dai.wards[ACCT_ID]) ==Int Junk_6
+  andBool #lookup(Dai_ORIG_STORAGE, #Dai.balanceOf[ABI_usr]) ==Int Junk_7
+  andBool #lookup(Dai_ORIG_STORAGE, #Dai.totalSupply) ==Int Junk_8
+  andBool #Dai.wards[ACCT_ID] =/=Int #Dai.balanceOf[ABI_usr]
+  andBool #Dai.wards[ACCT_ID] =/=Int #Dai.totalSupply
+  andBool #Dai.balanceOf[ABI_usr] =/=Int #Dai.totalSupply 
 
 // DaiJoin_muluu
 claim [DaiJoin.muluu.pass]:
@@ -655,8 +707,8 @@ andBool #rangeUInt(256, VChainId)
 [trusted, matching(infGas)]
 
 
-// Dai_burn
-claim [Dai.burn.pass]:
+// Dai_mint
+claim [Dai.mint.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -674,18 +726,12 @@ claim [Dai.burn.pass]:
         <jumpDests> #computeValidJumpDests(Dai_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("burn", #address(ABI_src), #uint256(ABI_wad)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("mint", #address(ABI_dst), #uint256(ABI_wad)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if ( ABI_src ==Int CALLER_ID andBool ( hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) =/=Int hash2 ( CALLER_ID , 2 ) andBool ( hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) =/=Int 1 andBool ( hash2 ( CALLER_ID , 2 ) =/=Int 1 andBool ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) ) ==Int SrcBal andBool ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) ) ==Int Allowed andBool ( #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) ) ==Int Junk_0 andBool #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , 2 ) ) ==Int Junk_1 ) ) ) ) ) ) )
-          #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( TotalSupply -Int ABI_wad ) , TotalSupply , Junk_2 ) ) +Int -5153 ) )
-          #else   #if ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) ==Int maxUInt256 andBool ( Allowed ==Int maxUInt256 andBool ( ( maxUInt256 ==Int maxUInt256 orBool ABI_wad <=Int maxUInt256 ) orBool ABI_src ==Int CALLER_ID ) ) )
-            #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( TotalSupply -Int ABI_wad ) , TotalSupply , Junk_2 ) ) +Int -6146 ) )
-            #else   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Allowed -Int ABI_wad ) , Allowed , Junk_0 ) ) -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( TotalSupply -Int ABI_wad ) , TotalSupply , Junk_2 ) ) +Int -8403 ) )
-          #fi
-        #fi </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( DstBal +Int ABI_wad ) , DstBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( TotalSupply +Int ABI_wad ) , TotalSupply , Junk_2 ) ) +Int -5045 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
@@ -735,7 +781,7 @@ claim [Dai.burn.pass]:
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
           <code> Dai_bin_runtime </code>
-          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Dai.allowance[ABI_src][CALLER_ID] <- #if (ABI_src ==Int CALLER_ID orBool Allowed ==Int maxUInt256) #then Allowed #else Allowed -Int ABI_wad #fi ] [ #Dai.balanceOf[ABI_src] <- SrcBal -Int ABI_wad ] [ #Dai.totalSupply <- TotalSupply -Int ABI_wad ] </storage>
+          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Dai.balanceOf[ABI_dst] <- DstBal +Int ABI_wad ] [ #Dai.totalSupply <- TotalSupply +Int ABI_wad ] </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Dai => ?_ </nonce>
         </account>
@@ -838,29 +884,28 @@ andBool VCallDepth <=Int 1024
 andBool #rangeUInt(256, VCallValue)
 andBool #rangeUInt(256, VChainId)
 
-  andBool (#rangeAddress(ABI_src)
+  andBool (#rangeAddress(ABI_dst)
   andBool (#rangeUInt(256, ABI_wad)
-  andBool (#rangeUInt(256, SrcBal)
+  andBool (#rangeUInt(256, DstBal)
   andBool (#rangeUInt(256, TotalSupply)
-  andBool (#rangeUInt(256, Allowed)
   andBool (#sizeByteArray(CD) <=Int 1250000000
   andBool (#rangeUInt(256, Junk_0)
   andBool (#rangeUInt(256, Junk_1)
   andBool (#rangeUInt(256, Junk_2)
-  andBool (((#rangeUInt(256, SrcBal -Int ABI_wad)))
-  andBool (((#rangeUInt(256, TotalSupply -Int ABI_wad)))
-  andBool (((Allowed ==Int maxUInt256) orBool (ABI_wad <=Int Allowed) orBool (ABI_src ==Int CALLER_ID))
-  andBool ((VCallValue ==Int 0))))))))))))))
+  andBool (((#rangeUInt(256, DstBal +Int ABI_wad)))
+  andBool (((#rangeUInt(256, TotalSupply +Int ABI_wad)))
+  andBool ((May ==Int 1)
+  andBool ((VCallValue ==Int 0)))))))))))))
 
-  andBool #lookup(ACCT_ID_STORAGE, #Dai.allowance[ABI_src][CALLER_ID]) ==Int Allowed
-  andBool #lookup(ACCT_ID_STORAGE, #Dai.balanceOf[ABI_src]) ==Int SrcBal
+  andBool #lookup(ACCT_ID_STORAGE, #Dai.wards[CALLER_ID]) ==Int May
+  andBool #lookup(ACCT_ID_STORAGE, #Dai.balanceOf[ABI_dst]) ==Int DstBal
   andBool #lookup(ACCT_ID_STORAGE, #Dai.totalSupply) ==Int TotalSupply
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Dai.allowance[ABI_src][CALLER_ID]) ==Int Junk_0
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Dai.balanceOf[ABI_src]) ==Int Junk_1
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Dai.wards[CALLER_ID]) ==Int Junk_0
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Dai.balanceOf[ABI_dst]) ==Int Junk_1
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Dai.totalSupply) ==Int Junk_2
-  andBool #Dai.allowance[ABI_src][CALLER_ID] =/=Int #Dai.balanceOf[ABI_src]
-  andBool #Dai.allowance[ABI_src][CALLER_ID] =/=Int #Dai.totalSupply
-  andBool #Dai.balanceOf[ABI_src] =/=Int #Dai.totalSupply 
+  andBool #Dai.wards[CALLER_ID] =/=Int #Dai.balanceOf[ABI_dst]
+  andBool #Dai.wards[CALLER_ID] =/=Int #Dai.totalSupply
+  andBool #Dai.balanceOf[ABI_dst] =/=Int #Dai.totalSupply 
 [trusted, matching(infGas)]
 
 

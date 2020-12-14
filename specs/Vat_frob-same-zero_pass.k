@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module DAFD4250FBDA64566B42A32103CA6DF507790C63C803B805348C60598DBEC5C5
+module B90AC413250E0CE976F9D6DB620A3545A9D9858D2C0866386277293E2E5BB698
   imports VERIFICATION
 
-// Dai_pull
-claim [Dai.pull.pass.rough]:
+// Vat_frob-same-zero
+claim [Vat.frob-same-zero.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -18,16 +18,22 @@ claim [Dai.pull.pass.rough]:
       <interimStates> _ </interimStates>
       <touchedAccounts> _ => ?_ </touchedAccounts>
       <callState>
-        <program> Dai_bin_runtime </program>
-        <jumpDests> #computeValidJumpDests(Dai_bin_runtime) </jumpDests>
+        <program> Vat_bin_runtime </program>
+        <jumpDests> #computeValidJumpDests(Vat_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("pull", #address(ABI_src), #uint256(ABI_wad)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("frob", #bytes32(ABI_i), #address(ABI_u), #address(ABI_v), #address(ABI_w), #int256(ABI_dink), #int256(ABI_dart)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => ?_ </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( ( ( ( ( ( ( ( VGas +Int #if Urn_art ==Int 0
+          #then   -9345
+          #else   -9397
+        #fi ) -Int Csstore( ISTANBUL , Debt , Debt , Junk_11 ) ) +Int #if Ilk_spot ==Int 0
+          #then   -7173
+          #else   -7225
+        #fi ) -Int Csstore( ISTANBUL , Gem_iu , Gem_iu , Junk_9 ) ) -Int Csstore( ISTANBUL , Dai_u , Dai_u , Junk_10 ) ) -Int Csstore( ISTANBUL , Urn_ink , Urn_ink , Junk_6 ) ) -Int Csstore( ISTANBUL , Urn_art , Urn_art , Junk_7 ) ) -Int Csstore( ISTANBUL , Ilk_Art , Ilk_Art , Junk_8 ) ) -Int Csstore( ISTANBUL , Ilk_rate , Ilk_rate , Junk_0 ) ) -Int Csstore( ISTANBUL , Ilk_spot , Ilk_spot , Junk_2 ) ) -Int Csstore( ISTANBUL , Ilk_line , Ilk_line , Junk_1 ) ) -Int Csstore( ISTANBUL , Ilk_dust , Ilk_dust , Junk_3 ) ) +Int -5915 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
@@ -76,10 +82,10 @@ claim [Dai.pull.pass.rough]:
         <account>
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
-          <code> Dai_bin_runtime </code>
-          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Dai.allowance[ABI_src][CALLER_ID] <- #if (ABI_src ==Int CALLER_ID orBool Allowed ==Int maxUInt256) #then Allowed #else Allowed -Int ABI_wad #fi ] [ #Dai.balanceOf[ABI_src] <- SrcBal  -Int ABI_wad ] [ #Dai.balanceOf[CALLER_ID] <- DstBal  +Int ABI_wad ] </storage>
+          <code> Vat_bin_runtime </code>
+          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE  </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
-          <nonce> Nonce_Dai => ?_ </nonce>
+          <nonce> Nonce_Vat => ?_ </nonce>
         </account>
         <account>
           <acctID> 1 </acctID>
@@ -180,65 +186,189 @@ andBool VCallDepth <=Int 1024
 andBool #rangeUInt(256, VCallValue)
 andBool #rangeUInt(256, VChainId)
 
-  andBool (#rangeAddress(ABI_src)
-  andBool (#rangeUInt(256, ABI_wad)
-  andBool (#rangeUInt(256, SrcBal)
-  andBool (#rangeUInt(256, DstBal)
-  andBool (#rangeUInt(256, Allowed)
+  andBool (#rangeBytes(32, ABI_i)
+  andBool (#rangeAddress(ABI_u)
+  andBool (#rangeAddress(ABI_v)
+  andBool (#rangeAddress(ABI_w)
+  andBool (#rangeSInt(256, ABI_dink)
+  andBool (#rangeSInt(256, ABI_dart)
+  andBool (#rangeUInt(256, Ilk_rate)
+  andBool (#rangeUInt(256, Ilk_line)
+  andBool (#rangeUInt(256, Ilk_spot)
+  andBool (#rangeUInt(256, Ilk_dust)
+  andBool (#rangeUInt(256, Ilk_Art)
+  andBool (#rangeUInt(256, Urn_ink)
+  andBool (#rangeUInt(256, Urn_art)
+  andBool (#rangeUInt(256, Gem_iu)
+  andBool (#rangeUInt(256, Dai_u)
+  andBool (#rangeUInt(256, Debt)
+  andBool (#rangeUInt(256, Line)
+  andBool (#rangeUInt(256, Can_u)
+  andBool (#rangeUInt(256, Live)
   andBool ((#sizeByteArray(CD) <=Int 1250000000)
-  andBool ((ABI_src =/=Int CALLER_ID)
+  andBool ((ABI_u ==Int ABI_v)
+  andBool ((ABI_v ==Int ABI_w)
+  andBool ((ABI_u ==Int ABI_w)
+  andBool ((ABI_dink ==Int 0)
+  andBool ((ABI_dart ==Int 0)
   andBool (#rangeUInt(256, Junk_0)
   andBool (#rangeUInt(256, Junk_1)
   andBool (#rangeUInt(256, Junk_2)
-  andBool (((#rangeUInt(256, SrcBal -Int ABI_wad)))
-  andBool (((#rangeUInt(256, DstBal +Int ABI_wad)))
-  andBool ((ABI_wad <=Int Allowed orBool ABI_src ==Int CALLER_ID)
-  andBool ((VCallValue ==Int 0)))))))))))))))
+  andBool (#rangeUInt(256, Junk_3)
+  andBool (#rangeUInt(256, Junk_4)
+  andBool (#rangeUInt(256, Junk_5)
+  andBool (#rangeUInt(256, Junk_6)
+  andBool (#rangeUInt(256, Junk_7)
+  andBool (#rangeUInt(256, Junk_8)
+  andBool (#rangeUInt(256, Junk_9)
+  andBool (#rangeUInt(256, Junk_10)
+  andBool (#rangeUInt(256, Junk_11)
+  andBool (#rangeUInt(256, Junk_12)
+  andBool ((((#rangeUInt(256, Urn_ink *Int Ilk_spot))))
+  andBool ((((#rangeUInt(256, Urn_art *Int Ilk_rate))))
+  andBool ((((#rangeUInt(256, Ilk_Art *Int Ilk_rate))))
+  andBool (((#rangeSInt(256, Ilk_rate)))
+  andBool ((VCallValue ==Int 0)
+  andBool ((Live ==Int 1)
+  andBool ((Ilk_rate =/=Int 0)
+  andBool (((Urn_art ==Int 0) orBool ((Urn_art *Int Ilk_rate) >=Int Ilk_dust))))))))))))))))))))))))))))))))))))))))))))))))
 
-  andBool #lookup(ACCT_ID_STORAGE, #Dai.allowance[ABI_src][CALLER_ID]) ==Int Allowed
-  andBool #lookup(ACCT_ID_STORAGE, #Dai.balanceOf[ABI_src]) ==Int SrcBal
-  andBool #lookup(ACCT_ID_STORAGE, #Dai.balanceOf[CALLER_ID]) ==Int DstBal
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Dai.allowance[ABI_src][CALLER_ID]) ==Int Junk_0
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Dai.balanceOf[ABI_src]) ==Int Junk_1
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Dai.balanceOf[CALLER_ID]) ==Int Junk_2
-  andBool #Dai.allowance[ABI_src][CALLER_ID] =/=Int #Dai.balanceOf[ABI_src]
-  andBool #Dai.allowance[ABI_src][CALLER_ID] =/=Int #Dai.balanceOf[CALLER_ID]
-  andBool #Dai.balanceOf[ABI_src] =/=Int #Dai.balanceOf[CALLER_ID] 
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.ilks[ABI_i].rate) ==Int Ilk_rate
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.ilks[ABI_i].line) ==Int Ilk_line
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.ilks[ABI_i].spot) ==Int Ilk_spot
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.ilks[ABI_i].dust) ==Int Ilk_dust
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.Line) ==Int Line
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.can[ABI_u][CALLER_ID]) ==Int Can_u
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.urns[ABI_i][ABI_u].ink) ==Int Urn_ink
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.urns[ABI_i][ABI_u].art) ==Int Urn_art
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.ilks[ABI_i].Art) ==Int Ilk_Art
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.gem[ABI_i][ABI_u]) ==Int Gem_iu
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.dai[ABI_u]) ==Int Dai_u
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.debt) ==Int Debt
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.live) ==Int Live
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.ilks[ABI_i].rate) ==Int Junk_0
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.ilks[ABI_i].line) ==Int Junk_1
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.ilks[ABI_i].spot) ==Int Junk_2
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.ilks[ABI_i].dust) ==Int Junk_3
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.Line) ==Int Junk_4
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.can[ABI_u][CALLER_ID]) ==Int Junk_5
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.urns[ABI_i][ABI_u].ink) ==Int Junk_6
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.urns[ABI_i][ABI_u].art) ==Int Junk_7
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.ilks[ABI_i].Art) ==Int Junk_8
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.gem[ABI_i][ABI_u]) ==Int Junk_9
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[ABI_u]) ==Int Junk_10
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.debt) ==Int Junk_11
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.live) ==Int Junk_12
+  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.ilks[ABI_i].line
+  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.ilks[ABI_i].spot
+  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.ilks[ABI_i].dust
+  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.Line
+  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.can[ABI_u][CALLER_ID]
+  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.urns[ABI_i][ABI_u].ink
+  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.urns[ABI_i][ABI_u].art
+  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.ilks[ABI_i].Art
+  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.gem[ABI_i][ABI_u]
+  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.dai[ABI_u]
+  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.debt
+  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.live
+  andBool #Vat.ilks[ABI_i].line =/=Int #Vat.ilks[ABI_i].spot
+  andBool #Vat.ilks[ABI_i].line =/=Int #Vat.ilks[ABI_i].dust
+  andBool #Vat.ilks[ABI_i].line =/=Int #Vat.Line
+  andBool #Vat.ilks[ABI_i].line =/=Int #Vat.can[ABI_u][CALLER_ID]
+  andBool #Vat.ilks[ABI_i].line =/=Int #Vat.urns[ABI_i][ABI_u].ink
+  andBool #Vat.ilks[ABI_i].line =/=Int #Vat.urns[ABI_i][ABI_u].art
+  andBool #Vat.ilks[ABI_i].line =/=Int #Vat.ilks[ABI_i].Art
+  andBool #Vat.ilks[ABI_i].line =/=Int #Vat.gem[ABI_i][ABI_u]
+  andBool #Vat.ilks[ABI_i].line =/=Int #Vat.dai[ABI_u]
+  andBool #Vat.ilks[ABI_i].line =/=Int #Vat.debt
+  andBool #Vat.ilks[ABI_i].line =/=Int #Vat.live
+  andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.ilks[ABI_i].dust
+  andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.Line
+  andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.can[ABI_u][CALLER_ID]
+  andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.urns[ABI_i][ABI_u].ink
+  andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.urns[ABI_i][ABI_u].art
+  andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.ilks[ABI_i].Art
+  andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.gem[ABI_i][ABI_u]
+  andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.dai[ABI_u]
+  andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.debt
+  andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.live
+  andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.Line
+  andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.can[ABI_u][CALLER_ID]
+  andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.urns[ABI_i][ABI_u].ink
+  andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.urns[ABI_i][ABI_u].art
+  andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.ilks[ABI_i].Art
+  andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.gem[ABI_i][ABI_u]
+  andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.dai[ABI_u]
+  andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.debt
+  andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.live
+  andBool #Vat.Line =/=Int #Vat.can[ABI_u][CALLER_ID]
+  andBool #Vat.Line =/=Int #Vat.urns[ABI_i][ABI_u].ink
+  andBool #Vat.Line =/=Int #Vat.urns[ABI_i][ABI_u].art
+  andBool #Vat.Line =/=Int #Vat.ilks[ABI_i].Art
+  andBool #Vat.Line =/=Int #Vat.gem[ABI_i][ABI_u]
+  andBool #Vat.Line =/=Int #Vat.dai[ABI_u]
+  andBool #Vat.Line =/=Int #Vat.debt
+  andBool #Vat.Line =/=Int #Vat.live
+  andBool #Vat.can[ABI_u][CALLER_ID] =/=Int #Vat.urns[ABI_i][ABI_u].ink
+  andBool #Vat.can[ABI_u][CALLER_ID] =/=Int #Vat.urns[ABI_i][ABI_u].art
+  andBool #Vat.can[ABI_u][CALLER_ID] =/=Int #Vat.ilks[ABI_i].Art
+  andBool #Vat.can[ABI_u][CALLER_ID] =/=Int #Vat.gem[ABI_i][ABI_u]
+  andBool #Vat.can[ABI_u][CALLER_ID] =/=Int #Vat.dai[ABI_u]
+  andBool #Vat.can[ABI_u][CALLER_ID] =/=Int #Vat.debt
+  andBool #Vat.can[ABI_u][CALLER_ID] =/=Int #Vat.live
+  andBool #Vat.urns[ABI_i][ABI_u].ink =/=Int #Vat.urns[ABI_i][ABI_u].art
+  andBool #Vat.urns[ABI_i][ABI_u].ink =/=Int #Vat.ilks[ABI_i].Art
+  andBool #Vat.urns[ABI_i][ABI_u].ink =/=Int #Vat.gem[ABI_i][ABI_u]
+  andBool #Vat.urns[ABI_i][ABI_u].ink =/=Int #Vat.dai[ABI_u]
+  andBool #Vat.urns[ABI_i][ABI_u].ink =/=Int #Vat.debt
+  andBool #Vat.urns[ABI_i][ABI_u].ink =/=Int #Vat.live
+  andBool #Vat.urns[ABI_i][ABI_u].art =/=Int #Vat.ilks[ABI_i].Art
+  andBool #Vat.urns[ABI_i][ABI_u].art =/=Int #Vat.gem[ABI_i][ABI_u]
+  andBool #Vat.urns[ABI_i][ABI_u].art =/=Int #Vat.dai[ABI_u]
+  andBool #Vat.urns[ABI_i][ABI_u].art =/=Int #Vat.debt
+  andBool #Vat.urns[ABI_i][ABI_u].art =/=Int #Vat.live
+  andBool #Vat.ilks[ABI_i].Art =/=Int #Vat.gem[ABI_i][ABI_u]
+  andBool #Vat.ilks[ABI_i].Art =/=Int #Vat.dai[ABI_u]
+  andBool #Vat.ilks[ABI_i].Art =/=Int #Vat.debt
+  andBool #Vat.ilks[ABI_i].Art =/=Int #Vat.live
+  andBool #Vat.gem[ABI_i][ABI_u] =/=Int #Vat.dai[ABI_u]
+  andBool #Vat.gem[ABI_i][ABI_u] =/=Int #Vat.debt
+  andBool #Vat.gem[ABI_i][ABI_u] =/=Int #Vat.live
+  andBool #Vat.dai[ABI_u] =/=Int #Vat.debt
+  andBool #Vat.dai[ABI_u] =/=Int #Vat.live
+  andBool #Vat.debt =/=Int #Vat.live 
 
-// Dai_transferFrom-diff
-claim [Dai.transferFrom-diff.pass]:
-  <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
+// Vat_muluu
+claim [Vat.muluu.pass]:
+  <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
   <schedule> ISTANBUL </schedule>
   <ethereum>
     <evm>
-      <output> _ => #buf(32, 1) </output>
-      <statusCode> _ => EVMC_SUCCESS </statusCode>
+      <output> VOutput => VOutput </output>
+      <statusCode> _ => ?_ </statusCode>
       <endPC> _ => ?_ </endPC>
       <callStack> VCallStack </callStack>
       <interimStates> _ </interimStates>
       <touchedAccounts> _ => ?_ </touchedAccounts>
       <callState>
-        <program> Dai_bin_runtime </program>
-        <jumpDests> #computeValidJumpDests(Dai_bin_runtime) </jumpDests>
+        <program> Vat_bin_runtime </program>
+        <jumpDests> #computeValidJumpDests(Vat_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("transferFrom", #address(ABI_src), #address(ABI_dst), #uint256(ABI_wad)) ++ CD => ?_ </callData>
+        <callData> _ => ?_ </callData>
         <callValue> VCallValue </callValue>
-        <wordStack> .WordStack => ?_ </wordStack>
-        <localMem> .Memory => ?_ </localMem>
-        <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if ( ABI_src ==Int CALLER_ID andBool ( CALLER_ID =/=Int ABI_dst andBool ( hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) =/=Int hash2 ( CALLER_ID , 2 ) andBool ( hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) =/=Int hash2 ( ABI_dst , 2 ) andBool ( hash2 ( CALLER_ID , 2 ) =/=Int hash2 ( ABI_dst , 2 ) andBool ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) ) ==Int SrcBal andBool ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) ) ==Int Allowed andBool ( #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) ) ==Int Junk_0 andBool #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , 2 ) ) ==Int Junk_1 ) ) ) ) ) ) ) )
-          #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( DstBal +Int ABI_wad ) , DstBal , Junk_2 ) ) +Int -5425 ) )
-          #else   #if ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) ==Int maxUInt256 andBool ( Allowed ==Int maxUInt256 andBool ( ABI_wad <=Int maxUInt256 orBool ABI_src ==Int CALLER_ID ) ) )
-            #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( DstBal +Int ABI_wad ) , DstBal , Junk_2 ) ) +Int -6418 ) )
-            #else   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Allowed -Int ABI_wad ) , Allowed , Junk_0 ) ) -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( DstBal +Int ABI_wad ) , DstBal , Junk_2 ) ) +Int -8675 ) )
-          #fi
+        <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x *Int ABI_y : WS </wordStack>
+        <localMem> _ </localMem>
+        <pc> 13234 => 13277 </pc>
+        <gas> #gas(VGas) => #if ABI_y ==Int 0
+          #then   #gas ( ( VGas +Int -54 ) )
+          #else   #gas ( ( VGas +Int -106 ) )
         #fi </gas>
-        <memoryUsed> 0 => ?_ </memoryUsed>
+        <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
-        <static> false </static>
+        <static> _ </static>
         <callDepth> VCallDepth </callDepth>
       </callState>
       <substate>
@@ -284,10 +414,10 @@ claim [Dai.transferFrom-diff.pass]:
         <account>
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
-          <code> Dai_bin_runtime </code>
-          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Dai.allowance[ABI_src][CALLER_ID] <- #if (ABI_src ==Int CALLER_ID orBool Allowed ==Int maxUInt256) #then Allowed #else Allowed -Int ABI_wad #fi ] [ #Dai.balanceOf[ABI_src] <- SrcBal  -Int ABI_wad ] [ #Dai.balanceOf[ABI_dst] <- DstBal  +Int ABI_wad ] </storage>
+          <code> Vat_bin_runtime </code>
+          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE  </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
-          <nonce> Nonce_Dai => ?_ </nonce>
+          <nonce> Nonce_Vat => ?_ </nonce>
         </account>
         <account>
           <acctID> 1 </acctID>
@@ -388,31 +518,13 @@ andBool VCallDepth <=Int 1024
 andBool #rangeUInt(256, VCallValue)
 andBool #rangeUInt(256, VChainId)
 
-  andBool (#rangeAddress(ABI_src)
-  andBool (#rangeAddress(ABI_dst)
-  andBool (#rangeUInt(256, ABI_wad)
-  andBool (#rangeUInt(256, SrcBal)
-  andBool (#rangeUInt(256, DstBal)
-  andBool (#rangeUInt(256, Allowed)
-  andBool ((#sizeByteArray(CD) <=Int 1250000000)
-  andBool ((ABI_src =/=Int ABI_dst)
-  andBool (#rangeUInt(256, Junk_0)
-  andBool (#rangeUInt(256, Junk_1)
-  andBool (#rangeUInt(256, Junk_2)
-  andBool (((#rangeUInt(256, SrcBal -Int ABI_wad)))
-  andBool (((#rangeUInt(256, DstBal +Int ABI_wad)))
-  andBool ((ABI_wad <=Int Allowed orBool ABI_src ==Int CALLER_ID)
-  andBool ((VCallValue ==Int 0))))))))))))))))
+  andBool (#rangeUInt(256, ABI_x)
+  andBool (#rangeUInt(256, ABI_y)
+  andBool ((#sizeWordStack(WS) <=Int 1000)
+  andBool (#rangeUInt(256, VMemoryUsed)
+  andBool ((#rangeUInt(256, ABI_x *Int ABI_y)))))))
 
-  andBool #lookup(ACCT_ID_STORAGE, #Dai.allowance[ABI_src][CALLER_ID]) ==Int Allowed
-  andBool #lookup(ACCT_ID_STORAGE, #Dai.balanceOf[ABI_src]) ==Int SrcBal
-  andBool #lookup(ACCT_ID_STORAGE, #Dai.balanceOf[ABI_dst]) ==Int DstBal
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Dai.allowance[ABI_src][CALLER_ID]) ==Int Junk_0
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Dai.balanceOf[ABI_src]) ==Int Junk_1
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Dai.balanceOf[ABI_dst]) ==Int Junk_2
-  andBool #Dai.allowance[ABI_src][CALLER_ID] =/=Int #Dai.balanceOf[ABI_src]
-  andBool #Dai.allowance[ABI_src][CALLER_ID] =/=Int #Dai.balanceOf[ABI_dst]
-  andBool #Dai.balanceOf[ABI_src] =/=Int #Dai.balanceOf[ABI_dst] 
+ 
 [trusted, matching(infGas)]
 
 
