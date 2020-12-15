@@ -838,12 +838,12 @@ storage
     can[u][CALLER_ID] |-> Can_u
     can[v][CALLER_ID] |-> Can_v
     can[w][CALLER_ID] |-> Can_w
+    debt              |-> Debt     => Debt  + (Ilk_rate * dart)
+    gem[i][v]         |-> Gem_iv   => Gem_iv  - dink
+    dai[w]            |-> Dai_w    => Dai_w + (Ilk_rate * dart)
     urns[i][u].ink    |-> Urn_ink  => Urn_ink + dink
     urns[i][u].art    |-> Urn_art  => Urn_art + dart
     ilks[i].Art       |-> Ilk_Art  => Ilk_Art + dart
-    gem[i][v]         |-> Gem_iv   => Gem_iv  - dink
-    dai[w]            |-> Dai_w    => Dai_w + (Ilk_rate * dart)
-    debt              |-> Debt     => Debt  + (Ilk_rate * dart)
     live              |-> Live
 
 iff in range uint256
@@ -927,12 +927,12 @@ storage
     can[u][CALLER_ID] |-> Can_u
     can[v][CALLER_ID] |-> Can_v
     can[w][CALLER_ID] |-> Can_w
+    debt              |-> Debt     => Debt
+    gem[i][v]         |-> Gem_iv   => Gem_iv  - dink
+    dai[w]            |-> Dai_w    => Dai_w
     urns[i][u].ink    |-> Urn_ink  => Urn_ink + dink
     urns[i][u].art    |-> Urn_art  => Urn_art
     ilks[i].Art       |-> Ilk_Art  => Ilk_Art
-    gem[i][v]         |-> Gem_iv   => Gem_iv  - dink
-    dai[w]            |-> Dai_w    => Dai_w
-    debt              |-> Debt     => Debt
     live              |-> Live
 
 iff in range uint256
@@ -1008,12 +1008,12 @@ storage
     can[u][CALLER_ID] |-> Can_u
     can[v][CALLER_ID] |-> Can_v
     can[w][CALLER_ID] |-> Can_w
+    debt              |-> Debt     => Debt  + (Ilk_rate * dart)
+    gem[i][v]         |-> Gem_iv   => Gem_iv
+    dai[w]            |-> Dai_w    => Dai_w + (Ilk_rate * dart)
     urns[i][u].ink    |-> Urn_ink  => Urn_ink
     urns[i][u].art    |-> Urn_art  => Urn_art + dart
     ilks[i].Art       |-> Ilk_Art  => Ilk_Art + dart
-    gem[i][v]         |-> Gem_iv   => Gem_iv
-    dai[w]            |-> Dai_w    => Dai_w + (Ilk_rate * dart)
-    debt              |-> Debt     => Debt  + (Ilk_rate * dart)
     live              |-> Live
 
 iff in range uint256
@@ -1093,12 +1093,12 @@ storage
     can[u][CALLER_ID] |-> Can_u
     can[v][CALLER_ID] |-> Can_v
     can[w][CALLER_ID] |-> Can_w
+    debt              |-> Debt     => Debt
+    gem[i][v]         |-> Gem_iv   => Gem_iv
+    dai[w]            |-> Dai_w    => Dai_w
     urns[i][u].ink    |-> Urn_ink  => Urn_ink
     urns[i][u].art    |-> Urn_art  => Urn_art
     ilks[i].Art       |-> Ilk_Art  => Ilk_Art
-    gem[i][v]         |-> Gem_iv   => Gem_iv
-    dai[w]            |-> Dai_w    => Dai_w
-    debt              |-> Debt     => Debt
     live              |-> Live
 
 iff in range uint256
@@ -1165,12 +1165,12 @@ storage
     ilks[i].dust      |-> Ilk_dust
     Line              |-> Line
     can[u][CALLER_ID] |-> Can_u
+    debt              |-> Debt     => Debt  + (Ilk_rate * dart)
+    gem[i][u]         |-> Gem_iu   => Gem_iu  - dink
+    dai[u]            |-> Dai_u    => Dai_u + (Ilk_rate * dart)
     urns[i][u].ink    |-> Urn_ink  => Urn_ink + dink
     urns[i][u].art    |-> Urn_art  => Urn_art + dart
     ilks[i].Art       |-> Ilk_Art  => Ilk_Art + dart
-    gem[i][u]         |-> Gem_iu   => Gem_iu  - dink
-    dai[u]            |-> Dai_u    => Dai_u + (Ilk_rate * dart)
-    debt              |-> Debt     => Debt  + (Ilk_rate * dart)
     live              |-> Live
 
 iff in range uint256
@@ -1246,12 +1246,12 @@ storage
     ilks[i].dust      |-> Ilk_dust
     Line              |-> Line
     can[u][CALLER_ID] |-> Can_u
+    debt              |-> Debt     => Debt
+    gem[i][u]         |-> Gem_iu   => Gem_iu  - dink
+    dai[u]            |-> Dai_u    => Dai_u
     urns[i][u].ink    |-> Urn_ink  => Urn_ink + dink
     urns[i][u].art    |-> Urn_art  => Urn_art
     ilks[i].Art       |-> Ilk_Art  => Ilk_Art
-    gem[i][u]         |-> Gem_iu   => Gem_iu  - dink
-    dai[u]            |-> Dai_u    => Dai_u
-    debt              |-> Debt     => Debt
     live              |-> Live
 
 iff in range uint256
@@ -1323,12 +1323,12 @@ storage
     ilks[i].dust      |-> Ilk_dust
     Line              |-> Line
     can[u][CALLER_ID] |-> Can_u
+    debt              |-> Debt     => Debt  + (Ilk_rate * dart)
+    gem[i][u]         |-> Gem_iu   => Gem_iu
+    dai[u]            |-> Dai_u    => Dai_u + (Ilk_rate * dart)
     urns[i][u].ink    |-> Urn_ink  => Urn_ink
     urns[i][u].art    |-> Urn_art  => Urn_art + dart
     ilks[i].Art       |-> Ilk_Art  => Ilk_Art + dart
-    gem[i][u]         |-> Gem_iu   => Gem_iu
-    dai[u]            |-> Dai_u    => Dai_u + (Ilk_rate * dart)
-    debt              |-> Debt     => Debt  + (Ilk_rate * dart)
     live              |-> Live
 
 iff in range uint256
@@ -1402,12 +1402,12 @@ storage
     ilks[i].dust      |-> Ilk_dust
     Line              |-> Line
     can[u][CALLER_ID] |-> Can_u
+    debt              |-> Debt     => Debt
+    gem[i][u]         |-> Gem_iu   => Gem_iu
+    dai[u]            |-> Dai_u    => Dai_u
     urns[i][u].ink    |-> Urn_ink  => Urn_ink
     urns[i][u].art    |-> Urn_art  => Urn_art
     ilks[i].Art       |-> Ilk_Art  => Ilk_Art
-    gem[i][u]         |-> Gem_iu   => Gem_iu
-    dai[u]            |-> Dai_u    => Dai_u
-    debt              |-> Debt     => Debt
     live              |-> Live
 
 iff in range uint256
