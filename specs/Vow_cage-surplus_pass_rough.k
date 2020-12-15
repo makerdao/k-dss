@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 4C60CBBE36426B8DF46509913523A44B7D53299FE6E5A33CDDC10D06B07EB50E
+module C2DF58896A70A39957C07297257435BE662D7B6CFC227975D3AD9EC1BDB1D454
   imports VERIFICATION
 
 // Vow_cage-surplus
@@ -1156,7 +1156,7 @@ claim [Flapper.cage.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Live , Junk_2 ) ) +Int -3653 ) /Int 64 ) ) +Int ( ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Live , Junk_2 ) ) -Int ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Live , Junk_2 ) ) +Int -3653 ) /Int 64 ) ) -Int Csstore( ISTANBUL , ( Dai_a -Int ABI_rad ) , Dai_a , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Dai_u +Int ABI_rad ) , Dai_u , Junk_6 ) ) +Int -15964 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Live , Junk_2 ) ) -Int #allBut64th( ( ( VGas -Int Csstore( ISTANBUL , 0 , Live , Junk_2 ) ) +Int -3653 ) ) ) +Int -3653 ) +Int #allBut64th( ( ( VGas -Int Csstore( ISTANBUL , 0 , Live , Junk_2 ) ) +Int -3653 ) ) ) -Int Csstore( ISTANBUL , ( Dai_a -Int ABI_rad ) , Dai_a , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Dai_u +Int ABI_rad ) , Dai_u , Junk_6 ) ) +Int -12311 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

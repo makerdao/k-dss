@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 58BEA69A85D1F8ACC1ECF46C115C3E5C24612DEDB442450A5786678A0217BA01
+module 61AA89C6272DAEFD2191DF666C407C4B03C67BD144A9DF0EE9024786F7BE6480
   imports VERIFICATION
 
 // End_thaw
@@ -27,7 +27,7 @@ claim [End.thaw.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( ( ( #gas ( ( ( ( #gas ( ( ( VGas +Int -5116 ) /Int 64 ) ) +Int ( ( VGas -Int ( ( VGas +Int -5116 ) /Int 64 ) ) +Int -6352 ) ) +Int -4170 ) /Int 64 ) ) +Int ( ( ( #gas ( ( ( VGas +Int -5116 ) /Int 64 ) ) +Int ( ( VGas -Int ( ( VGas +Int -5116 ) /Int 64 ) ) +Int -6352 ) ) -Int ( ( ( #gas ( ( ( VGas +Int -5116 ) /Int 64 ) ) +Int ( ( VGas -Int ( ( VGas +Int -5116 ) /Int 64 ) ) +Int -6352 ) ) +Int -4170 ) /Int 64 ) ) +Int -5222 ) ) -Int Csstore( ISTANBUL , FinalDebt , 0 , Junk_3 ) ) +Int -4456 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -5116 ) ) ) +Int #allBut64th( ( VGas +Int -5116 ) ) ) -Int #allBut64th( ( ( ( VGas -Int #allBut64th( ( VGas +Int -5116 ) ) ) +Int #allBut64th( ( VGas +Int -5116 ) ) ) +Int -10522 ) ) ) +Int #allBut64th( ( ( ( VGas -Int #allBut64th( ( VGas +Int -5116 ) ) ) +Int #allBut64th( ( VGas +Int -5116 ) ) ) +Int -10522 ) ) ) -Int Csstore( ISTANBUL , FinalDebt , 0 , Junk_3 ) ) +Int -16030 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

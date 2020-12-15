@@ -1,10 +1,7 @@
-#gas ( ( ( ( ( #gas ( ( ( VGas +Int -4377 ) /Int 64 ) ) +Int ( ( VGas -Int ( ( VGas +Int -4377 ) /Int 64 ) ) +Int -8971 ) ) +Int #if Tag ==Int 0
-  #then   #if Rate_i ==Int 0
-    #then   -4489
-    #else   -4541
-  #fi
-  #else   #if Rate_i ==Int 0
-    #then   -4541
-    #else   -4593
-  #fi
-#fi ) -Int Csstore( ISTANBUL , ( ( ( ( ( ( ( ( Art *Int Rate_i ) /Int 1000000000000000000000000000 ) *Int Tag ) /Int 1000000000000000000000000000 ) -Int Gap ) *Int 1000000000000000000000000000 ) *Int 1000000000000000000000000000 ) /Int Debt ) , 0 , Junk_5 ) ) +Int -4343 ) )
+#gas ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4377 ) ) ) +Int #allBut64th( ( VGas +Int -4377 ) ) ) +Int #if Rate_i ==Int 0
+  #then   -127
+  #else   -179
+#fi ) +Int #if Tag ==Int 0
+  #then   -127
+  #else   -179
+#fi ) -Int Csstore( ISTANBUL , ( ( ( ( ( ( ( ( Art *Int Rate_i ) /Int 1000000000000000000000000000 ) *Int Tag ) /Int 1000000000000000000000000000 ) -Int Gap ) *Int 1000000000000000000000000000 ) *Int 1000000000000000000000000000 ) /Int Debt ) , 0 , Junk_5 ) ) +Int -17549 ) )

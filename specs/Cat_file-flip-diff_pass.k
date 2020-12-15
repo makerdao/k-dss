@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 4B210CC8922A3F375E71E92F96F18EE6A9DA8DBE435573D14C3518D196ADD984
+module F02941F9A1A335C18261A7204949172C1E27D4F0EFBB4754C5754E78F9C8C2B9
   imports VERIFICATION
 
 // Cat_file-flip-diff
@@ -27,7 +27,7 @@ claim [Cat.file-flip-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( #gas ( ( ( ( ( #gas ( ( ( VGas +Int -4631 ) /Int 64 ) ) +Int ( ( ( VGas -Int ( ( VGas +Int -4631 ) /Int 64 ) ) -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_5 ) ) +Int -9432 ) ) -Int Csstore( ISTANBUL , ABI_data , Flip , Junk_2 ) ) +Int -3360 ) /Int 64 ) ) +Int ( ( ( ( ( #gas ( ( ( VGas +Int -4631 ) /Int 64 ) ) +Int ( ( ( VGas -Int ( ( VGas +Int -4631 ) /Int 64 ) ) -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_5 ) ) +Int -9432 ) ) -Int Csstore( ISTANBUL , ABI_data , Flip , Junk_2 ) ) -Int ( ( ( ( #gas ( ( ( VGas +Int -4631 ) /Int 64 ) ) +Int ( ( ( VGas -Int ( ( VGas +Int -4631 ) /Int 64 ) ) -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_5 ) ) +Int -9432 ) ) -Int Csstore( ISTANBUL , ABI_data , Flip , Junk_2 ) ) +Int -3360 ) /Int 64 ) ) -Int Csstore( ISTANBUL , 1 , Junk_4 , Junk_6 ) ) +Int -12568 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4631 ) ) ) +Int -4631 ) +Int #allBut64th( ( VGas +Int -4631 ) ) ) -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_5 ) ) -Int Csstore( ISTANBUL , ABI_data , Flip , Junk_2 ) ) -Int #allBut64th( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4631 ) ) ) +Int -4631 ) +Int #allBut64th( ( VGas +Int -4631 ) ) ) -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_5 ) ) -Int Csstore( ISTANBUL , ABI_data , Flip , Junk_2 ) ) +Int -8161 ) ) ) +Int -8161 ) +Int #allBut64th( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4631 ) ) ) +Int -4631 ) +Int #allBut64th( ( VGas +Int -4631 ) ) ) -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_5 ) ) -Int Csstore( ISTANBUL , ABI_data , Flip , Junk_2 ) ) +Int -8161 ) ) ) -Int Csstore( ISTANBUL , 1 , Junk_4 , Junk_6 ) ) +Int -9208 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

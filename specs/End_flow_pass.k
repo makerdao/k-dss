@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module C3483392A4845B957FA800B3E49EF4BCABF8B25C57EA05A01CDFA336AF83C2AA
+module E1A1F08EBB34B1FB2708A625CF651CEDC9AB375183B4CB45167A99DD00516202
   imports VERIFICATION
 
 // End_flow
@@ -27,16 +27,13 @@ claim [End.flow.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( ( ( ( #gas ( ( ( VGas +Int -4377 ) /Int 64 ) ) +Int ( ( VGas -Int ( ( VGas +Int -4377 ) /Int 64 ) ) +Int -8971 ) ) +Int #if Tag ==Int 0
-          #then   #if Rate_i ==Int 0
-            #then   -4489
-            #else   -4541
-          #fi
-          #else   #if Rate_i ==Int 0
-            #then   -4541
-            #else   -4593
-          #fi
-        #fi ) -Int Csstore( ISTANBUL , ( ( ( ( ( ( ( ( Art *Int Rate_i ) /Int 1000000000000000000000000000 ) *Int Tag ) /Int 1000000000000000000000000000 ) -Int Gap ) *Int 1000000000000000000000000000 ) *Int 1000000000000000000000000000 ) /Int Debt ) , 0 , Junk_5 ) ) +Int -4343 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4377 ) ) ) +Int #allBut64th( ( VGas +Int -4377 ) ) ) +Int #if Rate_i ==Int 0
+          #then   -127
+          #else   -179
+        #fi ) +Int #if Tag ==Int 0
+          #then   -127
+          #else   -179
+        #fi ) -Int Csstore( ISTANBUL , ( ( ( ( ( ( ( ( Art *Int Rate_i ) /Int 1000000000000000000000000000 ) *Int Tag ) /Int 1000000000000000000000000000 ) -Int Gap ) *Int 1000000000000000000000000000 ) *Int 1000000000000000000000000000 ) /Int Debt ) , 0 , Junk_5 ) ) +Int -17549 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

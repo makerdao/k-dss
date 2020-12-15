@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 920B796EF99C21A68157014D42FB5D6E8875EAAB01317CF051E1FC075605520D
+module 8754BCB29B9218C35C4F387F147024B7A04B20D4A08E42C4D729618B07AD2E7D
   imports VERIFICATION
 
 // Vow_file-addr-diff
@@ -28,7 +28,7 @@ claim [Vow.file-addr-diff.pass]:
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
         <gas> #gas(VGas) => #if ( ABI_what ==Int 46327402539235611375120909531126297958773339393512957230598522836762153189376 andBool VCallDepth <Int 1024 )
-          #then   #gas ( ( #gas ( ( ( ( ( #gas ( ( ( VGas +Int -4476 ) /Int 64 ) ) +Int ( ( ( VGas -Int ( ( VGas +Int -4476 ) /Int 64 ) ) -Int Csstore( ISTANBUL , 0 , CanOld , Junk_4 ) ) +Int -9277 ) ) -Int Csstore( ISTANBUL , ABI_data , Flapper , Junk_2 ) ) +Int -3276 ) /Int 64 ) ) +Int ( ( ( ( ( #gas ( ( ( VGas +Int -4476 ) /Int 64 ) ) +Int ( ( ( VGas -Int ( ( VGas +Int -4476 ) /Int 64 ) ) -Int Csstore( ISTANBUL , 0 , CanOld , Junk_4 ) ) +Int -9277 ) ) -Int Csstore( ISTANBUL , ABI_data , Flapper , Junk_2 ) ) -Int ( ( ( ( #gas ( ( ( VGas +Int -4476 ) /Int 64 ) ) +Int ( ( ( VGas -Int ( ( VGas +Int -4476 ) /Int 64 ) ) -Int Csstore( ISTANBUL , 0 , CanOld , Junk_4 ) ) +Int -9277 ) ) -Int Csstore( ISTANBUL , ABI_data , Flapper , Junk_2 ) ) +Int -3276 ) /Int 64 ) ) -Int Csstore( ISTANBUL , 1 , CanNew , Junk_5 ) ) +Int -12482 ) ) )
+          #then   #gas ( ( ( ( ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4476 ) ) ) +Int -4476 ) +Int #allBut64th( ( VGas +Int -4476 ) ) ) -Int Csstore( ISTANBUL , 0 , CanOld , Junk_4 ) ) -Int Csstore( ISTANBUL , ABI_data , Flapper , Junk_2 ) ) -Int #allBut64th( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4476 ) ) ) +Int -4476 ) +Int #allBut64th( ( VGas +Int -4476 ) ) ) -Int Csstore( ISTANBUL , 0 , CanOld , Junk_4 ) ) -Int Csstore( ISTANBUL , ABI_data , Flapper , Junk_2 ) ) +Int -8077 ) ) ) +Int -8077 ) +Int #allBut64th( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4476 ) ) ) +Int -4476 ) +Int #allBut64th( ( VGas +Int -4476 ) ) ) -Int Csstore( ISTANBUL , 0 , CanOld , Junk_4 ) ) -Int Csstore( ISTANBUL , ABI_data , Flapper , Junk_2 ) ) +Int -8077 ) ) ) -Int Csstore( ISTANBUL , 1 , CanNew , Junk_5 ) ) +Int -9206 ) )
           #else   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ABI_data , Flopper , Junk_3 ) ) +Int -6498 ) )
         #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>

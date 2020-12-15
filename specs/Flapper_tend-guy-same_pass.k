@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module D21AEA939A765D3177300CF3AA1EB435B780B2A6332CE833548B03C13071E586
+module D353689DA974025C887351F3C3A360BD6708B2BFD4ABCF2F02E3553A45869A17
   imports VERIFICATION
 
-// Pot_exit
-claim [Pot.exit.pass]:
+// Flapper_tend-guy-same
+claim [Flapper.tend-guy-same.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -18,25 +18,37 @@ claim [Pot.exit.pass]:
       <interimStates> _ </interimStates>
       <touchedAccounts> _ => ?_ </touchedAccounts>
       <callState>
-        <program> Pot_bin_runtime </program>
-        <jumpDests> #computeValidJumpDests(Pot_bin_runtime) </jumpDests>
+        <program> Flapper_bin_runtime </program>
+        <jumpDests> #computeValidJumpDests(Flapper_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("exit", #uint256(ABI_wad)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("tend", #uint256(ABI_id), #uint256(ABI_lot), #uint256(ABI_bid)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Pie_u -Int ABI_wad ) , Pie_u , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Pie_tot -Int ABI_wad ) , Pie_tot , Junk_1 ) ) +Int #if ABI_wad ==Int 0
-          #then   -54
-          #else   -106
-        #fi ) -Int #allBut64th( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Pie_u -Int ABI_wad ) , Pie_u , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Pie_tot -Int ABI_wad ) , Pie_tot , Junk_1 ) ) +Int #if ABI_wad ==Int 0
-          #then   -54
-          #else   -106
-        #fi ) +Int -5519 ) ) ) +Int -5519 ) +Int #allBut64th( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Pie_u -Int ABI_wad ) , Pie_u , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Pie_tot -Int ABI_wad ) , Pie_tot , Junk_1 ) ) +Int #if ABI_wad ==Int 0
-          #then   -54
-          #else   -106
-        #fi ) +Int -5519 ) ) ) -Int Csstore( ISTANBUL , ( Dai_p -Int ( Chi *Int ABI_wad ) ) , Dai_p , Junk_6 ) ) -Int Csstore( ISTANBUL , ( Dai_u +Int ( Chi *Int ABI_wad ) ) , Dai_u , Junk_7 ) ) +Int -12311 ) ) </gas>
+        <gas> #gas(VGas) => #if TIME <Int Tic
+          #then   #if ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_id , 1 ) ) ==Int 0 andBool ( Bid ==Int 0 andBool ( 0 <Int ABI_bid andBool ( ( Beg *Int 0 ) <=Int ( ABI_bid *Int 1000000000000000000 ) andBool ( ( Gem_a +Int ( ABI_bid -Int 0 ) ) <Int pow256 andBool ( 0 <=Int ( Gem_u -Int ( ABI_bid -Int 0 ) ) andBool ( Gem_u -Int ( ABI_bid -Int 0 ) ) <Int pow256 ) ) ) ) ) )
+            #then   #if ( #lookup( DSToken_STORAGE , hash2 ( ACCT_ID , hash2 ( CALLER_ID , 2 ) ) ) ==Int maxUInt256 andBool ( Allowed ==Int maxUInt256 andBool ( maxUInt256 ==Int maxUInt256 orBool ( ABI_bid -Int 0 ) <=Int maxUInt256 ) ) )
+              #then   #gas ( ( ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -12111 ) ) ) +Int -12111 ) +Int #allBut64th( ( VGas +Int -12111 ) ) ) -Int Csstore( ISTANBUL , ( Gem_u -Int ( ABI_bid -Int 0 ) ) , Gem_u , Junk_8 ) ) -Int Csstore( ISTANBUL , ( Gem_a +Int ( ABI_bid -Int 0 ) ) , Gem_a , Junk_9 ) ) -Int Csstore( ISTANBUL , ABI_bid , 0 , Junk_4 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -13679 ) )
+              #else   #gas ( ( ( ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -12111 ) ) ) +Int -12111 ) +Int #allBut64th( ( VGas +Int -12111 ) ) ) -Int Csstore( ISTANBUL , ( Allowed -Int ( ABI_bid -Int 0 ) ) , Allowed , Junk_7 ) ) -Int Csstore( ISTANBUL , ( Gem_u -Int ( ABI_bid -Int 0 ) ) , Gem_u , Junk_8 ) ) -Int Csstore( ISTANBUL , ( Gem_a +Int ( ABI_bid -Int 0 ) ) , Gem_a , Junk_9 ) ) -Int Csstore( ISTANBUL , ABI_bid , 0 , Junk_4 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -15936 ) )
+            #fi
+            #else   #if ( #lookup( DSToken_STORAGE , hash2 ( ACCT_ID , hash2 ( CALLER_ID , 2 ) ) ) ==Int maxUInt256 andBool ( Allowed ==Int maxUInt256 andBool ( maxUInt256 ==Int maxUInt256 orBool ( ABI_bid -Int Bid ) <=Int maxUInt256 ) ) )
+              #then   #gas ( ( ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -12163 ) ) ) +Int -12163 ) +Int #allBut64th( ( VGas +Int -12163 ) ) ) -Int Csstore( ISTANBUL , ( Gem_u -Int ( ABI_bid -Int Bid ) ) , Gem_u , Junk_8 ) ) -Int Csstore( ISTANBUL , ( Gem_a +Int ( ABI_bid -Int Bid ) ) , Gem_a , Junk_9 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_4 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -13679 ) )
+              #else   #gas ( ( ( ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -12163 ) ) ) +Int -12163 ) +Int #allBut64th( ( VGas +Int -12163 ) ) ) -Int Csstore( ISTANBUL , ( Allowed -Int ( ABI_bid -Int Bid ) ) , Allowed , Junk_7 ) ) -Int Csstore( ISTANBUL , ( Gem_u -Int ( ABI_bid -Int Bid ) ) , Gem_u , Junk_8 ) ) -Int Csstore( ISTANBUL , ( Gem_a +Int ( ABI_bid -Int Bid ) ) , Gem_a , Junk_9 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_4 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -15936 ) )
+            #fi
+          #fi
+          #else   #if ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_id , 1 ) ) ==Int 0 andBool ( Bid ==Int 0 andBool ( 0 <Int ABI_bid andBool ( ( Beg *Int 0 ) <=Int ( ABI_bid *Int 1000000000000000000 ) andBool ( ( Gem_a +Int ( ABI_bid -Int 0 ) ) <Int pow256 andBool ( 0 <=Int ( Gem_u -Int ( ABI_bid -Int 0 ) ) andBool ( Gem_u -Int ( ABI_bid -Int 0 ) ) <Int pow256 ) ) ) ) ) )
+            #then   #if ( #lookup( DSToken_STORAGE , hash2 ( ACCT_ID , hash2 ( CALLER_ID , 2 ) ) ) ==Int maxUInt256 andBool ( Allowed ==Int maxUInt256 andBool ( maxUInt256 ==Int maxUInt256 orBool ( ABI_bid -Int 0 ) <=Int maxUInt256 ) ) )
+              #then   #gas ( ( ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -13098 ) ) ) +Int -13098 ) +Int #allBut64th( ( VGas +Int -13098 ) ) ) -Int Csstore( ISTANBUL , ( Gem_u -Int ( ABI_bid -Int 0 ) ) , Gem_u , Junk_8 ) ) -Int Csstore( ISTANBUL , ( Gem_a +Int ( ABI_bid -Int 0 ) ) , Gem_a , Junk_9 ) ) -Int Csstore( ISTANBUL , ABI_bid , 0 , Junk_4 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -13679 ) )
+              #else   #gas ( ( ( ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -13098 ) ) ) +Int -13098 ) +Int #allBut64th( ( VGas +Int -13098 ) ) ) -Int Csstore( ISTANBUL , ( Allowed -Int ( ABI_bid -Int 0 ) ) , Allowed , Junk_7 ) ) -Int Csstore( ISTANBUL , ( Gem_u -Int ( ABI_bid -Int 0 ) ) , Gem_u , Junk_8 ) ) -Int Csstore( ISTANBUL , ( Gem_a +Int ( ABI_bid -Int 0 ) ) , Gem_a , Junk_9 ) ) -Int Csstore( ISTANBUL , ABI_bid , 0 , Junk_4 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -15936 ) )
+            #fi
+            #else   #if ( #lookup( DSToken_STORAGE , hash2 ( ACCT_ID , hash2 ( CALLER_ID , 2 ) ) ) ==Int maxUInt256 andBool ( Allowed ==Int maxUInt256 andBool ( maxUInt256 ==Int maxUInt256 orBool ( ABI_bid -Int Bid ) <=Int maxUInt256 ) ) )
+              #then   #gas ( ( ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -13150 ) ) ) +Int -13150 ) +Int #allBut64th( ( VGas +Int -13150 ) ) ) -Int Csstore( ISTANBUL , ( Gem_u -Int ( ABI_bid -Int Bid ) ) , Gem_u , Junk_8 ) ) -Int Csstore( ISTANBUL , ( Gem_a +Int ( ABI_bid -Int Bid ) ) , Gem_a , Junk_9 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_4 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -13679 ) )
+              #else   #gas ( ( ( ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -13150 ) ) ) +Int -13150 ) +Int #allBut64th( ( VGas +Int -13150 ) ) ) -Int Csstore( ISTANBUL , ( Allowed -Int ( ABI_bid -Int Bid ) ) , Allowed , Junk_7 ) ) -Int Csstore( ISTANBUL , ( Gem_u -Int ( ABI_bid -Int Bid ) ) , Gem_u , Junk_8 ) ) -Int Csstore( ISTANBUL , ( Gem_a +Int ( ABI_bid -Int Bid ) ) , Gem_a , Junk_9 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_4 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -15936 ) )
+            #fi
+          #fi
+        #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
@@ -72,7 +84,7 @@ claim [Pot.exit.pass]:
     <network>
       <chainID> VChainId </chainID>
       <activeAccounts> SetItem(ACCT_ID)
-      SetItem(Vat)
+      SetItem(DSToken)
       SetItem(1)
       SetItem(2)
       SetItem(3)
@@ -86,18 +98,18 @@ claim [Pot.exit.pass]:
         <account>
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
-          <code> Pot_bin_runtime </code>
-          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Pot.pie[CALLER_ID] <- Pie_u -Int ABI_wad ] [ #Pot.Pie <- Pie_tot -Int ABI_wad ] </storage>
+          <code> Flapper_bin_runtime </code>
+          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Flapper.bids[ABI_id].bid <- ABI_bid ]  [ #Flapper.bids[ABI_id].guy_tic_end <- #WordPackAddrUInt48UInt48(Guy, TIME +Int Ttl, End) ] </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
-          <nonce> Nonce_Pot => ?_ </nonce>
+          <nonce> Nonce_Flapper => ?_ </nonce>
         </account>
         <account>
-          <acctID> Vat </acctID>
-          <balance> Vat_balance </balance>
-          <code> Vat_bin_runtime </code>
-          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.dai[ACCT_ID] <- Dai_p -Int Chi *Int ABI_wad ] [ #Vat.dai[CALLER_ID] <- Dai_u +Int Chi *Int ABI_wad ] </storage>
-          <origStorage> Vat_ORIG_STORAGE </origStorage>
-          <nonce> Nonce_Vat => ?_ </nonce>
+          <acctID> DSToken </acctID>
+          <balance> DSToken_balance </balance>
+          <code> DSToken_bin_runtime </code>
+          <storage> DSToken_STORAGE => DSToken_STORAGE [ #DSToken.allowance[CALLER_ID][ACCT_ID] <- #if (Allowed ==Int maxUInt256) #then Allowed #else Allowed -Int (ABI_bid -Int Bid) #fi ] [ #DSToken.balances[CALLER_ID] <- Gem_u -Int (ABI_bid -Int Bid) ] [ #DSToken.balances[ACCT_ID] <- Gem_a +Int (ABI_bid -Int Bid) ] </storage>
+          <origStorage> DSToken_ORIG_STORAGE </origStorage>
+          <nonce> Nonce_DSToken => ?_ </nonce>
         </account>
         <account>
           <acctID> 1 </acctID>
@@ -198,19 +210,34 @@ andBool VCallDepth <=Int 1024
 andBool #rangeUInt(256, VCallValue)
 andBool #rangeUInt(256, VChainId)
 
-  andBool (#rangeUInt(256, ABI_wad)
-  andBool (#rangeUInt(256, Pie_u)
-  andBool (#rangeUInt(256, Pie_tot)
-  andBool (#rangeUInt(256, Chi)
-  andBool (#rangeAddress(Vat)
-  andBool (#rangeUInt(256, Dai_u)
-  andBool (#rangeUInt(256, Dai_p)
-  andBool (#rangeUInt(256, Vat_balance)
+  andBool (#rangeUInt(256, ABI_id)
+  andBool (#rangeUInt(256, ABI_lot)
+  andBool (#rangeUInt(256, ABI_bid)
+  andBool (#rangeAddress(DSToken)
+  andBool (#rangeUInt(256, Live)
+  andBool (#rangeUInt(48, Ttl)
+  andBool (#rangeUInt(48, Tau)
+  andBool (#rangeUInt(256, Beg)
+  andBool (#rangeUInt(256, Bid)
+  andBool (#rangeUInt(256, Lot)
+  andBool (#rangeAddress(Guy)
+  andBool (#rangeUInt(48, Tic)
+  andBool (#rangeUInt(48, End)
+  andBool (#rangeUInt(256, Allowed)
+  andBool (#rangeUInt(256, Gem_a)
+  andBool (#rangeUInt(256, Gem_u)
+  andBool (#rangeAddress(Owner)
+  andBool (#rangeBool(Stopped)
+  andBool (#rangeUInt(256, DSToken_balance)
   andBool ((#sizeByteArray(CD) <=Int 1250000000)
-  andBool ((#notPrecompileAddress(Vat))
-  andBool ((ACCT_ID =/=Int Vat)
-  andBool ((ACCT_ID =/=Int CALLER_ID)
-  andBool ((Vat =/=Int 0)
+  andBool ((#notPrecompileAddress(DSToken))
+  andBool ((#notPrecompileAddress(Guy))
+  andBool ((#notPrecompileAddress(Owner))
+  andBool ((ACCT_ID =/=Int DSToken)
+  andBool ((#rangeUInt(48, TIME))
+  andBool ((CALLER_ID =/=Int ACCT_ID)
+  andBool ((CALLER_ID ==Int Guy)
+  andBool ((DSToken =/=Int 0)
   andBool (#rangeUInt(256, Junk_0)
   andBool (#rangeUInt(256, Junk_1)
   andBool (#rangeUInt(256, Junk_2)
@@ -219,40 +246,77 @@ andBool #rangeUInt(256, VChainId)
   andBool (#rangeUInt(256, Junk_5)
   andBool (#rangeUInt(256, Junk_6)
   andBool (#rangeUInt(256, Junk_7)
+  andBool (#rangeUInt(256, Junk_8)
+  andBool (#rangeUInt(256, Junk_9)
+  andBool (#rangeUInt(256, Junk_10)
   andBool (((VCallValue ==Int 0))
   andBool (((VCallDepth <Int 1024))
-  andBool ((#rangeUInt(256, Pie_u -Int ABI_wad))
-  andBool ((#rangeUInt(256, Pie_tot -Int ABI_wad))
-  andBool ((#rangeUInt(256, Chi *Int ABI_wad))
-  andBool ((#rangeUInt(256, Dai_u +Int Chi *Int ABI_wad))
-  andBool ((#rangeUInt(256, Dai_p -Int Chi *Int ABI_wad))))))))))))))))))))))))))))))
+  andBool (((Guy =/=Int 0))
+  andBool (((Stopped ==Int 0))
+  andBool ((((Allowed ==Int maxUInt256) orBool ((ABI_bid -Int Bid) <=Int Allowed)))
+  andBool (((Live ==Int 1))
+  andBool (((Tic >Int TIME orBool Tic ==Int 0))
+  andBool (((End >Int TIME))
+  andBool (((TIME +Int Ttl <=Int maxUInt48))
+  andBool (((ABI_lot ==Int Lot))
+  andBool (((ABI_bid >Int Bid))
+  andBool (((ABI_bid *Int #Wad <=Int maxUInt256))
+  andBool (((ABI_bid *Int #Wad >=Int Beg *Int Bid))
+  andBool ((#rangeUInt(256, Gem_u -Int (ABI_bid -Int Bid)))
+  andBool ((#rangeUInt(256, Gem_a +Int (ABI_bid -Int Bid)))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
-  andBool #lookup(ACCT_ID_STORAGE, #Pot.pie[CALLER_ID]) ==Int Pie_u
-  andBool #lookup(ACCT_ID_STORAGE, #Pot.Pie) ==Int Pie_tot
-  andBool #lookup(ACCT_ID_STORAGE, #Pot.chi) ==Int Chi
-  andBool #lookup(ACCT_ID_STORAGE, #Pot.vat) ==Int Vat
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Pot.pie[CALLER_ID]) ==Int Junk_0
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Pot.Pie) ==Int Junk_1
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Pot.chi) ==Int Junk_2
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Pot.vat) ==Int Junk_3
-  andBool #Pot.pie[CALLER_ID] =/=Int #Pot.Pie
-  andBool #Pot.pie[CALLER_ID] =/=Int #Pot.chi
-  andBool #Pot.pie[CALLER_ID] =/=Int #Pot.vat
-  andBool #Pot.Pie =/=Int #Pot.chi
-  andBool #Pot.Pie =/=Int #Pot.vat
-  andBool #Pot.chi =/=Int #Pot.vat
-  andBool #lookup(Vat_STORAGE, #Vat.can[ACCT_ID][ACCT_ID]) ==Int Junk_4
-  andBool #lookup(Vat_STORAGE, #Vat.dai[ACCT_ID]) ==Int Dai_p
-  andBool #lookup(Vat_STORAGE, #Vat.dai[CALLER_ID]) ==Int Dai_u
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.can[ACCT_ID][ACCT_ID]) ==Int Junk_5
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[ACCT_ID]) ==Int Junk_6
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[CALLER_ID]) ==Int Junk_7
-  andBool #Vat.can[ACCT_ID][ACCT_ID] =/=Int #Vat.dai[ACCT_ID]
-  andBool #Vat.can[ACCT_ID][ACCT_ID] =/=Int #Vat.dai[CALLER_ID]
-  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.dai[CALLER_ID] 
+  andBool #lookup(ACCT_ID_STORAGE, #Flapper.gem) ==Int DSToken
+  andBool #lookup(ACCT_ID_STORAGE, #Flapper.live) ==Int Live
+  andBool #lookup(ACCT_ID_STORAGE, #Flapper.ttl_tau) ==Int #WordPackUInt48UInt48(Ttl, Tau)
+  andBool #lookup(ACCT_ID_STORAGE, #Flapper.beg) ==Int Beg
+  andBool #lookup(ACCT_ID_STORAGE, #Flapper.bids[ABI_id].bid) ==Int Bid
+  andBool #lookup(ACCT_ID_STORAGE, #Flapper.bids[ABI_id].lot) ==Int Lot
+  andBool #lookup(ACCT_ID_STORAGE, #Flapper.bids[ABI_id].guy_tic_end) ==Int #WordPackAddrUInt48UInt48(Guy, Tic, End)
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flapper.gem) ==Int Junk_0
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flapper.live) ==Int Junk_1
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flapper.ttl_tau) ==Int Junk_2
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flapper.beg) ==Int Junk_3
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flapper.bids[ABI_id].bid) ==Int Junk_4
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flapper.bids[ABI_id].lot) ==Int Junk_5
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flapper.bids[ABI_id].guy_tic_end) ==Int Junk_6
+  andBool #Flapper.gem =/=Int #Flapper.live
+  andBool #Flapper.gem =/=Int #Flapper.ttl_tau
+  andBool #Flapper.gem =/=Int #Flapper.beg
+  andBool #Flapper.gem =/=Int #Flapper.bids[ABI_id].bid
+  andBool #Flapper.gem =/=Int #Flapper.bids[ABI_id].lot
+  andBool #Flapper.gem =/=Int #Flapper.bids[ABI_id].guy_tic_end
+  andBool #Flapper.live =/=Int #Flapper.ttl_tau
+  andBool #Flapper.live =/=Int #Flapper.beg
+  andBool #Flapper.live =/=Int #Flapper.bids[ABI_id].bid
+  andBool #Flapper.live =/=Int #Flapper.bids[ABI_id].lot
+  andBool #Flapper.live =/=Int #Flapper.bids[ABI_id].guy_tic_end
+  andBool #Flapper.ttl_tau =/=Int #Flapper.beg
+  andBool #Flapper.ttl_tau =/=Int #Flapper.bids[ABI_id].bid
+  andBool #Flapper.ttl_tau =/=Int #Flapper.bids[ABI_id].lot
+  andBool #Flapper.ttl_tau =/=Int #Flapper.bids[ABI_id].guy_tic_end
+  andBool #Flapper.beg =/=Int #Flapper.bids[ABI_id].bid
+  andBool #Flapper.beg =/=Int #Flapper.bids[ABI_id].lot
+  andBool #Flapper.beg =/=Int #Flapper.bids[ABI_id].guy_tic_end
+  andBool #Flapper.bids[ABI_id].bid =/=Int #Flapper.bids[ABI_id].lot
+  andBool #Flapper.bids[ABI_id].bid =/=Int #Flapper.bids[ABI_id].guy_tic_end
+  andBool #Flapper.bids[ABI_id].lot =/=Int #Flapper.bids[ABI_id].guy_tic_end
+  andBool #lookup(DSToken_STORAGE, #DSToken.allowance[CALLER_ID][ACCT_ID]) ==Int Allowed
+  andBool #lookup(DSToken_STORAGE, #DSToken.balances[CALLER_ID]) ==Int Gem_u
+  andBool #lookup(DSToken_STORAGE, #DSToken.balances[ACCT_ID]) ==Int Gem_a
+  andBool #lookup(DSToken_STORAGE, #DSToken.owner_stopped) ==Int #WordPackAddrUInt8(Owner, Stopped)
+  andBool #lookup(DSToken_ORIG_STORAGE, #DSToken.allowance[CALLER_ID][ACCT_ID]) ==Int Junk_7
+  andBool #lookup(DSToken_ORIG_STORAGE, #DSToken.balances[CALLER_ID]) ==Int Junk_8
+  andBool #lookup(DSToken_ORIG_STORAGE, #DSToken.balances[ACCT_ID]) ==Int Junk_9
+  andBool #lookup(DSToken_ORIG_STORAGE, #DSToken.owner_stopped) ==Int Junk_10
+  andBool #DSToken.allowance[CALLER_ID][ACCT_ID] =/=Int #DSToken.balances[CALLER_ID]
+  andBool #DSToken.allowance[CALLER_ID][ACCT_ID] =/=Int #DSToken.balances[ACCT_ID]
+  andBool #DSToken.allowance[CALLER_ID][ACCT_ID] =/=Int #DSToken.owner_stopped
+  andBool #DSToken.balances[CALLER_ID] =/=Int #DSToken.balances[ACCT_ID]
+  andBool #DSToken.balances[CALLER_ID] =/=Int #DSToken.owner_stopped
+  andBool #DSToken.balances[ACCT_ID] =/=Int #DSToken.owner_stopped 
 
-// Pot_subuu
-claim [Pot.subuu.pass]:
+// Flapper_addu48u48
+claim [Flapper.addu48u48.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -266,16 +330,16 @@ claim [Pot.subuu.pass]:
       <interimStates> _ </interimStates>
       <touchedAccounts> _ => ?_ </touchedAccounts>
       <callState>
-        <program> Pot_bin_runtime </program>
-        <jumpDests> #computeValidJumpDests(Pot_bin_runtime) </jumpDests>
+        <program> Flapper_bin_runtime </program>
+        <jumpDests> #computeValidJumpDests(Flapper_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
         <callData> _ => ?_ </callData>
         <callValue> VCallValue </callValue>
-        <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x -Int ABI_y : WS </wordStack>
+        <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
-        <pc> 4921 => 4946 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int -54 ) ) </gas>
+        <pc> 8945 => 8986 </pc>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -66 ) ) </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>
@@ -324,10 +388,10 @@ claim [Pot.subuu.pass]:
         <account>
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
-          <code> Pot_bin_runtime </code>
+          <code> Flapper_bin_runtime </code>
           <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE  </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
-          <nonce> Nonce_Pot => ?_ </nonce>
+          <nonce> Nonce_Flapper => ?_ </nonce>
         </account>
         <account>
           <acctID> 1 </acctID>
@@ -428,18 +492,18 @@ andBool VCallDepth <=Int 1024
 andBool #rangeUInt(256, VCallValue)
 andBool #rangeUInt(256, VChainId)
 
-  andBool (#rangeUInt(256, ABI_x)
-  andBool (#rangeUInt(256, ABI_y)
+  andBool (#rangeUInt(48, ABI_x)
+  andBool (#rangeUInt(48, ABI_y)
   andBool ((#sizeWordStack(WS) <=Int 100)
   andBool (#rangeUInt(256, VMemoryUsed)
-  andBool ((#rangeUInt(256, ABI_x -Int ABI_y)))))))
+  andBool ((#rangeUInt(48, ABI_x +Int ABI_y)))))))
 
  
 [trusted, matching(infGas)]
 
 
-// Pot_muluu
-claim [Pot.muluu.pass]:
+// Flapper_muluu
+claim [Flapper.muluu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -453,15 +517,15 @@ claim [Pot.muluu.pass]:
       <interimStates> _ </interimStates>
       <touchedAccounts> _ => ?_ </touchedAccounts>
       <callState>
-        <program> Pot_bin_runtime </program>
-        <jumpDests> #computeValidJumpDests(Pot_bin_runtime) </jumpDests>
+        <program> Flapper_bin_runtime </program>
+        <jumpDests> #computeValidJumpDests(Flapper_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
         <callData> _ => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x *Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
-        <pc> 4877 => 4920 </pc>
+        <pc> 8901 => 8944 </pc>
         <gas> #gas(VGas) => #if ABI_y ==Int 0
           #then   #gas ( ( VGas +Int -54 ) )
           #else   #gas ( ( VGas +Int -106 ) )
@@ -514,10 +578,10 @@ claim [Pot.muluu.pass]:
         <account>
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
-          <code> Pot_bin_runtime </code>
+          <code> Flapper_bin_runtime </code>
           <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE  </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
-          <nonce> Nonce_Pot => ?_ </nonce>
+          <nonce> Nonce_Flapper => ?_ </nonce>
         </account>
         <account>
           <acctID> 1 </acctID>
@@ -628,8 +692,8 @@ andBool #rangeUInt(256, VChainId)
 [trusted, matching(infGas)]
 
 
-// Vat_move-diff
-claim [Vat.move-diff.pass]:
+// DSToken_move
+claim [DSToken.move.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -643,16 +707,19 @@ claim [Vat.move-diff.pass]:
       <interimStates> _ </interimStates>
       <touchedAccounts> _ => ?_ </touchedAccounts>
       <callState>
-        <program> Vat_bin_runtime </program>
-        <jumpDests> #computeValidJumpDests(Vat_bin_runtime) </jumpDests>
+        <program> DSToken_bin_runtime </program>
+        <jumpDests> #computeValidJumpDests(DSToken_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("move", #address(ABI_src), #address(ABI_dst), #uint256(ABI_rad)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("move", #address(ABI_src), #address(ABI_dst), #uint256(ABI_wad)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Dai_src -Int ABI_rad ) , Dai_src , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Dai_dst +Int ABI_rad ) , Dai_dst , Junk_2 ) ) +Int -7943 ) ) </gas>
+        <gas> #gas(VGas) => #if ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 2 ) ) ) ==Int maxUInt256 andBool ( Allowance ==Int maxUInt256 andBool ( maxUInt256 ==Int maxUInt256 orBool ABI_wad <=Int maxUInt256 ) ) )
+          #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_2 ) ) +Int -7281 ) )
+          #else   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Allowance -Int ABI_wad ) , Allowance , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_2 ) ) +Int -9538 ) )
+        #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
@@ -701,10 +768,10 @@ claim [Vat.move-diff.pass]:
         <account>
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
-          <code> Vat_bin_runtime </code>
-          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Vat.dai[ABI_src] <- Dai_src -Int ABI_rad ] [ #Vat.dai[ABI_dst] <- Dai_dst +Int ABI_rad ] </storage>
+          <code> DSToken_bin_runtime </code>
+          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #DSToken.allowance[ABI_src][CALLER_ID] <- #if (ABI_src ==Int CALLER_ID orBool Allowance ==Int maxUInt256) #then Allowance #else Allowance -Int ABI_wad #fi ] [ #DSToken.balances[ABI_src] <- Gem_s -Int ABI_wad ] [ #DSToken.balances[ABI_dst] <- Gem_d +Int ABI_wad ] </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
-          <nonce> Nonce_Vat => ?_ </nonce>
+          <nonce> Nonce_DSToken => ?_ </nonce>
         </account>
         <account>
           <acctID> 1 </acctID>
@@ -807,29 +874,40 @@ andBool #rangeUInt(256, VChainId)
 
   andBool (#rangeAddress(ABI_src)
   andBool (#rangeAddress(ABI_dst)
-  andBool (#rangeUInt(256, ABI_rad)
-  andBool (#rangeUInt(256, Dai_dst)
-  andBool (#rangeUInt(256, Dai_src)
-  andBool (#rangeUInt(256, May)
+  andBool (#rangeUInt(256, ABI_wad)
+  andBool (#rangeUInt(256, Gem_s)
+  andBool (#rangeUInt(256, Gem_d)
+  andBool (#rangeUInt(256, Allowance)
+  andBool (#rangeAddress(Owner)
+  andBool (#rangeBool(Stopped)
   andBool ((#sizeByteArray(CD) <=Int 1250000000)
+  andBool ((#notPrecompileAddress(Owner))
   andBool ((ABI_src =/=Int ABI_dst)
+  andBool ((ABI_src =/=Int CALLER_ID)
   andBool (#rangeUInt(256, Junk_0)
   andBool (#rangeUInt(256, Junk_1)
   andBool (#rangeUInt(256, Junk_2)
-  andBool ((((May ==Int 1 orBool ABI_src ==Int CALLER_ID)))
-  andBool (((VCallValue ==Int 0))
-  andBool ((#rangeUInt(256, Dai_src -Int ABI_rad))
-  andBool ((#rangeUInt(256, Dai_dst +Int ABI_rad)))))))))))))))))
+  andBool (#rangeUInt(256, Junk_3)
+  andBool (((#rangeUInt(256, Gem_s -Int ABI_wad)))
+  andBool (((#rangeUInt(256, Gem_d +Int ABI_wad)))
+  andBool (((Allowance ==Int maxUInt256) orBool (ABI_wad <=Int Allowance))
+  andBool ((VCallValue ==Int 0)
+  andBool ((Stopped ==Int 0))))))))))))))))))))))
 
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.can[ABI_src][CALLER_ID]) ==Int May
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.dai[ABI_src]) ==Int Dai_src
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.dai[ABI_dst]) ==Int Dai_dst
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.can[ABI_src][CALLER_ID]) ==Int Junk_0
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[ABI_src]) ==Int Junk_1
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[ABI_dst]) ==Int Junk_2
-  andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_src]
-  andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_dst]
-  andBool #Vat.dai[ABI_src] =/=Int #Vat.dai[ABI_dst] 
+  andBool #lookup(ACCT_ID_STORAGE, #DSToken.allowance[ABI_src][CALLER_ID]) ==Int Allowance
+  andBool #lookup(ACCT_ID_STORAGE, #DSToken.balances[ABI_src]) ==Int Gem_s
+  andBool #lookup(ACCT_ID_STORAGE, #DSToken.balances[ABI_dst]) ==Int Gem_d
+  andBool #lookup(ACCT_ID_STORAGE, #DSToken.owner_stopped) ==Int #WordPackAddrUInt8(Owner, Stopped)
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #DSToken.allowance[ABI_src][CALLER_ID]) ==Int Junk_0
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #DSToken.balances[ABI_src]) ==Int Junk_1
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #DSToken.balances[ABI_dst]) ==Int Junk_2
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #DSToken.owner_stopped) ==Int Junk_3
+  andBool #DSToken.allowance[ABI_src][CALLER_ID] =/=Int #DSToken.balances[ABI_src]
+  andBool #DSToken.allowance[ABI_src][CALLER_ID] =/=Int #DSToken.balances[ABI_dst]
+  andBool #DSToken.allowance[ABI_src][CALLER_ID] =/=Int #DSToken.owner_stopped
+  andBool #DSToken.balances[ABI_src] =/=Int #DSToken.balances[ABI_dst]
+  andBool #DSToken.balances[ABI_src] =/=Int #DSToken.owner_stopped
+  andBool #DSToken.balances[ABI_dst] =/=Int #DSToken.owner_stopped 
 [trusted, matching(infGas)]
 
 

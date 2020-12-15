@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B3D37CE9A7ABA4F4684DFC8DBB10A9632D2EE5D763F6EC5D830E92FB878E2FAF
+module 73645CD71AF51F9BFB69BF4400A549847E1849829D7031E164DD8939B41CB06A
   imports VERIFICATION
 
 // End_pack
@@ -27,7 +27,7 @@ claim [End.pack.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( ( ( #gas ( ( ( VGas +Int -4544 ) /Int 64 ) ) +Int ( ( ( ( VGas -Int ( ( VGas +Int -4544 ) /Int 64 ) ) -Int Csstore( ISTANBUL , ( Dai -Int ( ABI_wad *Int 1000000000000000000000000000 ) ) , Dai , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Joy +Int ( ABI_wad *Int 1000000000000000000000000000 ) ) , Joy , Junk_6 ) ) +Int -12487 ) ) -Int Csstore( ISTANBUL , ( Bag +Int ABI_wad ) , Bag , Junk_3 ) ) +Int -5440 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4544 ) ) ) +Int -4544 ) +Int #allBut64th( ( VGas +Int -4544 ) ) ) -Int Csstore( ISTANBUL , ( Dai -Int ( ABI_wad *Int 1000000000000000000000000000 ) ) , Dai , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Joy +Int ( ABI_wad *Int 1000000000000000000000000000 ) ) , Joy , Junk_6 ) ) -Int Csstore( ISTANBUL , ( Bag +Int ABI_wad ) , Bag , Junk_3 ) ) +Int -13383 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

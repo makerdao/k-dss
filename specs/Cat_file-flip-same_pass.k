@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module AE24FB14648770ED5DF7335129B4AA68C5B60BF4EEA9F29691C409E924D88949
+module 193008705879FA1B121B049C6C76C003AB3F92CF6D23F0D8576787D6D273E802
   imports VERIFICATION
 
 // Cat_file-flip-same
@@ -27,7 +27,7 @@ claim [Cat.file-flip-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( #gas ( ( ( ( ( #gas ( ( ( VGas +Int -4631 ) /Int 64 ) ) +Int ( ( ( VGas -Int ( ( VGas +Int -4631 ) /Int 64 ) ) -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_4 ) ) +Int -9432 ) ) -Int Csstore( ISTANBUL , Flip , Flip , Junk_2 ) ) +Int -3360 ) /Int 64 ) ) +Int ( ( ( ( ( #gas ( ( ( VGas +Int -4631 ) /Int 64 ) ) +Int ( ( ( VGas -Int ( ( VGas +Int -4631 ) /Int 64 ) ) -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_4 ) ) +Int -9432 ) ) -Int Csstore( ISTANBUL , Flip , Flip , Junk_2 ) ) -Int ( ( ( ( #gas ( ( ( VGas +Int -4631 ) /Int 64 ) ) +Int ( ( ( VGas -Int ( ( VGas +Int -4631 ) /Int 64 ) ) -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_4 ) ) +Int -9432 ) ) -Int Csstore( ISTANBUL , Flip , Flip , Junk_2 ) ) +Int -3360 ) /Int 64 ) ) -Int Csstore( ISTANBUL , 1 , 0 , Junk_4 ) ) +Int -12568 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4631 ) ) ) +Int -4631 ) +Int #allBut64th( ( VGas +Int -4631 ) ) ) -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_4 ) ) -Int Csstore( ISTANBUL , Flip , Flip , Junk_2 ) ) -Int #allBut64th( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4631 ) ) ) +Int -4631 ) +Int #allBut64th( ( VGas +Int -4631 ) ) ) -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_4 ) ) -Int Csstore( ISTANBUL , Flip , Flip , Junk_2 ) ) +Int -8161 ) ) ) +Int -8161 ) +Int #allBut64th( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4631 ) ) ) +Int -4631 ) +Int #allBut64th( ( VGas +Int -4631 ) ) ) -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_4 ) ) -Int Csstore( ISTANBUL , Flip , Flip , Junk_2 ) ) +Int -8161 ) ) ) -Int Csstore( ISTANBUL , 1 , 0 , Junk_4 ) ) +Int -9208 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

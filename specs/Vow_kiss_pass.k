@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 162E44F11AB969A27BA4A632840C6060625A76E2CFA288A887069F0D447B487F
+module 7EBD09ADFA6994B5D3F1F0C71C3E8B2EA3998E209E3652E31C217F17F924410C
   imports VERIFICATION
 
 // Vow_kiss
@@ -27,7 +27,7 @@ claim [Vow.kiss.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( #gas ( ( ( ( ( #gas ( ( ( VGas +Int -3494 ) /Int 64 ) ) +Int ( ( VGas -Int ( ( VGas +Int -3494 ) /Int 64 ) ) +Int -4730 ) ) -Int Csstore( ISTANBUL , ( Ash -Int ABI_rad ) , Ash , Junk_1 ) ) +Int -3393 ) /Int 64 ) ) +Int ( ( ( ( ( ( ( ( #gas ( ( ( VGas +Int -3494 ) /Int 64 ) ) +Int ( ( VGas -Int ( ( VGas +Int -3494 ) /Int 64 ) ) +Int -4730 ) ) -Int Csstore( ISTANBUL , ( Ash -Int ABI_rad ) , Ash , Junk_1 ) ) -Int ( ( ( ( #gas ( ( ( VGas +Int -3494 ) /Int 64 ) ) +Int ( ( VGas -Int ( ( VGas +Int -3494 ) /Int 64 ) ) +Int -4730 ) ) -Int Csstore( ISTANBUL , ( Ash -Int ABI_rad ) , Ash , Junk_1 ) ) +Int -3393 ) /Int 64 ) ) -Int Csstore( ISTANBUL , ( Awe -Int ABI_rad ) , Awe , Junk_2 ) ) -Int Csstore( ISTANBUL , ( Joy -Int ABI_rad ) , Joy , Junk_3 ) ) -Int Csstore( ISTANBUL , ( Vice -Int ABI_rad ) , Vice , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Debt -Int ABI_rad ) , Debt , Junk_4 ) ) +Int -16377 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -3494 ) ) ) +Int #allBut64th( ( VGas +Int -3494 ) ) ) -Int Csstore( ISTANBUL , ( Ash -Int ABI_rad ) , Ash , Junk_1 ) ) -Int #allBut64th( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -3494 ) ) ) +Int #allBut64th( ( VGas +Int -3494 ) ) ) -Int Csstore( ISTANBUL , ( Ash -Int ABI_rad ) , Ash , Junk_1 ) ) +Int -8123 ) ) ) +Int -8123 ) +Int #allBut64th( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -3494 ) ) ) +Int #allBut64th( ( VGas +Int -3494 ) ) ) -Int Csstore( ISTANBUL , ( Ash -Int ABI_rad ) , Ash , Junk_1 ) ) +Int -8123 ) ) ) -Int Csstore( ISTANBUL , ( Awe -Int ABI_rad ) , Awe , Junk_2 ) ) -Int Csstore( ISTANBUL , ( Joy -Int ABI_rad ) , Joy , Junk_3 ) ) -Int Csstore( ISTANBUL , ( Vice -Int ABI_rad ) , Vice , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Debt -Int ABI_rad ) , Debt , Junk_4 ) ) +Int -12984 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

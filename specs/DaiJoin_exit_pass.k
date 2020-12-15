@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 0A29251C34688825206978CB7C8AD578BB6607941ACCD2C89053F6DBA7880E4E
+module B20A5E4EE673C66FB14D784B093DCFC7EC3157423A9C8AFC7463998084BA8A06
   imports VERIFICATION
 
 // DaiJoin_exit
@@ -27,52 +27,34 @@ claim [DaiJoin.exit.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( #gas ( ( ( ( #gas ( ( ( VGas +Int #if ABI_wad ==Int 0
-          #then   -2962
-          #else   -3014
-        #fi ) -Int ( ( ( VGas +Int #if ABI_wad ==Int 0
-          #then   -3662
-          #else   -3714
-        #fi ) -Int ( ( VGas +Int #if ABI_wad ==Int 0
-          #then   -3662
-          #else   -3714
-        #fi ) /Int 64 ) ) +Int 700 ) ) ) +Int ( ( ( ( ( VGas +Int #if ABI_wad ==Int 0
-          #then   -3662
-          #else   -3714
-        #fi ) -Int ( ( VGas +Int #if ABI_wad ==Int 0
-          #then   -3662
-          #else   -3714
-        #fi ) /Int 64 ) ) -Int Csstore( ISTANBUL , ( Dai_c -Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_c , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Dai_a +Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_a , Junk_5 ) ) +Int -7943 ) ) +Int -2429 ) /Int 64 ) ) +Int ( ( ( ( ( #gas ( ( ( VGas +Int #if ABI_wad ==Int 0
-          #then   -2962
-          #else   -3014
-        #fi ) -Int ( ( ( VGas +Int #if ABI_wad ==Int 0
-          #then   -3662
-          #else   -3714
-        #fi ) -Int ( ( VGas +Int #if ABI_wad ==Int 0
-          #then   -3662
-          #else   -3714
-        #fi ) /Int 64 ) ) +Int 700 ) ) ) +Int ( ( ( ( ( VGas +Int #if ABI_wad ==Int 0
-          #then   -3662
-          #else   -3714
-        #fi ) -Int ( ( VGas +Int #if ABI_wad ==Int 0
-          #then   -3662
-          #else   -3714
-        #fi ) /Int 64 ) ) -Int Csstore( ISTANBUL , ( Dai_c -Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_c , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Dai_a +Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_a , Junk_5 ) ) +Int -7943 ) ) -Int ( ( ( #gas ( ( ( VGas +Int #if ABI_wad ==Int 0
-          #then   -2962
-          #else   -3014
-        #fi ) -Int ( ( ( VGas +Int #if ABI_wad ==Int 0
-          #then   -3662
-          #else   -3714
-        #fi ) -Int ( ( VGas +Int #if ABI_wad ==Int 0
-          #then   -3662
-          #else   -3714
-        #fi ) /Int 64 ) ) +Int 700 ) ) ) +Int ( ( ( ( ( VGas +Int #if ABI_wad ==Int 0
-          #then   -3662
-          #else   -3714
-        #fi ) -Int ( ( VGas +Int #if ABI_wad ==Int 0
-          #then   -3662
-          #else   -3714
-        #fi ) /Int 64 ) ) -Int Csstore( ISTANBUL , ( Dai_c -Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_c , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Dai_a +Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_a , Junk_5 ) ) +Int -7943 ) ) +Int -2429 ) /Int 64 ) ) -Int Csstore( ISTANBUL , ( Dai_u +Int ABI_wad ) , Dai_u , Junk_7 ) ) -Int Csstore( ISTANBUL , ( Supply +Int ABI_wad ) , Supply , Junk_8 ) ) +Int -11844 ) ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( ( ( ( ( ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -54
+          #else   -106
+        #fi ) -Int #allBut64th( ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -54
+          #else   -106
+        #fi ) +Int -3608 ) ) ) +Int -3608 ) +Int #allBut64th( ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -54
+          #else   -106
+        #fi ) +Int -3608 ) ) ) -Int Csstore( ISTANBUL , ( Dai_c -Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_c , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Dai_a +Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_a , Junk_5 ) ) -Int #allBut64th( ( ( ( ( ( ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -54
+          #else   -106
+        #fi ) -Int #allBut64th( ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -54
+          #else   -106
+        #fi ) +Int -3608 ) ) ) +Int -3608 ) +Int #allBut64th( ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -54
+          #else   -106
+        #fi ) +Int -3608 ) ) ) -Int Csstore( ISTANBUL , ( Dai_c -Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_c , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Dai_a +Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_a , Junk_5 ) ) +Int -10372 ) ) ) +Int -10372 ) +Int #allBut64th( ( ( ( ( ( ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -54
+          #else   -106
+        #fi ) -Int #allBut64th( ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -54
+          #else   -106
+        #fi ) +Int -3608 ) ) ) +Int -3608 ) +Int #allBut64th( ( ( VGas +Int #if ABI_wad ==Int 0
+          #then   -54
+          #else   -106
+        #fi ) +Int -3608 ) ) ) -Int Csstore( ISTANBUL , ( Dai_c -Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_c , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Dai_a +Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_a , Junk_5 ) ) +Int -10372 ) ) ) -Int Csstore( ISTANBUL , ( Dai_u +Int ABI_wad ) , Dai_u , Junk_7 ) ) -Int Csstore( ISTANBUL , ( Supply +Int ABI_wad ) , Supply , Junk_8 ) ) +Int -9415 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
