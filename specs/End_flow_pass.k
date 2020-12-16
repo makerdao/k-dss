@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module E1A1F08EBB34B1FB2708A625CF651CEDC9AB375183B4CB45167A99DD00516202
+module 5C08B9632DAD1C934620A37FFDA07AE2F1C929FFF18F44DE85D5D7E9877C21C3
   imports VERIFICATION
 
 // End_flow
@@ -27,7 +27,7 @@ claim [End.flow.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4377 ) ) ) +Int #allBut64th( ( VGas +Int -4377 ) ) ) +Int #if Rate_i ==Int 0
+        <gas> #gas(VGas) => #gas ( ( ( ( ( VGas +Int #if Rate_i ==Int 0
           #then   -127
           #else   -179
         #fi ) +Int #if Tag ==Int 0

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 20C00506B5B62147DC9F8C94953E0C17424A772AAEE3F80BA1A95AD5DDAEC70C
+module 220C8E17A4D1A0330F14BB181BF1C54FA1471FFF80888163F5EA5086219B0F64
   imports VERIFICATION
 
 // Vow_heal
@@ -86,7 +86,7 @@ claim [Vow.heal.pass.rough]:
           <acctID> Vat </acctID>
           <balance> Vat_balance </balance>
           <code> Vat_bin_runtime </code>
-          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.dai[ACCT_ID] <- Joy  -Int ABI_rad ] [ #Vat.sin[ACCT_ID] <- Awe  -Int ABI_rad ] [ #Vat.vice <- Vice -Int ABI_rad ] [ #Vat.debt <- Debt -Int ABI_rad ] </storage>
+          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.sin[ACCT_ID] <- Awe  -Int ABI_rad ] [ #Vat.dai[ACCT_ID] <- Joy  -Int ABI_rad ] [ #Vat.vice <- Vice -Int ABI_rad ] [ #Vat.debt <- Debt -Int ABI_rad ] </storage>
           <origStorage> Vat_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vat => ?_ </nonce>
         </account>
@@ -228,19 +228,19 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vow.vat =/=Int #Vow.Ash
   andBool #Vow.vat =/=Int #Vow.Sin
   andBool #Vow.Ash =/=Int #Vow.Sin
-  andBool #lookup(Vat_STORAGE, #Vat.dai[ACCT_ID]) ==Int Joy
   andBool #lookup(Vat_STORAGE, #Vat.sin[ACCT_ID]) ==Int Awe
+  andBool #lookup(Vat_STORAGE, #Vat.dai[ACCT_ID]) ==Int Joy
   andBool #lookup(Vat_STORAGE, #Vat.vice) ==Int Vice
   andBool #lookup(Vat_STORAGE, #Vat.debt) ==Int Debt
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[ACCT_ID]) ==Int Junk_3
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.sin[ACCT_ID]) ==Int Junk_4
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.sin[ACCT_ID]) ==Int Junk_3
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[ACCT_ID]) ==Int Junk_4
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.vice) ==Int Junk_5
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.debt) ==Int Junk_6
-  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.sin[ACCT_ID]
-  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.vice
-  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.debt
+  andBool #Vat.sin[ACCT_ID] =/=Int #Vat.dai[ACCT_ID]
   andBool #Vat.sin[ACCT_ID] =/=Int #Vat.vice
   andBool #Vat.sin[ACCT_ID] =/=Int #Vat.debt
+  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.vice
+  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.debt
   andBool #Vat.vice =/=Int #Vat.debt 
 
 // Vow_subuu
@@ -830,7 +830,7 @@ claim [Vat.heal.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Sin -Int ABI_rad ) , Sin , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Dai -Int ABI_rad ) , Dai , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Vice -Int ABI_rad ) , Vice , Junk_3 ) ) -Int Csstore( ISTANBUL , ( Debt -Int ABI_rad ) , Debt , Junk_2 ) ) +Int -8616 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Sin -Int ABI_rad ) , Sin , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Dai -Int ABI_rad ) , Dai , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Vice -Int ABI_rad ) , Vice , Junk_2 ) ) -Int Csstore( ISTANBUL , ( Debt -Int ABI_rad ) , Debt , Junk_3 ) ) +Int -8616 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
@@ -880,7 +880,7 @@ claim [Vat.heal.pass]:
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
           <code> Vat_bin_runtime </code>
-          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Vat.sin[CALLER_ID] <- Sin -Int ABI_rad ] [ #Vat.dai[CALLER_ID] <- Dai -Int ABI_rad ] [ #Vat.debt <- Debt  -Int ABI_rad ] [ #Vat.vice <- Vice  -Int ABI_rad ] </storage>
+          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Vat.sin[CALLER_ID] <- Sin -Int ABI_rad ] [ #Vat.dai[CALLER_ID] <- Dai -Int ABI_rad ] [ #Vat.vice <- Vice  -Int ABI_rad ] [ #Vat.debt <- Debt  -Int ABI_rad ] </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vat => ?_ </nonce>
         </account>
@@ -1001,18 +1001,18 @@ andBool #rangeUInt(256, VChainId)
 
   andBool #lookup(ACCT_ID_STORAGE, #Vat.sin[CALLER_ID]) ==Int Sin
   andBool #lookup(ACCT_ID_STORAGE, #Vat.dai[CALLER_ID]) ==Int Dai
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.debt) ==Int Debt
   andBool #lookup(ACCT_ID_STORAGE, #Vat.vice) ==Int Vice
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.debt) ==Int Debt
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.sin[CALLER_ID]) ==Int Junk_0
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[CALLER_ID]) ==Int Junk_1
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.debt) ==Int Junk_2
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.vice) ==Int Junk_3
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.vice) ==Int Junk_2
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.debt) ==Int Junk_3
   andBool #Vat.sin[CALLER_ID] =/=Int #Vat.dai[CALLER_ID]
-  andBool #Vat.sin[CALLER_ID] =/=Int #Vat.debt
   andBool #Vat.sin[CALLER_ID] =/=Int #Vat.vice
-  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.debt
+  andBool #Vat.sin[CALLER_ID] =/=Int #Vat.debt
   andBool #Vat.dai[CALLER_ID] =/=Int #Vat.vice
-  andBool #Vat.debt =/=Int #Vat.vice 
+  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.debt
+  andBool #Vat.vice =/=Int #Vat.debt 
 [trusted, matching(infGas)]
 
 

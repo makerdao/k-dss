@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module A9AF7E15CAF19B09BA5DF4B77519D45815BD52DB3779F5C8EC4D4BDF12399868
+module D0833FD3B0A1F22D5BB4A3B6AA1B8588E5AAD4BAE622A2B87A230A7ABCD5B9ED
   imports VERIFICATION
 
 // Vat_suck
@@ -198,23 +198,23 @@ andBool #rangeUInt(256, VChainId)
   andBool #lookup(ACCT_ID_STORAGE, #Vat.wards[CALLER_ID]) ==Int May
   andBool #lookup(ACCT_ID_STORAGE, #Vat.sin[ABI_u]) ==Int Sin_u
   andBool #lookup(ACCT_ID_STORAGE, #Vat.dai[ABI_v]) ==Int Dai_v
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.debt) ==Int Debt
   andBool #lookup(ACCT_ID_STORAGE, #Vat.vice) ==Int Vice
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.debt) ==Int Debt
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.wards[CALLER_ID]) ==Int Junk_0
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.sin[ABI_u]) ==Int Junk_1
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[ABI_v]) ==Int Junk_2
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.debt) ==Int Junk_3
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.vice) ==Int Junk_4
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.vice) ==Int Junk_3
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.debt) ==Int Junk_4
   andBool #Vat.wards[CALLER_ID] =/=Int #Vat.sin[ABI_u]
   andBool #Vat.wards[CALLER_ID] =/=Int #Vat.dai[ABI_v]
-  andBool #Vat.wards[CALLER_ID] =/=Int #Vat.debt
   andBool #Vat.wards[CALLER_ID] =/=Int #Vat.vice
+  andBool #Vat.wards[CALLER_ID] =/=Int #Vat.debt
   andBool #Vat.sin[ABI_u] =/=Int #Vat.dai[ABI_v]
-  andBool #Vat.sin[ABI_u] =/=Int #Vat.debt
   andBool #Vat.sin[ABI_u] =/=Int #Vat.vice
-  andBool #Vat.dai[ABI_v] =/=Int #Vat.debt
+  andBool #Vat.sin[ABI_u] =/=Int #Vat.debt
   andBool #Vat.dai[ABI_v] =/=Int #Vat.vice
-  andBool #Vat.debt =/=Int #Vat.vice
+  andBool #Vat.dai[ABI_v] =/=Int #Vat.debt
+  andBool #Vat.vice =/=Int #Vat.debt
   andBool notBool (
     (((May:Int ==Int 1))
     andBool (((VCallValue:Int ==Int 0))

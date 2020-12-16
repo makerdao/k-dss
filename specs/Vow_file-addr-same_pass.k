@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 4F8213484682FD9267E3F45BCB2A154B43298AC3D6F1A64CEBA4DA8BE52D3D41
+module 08C7DC10C72CEA29C4C5B743979DB9F2A0982B7689CB4C86C6EE5277071D88BB
   imports VERIFICATION
 
 // Vow_file-addr-same
@@ -28,7 +28,7 @@ claim [Vow.file-addr-same.pass]:
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
         <gas> #gas(VGas) => #if ( ABI_what ==Int 46327402539235611375120909531126297958773339393512957230598522836762153189376 andBool VCallDepth <Int 1024 )
-          #then   #gas ( ( ( ( ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4476 ) ) ) +Int -4476 ) +Int #allBut64th( ( VGas +Int -4476 ) ) ) -Int Csstore( ISTANBUL , 0 , Can , Junk_4 ) ) -Int Csstore( ISTANBUL , Flapper , Flapper , Junk_2 ) ) -Int #allBut64th( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4476 ) ) ) +Int -4476 ) +Int #allBut64th( ( VGas +Int -4476 ) ) ) -Int Csstore( ISTANBUL , 0 , Can , Junk_4 ) ) -Int Csstore( ISTANBUL , Flapper , Flapper , Junk_2 ) ) +Int -8077 ) ) ) +Int -8077 ) +Int #allBut64th( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4476 ) ) ) +Int -4476 ) +Int #allBut64th( ( VGas +Int -4476 ) ) ) -Int Csstore( ISTANBUL , 0 , Can , Junk_4 ) ) -Int Csstore( ISTANBUL , Flapper , Flapper , Junk_2 ) ) +Int -8077 ) ) ) -Int Csstore( ISTANBUL , 1 , 0 , Junk_4 ) ) +Int -9206 ) )
+          #then   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Can , Junk_4 ) ) -Int Csstore( ISTANBUL , Flapper , Flapper , Junk_2 ) ) -Int Csstore( ISTANBUL , 1 , 0 , Junk_4 ) ) +Int -21759 ) )
           #else   #gas ( ( ( VGas -Int Csstore( ISTANBUL , Flapper , Flopper , Junk_3 ) ) +Int -6498 ) )
         #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>

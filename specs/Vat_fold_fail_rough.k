@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 34D02A85D23E08E8B51849ACB8C140891C3F175891327C05E639DEEB78583C83
+module C3825F3E34544A228C45F629145F60E0DE3BE2B3402E7BB691C506360BCE8B8E
   imports VERIFICATION
 
 // Vat_fold
@@ -197,32 +197,32 @@ andBool #rangeUInt(256, VChainId)
   andBool (#rangeUInt(256, Junk_5))))))))))))))))
 
   andBool #lookup(ACCT_ID_STORAGE, #Vat.wards[CALLER_ID]) ==Int May
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.ilks[ABI_i].rate) ==Int Rate_i
   andBool #lookup(ACCT_ID_STORAGE, #Vat.ilks[ABI_i].Art) ==Int Art_i
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.live) ==Int Live
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.ilks[ABI_i].rate) ==Int Rate_i
   andBool #lookup(ACCT_ID_STORAGE, #Vat.dai[ABI_u]) ==Int Dai_u
   andBool #lookup(ACCT_ID_STORAGE, #Vat.debt) ==Int Debt
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.live) ==Int Live
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.wards[CALLER_ID]) ==Int Junk_0
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.ilks[ABI_i].rate) ==Int Junk_1
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.ilks[ABI_i].Art) ==Int Junk_2
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[ABI_u]) ==Int Junk_3
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.debt) ==Int Junk_4
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.live) ==Int Junk_5
-  andBool #Vat.wards[CALLER_ID] =/=Int #Vat.ilks[ABI_i].rate
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.ilks[ABI_i].Art) ==Int Junk_1
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.live) ==Int Junk_2
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.ilks[ABI_i].rate) ==Int Junk_3
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[ABI_u]) ==Int Junk_4
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.debt) ==Int Junk_5
   andBool #Vat.wards[CALLER_ID] =/=Int #Vat.ilks[ABI_i].Art
+  andBool #Vat.wards[CALLER_ID] =/=Int #Vat.live
+  andBool #Vat.wards[CALLER_ID] =/=Int #Vat.ilks[ABI_i].rate
   andBool #Vat.wards[CALLER_ID] =/=Int #Vat.dai[ABI_u]
   andBool #Vat.wards[CALLER_ID] =/=Int #Vat.debt
-  andBool #Vat.wards[CALLER_ID] =/=Int #Vat.live
-  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.ilks[ABI_i].Art
-  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.dai[ABI_u]
-  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.debt
-  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.live
+  andBool #Vat.ilks[ABI_i].Art =/=Int #Vat.live
+  andBool #Vat.ilks[ABI_i].Art =/=Int #Vat.ilks[ABI_i].rate
   andBool #Vat.ilks[ABI_i].Art =/=Int #Vat.dai[ABI_u]
   andBool #Vat.ilks[ABI_i].Art =/=Int #Vat.debt
-  andBool #Vat.ilks[ABI_i].Art =/=Int #Vat.live
+  andBool #Vat.live =/=Int #Vat.ilks[ABI_i].rate
+  andBool #Vat.live =/=Int #Vat.dai[ABI_u]
+  andBool #Vat.live =/=Int #Vat.debt
+  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.dai[ABI_u]
+  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.debt
   andBool #Vat.dai[ABI_u] =/=Int #Vat.debt
-  andBool #Vat.dai[ABI_u] =/=Int #Vat.live
-  andBool #Vat.debt =/=Int #Vat.live
   andBool notBool (
     ((((VCallValue:Int ==Int 0)))
     andBool ((((May:Int ==Int 1)))

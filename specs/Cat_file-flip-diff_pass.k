@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module F02941F9A1A335C18261A7204949172C1E27D4F0EFBB4754C5754E78F9C8C2B9
+module 5B23C0A632EC7E890EF4AA56501A0E36C3D63D25C91ABC18E7A1E0126C620128
   imports VERIFICATION
 
 // Cat_file-flip-diff
@@ -27,7 +27,7 @@ claim [Cat.file-flip-diff.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4631 ) ) ) +Int -4631 ) +Int #allBut64th( ( VGas +Int -4631 ) ) ) -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_5 ) ) -Int Csstore( ISTANBUL , ABI_data , Flip , Junk_2 ) ) -Int #allBut64th( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4631 ) ) ) +Int -4631 ) +Int #allBut64th( ( VGas +Int -4631 ) ) ) -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_5 ) ) -Int Csstore( ISTANBUL , ABI_data , Flip , Junk_2 ) ) +Int -8161 ) ) ) +Int -8161 ) +Int #allBut64th( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4631 ) ) ) +Int -4631 ) +Int #allBut64th( ( VGas +Int -4631 ) ) ) -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_5 ) ) -Int Csstore( ISTANBUL , ABI_data , Flip , Junk_2 ) ) +Int -8161 ) ) ) -Int Csstore( ISTANBUL , 1 , Junk_4 , Junk_6 ) ) +Int -9208 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_5 ) ) -Int Csstore( ISTANBUL , ABI_data , Flip , Junk_2 ) ) -Int Csstore( ISTANBUL , 1 , Junk_4 , Junk_6 ) ) +Int -22000 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

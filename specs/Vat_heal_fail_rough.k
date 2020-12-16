@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 56E1B23DE34CDCADDFDF2648F06767EB8F9AF66D02116B5041EB6BBB34D021B7
+module AE9506B51313722B04184BB54A986823322E64FC6A24710191E3B08F20D23D37
   imports VERIFICATION
 
 // Vat_heal
@@ -193,18 +193,18 @@ andBool #rangeUInt(256, VChainId)
 
   andBool #lookup(ACCT_ID_STORAGE, #Vat.sin[CALLER_ID]) ==Int Sin
   andBool #lookup(ACCT_ID_STORAGE, #Vat.dai[CALLER_ID]) ==Int Dai
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.debt) ==Int Debt
   andBool #lookup(ACCT_ID_STORAGE, #Vat.vice) ==Int Vice
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.debt) ==Int Debt
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.sin[CALLER_ID]) ==Int Junk_0
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[CALLER_ID]) ==Int Junk_1
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.debt) ==Int Junk_2
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.vice) ==Int Junk_3
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.vice) ==Int Junk_2
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.debt) ==Int Junk_3
   andBool #Vat.sin[CALLER_ID] =/=Int #Vat.dai[CALLER_ID]
-  andBool #Vat.sin[CALLER_ID] =/=Int #Vat.debt
   andBool #Vat.sin[CALLER_ID] =/=Int #Vat.vice
-  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.debt
+  andBool #Vat.sin[CALLER_ID] =/=Int #Vat.debt
   andBool #Vat.dai[CALLER_ID] =/=Int #Vat.vice
-  andBool #Vat.debt =/=Int #Vat.vice
+  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.debt
+  andBool #Vat.vice =/=Int #Vat.debt
   andBool notBool (
     (((VCallValue:Int ==Int 0))
     andBool ((#rangeUInt(256, Dai:Int -Int ABI_rad:Int))

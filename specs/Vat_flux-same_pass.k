@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module A57126CD504100A7E1B8F255A8F0F0E979970466001092B881D40623A6376901
+module C46CF8CB40F45BF9932BC88339D491E05B688440217A8E4DD28BEFA4351DF72D
   imports VERIFICATION
 
 // Vat_flux-same
@@ -27,7 +27,7 @@ claim [Vat.flux-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Gem_src -Int ABI_wad ) , Gem_src , Junk_1 ) ) -Int Csstore( ISTANBUL , ( ( Gem_src -Int ABI_wad ) +Int ABI_wad ) , ( Gem_src -Int ABI_wad ) , Junk_1 ) ) +Int -8307 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Gem_src -Int ABI_wad ) , Gem_src , Junk_1 ) ) -Int Csstore( ISTANBUL , Gem_src , ( Gem_src -Int ABI_wad ) , Junk_1 ) ) +Int -8307 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module D2D1EE62A6E01FFDCC062688A92B5345FA525ECB978832BC81073C86DA9CBCAE
+module A799E44E8DCCF8E9C56185588970FAE33798F6ADBBD6EBABE16E382403B5EF3C
   imports VERIFICATION
 
 // Flapper_yank
@@ -27,7 +27,7 @@ claim [Flapper.yank.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -6270 ) ) ) +Int -6270 ) +Int #allBut64th( ( VGas +Int -6270 ) ) ) -Int Csstore( ISTANBUL , ( Gem_a -Int Bid ) , Gem_a , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Gem_g +Int Bid ) , Gem_g , Junk_6 ) ) -Int Csstore( ISTANBUL , 0 , Bid , Junk_2 ) ) -Int Csstore( ISTANBUL , 0 , Lot , Junk_3 ) ) -Int Csstore( ISTANBUL , 115792089237316195423570985007226406215939081747436879206741300988257197096960 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_4 ) ) -Int Csstore( ISTANBUL , 115792089237315784047431654707177369110974345328014318355491175612947292487680 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , 115792089237316195423570985007226406215939081747436879206741300988257197096960 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_4 ) ) -Int Csstore( ISTANBUL , 0 , 115792089237315784047431654707177369110974345328014318355491175612947292487680 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_4 ) ) +Int -13418 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Gem_a -Int Bid ) , Gem_a , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Gem_g +Int Bid ) , Gem_g , Junk_6 ) ) -Int Csstore( ISTANBUL , 0 , Bid , Junk_2 ) ) -Int Csstore( ISTANBUL , 0 , Lot , Junk_3 ) ) -Int Csstore( ISTANBUL , 115792089237316195423570985007226406215939081747436879206741300988257197096960 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_4 ) ) -Int Csstore( ISTANBUL , 115792089237315784047431654707177369110974345328014318355491175612947292487680 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , 115792089237316195423570985007226406215939081747436879206741300988257197096960 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_4 ) ) -Int Csstore( ISTANBUL , 0 , 115792089237315784047431654707177369110974345328014318355491175612947292487680 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_4 ) ) +Int -19688 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

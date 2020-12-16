@@ -1,10 +1,10 @@
 #if TIME <Int Tic
-  #then   #if ( ABI_lot ==Int 0 andBool 0 <Int Lot )
-    #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -15145 ) )
-    #else   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -15197 ) )
-  #fi
-  #else   #if ( ABI_lot ==Int 0 andBool 0 <Int Lot )
-    #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -16132 ) )
-    #else   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -16184 ) )
-  #fi
+  #then   #gas ( ( ( ( ( VGas +Int #if ABI_lot ==Int 0
+    #then   -54
+    #else   -106
+  #fi ) -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -15091 ) )
+  #else   #gas ( ( ( ( ( VGas +Int #if ABI_lot ==Int 0
+    #then   -54
+    #else   -106
+  #fi ) -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -16078 ) )
 #fi

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 8AD06F088A68D9AED6FE5D96A622C1C96F4FCEB3E178A8ED3B7ADFD266545112
+module FDF72EEFD407D2AFD5139DC29CDB2A6FEB4772D1C939E7A050C54F397DF09473
   imports VERIFICATION
 
 // Flopper_dent-guy-same
@@ -28,14 +28,14 @@ claim [Flopper.dent-guy-same.pass]:
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
         <gas> #gas(VGas) => #if TIME <Int Tic
-          #then   #if ( ABI_lot ==Int 0 andBool 0 <Int Lot )
-            #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -15145 ) )
-            #else   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -15197 ) )
-          #fi
-          #else   #if ( ABI_lot ==Int 0 andBool 0 <Int Lot )
-            #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -16132 ) )
-            #else   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -16184 ) )
-          #fi
+          #then   #gas ( ( ( ( ( VGas +Int #if ABI_lot ==Int 0
+            #then   -54
+            #else   -106
+          #fi ) -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -15091 ) )
+          #else   #gas ( ( ( ( ( VGas +Int #if ABI_lot ==Int 0
+            #then   -54
+            #else   -106
+          #fi ) -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -16078 ) )
         #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>

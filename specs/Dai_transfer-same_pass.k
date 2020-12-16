@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module E7BCD32B21D9D4A5F9F056B4F39D0A7D8478233B4701F62BB8FFFA712FEE8E85
+module F907281903049A358B6E1BEF102D67E20C18FAC09760F3C17F2C2B8C0A483711
   imports VERIFICATION
 
 // Dai_transfer-same
@@ -27,7 +27,7 @@ claim [Dai.transfer-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_0 ) ) -Int Csstore( ISTANBUL , ( ( SrcBal -Int ABI_wad ) +Int ABI_wad ) , ( SrcBal -Int ABI_wad ) , Junk_0 ) ) +Int -5374 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_0 ) ) -Int Csstore( ISTANBUL , SrcBal , ( SrcBal -Int ABI_wad ) , Junk_0 ) ) +Int -5374 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

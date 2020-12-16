@@ -1,4 +1,4 @@
-#gas ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -4377 ) ) ) +Int #allBut64th( ( VGas +Int -4377 ) ) ) +Int #if Rate_i ==Int 0
+#gas ( ( ( ( ( VGas +Int #if Rate_i ==Int 0
   #then   -127
   #else   -179
 #fi ) +Int #if Tag ==Int 0

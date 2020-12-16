@@ -1,10 +1,4 @@
-#gas ( ( ( ( ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Pie_u +Int ABI_wad ) , Pie_u , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Pie_tot +Int ABI_wad ) , Pie_tot , Junk_1 ) ) +Int #if ABI_wad ==Int 0
+#gas ( ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Pie_u +Int ABI_wad ) , Pie_u , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Pie_tot +Int ABI_wad ) , Pie_tot , Junk_1 ) ) +Int #if ABI_wad ==Int 0
   #then   -54
   #else   -106
-#fi ) -Int #allBut64th( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Pie_u +Int ABI_wad ) , Pie_u , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Pie_tot +Int ABI_wad ) , Pie_tot , Junk_1 ) ) +Int #if ABI_wad ==Int 0
-  #then   -54
-  #else   -106
-#fi ) +Int -6298 ) ) ) +Int -6298 ) +Int #allBut64th( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Pie_u +Int ABI_wad ) , Pie_u , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Pie_tot +Int ABI_wad ) , Pie_tot , Junk_1 ) ) +Int #if ABI_wad ==Int 0
-  #then   -54
-  #else   -106
-#fi ) +Int -6298 ) ) ) -Int Csstore( ISTANBUL , ( Dai_u -Int ( Chi *Int ABI_wad ) ) , Dai_u , Junk_6 ) ) -Int Csstore( ISTANBUL , ( Dai_p +Int ( Chi *Int ABI_wad ) ) , Dai_p , Junk_7 ) ) +Int -12311 ) )
+#fi ) -Int Csstore( ISTANBUL , ( Dai_u -Int ( Chi *Int ABI_wad ) ) , Dai_u , Junk_6 ) ) -Int Csstore( ISTANBUL , ( Dai_p +Int ( Chi *Int ABI_wad ) ) , Dai_p , Junk_7 ) ) +Int -18609 ) )

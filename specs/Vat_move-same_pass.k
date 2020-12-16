@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 073B9D4FD91C93B1401245D737C0AA2F6C9833640AF88A50D5117A4DA4AE3052
+module A82C7CA58A19F2F404F193806D854B580D6F1075201D89386762D073E2B0C6BE
   imports VERIFICATION
 
 // Vat_move-same
@@ -27,7 +27,7 @@ claim [Vat.move-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Dai_src -Int ABI_rad ) , Dai_src , Junk_1 ) ) -Int Csstore( ISTANBUL , ( ( Dai_src -Int ABI_rad ) +Int ABI_rad ) , ( Dai_src -Int ABI_rad ) , Junk_1 ) ) +Int -7943 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Dai_src -Int ABI_rad ) , Dai_src , Junk_1 ) ) -Int Csstore( ISTANBUL , Dai_src , ( Dai_src -Int ABI_rad ) , Junk_1 ) ) +Int -7943 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

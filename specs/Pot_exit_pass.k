@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module D21AEA939A765D3177300CF3AA1EB435B780B2A6332CE833548B03C13071E586
+module 64D3DBC0F6C367B76F21C491CEFBBCFF5CC359D3BEC9C5C4833EFEDB57AFFBC0
   imports VERIFICATION
 
 // Pot_exit
@@ -27,16 +27,10 @@ claim [Pot.exit.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Pie_u -Int ABI_wad ) , Pie_u , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Pie_tot -Int ABI_wad ) , Pie_tot , Junk_1 ) ) +Int #if ABI_wad ==Int 0
+        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Pie_u -Int ABI_wad ) , Pie_u , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Pie_tot -Int ABI_wad ) , Pie_tot , Junk_1 ) ) +Int #if ABI_wad ==Int 0
           #then   -54
           #else   -106
-        #fi ) -Int #allBut64th( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Pie_u -Int ABI_wad ) , Pie_u , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Pie_tot -Int ABI_wad ) , Pie_tot , Junk_1 ) ) +Int #if ABI_wad ==Int 0
-          #then   -54
-          #else   -106
-        #fi ) +Int -5519 ) ) ) +Int -5519 ) +Int #allBut64th( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Pie_u -Int ABI_wad ) , Pie_u , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Pie_tot -Int ABI_wad ) , Pie_tot , Junk_1 ) ) +Int #if ABI_wad ==Int 0
-          #then   -54
-          #else   -106
-        #fi ) +Int -5519 ) ) ) -Int Csstore( ISTANBUL , ( Dai_p -Int ( Chi *Int ABI_wad ) ) , Dai_p , Junk_6 ) ) -Int Csstore( ISTANBUL , ( Dai_u +Int ( Chi *Int ABI_wad ) ) , Dai_u , Junk_7 ) ) +Int -12311 ) ) </gas>
+        #fi ) -Int Csstore( ISTANBUL , ( Dai_p -Int ( Chi *Int ABI_wad ) ) , Dai_p , Junk_6 ) ) -Int Csstore( ISTANBUL , ( Dai_u +Int ( Chi *Int ABI_wad ) ) , Dai_u , Junk_7 ) ) +Int -17830 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

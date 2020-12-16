@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 61AA89C6272DAEFD2191DF666C407C4B03C67BD144A9DF0EE9024786F7BE6480
+module FCB1E8D958254AED11E6A1BA89AF043804E75786E5582DC1E8548B29180D6D36
   imports VERIFICATION
 
 // End_thaw
@@ -27,7 +27,7 @@ claim [End.thaw.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( VGas -Int #allBut64th( ( VGas +Int -5116 ) ) ) +Int #allBut64th( ( VGas +Int -5116 ) ) ) -Int #allBut64th( ( ( ( VGas -Int #allBut64th( ( VGas +Int -5116 ) ) ) +Int #allBut64th( ( VGas +Int -5116 ) ) ) +Int -10522 ) ) ) +Int #allBut64th( ( ( ( VGas -Int #allBut64th( ( VGas +Int -5116 ) ) ) +Int #allBut64th( ( VGas +Int -5116 ) ) ) +Int -10522 ) ) ) -Int Csstore( ISTANBUL , FinalDebt , 0 , Junk_3 ) ) +Int -16030 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( VGas -Int Csstore( ISTANBUL , FinalDebt , 0 , Junk_3 ) ) +Int -16030 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

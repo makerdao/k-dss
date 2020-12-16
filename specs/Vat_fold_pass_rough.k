@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 2CF349EA9634767CD760C51727454EB6E2F524163A9342CD0DCA567AD9C99D8C
+module B66CB10D20CEF2AB48D42B54AEB733BAF8E8E8DB4A3F9481CD316656E5463226
   imports VERIFICATION
 
 // Vat_fold
@@ -77,7 +77,7 @@ claim [Vat.fold.pass.rough]:
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
           <code> Vat_bin_runtime </code>
-          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Vat.ilks[ABI_i].rate <- Rate_i +Int ABI_rate ]  [ #Vat.dai[ABI_u] <- Dai_u +Int Art_i *Int ABI_rate ] [ #Vat.debt <- Debt  +Int Art_i *Int ABI_rate ] </storage>
+          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Vat.ilks[ABI_i].rate <- Rate_i +Int ABI_rate ] [ #Vat.dai[ABI_u] <- Dai_u +Int Art_i *Int ABI_rate ] [ #Vat.debt <- Debt  +Int Art_i *Int ABI_rate ] </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vat => ?_ </nonce>
         </account>
@@ -205,31 +205,31 @@ andBool #rangeUInt(256, VChainId)
   andBool ((#rangeUInt(256, Debt   +Int (Art_i *Int ABI_rate))))))))))))))))))))))))))
 
   andBool #lookup(ACCT_ID_STORAGE, #Vat.wards[CALLER_ID]) ==Int May
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.ilks[ABI_i].rate) ==Int Rate_i
   andBool #lookup(ACCT_ID_STORAGE, #Vat.ilks[ABI_i].Art) ==Int Art_i
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.live) ==Int Live
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.ilks[ABI_i].rate) ==Int Rate_i
   andBool #lookup(ACCT_ID_STORAGE, #Vat.dai[ABI_u]) ==Int Dai_u
   andBool #lookup(ACCT_ID_STORAGE, #Vat.debt) ==Int Debt
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.live) ==Int Live
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.wards[CALLER_ID]) ==Int Junk_0
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.ilks[ABI_i].rate) ==Int Junk_1
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.ilks[ABI_i].Art) ==Int Junk_2
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[ABI_u]) ==Int Junk_3
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.debt) ==Int Junk_4
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.live) ==Int Junk_5
-  andBool #Vat.wards[CALLER_ID] =/=Int #Vat.ilks[ABI_i].rate
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.ilks[ABI_i].Art) ==Int Junk_1
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.live) ==Int Junk_2
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.ilks[ABI_i].rate) ==Int Junk_3
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[ABI_u]) ==Int Junk_4
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.debt) ==Int Junk_5
   andBool #Vat.wards[CALLER_ID] =/=Int #Vat.ilks[ABI_i].Art
+  andBool #Vat.wards[CALLER_ID] =/=Int #Vat.live
+  andBool #Vat.wards[CALLER_ID] =/=Int #Vat.ilks[ABI_i].rate
   andBool #Vat.wards[CALLER_ID] =/=Int #Vat.dai[ABI_u]
   andBool #Vat.wards[CALLER_ID] =/=Int #Vat.debt
-  andBool #Vat.wards[CALLER_ID] =/=Int #Vat.live
-  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.ilks[ABI_i].Art
-  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.dai[ABI_u]
-  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.debt
-  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.live
+  andBool #Vat.ilks[ABI_i].Art =/=Int #Vat.live
+  andBool #Vat.ilks[ABI_i].Art =/=Int #Vat.ilks[ABI_i].rate
   andBool #Vat.ilks[ABI_i].Art =/=Int #Vat.dai[ABI_u]
   andBool #Vat.ilks[ABI_i].Art =/=Int #Vat.debt
-  andBool #Vat.ilks[ABI_i].Art =/=Int #Vat.live
-  andBool #Vat.dai[ABI_u] =/=Int #Vat.debt
-  andBool #Vat.dai[ABI_u] =/=Int #Vat.live
-  andBool #Vat.debt =/=Int #Vat.live 
+  andBool #Vat.live =/=Int #Vat.ilks[ABI_i].rate
+  andBool #Vat.live =/=Int #Vat.dai[ABI_u]
+  andBool #Vat.live =/=Int #Vat.debt
+  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.dai[ABI_u]
+  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.debt
+  andBool #Vat.dai[ABI_u] =/=Int #Vat.debt 
 
 endmodule
