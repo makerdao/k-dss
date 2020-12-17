@@ -10404,6 +10404,7 @@ iff in range uint256
 calls
   End.muluu
   End.adduu
+  Vat.move-diff
 ```
 
 ```act
