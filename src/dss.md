@@ -649,10 +649,9 @@ iff
 iff in range uint256
 
     Gem + wad
-```
 
-```
 calls
+
     Vat.addui
 ```
 
@@ -885,14 +884,10 @@ if
 
 calls
 
-    Vat.muluu
-```
-
-```
-calls
     Vat.addui
     Vat.subui
     Vat.mului
+    Vat.muluu
 ```
 
 ```act
@@ -966,14 +961,10 @@ if
 
 calls
 
-    Vat.muluu
-```
-
-```
-calls
     Vat.addui
     Vat.subui
     Vat.mului
+    Vat.muluu
 ```
 
 ```act
@@ -1051,14 +1042,10 @@ if
 
 calls
 
-    Vat.muluu
-```
-
-```
-calls
     Vat.addui
     Vat.subui
     Vat.mului
+    Vat.muluu
 ```
 
 ```act
@@ -1127,14 +1114,10 @@ if
 
 calls
 
-    Vat.muluu
-```
-
-```
-calls
     Vat.addui
     Vat.subui
     Vat.mului
+    Vat.muluu
 ```
 
 ```act
@@ -1208,14 +1191,10 @@ if
 
 calls
 
-    Vat.muluu
-```
-
-```
-calls
     Vat.addui
     Vat.subui
     Vat.mului
+    Vat.muluu
 ```
 
 ```act
@@ -1285,14 +1264,10 @@ if
 
 calls
 
-    Vat.muluu
-```
-
-```
-calls
     Vat.addui
     Vat.subui
     Vat.mului
+    Vat.muluu
 ```
 
 ```act
@@ -1364,14 +1339,10 @@ if
 
 calls
 
-    Vat.muluu
-```
-
-```
-calls
     Vat.addui
     Vat.subui
     Vat.mului
+    Vat.muluu
 ```
 
 ```act
@@ -1437,14 +1408,10 @@ if
 
 calls
 
-    Vat.muluu
-```
-
-```
-calls
     Vat.addui
     Vat.subui
     Vat.mului
+    Vat.muluu
 ```
 
 #### forking a position
@@ -1504,13 +1471,9 @@ if
 
 calls
 
-    Vat.muluu
-```
-
-```
-calls
     Vat.addui
     Vat.subui
+    Vat.muluu
 ```
 
 ```act
@@ -1557,13 +1520,9 @@ if
 
 calls
 
-    Vat.muluu
-```
-
-```
-calls
     Vat.addui
     Vat.subui
+    Vat.muluu
 ```
 
 #### confiscating a position
@@ -1615,10 +1574,9 @@ iff in range int256
 
     Rate
     Rate * dart
-```
 
-```
 calls
+
     Vat.mului
     Vat.addui
     Vat.subui
@@ -1742,10 +1700,9 @@ iff in range uint256
     Rate_i + rate
     Dai_u  + (Art_i * rate)
     Debt   + (Art_i * rate)
-```
 
-```
 calls
+
     Vat.addui
     Vat.mului
 ```
