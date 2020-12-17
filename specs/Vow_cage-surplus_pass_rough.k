@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module C078E785983DC9B67AC2EF5A9669AE10DA14A683806B6F2A2C19041B2B753D43
+module 8990E9AFAC326775CB98D1346A1690680C8D43E9243BE46784A77CE755229B09
   imports VERIFICATION
 
 // Vow_cage-surplus
@@ -88,7 +88,7 @@ claim [Vow.cage-surplus.pass.rough]:
           <acctID> Vat </acctID>
           <balance> Vat_balance </balance>
           <code> Vat_bin_runtime </code>
-          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.dai[Flapper] <- 0 ] [ #Vat.dai[ACCT_ID] <- (Dai_v +Int Dai_f) -Int Sin_v ] [ #Vat.sin[ACCT_ID] <- 0 ] [ #Vat.debt <- Debt -Int Sin_v ] [ #Vat.vice <- Vice -Int Sin_v ] </storage>
+          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.dai[Flapper] <- 0 ] [ #Vat.dai[ACCT_ID] <- (Dai_v +Int Dai_f) -Int Sin_v ] [ #Vat.sin[ACCT_ID] <- 0 ] [ #Vat.vice <- Vice -Int Sin_v ] [ #Vat.debt <- Debt -Int Sin_v ] </storage>
           <origStorage> Vat_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vat => ?_ </nonce>
         </account>
@@ -315,29 +315,29 @@ andBool #rangeUInt(256, VChainId)
   andBool #lookup(Vat_STORAGE, #Vat.dai[Flapper]) ==Int Dai_f
   andBool #lookup(Vat_STORAGE, #Vat.dai[ACCT_ID]) ==Int Dai_v
   andBool #lookup(Vat_STORAGE, #Vat.sin[ACCT_ID]) ==Int Sin_v
-  andBool #lookup(Vat_STORAGE, #Vat.debt) ==Int Debt
   andBool #lookup(Vat_STORAGE, #Vat.vice) ==Int Vice
+  andBool #lookup(Vat_STORAGE, #Vat.debt) ==Int Debt
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.can[Flapper][Flapper]) ==Int Junk_8
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[Flapper]) ==Int Junk_9
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[ACCT_ID]) ==Int Junk_10
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.sin[ACCT_ID]) ==Int Junk_11
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.debt) ==Int Junk_12
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.vice) ==Int Junk_13
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.vice) ==Int Junk_12
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.debt) ==Int Junk_13
   andBool #Vat.can[Flapper][Flapper] =/=Int #Vat.dai[Flapper]
   andBool #Vat.can[Flapper][Flapper] =/=Int #Vat.dai[ACCT_ID]
   andBool #Vat.can[Flapper][Flapper] =/=Int #Vat.sin[ACCT_ID]
-  andBool #Vat.can[Flapper][Flapper] =/=Int #Vat.debt
   andBool #Vat.can[Flapper][Flapper] =/=Int #Vat.vice
+  andBool #Vat.can[Flapper][Flapper] =/=Int #Vat.debt
   andBool #Vat.dai[Flapper] =/=Int #Vat.dai[ACCT_ID]
   andBool #Vat.dai[Flapper] =/=Int #Vat.sin[ACCT_ID]
-  andBool #Vat.dai[Flapper] =/=Int #Vat.debt
   andBool #Vat.dai[Flapper] =/=Int #Vat.vice
+  andBool #Vat.dai[Flapper] =/=Int #Vat.debt
   andBool #Vat.dai[ACCT_ID] =/=Int #Vat.sin[ACCT_ID]
-  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.debt
   andBool #Vat.dai[ACCT_ID] =/=Int #Vat.vice
-  andBool #Vat.sin[ACCT_ID] =/=Int #Vat.debt
+  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.debt
   andBool #Vat.sin[ACCT_ID] =/=Int #Vat.vice
-  andBool #Vat.debt =/=Int #Vat.vice
+  andBool #Vat.sin[ACCT_ID] =/=Int #Vat.debt
+  andBool #Vat.vice =/=Int #Vat.debt
   andBool #lookup(Flapper_STORAGE, #Flapper.wards[ACCT_ID]) ==Int MayFlap
   andBool #lookup(Flapper_STORAGE, #Flapper.vat) ==Int FlapVat
   andBool #lookup(Flapper_STORAGE, #Flapper.live) ==Int FlapLive

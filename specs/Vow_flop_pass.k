@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module D4ACB4BAD2DF53523E0EB3DA6EE6460DA7E31EEE1D5ED9AFF2F1DD31B7CA1BF8
+module C635A615D020191419ADFFA17D717E443874E2F5246B3E7EAD6235145747E5FD
   imports VERIFICATION
 
 // Vow_flop
@@ -27,7 +27,7 @@ claim [Vow.flop.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ash +Int Sump ) , Ash , Junk_3 ) ) -Int Csstore( ISTANBUL , ( Kicks +Int 1 ) , Kicks , Junk_8 ) ) -Int Csstore( ISTANBUL , Sump , Bid , Junk_10 ) ) -Int Csstore( ISTANBUL , Dump , Lot , Junk_11 ) ) -Int Csstore( ISTANBUL , ACCT_ID |Int 115792089237316195423570985007226406215939081747436879206741300988257197096960 &Int #lookup( Flopper_STORAGE , ( hash2 ( ( Kicks +Int 1 ) , 1 ) +Int 2 ) ) , #lookup( Flopper_STORAGE , ( hash2 ( ( Kicks +Int 1 ) , 1 ) +Int 2 ) ) , Junk_12 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( ACCT_ID , Tic , ( TIME +Int Tau ) ) , ACCT_ID |Int 115792089237316195423570985007226406215939081747436879206741300988257197096960 &Int #lookup( Flopper_STORAGE , ( hash2 ( ( Kicks +Int 1 ) , 1 ) +Int 2 ) ) , Junk_12 ) ) +Int -29487 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ash +Int Sump ) , Ash , Junk_3 ) ) -Int Csstore( ISTANBUL , ( Kicks +Int 1 ) , Kicks , Junk_9 ) ) -Int Csstore( ISTANBUL , Sump , Bid , Junk_10 ) ) -Int Csstore( ISTANBUL , Dump , Lot , Junk_11 ) ) -Int Csstore( ISTANBUL , ACCT_ID |Int 115792089237316195423570985007226406215939081747436879206741300988257197096960 &Int #lookup( Flopper_STORAGE , ( hash2 ( ( Kicks +Int 1 ) , 1 ) +Int 2 ) ) , #lookup( Flopper_STORAGE , ( hash2 ( ( Kicks +Int 1 ) , 1 ) +Int 2 ) ) , Junk_12 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( ACCT_ID , Tic , ( TIME +Int Tau ) ) , ACCT_ID |Int 115792089237316195423570985007226406215939081747436879206741300988257197096960 &Int #lookup( Flopper_STORAGE , ( hash2 ( ( Kicks +Int 1 ) , 1 ) +Int 2 ) ) , Junk_12 ) ) +Int -29487 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
@@ -87,7 +87,7 @@ claim [Vow.flop.pass]:
           <acctID> Flopper </acctID>
           <balance> Flopper_balance </balance>
           <code> Flopper_bin_runtime </code>
-          <storage> Flopper_STORAGE => Flopper_STORAGE [ #Flopper.kicks <- 1 +Int Kicks ]  [ #Flopper.bids[1 +Int Kicks].bid <- Sump ] [ #Flopper.bids[1 +Int Kicks].lot <- Dump ] [ #Flopper.bids[1 +Int Kicks].guy_tic_end <- #WordPackAddrUInt48UInt48(ACCT_ID, Tic, TIME +Int Tau) ] </storage>
+          <storage> Flopper_STORAGE => Flopper_STORAGE [ #Flopper.kicks <- 1 +Int Kicks ] [ #Flopper.bids[1 +Int Kicks].bid <- Sump ] [ #Flopper.bids[1 +Int Kicks].lot <- Dump ] [ #Flopper.bids[1 +Int Kicks].guy_tic_end <- #WordPackAddrUInt48UInt48(ACCT_ID, Tic, TIME +Int Tau) ] </storage>
           <origStorage> Flopper_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Flopper => ?_ </nonce>
         </account>
@@ -283,36 +283,36 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vow.dump =/=Int #Vow.sump
   andBool #lookup(Flopper_STORAGE, #Flopper.live) ==Int FlopLive
   andBool #lookup(Flopper_STORAGE, #Flopper.wards[ACCT_ID]) ==Int MayFlop
-  andBool #lookup(Flopper_STORAGE, #Flopper.kicks) ==Int Kicks
   andBool #lookup(Flopper_STORAGE, #Flopper.ttl_tau) ==Int #WordPackUInt48UInt48(Ttl, Tau)
+  andBool #lookup(Flopper_STORAGE, #Flopper.kicks) ==Int Kicks
   andBool #lookup(Flopper_STORAGE, #Flopper.bids[1 +Int Kicks].bid) ==Int Bid
   andBool #lookup(Flopper_STORAGE, #Flopper.bids[1 +Int Kicks].lot) ==Int Lot
   andBool #lookup(Flopper_STORAGE, #Flopper.bids[1 +Int Kicks].guy_tic_end) ==Int #WordPackAddrUInt48UInt48(Guy, Tic, End)
   andBool #lookup(Flopper_ORIG_STORAGE, #Flopper.live) ==Int Junk_6
   andBool #lookup(Flopper_ORIG_STORAGE, #Flopper.wards[ACCT_ID]) ==Int Junk_7
-  andBool #lookup(Flopper_ORIG_STORAGE, #Flopper.kicks) ==Int Junk_8
-  andBool #lookup(Flopper_ORIG_STORAGE, #Flopper.ttl_tau) ==Int Junk_9
+  andBool #lookup(Flopper_ORIG_STORAGE, #Flopper.ttl_tau) ==Int Junk_8
+  andBool #lookup(Flopper_ORIG_STORAGE, #Flopper.kicks) ==Int Junk_9
   andBool #lookup(Flopper_ORIG_STORAGE, #Flopper.bids[1 +Int Kicks].bid) ==Int Junk_10
   andBool #lookup(Flopper_ORIG_STORAGE, #Flopper.bids[1 +Int Kicks].lot) ==Int Junk_11
   andBool #lookup(Flopper_ORIG_STORAGE, #Flopper.bids[1 +Int Kicks].guy_tic_end) ==Int Junk_12
   andBool #Flopper.live =/=Int #Flopper.wards[ACCT_ID]
-  andBool #Flopper.live =/=Int #Flopper.kicks
   andBool #Flopper.live =/=Int #Flopper.ttl_tau
+  andBool #Flopper.live =/=Int #Flopper.kicks
   andBool #Flopper.live =/=Int #Flopper.bids[1 +Int Kicks].bid
   andBool #Flopper.live =/=Int #Flopper.bids[1 +Int Kicks].lot
   andBool #Flopper.live =/=Int #Flopper.bids[1 +Int Kicks].guy_tic_end
-  andBool #Flopper.wards[ACCT_ID] =/=Int #Flopper.kicks
   andBool #Flopper.wards[ACCT_ID] =/=Int #Flopper.ttl_tau
+  andBool #Flopper.wards[ACCT_ID] =/=Int #Flopper.kicks
   andBool #Flopper.wards[ACCT_ID] =/=Int #Flopper.bids[1 +Int Kicks].bid
   andBool #Flopper.wards[ACCT_ID] =/=Int #Flopper.bids[1 +Int Kicks].lot
   andBool #Flopper.wards[ACCT_ID] =/=Int #Flopper.bids[1 +Int Kicks].guy_tic_end
-  andBool #Flopper.kicks =/=Int #Flopper.ttl_tau
-  andBool #Flopper.kicks =/=Int #Flopper.bids[1 +Int Kicks].bid
-  andBool #Flopper.kicks =/=Int #Flopper.bids[1 +Int Kicks].lot
-  andBool #Flopper.kicks =/=Int #Flopper.bids[1 +Int Kicks].guy_tic_end
+  andBool #Flopper.ttl_tau =/=Int #Flopper.kicks
   andBool #Flopper.ttl_tau =/=Int #Flopper.bids[1 +Int Kicks].bid
   andBool #Flopper.ttl_tau =/=Int #Flopper.bids[1 +Int Kicks].lot
   andBool #Flopper.ttl_tau =/=Int #Flopper.bids[1 +Int Kicks].guy_tic_end
+  andBool #Flopper.kicks =/=Int #Flopper.bids[1 +Int Kicks].bid
+  andBool #Flopper.kicks =/=Int #Flopper.bids[1 +Int Kicks].lot
+  andBool #Flopper.kicks =/=Int #Flopper.bids[1 +Int Kicks].guy_tic_end
   andBool #Flopper.bids[1 +Int Kicks].bid =/=Int #Flopper.bids[1 +Int Kicks].lot
   andBool #Flopper.bids[1 +Int Kicks].bid =/=Int #Flopper.bids[1 +Int Kicks].guy_tic_end
   andBool #Flopper.bids[1 +Int Kicks].lot =/=Int #Flopper.bids[1 +Int Kicks].guy_tic_end

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module A856DC3004683C427DDA9303DCC8131605E14B8DE305BF6D164085D283362A27
+module 9BB294B693379B71DD479BDF1E1CC35AAA3F5B2F272B209C4977E1F959088A33
   imports VERIFICATION
 
 // End_cage-ilk
@@ -314,7 +314,7 @@ andBool #rangeUInt(256, VChainId)
     andBool (((Tag_i:Int ==Int 0))
     andBool (((Ok:Int ==Int 1))
     andBool (((Price:Int =/=Int 0))
-    andBool ((#rangeUInt(256, #Wad *Int Par:Int)))))))))
+    andBool ((#rangeUInt(256, Par:Int *Int #Wad)))))))))
   ) 
 ensures
 ?FAILURE =/=K EVMC_SUCCESS

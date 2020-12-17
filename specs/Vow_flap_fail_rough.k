@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module DA6128C45EF6AB8510B3E9912C221FEF1107FE3CE52B1B5688CDA39E111E8F7A
+module 5C896FD834AEBB7B62958A3CDA929ECDE57315C83C5BBCDAEE16B5D4711C3616
   imports VERIFICATION
 
 // Vow_flap
@@ -283,48 +283,48 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vow.Sin =/=Int #Vow.Ash
   andBool #lookup(Flapper_STORAGE, #Flapper.wards[ACCT_ID]) ==Int VowMayFlap
   andBool #lookup(Flapper_STORAGE, #Flapper.vat) ==Int FlapVat
-  andBool #lookup(Flapper_STORAGE, #Flapper.kicks) ==Int Kicks
+  andBool #lookup(Flapper_STORAGE, #Flapper.live) ==Int FlapLive
   andBool #lookup(Flapper_STORAGE, #Flapper.ttl_tau) ==Int #WordPackUInt48UInt48(Ttl, Tau)
+  andBool #lookup(Flapper_STORAGE, #Flapper.kicks) ==Int Kicks
   andBool #lookup(Flapper_STORAGE, #Flapper.bids[1 +Int Kicks].bid) ==Int Bid
   andBool #lookup(Flapper_STORAGE, #Flapper.bids[1 +Int Kicks].lot) ==Int Lot
   andBool #lookup(Flapper_STORAGE, #Flapper.bids[1 +Int Kicks].guy_tic_end) ==Int #WordPackAddrUInt48UInt48(Guy, Tic, End)
-  andBool #lookup(Flapper_STORAGE, #Flapper.live) ==Int FlapLive
   andBool #lookup(Flapper_ORIG_STORAGE, #Flapper.wards[ACCT_ID]) ==Int Junk_6
   andBool #lookup(Flapper_ORIG_STORAGE, #Flapper.vat) ==Int Junk_7
-  andBool #lookup(Flapper_ORIG_STORAGE, #Flapper.kicks) ==Int Junk_8
+  andBool #lookup(Flapper_ORIG_STORAGE, #Flapper.live) ==Int Junk_8
   andBool #lookup(Flapper_ORIG_STORAGE, #Flapper.ttl_tau) ==Int Junk_9
-  andBool #lookup(Flapper_ORIG_STORAGE, #Flapper.bids[1 +Int Kicks].bid) ==Int Junk_10
-  andBool #lookup(Flapper_ORIG_STORAGE, #Flapper.bids[1 +Int Kicks].lot) ==Int Junk_11
-  andBool #lookup(Flapper_ORIG_STORAGE, #Flapper.bids[1 +Int Kicks].guy_tic_end) ==Int Junk_12
-  andBool #lookup(Flapper_ORIG_STORAGE, #Flapper.live) ==Int Junk_13
+  andBool #lookup(Flapper_ORIG_STORAGE, #Flapper.kicks) ==Int Junk_10
+  andBool #lookup(Flapper_ORIG_STORAGE, #Flapper.bids[1 +Int Kicks].bid) ==Int Junk_11
+  andBool #lookup(Flapper_ORIG_STORAGE, #Flapper.bids[1 +Int Kicks].lot) ==Int Junk_12
+  andBool #lookup(Flapper_ORIG_STORAGE, #Flapper.bids[1 +Int Kicks].guy_tic_end) ==Int Junk_13
   andBool #Flapper.wards[ACCT_ID] =/=Int #Flapper.vat
-  andBool #Flapper.wards[ACCT_ID] =/=Int #Flapper.kicks
+  andBool #Flapper.wards[ACCT_ID] =/=Int #Flapper.live
   andBool #Flapper.wards[ACCT_ID] =/=Int #Flapper.ttl_tau
+  andBool #Flapper.wards[ACCT_ID] =/=Int #Flapper.kicks
   andBool #Flapper.wards[ACCT_ID] =/=Int #Flapper.bids[1 +Int Kicks].bid
   andBool #Flapper.wards[ACCT_ID] =/=Int #Flapper.bids[1 +Int Kicks].lot
   andBool #Flapper.wards[ACCT_ID] =/=Int #Flapper.bids[1 +Int Kicks].guy_tic_end
-  andBool #Flapper.wards[ACCT_ID] =/=Int #Flapper.live
-  andBool #Flapper.vat =/=Int #Flapper.kicks
+  andBool #Flapper.vat =/=Int #Flapper.live
   andBool #Flapper.vat =/=Int #Flapper.ttl_tau
+  andBool #Flapper.vat =/=Int #Flapper.kicks
   andBool #Flapper.vat =/=Int #Flapper.bids[1 +Int Kicks].bid
   andBool #Flapper.vat =/=Int #Flapper.bids[1 +Int Kicks].lot
   andBool #Flapper.vat =/=Int #Flapper.bids[1 +Int Kicks].guy_tic_end
-  andBool #Flapper.vat =/=Int #Flapper.live
-  andBool #Flapper.kicks =/=Int #Flapper.ttl_tau
-  andBool #Flapper.kicks =/=Int #Flapper.bids[1 +Int Kicks].bid
-  andBool #Flapper.kicks =/=Int #Flapper.bids[1 +Int Kicks].lot
-  andBool #Flapper.kicks =/=Int #Flapper.bids[1 +Int Kicks].guy_tic_end
-  andBool #Flapper.kicks =/=Int #Flapper.live
+  andBool #Flapper.live =/=Int #Flapper.ttl_tau
+  andBool #Flapper.live =/=Int #Flapper.kicks
+  andBool #Flapper.live =/=Int #Flapper.bids[1 +Int Kicks].bid
+  andBool #Flapper.live =/=Int #Flapper.bids[1 +Int Kicks].lot
+  andBool #Flapper.live =/=Int #Flapper.bids[1 +Int Kicks].guy_tic_end
+  andBool #Flapper.ttl_tau =/=Int #Flapper.kicks
   andBool #Flapper.ttl_tau =/=Int #Flapper.bids[1 +Int Kicks].bid
   andBool #Flapper.ttl_tau =/=Int #Flapper.bids[1 +Int Kicks].lot
   andBool #Flapper.ttl_tau =/=Int #Flapper.bids[1 +Int Kicks].guy_tic_end
-  andBool #Flapper.ttl_tau =/=Int #Flapper.live
+  andBool #Flapper.kicks =/=Int #Flapper.bids[1 +Int Kicks].bid
+  andBool #Flapper.kicks =/=Int #Flapper.bids[1 +Int Kicks].lot
+  andBool #Flapper.kicks =/=Int #Flapper.bids[1 +Int Kicks].guy_tic_end
   andBool #Flapper.bids[1 +Int Kicks].bid =/=Int #Flapper.bids[1 +Int Kicks].lot
   andBool #Flapper.bids[1 +Int Kicks].bid =/=Int #Flapper.bids[1 +Int Kicks].guy_tic_end
-  andBool #Flapper.bids[1 +Int Kicks].bid =/=Int #Flapper.live
   andBool #Flapper.bids[1 +Int Kicks].lot =/=Int #Flapper.bids[1 +Int Kicks].guy_tic_end
-  andBool #Flapper.bids[1 +Int Kicks].lot =/=Int #Flapper.live
-  andBool #Flapper.bids[1 +Int Kicks].guy_tic_end =/=Int #Flapper.live
   andBool #lookup(Vat_STORAGE, #Vat.can[ACCT_ID][Flapper]) ==Int Can
   andBool #lookup(Vat_STORAGE, #Vat.sin[ACCT_ID]) ==Int Awe
   andBool #lookup(Vat_STORAGE, #Vat.dai[ACCT_ID]) ==Int Joy

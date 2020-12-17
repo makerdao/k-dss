@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module F15DB7DBE8FCCFE2DDFC97A5B263E0DBD6BD52490AC704C5E2C2710F754FA98E
+module 72B40BA442B65FE5108D002B596224414666C4EB335C225E7E4E0550054A6133
   imports VERIFICATION
 
-// Vow_kiss
-claim [Vow.kiss.pass.rough]:
+// Flopper_dent-guy-diff-tic-not-0
+claim [Flopper.dent-guy-diff-tic-not-0.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -18,16 +18,19 @@ claim [Vow.kiss.pass.rough]:
       <interimStates> _ </interimStates>
       <touchedAccounts> _ => ?_ </touchedAccounts>
       <callState>
-        <program> Vow_bin_runtime </program>
-        <jumpDests> #computeValidJumpDests(Vow_bin_runtime) </jumpDests>
+        <program> Flopper_bin_runtime </program>
+        <jumpDests> #computeValidJumpDests(Flopper_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("kiss", #uint256(ABI_rad)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("dent", #uint256(ABI_id), #uint256(ABI_lot), #uint256(ABI_bid)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => ?_ </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( ( VGas +Int #if ABI_lot ==Int 0
+          #then   -54
+          #else   -106
+        #fi ) -Int Csstore( ISTANBUL , ( Dai_a -Int Bid ) , Dai_a , Junk_8 ) ) -Int Csstore( ISTANBUL , ( Dai_g +Int Bid ) , Dai_g , Junk_9 ) ) -Int Csstore( ISTANBUL , CALLER_ID |Int 115792089237316195423570985007226406215939081747436879206741300988257197096960 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , CALLER_ID |Int 115792089237316195423570985007226406215939081747436879206741300988257197096960 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -28381 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
@@ -77,16 +80,16 @@ claim [Vow.kiss.pass.rough]:
         <account>
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
-          <code> Vow_bin_runtime </code>
-          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Vow.Ash <- Ash -Int ABI_rad ] </storage>
+          <code> Flopper_bin_runtime </code>
+          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Flopper.bids[ABI_id].lot <- ABI_lot ] [ #Flopper.bids[ABI_id].guy_tic_end <- #WordPackAddrUInt48UInt48(CALLER_ID, TIME +Int Ttl, End) ] </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
-          <nonce> Nonce_Vow => ?_ </nonce>
+          <nonce> Nonce_Flopper => ?_ </nonce>
         </account>
         <account>
           <acctID> Vat </acctID>
           <balance> Vat_balance </balance>
           <code> Vat_bin_runtime </code>
-          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.sin[ACCT_ID] <- Awe  -Int ABI_rad ] [ #Vat.dai[ACCT_ID] <- Joy  -Int ABI_rad ] [ #Vat.vice <- Vice -Int ABI_rad ] [ #Vat.debt <- Debt -Int ABI_rad ] </storage>
+          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.dai[CALLER_ID] <- Dai_a -Int ABI_bid ] [ #Vat.dai[Guy] <- Dai_g +Int ABI_bid ] </storage>
           <origStorage> Vat_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vat => ?_ </nonce>
         </account>
@@ -189,17 +192,31 @@ andBool VCallDepth <=Int 1024
 andBool #rangeUInt(256, VCallValue)
 andBool #rangeUInt(256, VChainId)
 
-  andBool (#rangeUInt(256, ABI_rad)
+  andBool (#rangeUInt(256, ABI_id)
+  andBool (#rangeUInt(256, ABI_lot)
+  andBool (#rangeUInt(256, ABI_bid)
+  andBool (#rangeUInt(256, Live)
   andBool (#rangeAddress(Vat)
-  andBool (#rangeUInt(256, Ash)
-  andBool (#rangeUInt(256, Joy)
-  andBool (#rangeUInt(256, Awe)
-  andBool (#rangeUInt(256, Vice)
-  andBool (#rangeUInt(256, Debt)
+  andBool (#rangeUInt(256, Beg)
+  andBool (#rangeUInt(48, Ttl)
+  andBool (#rangeUInt(48, Tau)
+  andBool (#rangeUInt(256, Bid)
+  andBool (#rangeUInt(256, Lot)
+  andBool (#rangeAddress(Guy)
+  andBool (#rangeUInt(48, Tic)
+  andBool (#rangeUInt(48, End)
+  andBool (#rangeUInt(256, CanMove)
+  andBool (#rangeUInt(256, Dai_a)
+  andBool (#rangeUInt(256, Dai_g)
   andBool (#rangeUInt(256, Vat_balance)
-  andBool (#sizeByteArray(CD) <=Int 1250000000
-  andBool (#notPrecompileAddress(Vat)
-  andBool (ACCT_ID =/=Int Vat
+  andBool ((#sizeByteArray(CD) <=Int 1250000000)
+  andBool ((#notPrecompileAddress(Vat))
+  andBool ((#notPrecompileAddress(Guy))
+  andBool ((ACCT_ID =/=Int Vat)
+  andBool ((CALLER_ID =/=Int ACCT_ID)
+  andBool ((CALLER_ID =/=Int Guy)
+  andBool ((#rangeUInt(48, TIME))
+  andBool ((Tic =/=Int 0)
   andBool ((Vat =/=Int 0)
   andBool (#rangeUInt(256, Junk_0)
   andBool (#rangeUInt(256, Junk_1)
@@ -207,38 +224,72 @@ andBool #rangeUInt(256, VChainId)
   andBool (#rangeUInt(256, Junk_3)
   andBool (#rangeUInt(256, Junk_4)
   andBool (#rangeUInt(256, Junk_5)
-  andBool (((ABI_rad <=Int Joy))
-  andBool (((ABI_rad <=Int Ash))
-  andBool (((VCallValue ==Int 0))
-  andBool (((VCallDepth <Int 1024))
-  andBool ((#rangeUInt(256, Ash  -Int ABI_rad))
-  andBool ((#rangeUInt(256, Joy  -Int ABI_rad))
-  andBool ((#rangeUInt(256, Awe  -Int ABI_rad))
-  andBool ((#rangeUInt(256, Vice -Int ABI_rad))
-  andBool ((#rangeUInt(256, Debt -Int ABI_rad)))))))))))))))))))))))))))))
+  andBool (#rangeUInt(256, Junk_6)
+  andBool (#rangeUInt(256, Junk_7)
+  andBool (#rangeUInt(256, Junk_8)
+  andBool (#rangeUInt(256, Junk_9)
+  andBool ((((Live ==Int 1)))
+  andBool ((((Guy =/=Int 0)))
+  andBool ((((Tic >Int TIME)))
+  andBool ((((End >Int TIME)))
+  andBool ((((ABI_bid ==Int Bid)))
+  andBool ((((ABI_lot <Int  Lot)))
+  andBool ((((Lot *Int #Wad <=Int maxUInt256)))
+  andBool ((((Beg *Int ABI_lot <=Int Lot *Int #Wad)))
+  andBool ((((CanMove ==Int 1)))
+  andBool ((((VCallValue ==Int 0)))
+  andBool ((((VCallDepth <Int 1024)))
+  andBool (((#rangeUInt(256, Dai_a -Int ABI_bid)))
+  andBool (((#rangeUInt(256, Dai_g +Int ABI_bid)))
+  andBool ((#rangeUInt(48, TIME +Int Ttl))))))))))))))))))))))))))))))))))))))))))))))))))))
 
-  andBool #lookup(ACCT_ID_STORAGE, #Vow.vat) ==Int Vat
-  andBool #lookup(ACCT_ID_STORAGE, #Vow.Ash) ==Int Ash
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.vat) ==Int Junk_0
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.Ash) ==Int Junk_1
-  andBool #Vow.vat =/=Int #Vow.Ash
-  andBool #lookup(Vat_STORAGE, #Vat.sin[ACCT_ID]) ==Int Awe
-  andBool #lookup(Vat_STORAGE, #Vat.dai[ACCT_ID]) ==Int Joy
-  andBool #lookup(Vat_STORAGE, #Vat.vice) ==Int Vice
-  andBool #lookup(Vat_STORAGE, #Vat.debt) ==Int Debt
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.sin[ACCT_ID]) ==Int Junk_2
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[ACCT_ID]) ==Int Junk_3
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.vice) ==Int Junk_4
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.debt) ==Int Junk_5
-  andBool #Vat.sin[ACCT_ID] =/=Int #Vat.dai[ACCT_ID]
-  andBool #Vat.sin[ACCT_ID] =/=Int #Vat.vice
-  andBool #Vat.sin[ACCT_ID] =/=Int #Vat.debt
-  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.vice
-  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.debt
-  andBool #Vat.vice =/=Int #Vat.debt 
+  andBool #lookup(ACCT_ID_STORAGE, #Flopper.live) ==Int Live
+  andBool #lookup(ACCT_ID_STORAGE, #Flopper.vat) ==Int Vat
+  andBool #lookup(ACCT_ID_STORAGE, #Flopper.beg) ==Int Beg
+  andBool #lookup(ACCT_ID_STORAGE, #Flopper.ttl_tau) ==Int #WordPackUInt48UInt48(Ttl, Tau)
+  andBool #lookup(ACCT_ID_STORAGE, #Flopper.bids[ABI_id].bid) ==Int Bid
+  andBool #lookup(ACCT_ID_STORAGE, #Flopper.bids[ABI_id].lot) ==Int Lot
+  andBool #lookup(ACCT_ID_STORAGE, #Flopper.bids[ABI_id].guy_tic_end) ==Int #WordPackAddrUInt48UInt48(Guy, Tic, End)
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flopper.live) ==Int Junk_0
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flopper.vat) ==Int Junk_1
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flopper.beg) ==Int Junk_2
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flopper.ttl_tau) ==Int Junk_3
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flopper.bids[ABI_id].bid) ==Int Junk_4
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flopper.bids[ABI_id].lot) ==Int Junk_5
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Flopper.bids[ABI_id].guy_tic_end) ==Int Junk_6
+  andBool #Flopper.live =/=Int #Flopper.vat
+  andBool #Flopper.live =/=Int #Flopper.beg
+  andBool #Flopper.live =/=Int #Flopper.ttl_tau
+  andBool #Flopper.live =/=Int #Flopper.bids[ABI_id].bid
+  andBool #Flopper.live =/=Int #Flopper.bids[ABI_id].lot
+  andBool #Flopper.live =/=Int #Flopper.bids[ABI_id].guy_tic_end
+  andBool #Flopper.vat =/=Int #Flopper.beg
+  andBool #Flopper.vat =/=Int #Flopper.ttl_tau
+  andBool #Flopper.vat =/=Int #Flopper.bids[ABI_id].bid
+  andBool #Flopper.vat =/=Int #Flopper.bids[ABI_id].lot
+  andBool #Flopper.vat =/=Int #Flopper.bids[ABI_id].guy_tic_end
+  andBool #Flopper.beg =/=Int #Flopper.ttl_tau
+  andBool #Flopper.beg =/=Int #Flopper.bids[ABI_id].bid
+  andBool #Flopper.beg =/=Int #Flopper.bids[ABI_id].lot
+  andBool #Flopper.beg =/=Int #Flopper.bids[ABI_id].guy_tic_end
+  andBool #Flopper.ttl_tau =/=Int #Flopper.bids[ABI_id].bid
+  andBool #Flopper.ttl_tau =/=Int #Flopper.bids[ABI_id].lot
+  andBool #Flopper.ttl_tau =/=Int #Flopper.bids[ABI_id].guy_tic_end
+  andBool #Flopper.bids[ABI_id].bid =/=Int #Flopper.bids[ABI_id].lot
+  andBool #Flopper.bids[ABI_id].bid =/=Int #Flopper.bids[ABI_id].guy_tic_end
+  andBool #Flopper.bids[ABI_id].lot =/=Int #Flopper.bids[ABI_id].guy_tic_end
+  andBool #lookup(Vat_STORAGE, #Vat.can[CALLER_ID][ACCT_ID]) ==Int CanMove
+  andBool #lookup(Vat_STORAGE, #Vat.dai[CALLER_ID]) ==Int Dai_a
+  andBool #lookup(Vat_STORAGE, #Vat.dai[Guy]) ==Int Dai_g
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.can[CALLER_ID][ACCT_ID]) ==Int Junk_7
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[CALLER_ID]) ==Int Junk_8
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[Guy]) ==Int Junk_9
+  andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[CALLER_ID]
+  andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[Guy]
+  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.dai[Guy] 
 
-// Vow_subuu
-claim [Vow.subuu.pass]:
+// Flopper_muluu
+claim [Flopper.muluu.pass]:
   <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -252,16 +303,19 @@ claim [Vow.subuu.pass]:
       <interimStates> _ </interimStates>
       <touchedAccounts> _ => ?_ </touchedAccounts>
       <callState>
-        <program> Vow_bin_runtime </program>
-        <jumpDests> #computeValidJumpDests(Vow_bin_runtime) </jumpDests>
+        <program> Flopper_bin_runtime </program>
+        <jumpDests> #computeValidJumpDests(Flopper_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
         <callData> _ => ?_ </callData>
         <callValue> VCallValue </callValue>
-        <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x -Int ABI_y : WS </wordStack>
+        <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x *Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
-        <pc> 9803 => 9828 </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int -54 ) ) </gas>
+        <pc> 8685 => 8728 </pc>
+        <gas> #gas(VGas) => #if ABI_y ==Int 0
+          #then   #gas ( ( VGas +Int -54 ) )
+          #else   #gas ( ( VGas +Int -106 ) )
+        #fi </gas>
         <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>
@@ -310,10 +364,10 @@ claim [Vow.subuu.pass]:
         <account>
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
-          <code> Vow_bin_runtime </code>
+          <code> Flopper_bin_runtime </code>
           <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE  </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
-          <nonce> Nonce_Vow => ?_ </nonce>
+          <nonce> Nonce_Flopper => ?_ </nonce>
         </account>
         <account>
           <acctID> 1 </acctID>
@@ -416,40 +470,40 @@ andBool #rangeUInt(256, VChainId)
 
   andBool (#rangeUInt(256, ABI_x)
   andBool (#rangeUInt(256, ABI_y)
-  andBool ((#sizeWordStack(WS) <=Int 100)
+  andBool ((#sizeWordStack(WS) <=Int 1000)
   andBool (#rangeUInt(256, VMemoryUsed)
-  andBool ((#rangeUInt(256, ABI_x -Int ABI_y)))))))
+  andBool ((#rangeUInt(256, ABI_x *Int ABI_y)))))))
 
  
 [trusted, matching(infGas)]
 
 
-// Vat_dai
-claim [Vat.dai.pass]:
-  <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
+// Flopper_addu48u48
+claim [Flopper.addu48u48.pass]:
+  <k> #execute ~> CONTINUATION => #execute ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
   <schedule> ISTANBUL </schedule>
   <ethereum>
     <evm>
-      <output> _ => #buf(32, Rad) </output>
-      <statusCode> _ => EVMC_SUCCESS </statusCode>
+      <output> VOutput => VOutput </output>
+      <statusCode> _ => ?_ </statusCode>
       <endPC> _ => ?_ </endPC>
       <callStack> VCallStack </callStack>
       <interimStates> _ </interimStates>
       <touchedAccounts> _ => ?_ </touchedAccounts>
       <callState>
-        <program> Vat_bin_runtime </program>
-        <jumpDests> #computeValidJumpDests(Vat_bin_runtime) </jumpDests>
+        <program> Flopper_bin_runtime </program>
+        <jumpDests> #computeValidJumpDests(Flopper_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("dai", #address(ABI_usr)) ++ CD => ?_ </callData>
+        <callData> _ => ?_ </callData>
         <callValue> VCallValue </callValue>
-        <wordStack> .WordStack => ?_ </wordStack>
-        <localMem> .Memory => ?_ </localMem>
-        <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( VGas +Int -1236 ) ) </gas>
-        <memoryUsed> 0 => ?_ </memoryUsed>
+        <wordStack> ABI_y : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
+        <localMem> _ </localMem>
+        <pc> 8757 => 8798 </pc>
+        <gas> #gas(VGas) => #gas ( ( VGas +Int -66 ) ) </gas>
+        <memoryUsed> VMemoryUsed </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> _ </static>
         <callDepth> VCallDepth </callDepth>
@@ -497,10 +551,10 @@ claim [Vat.dai.pass]:
         <account>
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
-          <code> Vat_bin_runtime </code>
+          <code> Flopper_bin_runtime </code>
           <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE  </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
-          <nonce> Nonce_Vat => ?_ </nonce>
+          <nonce> Nonce_Flopper => ?_ </nonce>
         </account>
         <account>
           <acctID> 1 </acctID>
@@ -601,19 +655,18 @@ andBool VCallDepth <=Int 1024
 andBool #rangeUInt(256, VCallValue)
 andBool #rangeUInt(256, VChainId)
 
-  andBool (#rangeAddress(ABI_usr)
-  andBool (#rangeUInt(256, Rad)
-  andBool (#sizeByteArray(CD) <=Int 1250000000
-  andBool (#rangeUInt(256, Junk_0)
-  andBool ((VCallValue ==Int 0))))))
+  andBool (#rangeUInt(48, ABI_x)
+  andBool (#rangeUInt(48, ABI_y)
+  andBool ((#sizeWordStack(WS) <=Int 100)
+  andBool (#rangeUInt(256, VMemoryUsed)
+  andBool ((#rangeUInt(48, ABI_x +Int ABI_y)))))))
 
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.dai[ABI_usr]) ==Int Rad
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[ABI_usr]) ==Int Junk_0 
+ 
 [trusted, matching(infGas)]
 
 
-// Vat_heal
-claim [Vat.heal.pass]:
+// Vat_move-diff
+claim [Vat.move-diff.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -631,12 +684,12 @@ claim [Vat.heal.pass]:
         <jumpDests> #computeValidJumpDests(Vat_bin_runtime) </jumpDests>
         <id> ACCT_ID </id>
         <caller> CALLER_ID </caller>
-        <callData> #abiCallData("heal", #uint256(ABI_rad)) ++ CD => ?_ </callData>
+        <callData> #abiCallData("move", #address(ABI_src), #address(ABI_dst), #uint256(ABI_rad)) ++ CD => ?_ </callData>
         <callValue> VCallValue </callValue>
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Sin -Int ABI_rad ) , Sin , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Dai -Int ABI_rad ) , Dai , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Vice -Int ABI_rad ) , Vice , Junk_2 ) ) -Int Csstore( ISTANBUL , ( Debt -Int ABI_rad ) , Debt , Junk_3 ) ) +Int -8616 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Dai_src -Int ABI_rad ) , Dai_src , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Dai_dst +Int ABI_rad ) , Dai_dst , Junk_2 ) ) +Int -7943 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
@@ -686,7 +739,7 @@ claim [Vat.heal.pass]:
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
           <code> Vat_bin_runtime </code>
-          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Vat.sin[CALLER_ID] <- Sin -Int ABI_rad ] [ #Vat.dai[CALLER_ID] <- Dai -Int ABI_rad ] [ #Vat.vice <- Vice  -Int ABI_rad ] [ #Vat.debt <- Debt  -Int ABI_rad ] </storage>
+          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Vat.dai[ABI_src] <- Dai_src -Int ABI_rad ] [ #Vat.dai[ABI_dst] <- Dai_dst +Int ABI_rad ] </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vat => ?_ </nonce>
         </account>
@@ -789,36 +842,31 @@ andBool VCallDepth <=Int 1024
 andBool #rangeUInt(256, VCallValue)
 andBool #rangeUInt(256, VChainId)
 
+  andBool (#rangeAddress(ABI_src)
+  andBool (#rangeAddress(ABI_dst)
   andBool (#rangeUInt(256, ABI_rad)
-  andBool (#rangeUInt(256, Dai)
-  andBool (#rangeUInt(256, Sin)
-  andBool (#rangeUInt(256, Debt)
-  andBool (#rangeUInt(256, Vice)
-  andBool (#sizeByteArray(CD) <=Int 1250000000
+  andBool (#rangeUInt(256, Dai_dst)
+  andBool (#rangeUInt(256, Dai_src)
+  andBool (#rangeUInt(256, May)
+  andBool ((#sizeByteArray(CD) <=Int 1250000000)
+  andBool ((ABI_src =/=Int ABI_dst)
   andBool (#rangeUInt(256, Junk_0)
   andBool (#rangeUInt(256, Junk_1)
   andBool (#rangeUInt(256, Junk_2)
-  andBool (#rangeUInt(256, Junk_3)
+  andBool ((((May ==Int 1 orBool ABI_src ==Int CALLER_ID)))
   andBool (((VCallValue ==Int 0))
-  andBool ((#rangeUInt(256, Dai -Int ABI_rad))
-  andBool ((#rangeUInt(256, Sin -Int ABI_rad))
-  andBool ((#rangeUInt(256, Debt  -Int ABI_rad))
-  andBool ((#rangeUInt(256, Vice  -Int ABI_rad)))))))))))))))))
+  andBool ((#rangeUInt(256, Dai_src -Int ABI_rad))
+  andBool ((#rangeUInt(256, Dai_dst +Int ABI_rad)))))))))))))))))
 
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.sin[CALLER_ID]) ==Int Sin
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.dai[CALLER_ID]) ==Int Dai
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.vice) ==Int Vice
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.debt) ==Int Debt
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.sin[CALLER_ID]) ==Int Junk_0
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[CALLER_ID]) ==Int Junk_1
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.vice) ==Int Junk_2
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.debt) ==Int Junk_3
-  andBool #Vat.sin[CALLER_ID] =/=Int #Vat.dai[CALLER_ID]
-  andBool #Vat.sin[CALLER_ID] =/=Int #Vat.vice
-  andBool #Vat.sin[CALLER_ID] =/=Int #Vat.debt
-  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.vice
-  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.debt
-  andBool #Vat.vice =/=Int #Vat.debt 
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.can[ABI_src][CALLER_ID]) ==Int May
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.dai[ABI_src]) ==Int Dai_src
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.dai[ABI_dst]) ==Int Dai_dst
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.can[ABI_src][CALLER_ID]) ==Int Junk_0
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[ABI_src]) ==Int Junk_1
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[ABI_dst]) ==Int Junk_2
+  andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_src]
+  andBool #Vat.can[ABI_src][CALLER_ID] =/=Int #Vat.dai[ABI_dst]
+  andBool #Vat.dai[ABI_src] =/=Int #Vat.dai[ABI_dst] 
 [trusted, matching(infGas)]
 
 

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module D968F8A491BCCD84A7A837B9E431E5EB21452FA30DCA92616FF479A3FA08EC1B
+module E066F79F08CCE865C9E7AB892F4E746462F768AC8C4959DF96FD7728CE43F636
   imports VERIFICATION
 
 // Vow_file-data
@@ -77,7 +77,7 @@ claim [Vow.file-data.pass.rough]:
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
           <code> Vow_bin_runtime </code>
-          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Vow.wait <- (#if ABI_what ==Int #string2Word("wait") #then ABI_data #else Wait #fi) ] [ #Vow.dump <- (#if ABI_what ==Int #string2Word("dump") #then ABI_data #else Dump #fi) ] [ #Vow.sump <- (#if ABI_what ==Int #string2Word("sump") #then ABI_data #else Sump #fi) ] [ #Vow.bump <- (#if ABI_what ==Int #string2Word("bump") #then ABI_data #else Bump #fi) ] [ #Vow.hump <- (#if ABI_what ==Int #string2Word("hump") #then ABI_data #else Hump #fi) ] </storage>
+          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Vow.wait <- (#if ABI_what ==Int #string2Word("wait") #then ABI_data #else Wait #fi) ] [ #Vow.bump <- (#if ABI_what ==Int #string2Word("bump") #then ABI_data #else Bump #fi) ] [ #Vow.sump <- (#if ABI_what ==Int #string2Word("sump") #then ABI_data #else Sump #fi) ] [ #Vow.dump <- (#if ABI_what ==Int #string2Word("dump") #then ABI_data #else Dump #fi) ] [ #Vow.hump <- (#if ABI_what ==Int #string2Word("hump") #then ABI_data #else Hump #fi) ] </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vow => ?_ </nonce>
         </account>
@@ -201,30 +201,30 @@ andBool #rangeUInt(256, VChainId)
 
   andBool #lookup(ACCT_ID_STORAGE, #Vow.wards[CALLER_ID]) ==Int May
   andBool #lookup(ACCT_ID_STORAGE, #Vow.wait) ==Int Wait
-  andBool #lookup(ACCT_ID_STORAGE, #Vow.dump) ==Int Dump
-  andBool #lookup(ACCT_ID_STORAGE, #Vow.sump) ==Int Sump
   andBool #lookup(ACCT_ID_STORAGE, #Vow.bump) ==Int Bump
+  andBool #lookup(ACCT_ID_STORAGE, #Vow.sump) ==Int Sump
+  andBool #lookup(ACCT_ID_STORAGE, #Vow.dump) ==Int Dump
   andBool #lookup(ACCT_ID_STORAGE, #Vow.hump) ==Int Hump
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.wards[CALLER_ID]) ==Int Junk_0
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.wait) ==Int Junk_1
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.dump) ==Int Junk_2
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.bump) ==Int Junk_2
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.sump) ==Int Junk_3
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.bump) ==Int Junk_4
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.dump) ==Int Junk_4
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.hump) ==Int Junk_5
   andBool #Vow.wards[CALLER_ID] =/=Int #Vow.wait
-  andBool #Vow.wards[CALLER_ID] =/=Int #Vow.dump
-  andBool #Vow.wards[CALLER_ID] =/=Int #Vow.sump
   andBool #Vow.wards[CALLER_ID] =/=Int #Vow.bump
+  andBool #Vow.wards[CALLER_ID] =/=Int #Vow.sump
+  andBool #Vow.wards[CALLER_ID] =/=Int #Vow.dump
   andBool #Vow.wards[CALLER_ID] =/=Int #Vow.hump
-  andBool #Vow.wait =/=Int #Vow.dump
-  andBool #Vow.wait =/=Int #Vow.sump
   andBool #Vow.wait =/=Int #Vow.bump
+  andBool #Vow.wait =/=Int #Vow.sump
+  andBool #Vow.wait =/=Int #Vow.dump
   andBool #Vow.wait =/=Int #Vow.hump
-  andBool #Vow.dump =/=Int #Vow.sump
-  andBool #Vow.dump =/=Int #Vow.bump
-  andBool #Vow.dump =/=Int #Vow.hump
-  andBool #Vow.sump =/=Int #Vow.bump
+  andBool #Vow.bump =/=Int #Vow.sump
+  andBool #Vow.bump =/=Int #Vow.dump
+  andBool #Vow.bump =/=Int #Vow.hump
+  andBool #Vow.sump =/=Int #Vow.dump
   andBool #Vow.sump =/=Int #Vow.hump
-  andBool #Vow.bump =/=Int #Vow.hump 
+  andBool #Vow.dump =/=Int #Vow.hump 
 
 endmodule

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 0978FE17A5E08E2A6EB0DB9AEE4BE03484D3576B65A783D9791C214C1D911BC6
+module 88FE7643C6D40EDFC7AD64522DE6E2117178E23CC50AA210BA77B638E9B90E75
   imports VERIFICATION
 
 // End_cage-ilk
@@ -80,7 +80,7 @@ claim [End.cage-ilk.pass.rough]:
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
           <code> End_bin_runtime </code>
-          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #End.tag[ABI_ilk] <- (#Wad *Int Par) /Int Price ] </storage>
+          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #End.tag[ABI_ilk] <- (Par *Int #Wad) /Int Price ] </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
           <nonce> Nonce_End => ?_ </nonce>
         </account>
@@ -258,7 +258,7 @@ andBool #rangeUInt(256, VChainId)
   andBool (((Tag_i ==Int 0))
   andBool (((Ok ==Int 1))
   andBool (((Price =/=Int 0))
-  andBool ((#rangeUInt(256, #Wad *Int Par))))))))))))))))))))))))))))))))))))))))))))))))))))))
+  andBool ((#rangeUInt(256, Par *Int #Wad))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
   andBool #lookup(ACCT_ID_STORAGE, #End.live) ==Int Live
   andBool #lookup(ACCT_ID_STORAGE, #End.vat) ==Int Vat

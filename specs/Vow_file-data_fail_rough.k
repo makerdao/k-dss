@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 852E8E00FC6A524B129F1B12C316FE4D89A9DF532F7067CDCF41969E20679B64
+module 2FF8E1D129330F983A7C07E6D157C3BBFBDD40E4948893D1B5DE1A73FD64432A
   imports VERIFICATION
 
 // Vow_file-data
@@ -198,31 +198,31 @@ andBool #rangeUInt(256, VChainId)
 
   andBool #lookup(ACCT_ID_STORAGE, #Vow.wards[CALLER_ID]) ==Int May
   andBool #lookup(ACCT_ID_STORAGE, #Vow.wait) ==Int Wait
-  andBool #lookup(ACCT_ID_STORAGE, #Vow.dump) ==Int Dump
-  andBool #lookup(ACCT_ID_STORAGE, #Vow.sump) ==Int Sump
   andBool #lookup(ACCT_ID_STORAGE, #Vow.bump) ==Int Bump
+  andBool #lookup(ACCT_ID_STORAGE, #Vow.sump) ==Int Sump
+  andBool #lookup(ACCT_ID_STORAGE, #Vow.dump) ==Int Dump
   andBool #lookup(ACCT_ID_STORAGE, #Vow.hump) ==Int Hump
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.wards[CALLER_ID]) ==Int Junk_0
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.wait) ==Int Junk_1
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.dump) ==Int Junk_2
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.bump) ==Int Junk_2
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.sump) ==Int Junk_3
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.bump) ==Int Junk_4
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.dump) ==Int Junk_4
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vow.hump) ==Int Junk_5
   andBool #Vow.wards[CALLER_ID] =/=Int #Vow.wait
-  andBool #Vow.wards[CALLER_ID] =/=Int #Vow.dump
-  andBool #Vow.wards[CALLER_ID] =/=Int #Vow.sump
   andBool #Vow.wards[CALLER_ID] =/=Int #Vow.bump
+  andBool #Vow.wards[CALLER_ID] =/=Int #Vow.sump
+  andBool #Vow.wards[CALLER_ID] =/=Int #Vow.dump
   andBool #Vow.wards[CALLER_ID] =/=Int #Vow.hump
-  andBool #Vow.wait =/=Int #Vow.dump
-  andBool #Vow.wait =/=Int #Vow.sump
   andBool #Vow.wait =/=Int #Vow.bump
+  andBool #Vow.wait =/=Int #Vow.sump
+  andBool #Vow.wait =/=Int #Vow.dump
   andBool #Vow.wait =/=Int #Vow.hump
-  andBool #Vow.dump =/=Int #Vow.sump
-  andBool #Vow.dump =/=Int #Vow.bump
-  andBool #Vow.dump =/=Int #Vow.hump
-  andBool #Vow.sump =/=Int #Vow.bump
-  andBool #Vow.sump =/=Int #Vow.hump
+  andBool #Vow.bump =/=Int #Vow.sump
+  andBool #Vow.bump =/=Int #Vow.dump
   andBool #Vow.bump =/=Int #Vow.hump
+  andBool #Vow.sump =/=Int #Vow.dump
+  andBool #Vow.sump =/=Int #Vow.hump
+  andBool #Vow.dump =/=Int #Vow.hump
   andBool notBool (
     ((May:Int ==Int 1)
     andBool (((ABI_what:Int ==Int #string2Word("wait")) orBool (ABI_what:Int ==Int #string2Word("dump")) orBool (ABI_what:Int ==Int #string2Word("sump")) orBool (ABI_what:Int ==Int #string2Word("bump")) orBool (ABI_what:Int ==Int #string2Word("hump")))

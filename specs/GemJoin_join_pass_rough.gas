@@ -1,0 +1,10 @@
+#if ABI_wad <=Int 0
+  #then   #if ( #lookup( DSToken_STORAGE , hash2 ( ACCT_ID , hash2 ( CALLER_ID , 2 ) ) ) ==Int maxUInt256 andBool ( Allowed ==Int maxUInt256 andBool ABI_wad <=Int maxUInt256 ) )
+    #then   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Vat_bal +Int ABI_wad ) , Vat_bal , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Bal_usr -Int ABI_wad ) , Bal_usr , Junk_7 ) ) -Int Csstore( ISTANBUL , ( Bal_adapter +Int ABI_wad ) , Bal_adapter , Junk_8 ) ) +Int -25515 ) )
+    #else   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Vat_bal +Int ABI_wad ) , Vat_bal , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Allowed -Int ABI_wad ) , Allowed , Junk_6 ) ) -Int Csstore( ISTANBUL , ( Bal_usr -Int ABI_wad ) , Bal_usr , Junk_7 ) ) -Int Csstore( ISTANBUL , ( Bal_adapter +Int ABI_wad ) , Bal_adapter , Junk_8 ) ) +Int -27772 ) )
+  #fi
+  #else   #if ( #lookup( DSToken_STORAGE , hash2 ( ACCT_ID , hash2 ( CALLER_ID , 2 ) ) ) ==Int maxUInt256 andBool ( Allowed ==Int maxUInt256 andBool ABI_wad <=Int maxUInt256 ) )
+    #then   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Vat_bal +Int ABI_wad ) , Vat_bal , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Bal_usr -Int ABI_wad ) , Bal_usr , Junk_7 ) ) -Int Csstore( ISTANBUL , ( Bal_adapter +Int ABI_wad ) , Bal_adapter , Junk_8 ) ) +Int -25529 ) )
+    #else   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Vat_bal +Int ABI_wad ) , Vat_bal , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Allowed -Int ABI_wad ) , Allowed , Junk_6 ) ) -Int Csstore( ISTANBUL , ( Bal_usr -Int ABI_wad ) , Bal_usr , Junk_7 ) ) -Int Csstore( ISTANBUL , ( Bal_adapter +Int ABI_wad ) , Bal_adapter , Junk_8 ) ) +Int -27786 ) )
+  #fi
+#fi

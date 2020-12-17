@@ -1,0 +1,10 @@
+#if TIME <Int Tic
+  #then   #gas ( ( ( ( ( ( ( ( ( ( VGas +Int #if ABI_lot ==Int 0
+    #then   -54
+    #else   -106
+  #fi ) -Int Csstore( ISTANBUL , ( Dai_c -Int Tab ) , Dai_c , Junk_13 ) ) -Int Csstore( ISTANBUL , ( Dai_g +Int Tab ) , Dai_g , Junk_14 ) ) -Int Csstore( ISTANBUL , CALLER_ID |Int 115792089237316195423570985007226406215939081747436879206741300988257197096960 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_9 ) ) -Int Csstore( ISTANBUL , ( ( Gem_a -Int Lot ) +Int ABI_lot ) , Gem_a , Junk_15 ) ) -Int Csstore( ISTANBUL , ( ( Gem_u +Int Lot ) -Int ABI_lot ) , Gem_u , Junk_16 ) ) -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , CALLER_ID |Int 115792089237316195423570985007226406215939081747436879206741300988257197096960 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_9 ) ) +Int -40929 ) )
+  #else   #gas ( ( ( ( ( ( ( ( ( ( VGas +Int #if ABI_lot ==Int 0
+    #then   -54
+    #else   -106
+  #fi ) -Int Csstore( ISTANBUL , ( Dai_c -Int Tab ) , Dai_c , Junk_13 ) ) -Int Csstore( ISTANBUL , ( Dai_g +Int Tab ) , Dai_g , Junk_14 ) ) -Int Csstore( ISTANBUL , CALLER_ID |Int 115792089237316195423570985007226406215939081747436879206741300988257197096960 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_9 ) ) -Int Csstore( ISTANBUL , ( ( Gem_a -Int Lot ) +Int ABI_lot ) , Gem_a , Junk_15 ) ) -Int Csstore( ISTANBUL , ( ( Gem_u +Int Lot ) -Int ABI_lot ) , Gem_u , Junk_16 ) ) -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , CALLER_ID |Int 115792089237316195423570985007226406215939081747436879206741300988257197096960 &Int #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_9 ) ) +Int -41916 ) )
+#fi

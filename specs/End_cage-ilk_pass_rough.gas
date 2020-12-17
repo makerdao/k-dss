@@ -1,0 +1,1 @@
+#gas ( ( ( ( VGas -Int Csstore( ISTANBUL , Art_i , Art_i , Junk_3 ) ) -Int Csstore( ISTANBUL , ( ( Par *Int 1000000000000000000 ) /Int Price ) , 0 , Junk_4 ) ) +Int -25831 ) )

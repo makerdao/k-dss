@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module BF7C369A17FE6004F6FD60CE24703CE85B24DDE142CAE6FC14F7C4A2CFBEE79A
+module F1ECBFEC85B68CB33162C915F747F2EDFF188689259DE40C0A4E6D23DF8FE381
   imports VERIFICATION
 
 // Vow_kiss
@@ -27,7 +27,7 @@ claim [Vow.kiss.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ash -Int ABI_rad ) , Ash , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Awe -Int ABI_rad ) , Awe , Junk_2 ) ) -Int Csstore( ISTANBUL , ( Joy -Int ABI_rad ) , Joy , Junk_3 ) ) -Int Csstore( ISTANBUL , ( Vice -Int ABI_rad ) , Vice , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Debt -Int ABI_rad ) , Debt , Junk_4 ) ) +Int -21107 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ash -Int ABI_rad ) , Ash , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Awe -Int ABI_rad ) , Awe , Junk_2 ) ) -Int Csstore( ISTANBUL , ( Joy -Int ABI_rad ) , Joy , Junk_3 ) ) -Int Csstore( ISTANBUL , ( Vice -Int ABI_rad ) , Vice , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Debt -Int ABI_rad ) , Debt , Junk_5 ) ) +Int -21107 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
@@ -86,7 +86,7 @@ claim [Vow.kiss.pass]:
           <acctID> Vat </acctID>
           <balance> Vat_balance </balance>
           <code> Vat_bin_runtime </code>
-          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.sin[ACCT_ID] <- Awe  -Int ABI_rad ] [ #Vat.dai[ACCT_ID] <- Joy  -Int ABI_rad ] [ #Vat.debt <- Debt -Int ABI_rad ] [ #Vat.vice <- Vice -Int ABI_rad ] </storage>
+          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.sin[ACCT_ID] <- Awe  -Int ABI_rad ] [ #Vat.dai[ACCT_ID] <- Joy  -Int ABI_rad ] [ #Vat.vice <- Vice -Int ABI_rad ] [ #Vat.debt <- Debt -Int ABI_rad ] </storage>
           <origStorage> Vat_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vat => ?_ </nonce>
         </account>
@@ -224,18 +224,18 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vow.vat =/=Int #Vow.Ash
   andBool #lookup(Vat_STORAGE, #Vat.sin[ACCT_ID]) ==Int Awe
   andBool #lookup(Vat_STORAGE, #Vat.dai[ACCT_ID]) ==Int Joy
-  andBool #lookup(Vat_STORAGE, #Vat.debt) ==Int Debt
   andBool #lookup(Vat_STORAGE, #Vat.vice) ==Int Vice
+  andBool #lookup(Vat_STORAGE, #Vat.debt) ==Int Debt
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.sin[ACCT_ID]) ==Int Junk_2
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[ACCT_ID]) ==Int Junk_3
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.debt) ==Int Junk_4
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.vice) ==Int Junk_5
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.vice) ==Int Junk_4
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.debt) ==Int Junk_5
   andBool #Vat.sin[ACCT_ID] =/=Int #Vat.dai[ACCT_ID]
-  andBool #Vat.sin[ACCT_ID] =/=Int #Vat.debt
   andBool #Vat.sin[ACCT_ID] =/=Int #Vat.vice
-  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.debt
+  andBool #Vat.sin[ACCT_ID] =/=Int #Vat.debt
   andBool #Vat.dai[ACCT_ID] =/=Int #Vat.vice
-  andBool #Vat.debt =/=Int #Vat.vice 
+  andBool #Vat.dai[ACCT_ID] =/=Int #Vat.debt
+  andBool #Vat.vice =/=Int #Vat.debt 
 
 // Vow_subuu
 claim [Vow.subuu.pass]:
