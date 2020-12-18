@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 7B6521ECDC0E002188ECFA59FBE52D1D80F5463B34EE3573C9D8874D1FC77379
+module AAC41BD0A866F729B879B8629B9A5445EF6B2BC96035CFF0AD2F17DFFE451517
   imports VERIFICATION
 
 // Flipper_dent-guy-same
@@ -31,11 +31,11 @@ claim [Flipper.dent-guy-same.pass]:
           #then   #gas ( ( ( ( ( ( ( VGas +Int #if ABI_lot ==Int 0
             #then   -54
             #else   -106
-          #fi ) -Int Csstore( ISTANBUL , ( ( Gem_a -Int Lot ) +Int ABI_lot ) , Gem_a , Junk_12 ) ) -Int Csstore( ISTANBUL , ( ( Gem_u +Int Lot ) -Int ABI_lot ) , Gem_u , Junk_13 ) ) -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_9 ) ) +Int -28656 ) )
+          #fi ) -Int Csstore( ISTANBUL , ( ( Gem_a -Int Lot ) +Int ABI_lot ) , Gem_a , Junk_12 ) ) -Int Csstore( ISTANBUL , ( ( Gem_u +Int Lot ) -Int ABI_lot ) , Gem_u , Junk_13 ) ) -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_9 ) ) +Int -28656 ) )
           #else   #gas ( ( ( ( ( ( ( VGas +Int #if ABI_lot ==Int 0
             #then   -54
             #else   -106
-          #fi ) -Int Csstore( ISTANBUL , ( ( Gem_a -Int Lot ) +Int ABI_lot ) , Gem_a , Junk_12 ) ) -Int Csstore( ISTANBUL , ( ( Gem_u +Int Lot ) -Int ABI_lot ) , Gem_u , Junk_13 ) ) -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_9 ) ) +Int -29643 ) )
+          #fi ) -Int Csstore( ISTANBUL , ( ( Gem_a -Int Lot ) +Int ABI_lot ) , Gem_a , Junk_12 ) ) -Int Csstore( ISTANBUL , ( ( Gem_u +Int Lot ) -Int ABI_lot ) , Gem_u , Junk_13 ) ) -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_9 ) ) +Int -29643 ) )
         #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>

@@ -28,7 +28,7 @@
           #then   -54
           #else   -106
         #fi +Int -21378 ) ) ) ) ) )
-        #else   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Ink_u +Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , Art_u , ( Art_u -Int ABI_dart ) , Junk_5 ) ) +Int ( #if Rate ==Int 0
+        #else   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Ink_u +Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , chop( ( Art_u +Int pow256 ) ) , ( Art_u -Int ABI_dart ) , Junk_5 ) ) +Int ( #if Rate ==Int 0
           #then   -54
           #else   -106
         #fi +Int ( #if Rate ==Int 0
@@ -44,7 +44,7 @@
       #fi
     #fi
     #else   #if ( ABI_dart =/=Int 0 andBool 0 <=Int ABI_dart )
-      #then   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , Ink_u , ( Ink_u -Int ABI_dink ) , Junk_4 ) ) -Int Csstore( ISTANBUL , Art_u , ( Art_u -Int ABI_dart ) , Junk_5 ) ) +Int ( #if Rate ==Int 0
+      #then   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , chop( ( Ink_u +Int pow256 ) ) , ( Ink_u -Int ABI_dink ) , Junk_4 ) ) -Int Csstore( ISTANBUL , Art_u , ( Art_u -Int ABI_dart ) , Junk_5 ) ) +Int ( #if Rate ==Int 0
         #then   -54
         #else   -106
       #fi +Int ( #if Rate ==Int 0
@@ -58,7 +58,7 @@
         #else   -106
       #fi +Int -21434 ) ) ) ) ) )
       #else   #if 0 <=Int ABI_dart
-        #then   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , Ink_u , ( Ink_u -Int ABI_dink ) , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u +Int ABI_dart ) , Art_u , Junk_5 ) ) +Int ( #if Rate ==Int 0
+        #then   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , chop( ( Ink_u +Int pow256 ) ) , ( Ink_u -Int ABI_dink ) , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u +Int ABI_dart ) , Art_u , Junk_5 ) ) +Int ( #if Rate ==Int 0
           #then   -54
           #else   -106
         #fi +Int ( #if Rate ==Int 0
@@ -71,7 +71,7 @@
           #then   -54
           #else   -106
         #fi +Int -21406 ) ) ) ) ) )
-        #else   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , Ink_u , ( Ink_u -Int ABI_dink ) , Junk_4 ) ) -Int Csstore( ISTANBUL , Art_u , ( Art_u -Int ABI_dart ) , Junk_5 ) ) +Int ( #if Rate ==Int 0
+        #else   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , chop( ( Ink_u +Int pow256 ) ) , ( Ink_u -Int ABI_dink ) , Junk_4 ) ) -Int Csstore( ISTANBUL , chop( ( Art_u +Int pow256 ) ) , ( Art_u -Int ABI_dart ) , Junk_5 ) ) +Int ( #if Rate ==Int 0
           #then   -54
           #else   -106
         #fi +Int ( #if Rate ==Int 0
@@ -115,7 +115,7 @@
         #then   -54
         #else   -106
       #fi +Int -21406 ) ) ) ) ) )
-      #else   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , Ink_u , ( Ink_u -Int ABI_dink ) , Junk_4 ) ) -Int Csstore( ISTANBUL , Art_u , ( Art_u -Int ABI_dart ) , Junk_5 ) ) +Int ( #if Rate ==Int 0
+      #else   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , Ink_u , ( Ink_u -Int ABI_dink ) , Junk_4 ) ) -Int Csstore( ISTANBUL , chop( ( Art_u +Int pow256 ) ) , ( Art_u -Int ABI_dart ) , Junk_5 ) ) +Int ( #if Rate ==Int 0
         #then   -54
         #else   -106
       #fi +Int ( #if Rate ==Int 0

@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 7E18427B6011C37257D9AE37C8646218CD6532BE9785260DBE149D5B22F55808
+module CFD55CCDEE2E0681605CD46FFE39F2B21BFA7E3098F7C8E634DE21533AA433CB
   imports VERIFICATION
 
 // DaiJoin_join
@@ -95,7 +95,7 @@ claim [DaiJoin.join.pass.rough]:
           <acctID> Dai </acctID>
           <balance> Dai_balance </balance>
           <code> Dai_bin_runtime </code>
-          <storage> Dai_STORAGE => Dai_STORAGE [ #Dai.balanceOf[CALLER_ID] <- Dai_c -Int ABI_wad ] [ #Dai.totalSupply <- Supply -Int ABI_wad ] [ #Dai.allowance[CALLER_ID][ACCT_ID] <- #if Allowed ==Int maxUInt256 #then Allowed #else Allowed -Int ABI_wad #fi ] </storage>
+          <storage> Dai_STORAGE => Dai_STORAGE [ #Dai.allowance[CALLER_ID][ACCT_ID] <- #if Allowed ==Int maxUInt256 #then Allowed #else Allowed -Int ABI_wad #fi ] [ #Dai.balanceOf[CALLER_ID] <- Dai_c -Int ABI_wad ] [ #Dai.totalSupply <- Supply -Int ABI_wad ] </storage>
           <origStorage> Dai_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Dai => ?_ </nonce>
         </account>
@@ -250,15 +250,15 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.can[ACCT_ID][ACCT_ID] =/=Int #Vat.dai[ACCT_ID]
   andBool #Vat.can[ACCT_ID][ACCT_ID] =/=Int #Vat.dai[ABI_usr]
   andBool #Vat.dai[ACCT_ID] =/=Int #Vat.dai[ABI_usr]
+  andBool #lookup(Dai_STORAGE, #Dai.allowance[CALLER_ID][ACCT_ID]) ==Int Allowed
   andBool #lookup(Dai_STORAGE, #Dai.balanceOf[CALLER_ID]) ==Int Dai_c
   andBool #lookup(Dai_STORAGE, #Dai.totalSupply) ==Int Supply
-  andBool #lookup(Dai_STORAGE, #Dai.allowance[CALLER_ID][ACCT_ID]) ==Int Allowed
-  andBool #lookup(Dai_ORIG_STORAGE, #Dai.balanceOf[CALLER_ID]) ==Int Junk_5
-  andBool #lookup(Dai_ORIG_STORAGE, #Dai.totalSupply) ==Int Junk_6
-  andBool #lookup(Dai_ORIG_STORAGE, #Dai.allowance[CALLER_ID][ACCT_ID]) ==Int Junk_7
-  andBool #Dai.balanceOf[CALLER_ID] =/=Int #Dai.totalSupply
-  andBool #Dai.balanceOf[CALLER_ID] =/=Int #Dai.allowance[CALLER_ID][ACCT_ID]
-  andBool #Dai.totalSupply =/=Int #Dai.allowance[CALLER_ID][ACCT_ID] 
+  andBool #lookup(Dai_ORIG_STORAGE, #Dai.allowance[CALLER_ID][ACCT_ID]) ==Int Junk_5
+  andBool #lookup(Dai_ORIG_STORAGE, #Dai.balanceOf[CALLER_ID]) ==Int Junk_6
+  andBool #lookup(Dai_ORIG_STORAGE, #Dai.totalSupply) ==Int Junk_7
+  andBool #Dai.allowance[CALLER_ID][ACCT_ID] =/=Int #Dai.balanceOf[CALLER_ID]
+  andBool #Dai.allowance[CALLER_ID][ACCT_ID] =/=Int #Dai.totalSupply
+  andBool #Dai.balanceOf[CALLER_ID] =/=Int #Dai.totalSupply 
 
 // DaiJoin_muluu
 claim [DaiJoin.muluu.pass]:

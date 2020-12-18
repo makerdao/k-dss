@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module BDB31CD647D7C89EE60BF923C1E09C327CD19FD00B5E74213CA23E3F192187B2
+module 6D8248416E75938A78ABF2742DE5ED96764AE7B3E44EE4F58F0452D3C46A2AD1
   imports VERIFICATION
 
 // DaiJoin_join
@@ -242,15 +242,15 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.can[ACCT_ID][ACCT_ID] =/=Int #Vat.dai[ACCT_ID]
   andBool #Vat.can[ACCT_ID][ACCT_ID] =/=Int #Vat.dai[ABI_usr]
   andBool #Vat.dai[ACCT_ID] =/=Int #Vat.dai[ABI_usr]
+  andBool #lookup(Dai_STORAGE, #Dai.allowance[CALLER_ID][ACCT_ID]) ==Int Allowed
   andBool #lookup(Dai_STORAGE, #Dai.balanceOf[CALLER_ID]) ==Int Dai_c
   andBool #lookup(Dai_STORAGE, #Dai.totalSupply) ==Int Supply
-  andBool #lookup(Dai_STORAGE, #Dai.allowance[CALLER_ID][ACCT_ID]) ==Int Allowed
-  andBool #lookup(Dai_ORIG_STORAGE, #Dai.balanceOf[CALLER_ID]) ==Int Junk_5
-  andBool #lookup(Dai_ORIG_STORAGE, #Dai.totalSupply) ==Int Junk_6
-  andBool #lookup(Dai_ORIG_STORAGE, #Dai.allowance[CALLER_ID][ACCT_ID]) ==Int Junk_7
+  andBool #lookup(Dai_ORIG_STORAGE, #Dai.allowance[CALLER_ID][ACCT_ID]) ==Int Junk_5
+  andBool #lookup(Dai_ORIG_STORAGE, #Dai.balanceOf[CALLER_ID]) ==Int Junk_6
+  andBool #lookup(Dai_ORIG_STORAGE, #Dai.totalSupply) ==Int Junk_7
+  andBool #Dai.allowance[CALLER_ID][ACCT_ID] =/=Int #Dai.balanceOf[CALLER_ID]
+  andBool #Dai.allowance[CALLER_ID][ACCT_ID] =/=Int #Dai.totalSupply
   andBool #Dai.balanceOf[CALLER_ID] =/=Int #Dai.totalSupply
-  andBool #Dai.balanceOf[CALLER_ID] =/=Int #Dai.allowance[CALLER_ID][ACCT_ID]
-  andBool #Dai.totalSupply =/=Int #Dai.allowance[CALLER_ID][ACCT_ID]
   andBool notBool (
     (((VCallValue:Int ==Int 0))
     andBool (((VCallDepth:Int <Int 1024))

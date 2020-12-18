@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 44096A186B1432FE87A6F15E091A955CD9202A7C186816AD212779F87DCD185C
+module C31ED9D4F314AED884FC2C1517EF0527C996A82C41444D5B60C1ECB37ECBC789
   imports VERIFICATION
 
-// Vat_frob-diff-nonzero
-claim [Vat.frob-diff-nonzero.pass.rough]:
+// Vat_frob-same-zero-dart
+claim [Vat.frob-same-zero-dart.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -27,7 +27,22 @@ claim [Vat.frob-diff-nonzero.pass.rough]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => ?_ </gas>
+        <gas> #gas(VGas) => #if 0 <=Int ABI_dink
+          #then   #gas ( ( ( ( ( ( ( ( ( ( ( ( ( ( VGas +Int #if Urn_art ==Int 0
+            #then   -54
+            #else   -106
+          #fi ) -Int Csstore( ISTANBUL , Debt , Debt , Junk_6 ) ) +Int #if Ilk_spot ==Int 0
+            #then   -54
+            #else   -106
+          #fi ) -Int Csstore( ISTANBUL , ( Gem_iu -Int ABI_dink ) , Gem_iu , Junk_7 ) ) -Int Csstore( ISTANBUL , Dai_u , Dai_u , Junk_8 ) ) -Int Csstore( ISTANBUL , ( Urn_ink +Int ABI_dink ) , Urn_ink , Junk_9 ) ) -Int Csstore( ISTANBUL , Urn_art , Urn_art , Junk_10 ) ) -Int Csstore( ISTANBUL , Ilk_Art , Ilk_Art , Junk_11 ) ) -Int Csstore( ISTANBUL , Ilk_rate , Ilk_rate , Junk_0 ) ) -Int Csstore( ISTANBUL , Ilk_spot , Ilk_spot , Junk_2 ) ) -Int Csstore( ISTANBUL , Ilk_line , Ilk_line , Junk_1 ) ) -Int Csstore( ISTANBUL , Ilk_dust , Ilk_dust , Junk_3 ) ) +Int -22353 ) )
+          #else   #gas ( ( ( ( ( ( ( ( ( ( ( ( ( ( VGas +Int #if Urn_art ==Int 0
+            #then   -54
+            #else   -106
+          #fi ) -Int Csstore( ISTANBUL , Debt , Debt , Junk_6 ) ) +Int #if Ilk_spot ==Int 0
+            #then   -54
+            #else   -106
+          #fi ) -Int Csstore( ISTANBUL , ( Gem_iu -Int ABI_dink ) , Gem_iu , Junk_7 ) ) -Int Csstore( ISTANBUL , Dai_u , Dai_u , Junk_8 ) ) -Int Csstore( ISTANBUL , ( Urn_ink +Int ABI_dink ) , Urn_ink , Junk_9 ) ) -Int Csstore( ISTANBUL , Urn_art , Urn_art , Junk_10 ) ) -Int Csstore( ISTANBUL , Ilk_Art , Ilk_Art , Junk_11 ) ) -Int Csstore( ISTANBUL , Ilk_rate , Ilk_rate , Junk_0 ) ) -Int Csstore( ISTANBUL , Ilk_spot , Ilk_spot , Junk_2 ) ) -Int Csstore( ISTANBUL , Ilk_line , Ilk_line , Junk_1 ) ) -Int Csstore( ISTANBUL , Ilk_dust , Ilk_dust , Junk_3 ) ) +Int -22353 ) )
+        #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
@@ -77,7 +92,7 @@ claim [Vat.frob-diff-nonzero.pass.rough]:
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
           <code> Vat_bin_runtime </code>
-          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Vat.debt <- Debt  +Int (Ilk_rate *Int ABI_dart) ] [ #Vat.gem[ABI_i][ABI_v] <- Gem_iv  -Int ABI_dink ] [ #Vat.dai[ABI_w] <- Dai_w +Int (Ilk_rate *Int ABI_dart) ] [ #Vat.urns[ABI_i][ABI_u].ink <- Urn_ink +Int ABI_dink ] [ #Vat.urns[ABI_i][ABI_u].art <- Urn_art +Int ABI_dart ] [ #Vat.ilks[ABI_i].Art <- Ilk_Art +Int ABI_dart ] </storage>
+          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Vat.gem[ABI_i][ABI_u] <- Gem_iu  -Int ABI_dink ]  [ #Vat.urns[ABI_i][ABI_u].ink <- Urn_ink +Int ABI_dink ] </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vat => ?_ </nonce>
         </account>
@@ -193,20 +208,18 @@ andBool #rangeUInt(256, VChainId)
   andBool (#rangeUInt(256, Ilk_Art)
   andBool (#rangeUInt(256, Urn_ink)
   andBool (#rangeUInt(256, Urn_art)
-  andBool (#rangeUInt(256, Gem_iv)
-  andBool (#rangeUInt(256, Dai_w)
+  andBool (#rangeUInt(256, Gem_iu)
+  andBool (#rangeUInt(256, Dai_u)
   andBool (#rangeUInt(256, Debt)
   andBool (#rangeUInt(256, Line)
   andBool (#rangeUInt(256, Can_u)
-  andBool (#rangeUInt(256, Can_v)
-  andBool (#rangeUInt(256, Can_w)
   andBool (#rangeUInt(256, Live)
   andBool ((#sizeByteArray(CD) <=Int 1250000000)
-  andBool ((ABI_u =/=Int ABI_v)
-  andBool ((ABI_v =/=Int ABI_w)
-  andBool ((ABI_u =/=Int ABI_w)
+  andBool ((ABI_u ==Int ABI_v)
+  andBool ((ABI_v ==Int ABI_w)
+  andBool ((ABI_u ==Int ABI_w)
   andBool ((ABI_dink =/=Int 0)
-  andBool ((ABI_dart =/=Int 0)
+  andBool ((ABI_dart ==Int 0)
   andBool (#rangeUInt(256, Junk_0)
   andBool (#rangeUInt(256, Junk_1)
   andBool (#rangeUInt(256, Junk_2)
@@ -220,26 +233,18 @@ andBool #rangeUInt(256, VChainId)
   andBool (#rangeUInt(256, Junk_10)
   andBool (#rangeUInt(256, Junk_11)
   andBool (#rangeUInt(256, Junk_12)
-  andBool (#rangeUInt(256, Junk_13)
-  andBool (#rangeUInt(256, Junk_14)
   andBool ((((#rangeUInt(256, Urn_ink +Int ABI_dink))))
-  andBool ((((#rangeUInt(256, Gem_iv  -Int ABI_dink))))
+  andBool ((((#rangeUInt(256, Gem_iu  -Int ABI_dink))))
   andBool ((((#rangeUInt(256, (Urn_ink +Int ABI_dink) *Int Ilk_spot))))
-  andBool ((((#rangeUInt(256, (Urn_art +Int ABI_dart) *Int Ilk_rate))))
-  andBool ((((#rangeUInt(256, (Ilk_Art +Int ABI_dart) *Int Ilk_rate))))
-  andBool ((((#rangeUInt(256, Dai_w +Int (Ilk_rate *Int ABI_dart)))))
-  andBool ((((#rangeUInt(256, Debt  +Int (Ilk_rate *Int ABI_dart)))))
+  andBool ((((#rangeUInt(256, Urn_art *Int Ilk_rate))))
+  andBool ((((#rangeUInt(256, Ilk_Art *Int Ilk_rate))))
   andBool (((#rangeSInt(256, Ilk_rate)))
-  andBool (((#rangeSInt(256, Ilk_rate *Int ABI_dart)))
   andBool ((VCallValue ==Int 0)
   andBool ((Live ==Int 1)
   andBool ((Ilk_rate =/=Int 0)
-  andBool (((ABI_dart <=Int 0) orBool (((Ilk_Art +Int ABI_dart) *Int Ilk_rate <=Int Ilk_line) andBool ((Debt +Int Ilk_rate *Int ABI_dart) <=Int Line)))
-  andBool (((ABI_dart <=Int 0 andBool ABI_dink >=Int 0) orBool ((((Urn_art +Int ABI_dart) *Int Ilk_rate) <=Int ((Urn_ink +Int ABI_dink) *Int Ilk_spot))))
-  andBool (((ABI_dart <=Int 0 andBool ABI_dink >=Int 0) orBool (ABI_u ==Int CALLER_ID orBool Can_u ==Int 1))
-  andBool (((ABI_dink <=Int 0) orBool (ABI_v ==Int CALLER_ID orBool Can_v ==Int 1))
-  andBool (((ABI_dart >=Int 0) orBool (ABI_w ==Int CALLER_ID orBool Can_w ==Int 1))
-  andBool ((((Urn_art +Int ABI_dart) ==Int 0) orBool (((Urn_art +Int ABI_dart) *Int Ilk_rate) >=Int Ilk_dust))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+  andBool (((ABI_dink >=Int 0) orBool (((Urn_art *Int Ilk_rate) <=Int ((Urn_ink +Int ABI_dink) *Int Ilk_spot))))
+  andBool (((ABI_u ==Int CALLER_ID orBool Can_u ==Int 1))
+  andBool (((Urn_art ==Int 0) orBool ((Urn_art *Int Ilk_rate) >=Int Ilk_dust))))))))))))))))))))))))))))))))))))))))))))))))))))
 
   andBool #lookup(ACCT_ID_STORAGE, #Vat.ilks[ABI_i].rate) ==Int Ilk_rate
   andBool #lookup(ACCT_ID_STORAGE, #Vat.ilks[ABI_i].line) ==Int Ilk_line
@@ -247,11 +252,9 @@ andBool #rangeUInt(256, VChainId)
   andBool #lookup(ACCT_ID_STORAGE, #Vat.ilks[ABI_i].dust) ==Int Ilk_dust
   andBool #lookup(ACCT_ID_STORAGE, #Vat.Line) ==Int Line
   andBool #lookup(ACCT_ID_STORAGE, #Vat.can[ABI_u][CALLER_ID]) ==Int Can_u
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.can[ABI_v][CALLER_ID]) ==Int Can_v
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.can[ABI_w][CALLER_ID]) ==Int Can_w
   andBool #lookup(ACCT_ID_STORAGE, #Vat.debt) ==Int Debt
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.gem[ABI_i][ABI_v]) ==Int Gem_iv
-  andBool #lookup(ACCT_ID_STORAGE, #Vat.dai[ABI_w]) ==Int Dai_w
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.gem[ABI_i][ABI_u]) ==Int Gem_iu
+  andBool #lookup(ACCT_ID_STORAGE, #Vat.dai[ABI_u]) ==Int Dai_u
   andBool #lookup(ACCT_ID_STORAGE, #Vat.urns[ABI_i][ABI_u].ink) ==Int Urn_ink
   andBool #lookup(ACCT_ID_STORAGE, #Vat.urns[ABI_i][ABI_u].art) ==Int Urn_art
   andBool #lookup(ACCT_ID_STORAGE, #Vat.ilks[ABI_i].Art) ==Int Ilk_Art
@@ -262,25 +265,21 @@ andBool #rangeUInt(256, VChainId)
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.ilks[ABI_i].dust) ==Int Junk_3
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.Line) ==Int Junk_4
   andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.can[ABI_u][CALLER_ID]) ==Int Junk_5
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.can[ABI_v][CALLER_ID]) ==Int Junk_6
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.can[ABI_w][CALLER_ID]) ==Int Junk_7
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.debt) ==Int Junk_8
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.gem[ABI_i][ABI_v]) ==Int Junk_9
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[ABI_w]) ==Int Junk_10
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.urns[ABI_i][ABI_u].ink) ==Int Junk_11
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.urns[ABI_i][ABI_u].art) ==Int Junk_12
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.ilks[ABI_i].Art) ==Int Junk_13
-  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.live) ==Int Junk_14
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.debt) ==Int Junk_6
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.gem[ABI_i][ABI_u]) ==Int Junk_7
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.dai[ABI_u]) ==Int Junk_8
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.urns[ABI_i][ABI_u].ink) ==Int Junk_9
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.urns[ABI_i][ABI_u].art) ==Int Junk_10
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.ilks[ABI_i].Art) ==Int Junk_11
+  andBool #lookup(ACCT_ID_ORIG_STORAGE, #Vat.live) ==Int Junk_12
   andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.ilks[ABI_i].line
   andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.ilks[ABI_i].spot
   andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.ilks[ABI_i].dust
   andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.Line
   andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.can[ABI_u][CALLER_ID]
-  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.can[ABI_v][CALLER_ID]
-  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.can[ABI_w][CALLER_ID]
   andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.debt
-  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.gem[ABI_i][ABI_v]
-  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.dai[ABI_w]
+  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.gem[ABI_i][ABI_u]
+  andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.dai[ABI_u]
   andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.urns[ABI_i][ABI_u].ink
   andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.urns[ABI_i][ABI_u].art
   andBool #Vat.ilks[ABI_i].rate =/=Int #Vat.ilks[ABI_i].Art
@@ -289,11 +288,9 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.ilks[ABI_i].line =/=Int #Vat.ilks[ABI_i].dust
   andBool #Vat.ilks[ABI_i].line =/=Int #Vat.Line
   andBool #Vat.ilks[ABI_i].line =/=Int #Vat.can[ABI_u][CALLER_ID]
-  andBool #Vat.ilks[ABI_i].line =/=Int #Vat.can[ABI_v][CALLER_ID]
-  andBool #Vat.ilks[ABI_i].line =/=Int #Vat.can[ABI_w][CALLER_ID]
   andBool #Vat.ilks[ABI_i].line =/=Int #Vat.debt
-  andBool #Vat.ilks[ABI_i].line =/=Int #Vat.gem[ABI_i][ABI_v]
-  andBool #Vat.ilks[ABI_i].line =/=Int #Vat.dai[ABI_w]
+  andBool #Vat.ilks[ABI_i].line =/=Int #Vat.gem[ABI_i][ABI_u]
+  andBool #Vat.ilks[ABI_i].line =/=Int #Vat.dai[ABI_u]
   andBool #Vat.ilks[ABI_i].line =/=Int #Vat.urns[ABI_i][ABI_u].ink
   andBool #Vat.ilks[ABI_i].line =/=Int #Vat.urns[ABI_i][ABI_u].art
   andBool #Vat.ilks[ABI_i].line =/=Int #Vat.ilks[ABI_i].Art
@@ -301,75 +298,52 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.ilks[ABI_i].dust
   andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.Line
   andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.can[ABI_u][CALLER_ID]
-  andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.can[ABI_v][CALLER_ID]
-  andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.can[ABI_w][CALLER_ID]
   andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.debt
-  andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.gem[ABI_i][ABI_v]
-  andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.dai[ABI_w]
+  andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.gem[ABI_i][ABI_u]
+  andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.dai[ABI_u]
   andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.urns[ABI_i][ABI_u].ink
   andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.urns[ABI_i][ABI_u].art
   andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.ilks[ABI_i].Art
   andBool #Vat.ilks[ABI_i].spot =/=Int #Vat.live
   andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.Line
   andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.can[ABI_u][CALLER_ID]
-  andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.can[ABI_v][CALLER_ID]
-  andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.can[ABI_w][CALLER_ID]
   andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.debt
-  andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.gem[ABI_i][ABI_v]
-  andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.dai[ABI_w]
+  andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.gem[ABI_i][ABI_u]
+  andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.dai[ABI_u]
   andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.urns[ABI_i][ABI_u].ink
   andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.urns[ABI_i][ABI_u].art
   andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.ilks[ABI_i].Art
   andBool #Vat.ilks[ABI_i].dust =/=Int #Vat.live
   andBool #Vat.Line =/=Int #Vat.can[ABI_u][CALLER_ID]
-  andBool #Vat.Line =/=Int #Vat.can[ABI_v][CALLER_ID]
-  andBool #Vat.Line =/=Int #Vat.can[ABI_w][CALLER_ID]
   andBool #Vat.Line =/=Int #Vat.debt
-  andBool #Vat.Line =/=Int #Vat.gem[ABI_i][ABI_v]
-  andBool #Vat.Line =/=Int #Vat.dai[ABI_w]
+  andBool #Vat.Line =/=Int #Vat.gem[ABI_i][ABI_u]
+  andBool #Vat.Line =/=Int #Vat.dai[ABI_u]
   andBool #Vat.Line =/=Int #Vat.urns[ABI_i][ABI_u].ink
   andBool #Vat.Line =/=Int #Vat.urns[ABI_i][ABI_u].art
   andBool #Vat.Line =/=Int #Vat.ilks[ABI_i].Art
   andBool #Vat.Line =/=Int #Vat.live
-  andBool #Vat.can[ABI_u][CALLER_ID] =/=Int #Vat.can[ABI_v][CALLER_ID]
-  andBool #Vat.can[ABI_u][CALLER_ID] =/=Int #Vat.can[ABI_w][CALLER_ID]
   andBool #Vat.can[ABI_u][CALLER_ID] =/=Int #Vat.debt
-  andBool #Vat.can[ABI_u][CALLER_ID] =/=Int #Vat.gem[ABI_i][ABI_v]
-  andBool #Vat.can[ABI_u][CALLER_ID] =/=Int #Vat.dai[ABI_w]
+  andBool #Vat.can[ABI_u][CALLER_ID] =/=Int #Vat.gem[ABI_i][ABI_u]
+  andBool #Vat.can[ABI_u][CALLER_ID] =/=Int #Vat.dai[ABI_u]
   andBool #Vat.can[ABI_u][CALLER_ID] =/=Int #Vat.urns[ABI_i][ABI_u].ink
   andBool #Vat.can[ABI_u][CALLER_ID] =/=Int #Vat.urns[ABI_i][ABI_u].art
   andBool #Vat.can[ABI_u][CALLER_ID] =/=Int #Vat.ilks[ABI_i].Art
   andBool #Vat.can[ABI_u][CALLER_ID] =/=Int #Vat.live
-  andBool #Vat.can[ABI_v][CALLER_ID] =/=Int #Vat.can[ABI_w][CALLER_ID]
-  andBool #Vat.can[ABI_v][CALLER_ID] =/=Int #Vat.debt
-  andBool #Vat.can[ABI_v][CALLER_ID] =/=Int #Vat.gem[ABI_i][ABI_v]
-  andBool #Vat.can[ABI_v][CALLER_ID] =/=Int #Vat.dai[ABI_w]
-  andBool #Vat.can[ABI_v][CALLER_ID] =/=Int #Vat.urns[ABI_i][ABI_u].ink
-  andBool #Vat.can[ABI_v][CALLER_ID] =/=Int #Vat.urns[ABI_i][ABI_u].art
-  andBool #Vat.can[ABI_v][CALLER_ID] =/=Int #Vat.ilks[ABI_i].Art
-  andBool #Vat.can[ABI_v][CALLER_ID] =/=Int #Vat.live
-  andBool #Vat.can[ABI_w][CALLER_ID] =/=Int #Vat.debt
-  andBool #Vat.can[ABI_w][CALLER_ID] =/=Int #Vat.gem[ABI_i][ABI_v]
-  andBool #Vat.can[ABI_w][CALLER_ID] =/=Int #Vat.dai[ABI_w]
-  andBool #Vat.can[ABI_w][CALLER_ID] =/=Int #Vat.urns[ABI_i][ABI_u].ink
-  andBool #Vat.can[ABI_w][CALLER_ID] =/=Int #Vat.urns[ABI_i][ABI_u].art
-  andBool #Vat.can[ABI_w][CALLER_ID] =/=Int #Vat.ilks[ABI_i].Art
-  andBool #Vat.can[ABI_w][CALLER_ID] =/=Int #Vat.live
-  andBool #Vat.debt =/=Int #Vat.gem[ABI_i][ABI_v]
-  andBool #Vat.debt =/=Int #Vat.dai[ABI_w]
+  andBool #Vat.debt =/=Int #Vat.gem[ABI_i][ABI_u]
+  andBool #Vat.debt =/=Int #Vat.dai[ABI_u]
   andBool #Vat.debt =/=Int #Vat.urns[ABI_i][ABI_u].ink
   andBool #Vat.debt =/=Int #Vat.urns[ABI_i][ABI_u].art
   andBool #Vat.debt =/=Int #Vat.ilks[ABI_i].Art
   andBool #Vat.debt =/=Int #Vat.live
-  andBool #Vat.gem[ABI_i][ABI_v] =/=Int #Vat.dai[ABI_w]
-  andBool #Vat.gem[ABI_i][ABI_v] =/=Int #Vat.urns[ABI_i][ABI_u].ink
-  andBool #Vat.gem[ABI_i][ABI_v] =/=Int #Vat.urns[ABI_i][ABI_u].art
-  andBool #Vat.gem[ABI_i][ABI_v] =/=Int #Vat.ilks[ABI_i].Art
-  andBool #Vat.gem[ABI_i][ABI_v] =/=Int #Vat.live
-  andBool #Vat.dai[ABI_w] =/=Int #Vat.urns[ABI_i][ABI_u].ink
-  andBool #Vat.dai[ABI_w] =/=Int #Vat.urns[ABI_i][ABI_u].art
-  andBool #Vat.dai[ABI_w] =/=Int #Vat.ilks[ABI_i].Art
-  andBool #Vat.dai[ABI_w] =/=Int #Vat.live
+  andBool #Vat.gem[ABI_i][ABI_u] =/=Int #Vat.dai[ABI_u]
+  andBool #Vat.gem[ABI_i][ABI_u] =/=Int #Vat.urns[ABI_i][ABI_u].ink
+  andBool #Vat.gem[ABI_i][ABI_u] =/=Int #Vat.urns[ABI_i][ABI_u].art
+  andBool #Vat.gem[ABI_i][ABI_u] =/=Int #Vat.ilks[ABI_i].Art
+  andBool #Vat.gem[ABI_i][ABI_u] =/=Int #Vat.live
+  andBool #Vat.dai[ABI_u] =/=Int #Vat.urns[ABI_i][ABI_u].ink
+  andBool #Vat.dai[ABI_u] =/=Int #Vat.urns[ABI_i][ABI_u].art
+  andBool #Vat.dai[ABI_u] =/=Int #Vat.ilks[ABI_i].Art
+  andBool #Vat.dai[ABI_u] =/=Int #Vat.live
   andBool #Vat.urns[ABI_i][ABI_u].ink =/=Int #Vat.urns[ABI_i][ABI_u].art
   andBool #Vat.urns[ABI_i][ABI_u].ink =/=Int #Vat.ilks[ABI_i].Art
   andBool #Vat.urns[ABI_i][ABI_u].ink =/=Int #Vat.live

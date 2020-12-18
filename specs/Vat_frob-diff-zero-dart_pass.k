@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module 44096A186B1432FE87A6F15E091A955CD9202A7C186816AD212779F87DCD185C
+module A99E69FAA4E59B9AF1491B05BFE94D8DC8D82D32B3C4943C1D8C94EF7F81D135
   imports VERIFICATION
 
-// Vat_frob-diff-nonzero
-claim [Vat.frob-diff-nonzero.pass.rough]:
+// Vat_frob-diff-zero-dart
+claim [Vat.frob-diff-zero-dart.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -27,7 +27,22 @@ claim [Vat.frob-diff-nonzero.pass.rough]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => ?_ </gas>
+        <gas> #gas(VGas) => #if 0 <=Int ABI_dink
+          #then   #gas ( ( ( ( ( ( ( ( ( ( ( ( ( ( VGas +Int #if Urn_art ==Int 0
+            #then   -54
+            #else   -106
+          #fi ) -Int Csstore( ISTANBUL , Debt , Debt , Junk_8 ) ) +Int #if Ilk_spot ==Int 0
+            #then   -54
+            #else   -106
+          #fi ) -Int Csstore( ISTANBUL , ( Gem_iv -Int ABI_dink ) , Gem_iv , Junk_9 ) ) -Int Csstore( ISTANBUL , Dai_w , Dai_w , Junk_10 ) ) -Int Csstore( ISTANBUL , ( Urn_ink +Int ABI_dink ) , Urn_ink , Junk_11 ) ) -Int Csstore( ISTANBUL , Urn_art , Urn_art , Junk_12 ) ) -Int Csstore( ISTANBUL , Ilk_Art , Ilk_Art , Junk_13 ) ) -Int Csstore( ISTANBUL , Ilk_rate , Ilk_rate , Junk_0 ) ) -Int Csstore( ISTANBUL , Ilk_spot , Ilk_spot , Junk_2 ) ) -Int Csstore( ISTANBUL , Ilk_line , Ilk_line , Junk_1 ) ) -Int Csstore( ISTANBUL , Ilk_dust , Ilk_dust , Junk_3 ) ) +Int -22353 ) )
+          #else   #gas ( ( ( ( ( ( ( ( ( ( ( ( ( ( VGas +Int #if Urn_art ==Int 0
+            #then   -54
+            #else   -106
+          #fi ) -Int Csstore( ISTANBUL , Debt , Debt , Junk_8 ) ) +Int #if Ilk_spot ==Int 0
+            #then   -54
+            #else   -106
+          #fi ) -Int Csstore( ISTANBUL , ( Gem_iv -Int ABI_dink ) , Gem_iv , Junk_9 ) ) -Int Csstore( ISTANBUL , Dai_w , Dai_w , Junk_10 ) ) -Int Csstore( ISTANBUL , ( Urn_ink +Int ABI_dink ) , Urn_ink , Junk_11 ) ) -Int Csstore( ISTANBUL , Urn_art , Urn_art , Junk_12 ) ) -Int Csstore( ISTANBUL , Ilk_Art , Ilk_Art , Junk_13 ) ) -Int Csstore( ISTANBUL , Ilk_rate , Ilk_rate , Junk_0 ) ) -Int Csstore( ISTANBUL , Ilk_spot , Ilk_spot , Junk_2 ) ) -Int Csstore( ISTANBUL , Ilk_line , Ilk_line , Junk_1 ) ) -Int Csstore( ISTANBUL , Ilk_dust , Ilk_dust , Junk_3 ) ) +Int -22353 ) )
+        #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
@@ -77,7 +92,7 @@ claim [Vat.frob-diff-nonzero.pass.rough]:
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
           <code> Vat_bin_runtime </code>
-          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Vat.debt <- Debt  +Int (Ilk_rate *Int ABI_dart) ] [ #Vat.gem[ABI_i][ABI_v] <- Gem_iv  -Int ABI_dink ] [ #Vat.dai[ABI_w] <- Dai_w +Int (Ilk_rate *Int ABI_dart) ] [ #Vat.urns[ABI_i][ABI_u].ink <- Urn_ink +Int ABI_dink ] [ #Vat.urns[ABI_i][ABI_u].art <- Urn_art +Int ABI_dart ] [ #Vat.ilks[ABI_i].Art <- Ilk_Art +Int ABI_dart ] </storage>
+          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Vat.gem[ABI_i][ABI_v] <- Gem_iv  -Int ABI_dink ]  [ #Vat.urns[ABI_i][ABI_u].ink <- Urn_ink +Int ABI_dink ] </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vat => ?_ </nonce>
         </account>
@@ -206,7 +221,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((ABI_v =/=Int ABI_w)
   andBool ((ABI_u =/=Int ABI_w)
   andBool ((ABI_dink =/=Int 0)
-  andBool ((ABI_dart =/=Int 0)
+  andBool ((ABI_dart ==Int 0)
   andBool (#rangeUInt(256, Junk_0)
   andBool (#rangeUInt(256, Junk_1)
   andBool (#rangeUInt(256, Junk_2)
@@ -225,21 +240,16 @@ andBool #rangeUInt(256, VChainId)
   andBool ((((#rangeUInt(256, Urn_ink +Int ABI_dink))))
   andBool ((((#rangeUInt(256, Gem_iv  -Int ABI_dink))))
   andBool ((((#rangeUInt(256, (Urn_ink +Int ABI_dink) *Int Ilk_spot))))
-  andBool ((((#rangeUInt(256, (Urn_art +Int ABI_dart) *Int Ilk_rate))))
-  andBool ((((#rangeUInt(256, (Ilk_Art +Int ABI_dart) *Int Ilk_rate))))
-  andBool ((((#rangeUInt(256, Dai_w +Int (Ilk_rate *Int ABI_dart)))))
-  andBool ((((#rangeUInt(256, Debt  +Int (Ilk_rate *Int ABI_dart)))))
+  andBool ((((#rangeUInt(256, Urn_art *Int Ilk_rate))))
+  andBool ((((#rangeUInt(256, Ilk_Art *Int Ilk_rate))))
   andBool (((#rangeSInt(256, Ilk_rate)))
-  andBool (((#rangeSInt(256, Ilk_rate *Int ABI_dart)))
   andBool ((VCallValue ==Int 0)
   andBool ((Live ==Int 1)
   andBool ((Ilk_rate =/=Int 0)
-  andBool (((ABI_dart <=Int 0) orBool (((Ilk_Art +Int ABI_dart) *Int Ilk_rate <=Int Ilk_line) andBool ((Debt +Int Ilk_rate *Int ABI_dart) <=Int Line)))
-  andBool (((ABI_dart <=Int 0 andBool ABI_dink >=Int 0) orBool ((((Urn_art +Int ABI_dart) *Int Ilk_rate) <=Int ((Urn_ink +Int ABI_dink) *Int Ilk_spot))))
-  andBool (((ABI_dart <=Int 0 andBool ABI_dink >=Int 0) orBool (ABI_u ==Int CALLER_ID orBool Can_u ==Int 1))
+  andBool (((ABI_dink >=Int 0) orBool (((Urn_art *Int Ilk_rate) <=Int ((Urn_ink +Int ABI_dink) *Int Ilk_spot))))
+  andBool (((ABI_dink >=Int 0) orBool (ABI_u ==Int CALLER_ID orBool Can_u ==Int 1))
   andBool (((ABI_dink <=Int 0) orBool (ABI_v ==Int CALLER_ID orBool Can_v ==Int 1))
-  andBool (((ABI_dart >=Int 0) orBool (ABI_w ==Int CALLER_ID orBool Can_w ==Int 1))
-  andBool ((((Urn_art +Int ABI_dart) ==Int 0) orBool (((Urn_art +Int ABI_dart) *Int Ilk_rate) >=Int Ilk_dust))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+  andBool (((Urn_art ==Int 0) orBool ((Urn_art *Int Ilk_rate) >=Int Ilk_dust)))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
   andBool #lookup(ACCT_ID_STORAGE, #Vat.ilks[ABI_i].rate) ==Int Ilk_rate
   andBool #lookup(ACCT_ID_STORAGE, #Vat.ilks[ABI_i].line) ==Int Ilk_line
