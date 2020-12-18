@@ -5961,8 +5961,8 @@ storage
 
 storage Vat
   can[CALLER_ID][ACCT_ID] |-> Can
-  dai[Gal]       |-> Dai_g => Dai_g + (bid - Bid)
   dai[CALLER_ID] |-> Dai_c => Dai_c - (bid - Bid)
+  dai[Gal]       |-> Dai_g => Dai_g + (bid - Bid)
 
 iff
   VCallValue == 0
@@ -9273,6 +9273,7 @@ if
     VowVat  == Vat
     VowVat  =/= Vow
     FlapVat =/= Vow
+    Spotter =/= VowVat
 
 calls
     Vat.cage
