@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 956113093A13B45AFD3A3566CF0FC1431EC8C0D59E1200E04D1CB9A9DA4A460C
+module 40BA1F0D601ECBC5008EA2874FAC4C253416EA065E8E36133B6989122984E4F2
   imports VERIFICATION
 
 // Flapper_tend-guy-same
@@ -28,25 +28,25 @@ claim [Flapper.tend-guy-same.pass]:
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
         <gas> #gas(VGas) => #if Tic <=Int TIME
-          #then   #if ( #lookup( DSToken_STORAGE , hash2 ( ACCT_ID , hash2 ( Guy , 2 ) ) ) ==Int maxUInt256 andBool ( Allowed ==Int maxUInt256 andBool ( maxUInt256 ==Int maxUInt256 orBool ( ABI_bid -Int Bid ) <=Int maxUInt256 ) ) )
+          #then   #if ( #lookup( DSToken_STORAGE , hash2 ( ACCT_ID , hash2 ( CALLER_ID , 2 ) ) ) ==Int maxUInt256 andBool ( Allowed ==Int maxUInt256 andBool ( maxUInt256 ==Int maxUInt256 orBool ( ABI_bid -Int Bid ) <=Int maxUInt256 ) ) )
             #then   #gas ( ( ( ( ( ( ( VGas +Int #if Bid ==Int 0
               #then   -54
               #else   -106
-            #fi ) -Int Csstore( ISTANBUL , ( ( Gem_u -Int ABI_bid ) +Int Bid ) , Gem_u , Junk_8 ) ) -Int Csstore( ISTANBUL , ( ( Gem_a +Int ABI_bid ) -Int Bid ) , Gem_a , Junk_9 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_4 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -26723 ) )
+            #fi ) -Int Csstore( ISTANBUL , ( ( Gem_u -Int ABI_bid ) +Int Bid ) , Gem_u , Junk_8 ) ) -Int Csstore( ISTANBUL , ( ( Gem_a +Int ABI_bid ) -Int Bid ) , Gem_a , Junk_9 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_4 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -26723 ) )
             #else   #gas ( ( ( ( ( ( ( ( VGas +Int #if Bid ==Int 0
               #then   -54
               #else   -106
-            #fi ) -Int Csstore( ISTANBUL , ( ( Allowed -Int ABI_bid ) +Int Bid ) , Allowed , Junk_7 ) ) -Int Csstore( ISTANBUL , ( ( Gem_u -Int ABI_bid ) +Int Bid ) , Gem_u , Junk_8 ) ) -Int Csstore( ISTANBUL , ( ( Gem_a +Int ABI_bid ) -Int Bid ) , Gem_a , Junk_9 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_4 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -28980 ) )
+            #fi ) -Int Csstore( ISTANBUL , ( ( Allowed -Int ABI_bid ) +Int Bid ) , Allowed , Junk_7 ) ) -Int Csstore( ISTANBUL , ( ( Gem_u -Int ABI_bid ) +Int Bid ) , Gem_u , Junk_8 ) ) -Int Csstore( ISTANBUL , ( ( Gem_a +Int ABI_bid ) -Int Bid ) , Gem_a , Junk_9 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_4 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -28980 ) )
           #fi
-          #else   #if ( #lookup( DSToken_STORAGE , hash2 ( ACCT_ID , hash2 ( Guy , 2 ) ) ) ==Int maxUInt256 andBool ( Allowed ==Int maxUInt256 andBool ( maxUInt256 ==Int maxUInt256 orBool ( ABI_bid -Int Bid ) <=Int maxUInt256 ) ) )
+          #else   #if ( #lookup( DSToken_STORAGE , hash2 ( ACCT_ID , hash2 ( CALLER_ID , 2 ) ) ) ==Int maxUInt256 andBool ( Allowed ==Int maxUInt256 andBool ( maxUInt256 ==Int maxUInt256 orBool ( ABI_bid -Int Bid ) <=Int maxUInt256 ) ) )
             #then   #gas ( ( ( ( ( ( ( VGas +Int #if Bid ==Int 0
               #then   -54
               #else   -106
-            #fi ) -Int Csstore( ISTANBUL , ( ( Gem_u -Int ABI_bid ) +Int Bid ) , Gem_u , Junk_8 ) ) -Int Csstore( ISTANBUL , ( ( Gem_a +Int ABI_bid ) -Int Bid ) , Gem_a , Junk_9 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_4 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -25736 ) )
+            #fi ) -Int Csstore( ISTANBUL , ( ( Gem_u -Int ABI_bid ) +Int Bid ) , Gem_u , Junk_8 ) ) -Int Csstore( ISTANBUL , ( ( Gem_a +Int ABI_bid ) -Int Bid ) , Gem_a , Junk_9 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_4 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -25736 ) )
             #else   #gas ( ( ( ( ( ( ( ( VGas +Int #if Bid ==Int 0
               #then   -54
               #else   -106
-            #fi ) -Int Csstore( ISTANBUL , ( ( Allowed -Int ABI_bid ) +Int Bid ) , Allowed , Junk_7 ) ) -Int Csstore( ISTANBUL , ( ( Gem_u -Int ABI_bid ) +Int Bid ) , Gem_u , Junk_8 ) ) -Int Csstore( ISTANBUL , ( ( Gem_a +Int ABI_bid ) -Int Bid ) , Gem_a , Junk_9 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_4 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -27993 ) )
+            #fi ) -Int Csstore( ISTANBUL , ( ( Allowed -Int ABI_bid ) +Int Bid ) , Allowed , Junk_7 ) ) -Int Csstore( ISTANBUL , ( ( Gem_u -Int ABI_bid ) +Int Bid ) , Gem_u , Junk_8 ) ) -Int Csstore( ISTANBUL , ( ( Gem_a +Int ABI_bid ) -Int Bid ) , Gem_a , Junk_9 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_4 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -27993 ) )
           #fi
         #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>

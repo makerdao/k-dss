@@ -2,9 +2,9 @@
   #then   #gas ( ( ( ( ( ( ( VGas +Int #if ABI_lot ==Int 0
     #then   -54
     #else   -106
-  #fi ) -Int Csstore( ISTANBUL , ( ( Gem_a -Int Lot ) +Int ABI_lot ) , Gem_a , Junk_12 ) ) -Int Csstore( ISTANBUL , ( ( Gem_u +Int Lot ) -Int ABI_lot ) , Gem_u , Junk_13 ) ) -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_9 ) ) +Int -28656 ) )
+  #fi ) -Int Csstore( ISTANBUL , ( ( Gem_a -Int Lot ) +Int ABI_lot ) , Gem_a , Junk_12 ) ) -Int Csstore( ISTANBUL , ( ( Gem_u +Int Lot ) -Int ABI_lot ) , Gem_u , Junk_13 ) ) -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_9 ) ) +Int -28656 ) )
   #else   #gas ( ( ( ( ( ( ( VGas +Int #if ABI_lot ==Int 0
     #then   -54
     #else   -106
-  #fi ) -Int Csstore( ISTANBUL , ( ( Gem_a -Int Lot ) +Int ABI_lot ) , Gem_a , Junk_12 ) ) -Int Csstore( ISTANBUL , ( ( Gem_u +Int Lot ) -Int ABI_lot ) , Gem_u , Junk_13 ) ) -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_9 ) ) +Int -29643 ) )
+  #fi ) -Int Csstore( ISTANBUL , ( ( Gem_a -Int Lot ) +Int ABI_lot ) , Gem_a , Junk_12 ) ) -Int Csstore( ISTANBUL , ( ( Gem_u +Int Lot ) -Int ABI_lot ) , Gem_u , Junk_13 ) ) -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_9 ) ) +Int -29643 ) )
 #fi

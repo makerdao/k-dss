@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module E8BB718AEFB3D2DCF22915EC208DC7F07E165EA9C635974E06EBE940A2D51E4B
+module CD7F28C507B416EB67A3B150B0D07E74FF67EE194F49BFB6DE43682DED1868DF
   imports VERIFICATION
 
 // Vat_fork-same
@@ -57,7 +57,7 @@ claim [Vat.fork-same.pass]:
                   #then   -54
                   #else   -106
                 #fi +Int -21378 ) ) ) ) ) )
-                #else   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Ink_u +Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , chop( ( Art_u +Int pow256 ) ) , ( Art_u -Int ABI_dart ) , Junk_5 ) ) +Int ( #if Rate ==Int 0
+                #else   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Ink_u +Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , Art_u , ( Art_u -Int ABI_dart ) , Junk_5 ) ) +Int ( #if Rate ==Int 0
                   #then   -54
                   #else   -106
                 #fi +Int ( #if Rate ==Int 0
@@ -73,7 +73,7 @@ claim [Vat.fork-same.pass]:
               #fi
             #fi
             #else   #if ( ABI_dart =/=Int 0 andBool 0 <=Int ABI_dart )
-              #then   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , chop( ( Ink_u +Int pow256 ) ) , ( Ink_u -Int ABI_dink ) , Junk_4 ) ) -Int Csstore( ISTANBUL , Art_u , ( Art_u -Int ABI_dart ) , Junk_5 ) ) +Int ( #if Rate ==Int 0
+              #then   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , Ink_u , ( Ink_u -Int ABI_dink ) , Junk_4 ) ) -Int Csstore( ISTANBUL , Art_u , ( Art_u -Int ABI_dart ) , Junk_5 ) ) +Int ( #if Rate ==Int 0
                 #then   -54
                 #else   -106
               #fi +Int ( #if Rate ==Int 0
@@ -87,7 +87,7 @@ claim [Vat.fork-same.pass]:
                 #else   -106
               #fi +Int -21434 ) ) ) ) ) )
               #else   #if 0 <=Int ABI_dart
-                #then   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , chop( ( Ink_u +Int pow256 ) ) , ( Ink_u -Int ABI_dink ) , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u +Int ABI_dart ) , Art_u , Junk_5 ) ) +Int ( #if Rate ==Int 0
+                #then   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , Ink_u , ( Ink_u -Int ABI_dink ) , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u +Int ABI_dart ) , Art_u , Junk_5 ) ) +Int ( #if Rate ==Int 0
                   #then   -54
                   #else   -106
                 #fi +Int ( #if Rate ==Int 0
@@ -100,7 +100,7 @@ claim [Vat.fork-same.pass]:
                   #then   -54
                   #else   -106
                 #fi +Int -21406 ) ) ) ) ) )
-                #else   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , chop( ( Ink_u +Int pow256 ) ) , ( Ink_u -Int ABI_dink ) , Junk_4 ) ) -Int Csstore( ISTANBUL , chop( ( Art_u +Int pow256 ) ) , ( Art_u -Int ABI_dart ) , Junk_5 ) ) +Int ( #if Rate ==Int 0
+                #else   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , Ink_u , ( Ink_u -Int ABI_dink ) , Junk_4 ) ) -Int Csstore( ISTANBUL , Art_u , ( Art_u -Int ABI_dart ) , Junk_5 ) ) +Int ( #if Rate ==Int 0
                   #then   -54
                   #else   -106
                 #fi +Int ( #if Rate ==Int 0
@@ -144,7 +144,7 @@ claim [Vat.fork-same.pass]:
                 #then   -54
                 #else   -106
               #fi +Int -21406 ) ) ) ) ) )
-              #else   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , Ink_u , ( Ink_u -Int ABI_dink ) , Junk_4 ) ) -Int Csstore( ISTANBUL , chop( ( Art_u +Int pow256 ) ) , ( Art_u -Int ABI_dart ) , Junk_5 ) ) +Int ( #if Rate ==Int 0
+              #else   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Ink_u -Int ABI_dink ) , Ink_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Art_u -Int ABI_dart ) , Art_u , Junk_5 ) ) -Int Csstore( ISTANBUL , Ink_u , ( Ink_u -Int ABI_dink ) , Junk_4 ) ) -Int Csstore( ISTANBUL , Art_u , ( Art_u -Int ABI_dart ) , Junk_5 ) ) +Int ( #if Rate ==Int 0
                 #then   -54
                 #else   -106
               #fi +Int ( #if Rate ==Int 0

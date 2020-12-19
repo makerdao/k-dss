@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 86849B83B9181E18EDF312C8E240A2E1E7AA1D075A2F277F741FAB147D0B0CFB
+module BA36D8B89A3E572607B6AEE052BDA53BB1D3F73655F2FE2A9DC98D0C87B66AB5
   imports VERIFICATION
 
 // End_cage-surplus
@@ -311,6 +311,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((VowVat  ==Int Vat)
   andBool ((VowVat  =/=Int Vow)
   andBool ((FlapVat =/=Int Vow)
+  andBool ((Spotter =/=Int VowVat)
   andBool ((Vat =/=Int 0)
   andBool ((Cat =/=Int 0)
   andBool ((Vow =/=Int 0)
@@ -366,7 +367,7 @@ andBool #rangeUInt(256, VChainId)
   andBool (((EndMayPot ==Int 1))
   andBool ((#rangeUInt(256, Dai_v +Int Dai_f))
   andBool ((#rangeUInt(256, Debt -Int Sin_v))
-  andBool ((#rangeUInt(256, Vice -Int Sin_v))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+  andBool ((#rangeUInt(256, Vice -Int Sin_v)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
   andBool #lookup(ACCT_ID_STORAGE, #End.wards[CALLER_ID]) ==Int CallerMay
   andBool #lookup(ACCT_ID_STORAGE, #End.live) ==Int Live

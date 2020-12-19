@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 6D8248416E75938A78ABF2742DE5ED96764AE7B3E44EE4F58F0452D3C46A2AD1
+module 526729470806BEB9BED92D6492DFEA35884FF61A628DA3DE51B716354E53A9BE
   imports VERIFICATION
 
 // DaiJoin_join
@@ -683,7 +683,7 @@ claim [Dai.burn.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if ( ABI_src ==Int CALLER_ID andBool ( hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) =/=Int hash2 ( CALLER_ID , 2 ) andBool ( hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) =/=Int 1 andBool ( hash2 ( CALLER_ID , 2 ) =/=Int 1 andBool ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) ) ==Int SrcBal andBool ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) ) ==Int Allowed andBool ( #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) ) ==Int Junk_0 andBool #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , 2 ) ) ==Int Junk_1 ) ) ) ) ) ) )
+        <gas> #gas(VGas) => #if ( ABI_src ==Int CALLER_ID andBool ( hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) =/=Int hash2 ( CALLER_ID , 2 ) andBool ( hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) =/=Int 1 andBool ( hash2 ( CALLER_ID , 2 ) =/=Int 1 andBool ( #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) ) ==Int Junk_0 andBool ( #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( CALLER_ID , 2 ) ) ==Int Junk_1 andBool ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , 2 ) ) ==Int SrcBal andBool #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( CALLER_ID , 3 ) ) ) ==Int Allowed ) ) ) ) ) ) )
           #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( TotalSupply -Int ABI_wad ) , TotalSupply , Junk_2 ) ) +Int -5153 ) )
           #else   #if ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) ==Int maxUInt256 andBool ( Allowed ==Int maxUInt256 andBool ( ( maxUInt256 ==Int maxUInt256 orBool ABI_wad <=Int maxUInt256 ) orBool ABI_src ==Int CALLER_ID ) ) )
             #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( TotalSupply -Int ABI_wad ) , TotalSupply , Junk_2 ) ) +Int -6146 ) )

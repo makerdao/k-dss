@@ -1,10 +1,10 @@
 requires "verification.k"
 
-module AA5BA16CE1F0E85C4E9B355DB69E532398B51D0231127927BD16C95FA58C1149
+module 2CE8C979267C546EC73536D9EE599166B55085A9F58A28F601C06F71625BB584
   imports VERIFICATION
 
-// End_cage-surplus
-claim [End.cage-surplus.fail.rough]:
+// End_cage-deficit
+claim [End.cage-deficit.fail.rough]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -257,7 +257,6 @@ andBool #rangeUInt(256, VChainId)
   andBool (#rangeUInt(256, VatLive)
   andBool (#rangeUInt(256, CatLive)
   andBool (#rangeUInt(256, VowLive)
-  andBool (#rangeUInt(256, PotLive)
   andBool (#rangeUInt(256, FlapLive)
   andBool (#rangeUInt(256, FlopLive)
   andBool (#rangeUInt(256, FlopVow)
@@ -265,10 +264,10 @@ andBool #rangeUInt(256, VChainId)
   andBool (#rangeUInt(256, EndMayVat)
   andBool (#rangeUInt(256, EndMayCat)
   andBool (#rangeUInt(256, EndMayVow)
-  andBool (#rangeUInt(256, EndMaySpot)
-  andBool (#rangeUInt(256, EndMayPot)
   andBool (#rangeUInt(256, VowMayFlap)
   andBool (#rangeUInt(256, VowMayFlop)
+  andBool (#rangeUInt(256, EndMaySpot)
+  andBool (#rangeUInt(256, EndMayPot)
   andBool (#rangeUInt(256, Dai_f)
   andBool (#rangeUInt(256, Sin_v)
   andBool (#rangeUInt(256, Dai_v)
@@ -276,7 +275,6 @@ andBool #rangeUInt(256, VChainId)
   andBool (#rangeUInt(256, Vice)
   andBool (#rangeUInt(256, Sin)
   andBool (#rangeUInt(256, Ash)
-  andBool (#rangeUInt(256, Dsr)
   andBool (#rangeUInt(256, Vat_balance)
   andBool (#rangeUInt(256, Cat_balance)
   andBool (#rangeUInt(256, Vow_balance)
@@ -301,7 +299,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((ACCT_ID =/=Int Flopper)
   andBool ((ACCT_ID =/=Int Spotter)
   andBool ((ACCT_ID =/=Int Pot)
-  andBool ((Dai_v +Int Dai_f >Int Sin_v)
+  andBool ((Dai_v +Int Dai_f <Int Sin_v)
   andBool ((Flapper =/=Int Vow)
   andBool ((Flapper =/=Int Vat)
   andBool ((Flopper =/=Int Vow)
@@ -311,7 +309,6 @@ andBool #rangeUInt(256, VChainId)
   andBool ((VowVat  ==Int Vat)
   andBool ((VowVat  =/=Int Vow)
   andBool ((FlapVat =/=Int Vow)
-  andBool ((Spotter =/=Int VowVat)
   andBool ((Vat =/=Int 0)
   andBool ((Cat =/=Int 0)
   andBool ((Vow =/=Int 0)
@@ -352,7 +349,7 @@ andBool #rangeUInt(256, VChainId)
   andBool (#rangeUInt(256, Junk_32)
   andBool (#rangeUInt(256, Junk_33)
   andBool (#rangeUInt(256, Junk_34)
-  andBool (#rangeUInt(256, Junk_35)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+  andBool (#rangeUInt(256, Junk_35))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
   andBool #lookup(ACCT_ID_STORAGE, #End.wards[CALLER_ID]) ==Int CallerMay
   andBool #lookup(ACCT_ID_STORAGE, #End.live) ==Int Live
@@ -511,8 +508,8 @@ andBool #rangeUInt(256, VChainId)
     andBool (((EndMaySpot:Int ==Int 1))
     andBool (((EndMayPot:Int ==Int 1))
     andBool ((#rangeUInt(256, Dai_v:Int +Int Dai_f:Int))
-    andBool ((#rangeUInt(256, Debt:Int -Int Sin_v:Int))
-    andBool ((#rangeUInt(256, Vice:Int -Int Sin_v:Int)))))))))))))))))
+    andBool ((#rangeUInt(256, Debt:Int -Int (Dai_v:Int +Int Dai_f:Int)))
+    andBool ((#rangeUInt(256, Vice:Int -Int (Dai_v:Int +Int Dai_f:Int))))))))))))))))))
   ) 
 ensures
 ?FAILURE =/=K EVMC_SUCCESS
@@ -903,8 +900,8 @@ andBool #rangeUInt(256, VChainId)
 [trusted, matching(infGas)]
 
 
-// Vow_cage-surplus
-claim [Vow.cage-surplus.pass]:
+// Vow_cage-deficit
+claim [Vow.cage-deficit.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
@@ -927,7 +924,7 @@ claim [Vow.cage-surplus.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( ( ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , 1 , Junk_4 ) ) -Int Csstore( ISTANBUL , 0 , Sin , Junk_5 ) ) -Int Csstore( ISTANBUL , 0 , Ash , Junk_6 ) ) -Int Csstore( ISTANBUL , 0 , FlapLive , Junk_16 ) ) -Int Csstore( ISTANBUL , 0 , Dai_f , Junk_9 ) ) -Int Csstore( ISTANBUL , ( Dai_v +Int Dai_f ) , Dai_v , Junk_10 ) ) -Int Csstore( ISTANBUL , 0 , FlopLive , Junk_18 ) ) -Int Csstore( ISTANBUL , ACCT_ID , FlopVow , Junk_19 ) ) -Int Csstore( ISTANBUL , 0 , Sin_v , Junk_11 ) ) -Int Csstore( ISTANBUL , ( ( Dai_v +Int Dai_f ) -Int Sin_v ) , ( Dai_v +Int Dai_f ) , Junk_10 ) ) -Int Csstore( ISTANBUL , ( Vice -Int Sin_v ) , Vice , Junk_12 ) ) -Int Csstore( ISTANBUL , ( Debt -Int Sin_v ) , Debt , Junk_13 ) ) +Int -56555 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( ( ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , 1 , Junk_4 ) ) -Int Csstore( ISTANBUL , 0 , Sin , Junk_5 ) ) -Int Csstore( ISTANBUL , 0 , Ash , Junk_6 ) ) -Int Csstore( ISTANBUL , 0 , FlapLive , Junk_16 ) ) -Int Csstore( ISTANBUL , 0 , Dai_f , Junk_9 ) ) -Int Csstore( ISTANBUL , ( Dai_v +Int Dai_f ) , Dai_v , Junk_10 ) ) -Int Csstore( ISTANBUL , 0 , FlopLive , Junk_18 ) ) -Int Csstore( ISTANBUL , ACCT_ID , FlopVow , Junk_19 ) ) -Int Csstore( ISTANBUL , ( ( Sin_v -Int Dai_v ) -Int Dai_f ) , Sin_v , Junk_11 ) ) -Int Csstore( ISTANBUL , 0 , ( Dai_v +Int Dai_f ) , Junk_10 ) ) -Int Csstore( ISTANBUL , ( ( Vice -Int Dai_v ) -Int Dai_f ) , Vice , Junk_12 ) ) -Int Csstore( ISTANBUL , ( ( Debt -Int Dai_v ) -Int Dai_f ) , Debt , Junk_13 ) ) +Int -56545 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
@@ -988,7 +985,7 @@ claim [Vow.cage-surplus.pass]:
           <acctID> Vat </acctID>
           <balance> Vat_balance </balance>
           <code> Vat_bin_runtime </code>
-          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.dai[Flapper] <- 0 ] [ #Vat.dai[ACCT_ID] <- (Dai_v +Int Dai_f) -Int Sin_v ] [ #Vat.sin[ACCT_ID] <- 0 ] [ #Vat.vice <- Vice -Int Sin_v ] [ #Vat.debt <- Debt -Int Sin_v ] </storage>
+          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.dai[Flapper] <- 0 ] [ #Vat.dai[ACCT_ID] <- 0 ] [ #Vat.sin[ACCT_ID] <- Sin_v -Int (Dai_v +Int Dai_f) ] [ #Vat.vice <- Vice -Int (Dai_v +Int Dai_f) ] [ #Vat.debt <- Debt -Int (Dai_v +Int Dai_f) ] </storage>
           <origStorage> Vat_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vat => ?_ </nonce>
         </account>
@@ -1136,7 +1133,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((ACCT_ID =/=Int Vat)
   andBool ((ACCT_ID =/=Int Flapper)
   andBool ((ACCT_ID =/=Int Flopper)
-  andBool ((Dai_v +Int Dai_f >Int Sin_v)
+  andBool ((Dai_v +Int Dai_f <Int Sin_v)
   andBool ((Flapper =/=Int ACCT_ID)
   andBool ((Flapper =/=Int Vat)
   andBool ((Flopper =/=Int ACCT_ID)
@@ -1172,9 +1169,8 @@ andBool #rangeUInt(256, VChainId)
   andBool (((Can ==Int 1))
   andBool (((MayFlap ==Int 1))
   andBool (((MayFlop ==Int 1))
-  andBool ((#rangeUInt(256, Dai_v +Int Dai_f))
-  andBool ((#rangeUInt(256, Debt -Int Sin_v))
-  andBool ((#rangeUInt(256, Vice -Int Sin_v))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+  andBool ((#rangeUInt(256, Debt -Int (Dai_v +Int Dai_f)))
+  andBool ((#rangeUInt(256, Vice -Int (Dai_v +Int Dai_f))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
   andBool #lookup(ACCT_ID_STORAGE, #Vow.wards[CALLER_ID]) ==Int Can
   andBool #lookup(ACCT_ID_STORAGE, #Vow.vat) ==Int Vat

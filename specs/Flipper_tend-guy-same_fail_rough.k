@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 0216A2054BEF88A340A5D7D4A045F01ABB026858351CA2FAF000CEB3644D1EF3
+module 535088D73B981925285949E0490D76A0F1070CCFC4A305F5712E0A0EB9FA1692
   imports VERIFICATION
 
 // Flipper_tend-guy-same
@@ -273,14 +273,14 @@ andBool #rangeUInt(256, VChainId)
   andBool #Flipper.bids[ABI_id].tab =/=Int #Flipper.bids[ABI_id].guy_tic_end
   andBool #Flipper.bids[ABI_id].gal =/=Int #Flipper.bids[ABI_id].guy_tic_end
   andBool #lookup(Vat_STORAGE, #Vat.can[CALLER_ID][ACCT_ID]) ==Int Can
-  andBool #lookup(Vat_STORAGE, #Vat.dai[Gal]) ==Int Dai_g
   andBool #lookup(Vat_STORAGE, #Vat.dai[CALLER_ID]) ==Int Dai_c
+  andBool #lookup(Vat_STORAGE, #Vat.dai[Gal]) ==Int Dai_g
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.can[CALLER_ID][ACCT_ID]) ==Int Junk_8
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[Gal]) ==Int Junk_9
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[CALLER_ID]) ==Int Junk_10
-  andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[Gal]
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[CALLER_ID]) ==Int Junk_9
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[Gal]) ==Int Junk_10
   andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[CALLER_ID]
-  andBool #Vat.dai[Gal] =/=Int #Vat.dai[CALLER_ID]
+  andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[Gal]
+  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.dai[Gal]
   andBool notBool (
     ((VCallValue:Int ==Int 0)
     andBool ((VCallDepth:Int <Int 1024)

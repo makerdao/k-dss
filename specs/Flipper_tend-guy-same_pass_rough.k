@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 5A6CE64B630D8202FC96523540FD013CB3D2130AA7E8C26AEA5FA6DC7CAFC11D
+module A1B0037C8154B88D410B313A5825F9E1CE13003658FB6CB2F9BFAEDB3E7383C6
   imports VERIFICATION
 
 // Flipper_tend-guy-same
@@ -86,7 +86,7 @@ claim [Flipper.tend-guy-same.pass.rough]:
           <acctID> Vat </acctID>
           <balance> Vat_balance </balance>
           <code> Vat_bin_runtime </code>
-          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.dai[Gal] <- Dai_g +Int (ABI_bid -Int Bid) ] [ #Vat.dai[CALLER_ID] <- Dai_c -Int (ABI_bid -Int Bid) ] </storage>
+          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.dai[CALLER_ID] <- Dai_c -Int (ABI_bid -Int Bid) ] [ #Vat.dai[Gal] <- Dai_g +Int (ABI_bid -Int Bid) ] </storage>
           <origStorage> Vat_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vat => ?_ </nonce>
         </account>
@@ -286,14 +286,14 @@ andBool #rangeUInt(256, VChainId)
   andBool #Flipper.bids[ABI_id].tab =/=Int #Flipper.bids[ABI_id].guy_tic_end
   andBool #Flipper.bids[ABI_id].gal =/=Int #Flipper.bids[ABI_id].guy_tic_end
   andBool #lookup(Vat_STORAGE, #Vat.can[CALLER_ID][ACCT_ID]) ==Int Can
-  andBool #lookup(Vat_STORAGE, #Vat.dai[Gal]) ==Int Dai_g
   andBool #lookup(Vat_STORAGE, #Vat.dai[CALLER_ID]) ==Int Dai_c
+  andBool #lookup(Vat_STORAGE, #Vat.dai[Gal]) ==Int Dai_g
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.can[CALLER_ID][ACCT_ID]) ==Int Junk_8
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[Gal]) ==Int Junk_9
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[CALLER_ID]) ==Int Junk_10
-  andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[Gal]
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[CALLER_ID]) ==Int Junk_9
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[Gal]) ==Int Junk_10
   andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[CALLER_ID]
-  andBool #Vat.dai[Gal] =/=Int #Vat.dai[CALLER_ID] 
+  andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[Gal]
+  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.dai[Gal] 
 
 // Flipper_addu48u48
 claim [Flipper.addu48u48.pass]:

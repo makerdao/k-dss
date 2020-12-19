@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module E657CDD4374B26DBC38AB4AE25A20D504206EB413C79311CF2007D38D1B8D627
+module 1111BE96423123485338B910CA5C0809D212D29731982F2B36BAE145F1787FBE
   imports VERIFICATION
 
 // Flopper_dent-guy-diff-tic-0
@@ -290,30 +290,30 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vow.vat =/=Int #Vow.Ash
   andBool #lookup(Vat_STORAGE, #Vat.can[CALLER_ID][ACCT_ID]) ==Int CanMove
   andBool #lookup(Vat_STORAGE, #Vat.dai[CALLER_ID]) ==Int Dai_a
-  andBool #lookup(Vat_STORAGE, #Vat.dai[Vow]) ==Int Joy
   andBool #lookup(Vat_STORAGE, #Vat.sin[Vow]) ==Int Awe
+  andBool #lookup(Vat_STORAGE, #Vat.dai[Vow]) ==Int Joy
   andBool #lookup(Vat_STORAGE, #Vat.vice) ==Int Vice
   andBool #lookup(Vat_STORAGE, #Vat.debt) ==Int Debt
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.can[CALLER_ID][ACCT_ID]) ==Int Junk_9
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[CALLER_ID]) ==Int Junk_10
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[Vow]) ==Int Junk_11
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.sin[Vow]) ==Int Junk_12
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.sin[Vow]) ==Int Junk_11
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[Vow]) ==Int Junk_12
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.vice) ==Int Junk_13
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.debt) ==Int Junk_14
   andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[CALLER_ID]
-  andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[Vow]
   andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.sin[Vow]
+  andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[Vow]
   andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.vice
   andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.debt
-  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.dai[Vow]
   andBool #Vat.dai[CALLER_ID] =/=Int #Vat.sin[Vow]
+  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.dai[Vow]
   andBool #Vat.dai[CALLER_ID] =/=Int #Vat.vice
   andBool #Vat.dai[CALLER_ID] =/=Int #Vat.debt
-  andBool #Vat.dai[Vow] =/=Int #Vat.sin[Vow]
-  andBool #Vat.dai[Vow] =/=Int #Vat.vice
-  andBool #Vat.dai[Vow] =/=Int #Vat.debt
+  andBool #Vat.sin[Vow] =/=Int #Vat.dai[Vow]
   andBool #Vat.sin[Vow] =/=Int #Vat.vice
   andBool #Vat.sin[Vow] =/=Int #Vat.debt
+  andBool #Vat.dai[Vow] =/=Int #Vat.vice
+  andBool #Vat.dai[Vow] =/=Int #Vat.debt
   andBool #Vat.vice =/=Int #Vat.debt
   andBool notBool (
     (((((Live:Int ==Int 1))))

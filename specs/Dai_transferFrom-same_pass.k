@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module F50D74876B98695EDFC6A438DB69F63DB4A225C7DE0577233037E94335DDEAF2
+module 99059F51D4FAE7AAA2CC1F030AF3CCE85400FB4CD65C0EC7AD02408883623896
   imports VERIFICATION
 
 // Dai_transferFrom-same
@@ -27,7 +27,7 @@ claim [Dai.transferFrom-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if ( CALLER_ID ==Int ABI_src andBool ( hash2 ( ABI_src , hash2 ( ABI_src , 3 ) ) =/=Int hash2 ( ABI_src , 2 ) andBool ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , hash2 ( ABI_src , 3 ) ) ) ==Int Allowed andBool #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , hash2 ( ABI_src , 3 ) ) ) ==Int Junk_0 ) ) )
+        <gas> #gas(VGas) => #if ( CALLER_ID ==Int ABI_src andBool ( hash2 ( ABI_src , hash2 ( ABI_src , 3 ) ) =/=Int hash2 ( ABI_src , 2 ) andBool ( #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , hash2 ( ABI_src , 3 ) ) ) ==Int Junk_0 andBool #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , hash2 ( ABI_src , 3 ) ) ) ==Int Allowed ) ) )
           #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , SrcBal , ( SrcBal -Int ABI_wad ) , Junk_1 ) ) +Int -5425 ) )
           #else   #if ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 3 ) ) ) ==Int maxUInt256 andBool ( Allowed ==Int maxUInt256 andBool ( ABI_wad <=Int maxUInt256 orBool ABI_src ==Int CALLER_ID ) ) )
             #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , SrcBal , ( SrcBal -Int ABI_wad ) , Junk_1 ) ) +Int -6418 ) )

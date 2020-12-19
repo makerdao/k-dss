@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 7F81354BE37326BEA896FB79E0BAFC9D66381632E7D213BDDD964413EAED8B0F
+module 5A0AD9ED5E396247DFD4D41EF1A96FF2E864A48E9CAEBEE2699FECE0DC9743CF
   imports VERIFICATION
 
 // Flopper_dent-guy-diff-tic-0
@@ -95,7 +95,7 @@ claim [Flopper.dent-guy-diff-tic-0.pass.rough]:
           <acctID> Vat </acctID>
           <balance> Vat_balance </balance>
           <code> Vat_bin_runtime </code>
-          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.dai[CALLER_ID] <- Dai_a -Int ABI_bid ] [ #Vat.dai[Vow] <- #if ABI_bid >Int Ash #then Joy +Int ABI_bid -Int Ash #else Joy #fi ] [ #Vat.sin[Vow] <- #if ABI_bid >Int Ash #then Awe -Int Ash #else Awe -Int ABI_bid #fi ] [ #Vat.vice <- #if ABI_bid >Int Ash #then Vice -Int Ash #else Vice -Int ABI_bid #fi ] [ #Vat.debt <- #if ABI_bid >Int Ash #then Debt -Int Ash #else Debt -Int ABI_bid #fi ] </storage>
+          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.dai[CALLER_ID] <- Dai_a -Int ABI_bid ] [ #Vat.sin[Vow] <- #if ABI_bid >Int Ash #then Awe -Int Ash #else Awe -Int ABI_bid #fi ] [ #Vat.dai[Vow] <- #if ABI_bid >Int Ash #then Joy +Int ABI_bid -Int Ash #else Joy #fi ] [ #Vat.vice <- #if ABI_bid >Int Ash #then Vice -Int Ash #else Vice -Int ABI_bid #fi ] [ #Vat.debt <- #if ABI_bid >Int Ash #then Debt -Int Ash #else Debt -Int ABI_bid #fi ] </storage>
           <origStorage> Vat_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vat => ?_ </nonce>
         </account>
@@ -304,30 +304,30 @@ andBool #rangeUInt(256, VChainId)
   andBool #Vow.vat =/=Int #Vow.Ash
   andBool #lookup(Vat_STORAGE, #Vat.can[CALLER_ID][ACCT_ID]) ==Int CanMove
   andBool #lookup(Vat_STORAGE, #Vat.dai[CALLER_ID]) ==Int Dai_a
-  andBool #lookup(Vat_STORAGE, #Vat.dai[Vow]) ==Int Joy
   andBool #lookup(Vat_STORAGE, #Vat.sin[Vow]) ==Int Awe
+  andBool #lookup(Vat_STORAGE, #Vat.dai[Vow]) ==Int Joy
   andBool #lookup(Vat_STORAGE, #Vat.vice) ==Int Vice
   andBool #lookup(Vat_STORAGE, #Vat.debt) ==Int Debt
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.can[CALLER_ID][ACCT_ID]) ==Int Junk_9
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[CALLER_ID]) ==Int Junk_10
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[Vow]) ==Int Junk_11
-  andBool #lookup(Vat_ORIG_STORAGE, #Vat.sin[Vow]) ==Int Junk_12
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.sin[Vow]) ==Int Junk_11
+  andBool #lookup(Vat_ORIG_STORAGE, #Vat.dai[Vow]) ==Int Junk_12
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.vice) ==Int Junk_13
   andBool #lookup(Vat_ORIG_STORAGE, #Vat.debt) ==Int Junk_14
   andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[CALLER_ID]
-  andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[Vow]
   andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.sin[Vow]
+  andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.dai[Vow]
   andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.vice
   andBool #Vat.can[CALLER_ID][ACCT_ID] =/=Int #Vat.debt
-  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.dai[Vow]
   andBool #Vat.dai[CALLER_ID] =/=Int #Vat.sin[Vow]
+  andBool #Vat.dai[CALLER_ID] =/=Int #Vat.dai[Vow]
   andBool #Vat.dai[CALLER_ID] =/=Int #Vat.vice
   andBool #Vat.dai[CALLER_ID] =/=Int #Vat.debt
-  andBool #Vat.dai[Vow] =/=Int #Vat.sin[Vow]
-  andBool #Vat.dai[Vow] =/=Int #Vat.vice
-  andBool #Vat.dai[Vow] =/=Int #Vat.debt
+  andBool #Vat.sin[Vow] =/=Int #Vat.dai[Vow]
   andBool #Vat.sin[Vow] =/=Int #Vat.vice
   andBool #Vat.sin[Vow] =/=Int #Vat.debt
+  andBool #Vat.dai[Vow] =/=Int #Vat.vice
+  andBool #Vat.dai[Vow] =/=Int #Vat.debt
   andBool #Vat.vice =/=Int #Vat.debt 
 
 // Flopper_muluu

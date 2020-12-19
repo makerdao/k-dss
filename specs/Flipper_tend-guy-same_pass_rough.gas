@@ -1,0 +1,16 @@
+#if TIME <Int Tic
+  #then   #if ( ABI_bid *Int 1000000000000000000 ) <Int ( Beg *Int Bid )
+    #then   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( ( Dai_c -Int ABI_bid ) +Int Bid ) , Dai_c , Junk_9 ) ) -Int Csstore( ISTANBUL , ( ( Dai_g +Int ABI_bid ) -Int Bid ) , Dai_g , Junk_10 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_3 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_7 ) ) +Int -28446 ) )
+    #else   #gas ( ( ( ( ( ( ( VGas +Int #if Bid ==Int 0
+      #then   -54
+      #else   -106
+    #fi ) -Int Csstore( ISTANBUL , ( ( Dai_c -Int ABI_bid ) +Int Bid ) , Dai_c , Junk_9 ) ) -Int Csstore( ISTANBUL , ( ( Dai_g +Int ABI_bid ) -Int Bid ) , Dai_g , Junk_10 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_3 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_7 ) ) +Int -27445 ) )
+  #fi
+  #else   #if ( ABI_bid *Int 1000000000000000000 ) <Int ( Beg *Int Bid )
+    #then   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( ( Dai_c -Int ABI_bid ) +Int Bid ) , Dai_c , Junk_9 ) ) -Int Csstore( ISTANBUL , ( ( Dai_g +Int ABI_bid ) -Int Bid ) , Dai_g , Junk_10 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_3 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_7 ) ) +Int -29433 ) )
+    #else   #gas ( ( ( ( ( ( ( VGas +Int #if Bid ==Int 0
+      #then   -54
+      #else   -106
+    #fi ) -Int Csstore( ISTANBUL , ( ( Dai_c -Int ABI_bid ) +Int Bid ) , Dai_c , Junk_9 ) ) -Int Csstore( ISTANBUL , ( ( Dai_g +Int ABI_bid ) -Int Bid ) , Dai_g , Junk_10 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_3 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_7 ) ) +Int -28432 ) )
+  #fi
+#fi
