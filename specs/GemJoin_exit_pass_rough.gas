@@ -1,0 +1,4 @@
+#if 0 <=Int ( 0 -Int ABI_wad )
+  #then   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Wad -Int ABI_wad ) , Wad , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Bal_adapter -Int ABI_wad ) , Bal_adapter , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Bal_usr +Int ABI_wad ) , Bal_usr , Junk_6 ) ) +Int -23777 ) )
+  #else   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Wad -Int ABI_wad ) , Wad , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Bal_adapter -Int ABI_wad ) , Bal_adapter , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Bal_usr +Int ABI_wad ) , Bal_usr , Junk_6 ) ) +Int -23791 ) )
+#fi

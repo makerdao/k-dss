@@ -1,6 +1,6 @@
-#if ( ABI_y <Int 0 andBool 0 <=Int ( ABI_x +Int ABI_y ) )
+#if ( ABI_y <Int 0 andBool ( minSInt256 <=Int ABI_y andBool ( ABI_y <=Int maxSInt256 andBool 0 <=Int ( ABI_x +Int ABI_y ) ) ) )
   #then   #gas ( ( VGas +Int -128 ) )
-  #else   #if chop( ABI_y ) <=Int 0
+  #else   #if ABI_y <=Int 0
     #then   #gas ( ( VGas +Int -114 ) )
     #else   #gas ( ( VGas +Int -128 ) )
   #fi

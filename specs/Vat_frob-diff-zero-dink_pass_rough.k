@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module B96935680514FC57C324FA7FE87ACD0742F0FCB516CECB6D25CE8C2454EEA91F
+module 30579BE9D5A0D3B4F6ED9BF7D6342B7E1ADEE053A66EFF48E6584B189B488904
   imports VERIFICATION
 
 // Vat_frob-diff-zero-dink
@@ -399,9 +399,9 @@ claim [Vat.addui.pass]:
         <wordStack> chop(ABI_y) : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x +Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 13112 => 13174 </pc>
-        <gas> #gas(VGas) => #if ( ABI_y <Int 0 andBool 0 <=Int ( ABI_x +Int ABI_y ) )
+        <gas> #gas(VGas) => #if ( ABI_y <Int 0 andBool ( minSInt256 <=Int ABI_y andBool ( ABI_y <=Int maxSInt256 andBool 0 <=Int ( ABI_x +Int ABI_y ) ) ) )
           #then   #gas ( ( VGas +Int -128 ) )
-          #else   #if chop( ABI_y ) <=Int 0
+          #else   #if ABI_y <=Int 0
             #then   #gas ( ( VGas +Int -114 ) )
             #else   #gas ( ( VGas +Int -128 ) )
           #fi
@@ -592,7 +592,7 @@ claim [Vat.subui.pass]:
         <wordStack> chop(ABI_y) : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x -Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 13304 => 13366 </pc>
-        <gas> #gas(VGas) => #if ( ABI_y =/=Int 0 andBool 0 <=Int ABI_y )
+        <gas> #gas(VGas) => #if ( ABI_y =/=Int 0 andBool ( 0 <=Int ABI_y andBool ABI_y <=Int maxSInt256 ) )
           #then   #gas ( ( VGas +Int -128 ) )
           #else   #if 0 <=Int ABI_y
             #then   #gas ( ( VGas +Int -114 ) )

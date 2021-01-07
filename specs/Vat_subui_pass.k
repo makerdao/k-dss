@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 05445512CDE5803416421F7AB59430EA7D60D267597718CAA834928561E56DCD
+module 7CACAFFDCCC841BAF89FFEFF309B9B4B641A286298249A200FE07F04DAF2ED23
   imports VERIFICATION
 
 // Vat_subui
@@ -27,7 +27,7 @@ claim [Vat.subui.pass]:
         <wordStack> chop(ABI_y) : ABI_x : JMPTO : WS  =>  JMPTO : ABI_x -Int ABI_y : WS </wordStack>
         <localMem> _ </localMem>
         <pc> 13304 => 13366 </pc>
-        <gas> #gas(VGas) => #if ( ABI_y =/=Int 0 andBool 0 <=Int ABI_y )
+        <gas> #gas(VGas) => #if ( ABI_y =/=Int 0 andBool ( 0 <=Int ABI_y andBool ABI_y <=Int maxSInt256 ) )
           #then   #gas ( ( VGas +Int -128 ) )
           #else   #if 0 <=Int ABI_y
             #then   #gas ( ( VGas +Int -114 ) )

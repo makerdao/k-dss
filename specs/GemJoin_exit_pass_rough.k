@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 9D4C44E9AD63AD8A56F9F9A8755AEEF5E41381CE9FD67C9CA6FA478D776AF616
+module 618DEF77DECEBD0EBBD75EF5394539A712807A0071FCF5A1534A430026D320CB
   imports VERIFICATION
 
 // GemJoin_exit
@@ -285,7 +285,7 @@ claim [Vat.slip.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if ( ABI_wad <Int 0 andBool 0 <=Int ( Gem +Int ABI_wad ) )
+        <gas> #gas(VGas) => #if ( ABI_wad <Int 0 andBool ( minSInt256 <=Int ABI_wad andBool ( ABI_wad <=Int maxSInt256 andBool 0 <=Int ( Gem +Int ABI_wad ) ) ) )
           #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ( Gem +Int ABI_wad ) , Gem , Junk_1 ) ) +Int -6884 ) )
           #else   #if ABI_wad <=Int 0
             #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ( Gem +Int ABI_wad ) , Gem , Junk_1 ) ) +Int -6870 ) )

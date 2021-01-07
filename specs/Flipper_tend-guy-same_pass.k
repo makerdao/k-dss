@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module E070C9F83E1648605985AC16CB4419706A3D491429C4EF7F6B2E22F45C9E0B44
+module 9AC022139DC176AB08D3487BBCD79A1DA65F4EF0CA3167342CF3E6A7BF886B52
   imports VERIFICATION
 
 // Flipper_tend-guy-same
@@ -29,18 +29,18 @@ claim [Flipper.tend-guy-same.pass]:
         <pc> 0 => ?_ </pc>
         <gas> #gas(VGas) => #if TIME <Int Tic
           #then   #if ( ABI_bid *Int 1000000000000000000 ) <Int ( Beg *Int Bid )
-            #then   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( ( Dai_c -Int ABI_bid ) +Int Bid ) , Dai_c , Junk_9 ) ) -Int Csstore( ISTANBUL , ( ( Dai_g +Int ABI_bid ) -Int Bid ) , Dai_g , Junk_10 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_3 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_7 ) ) +Int -28446 ) )
+            #then   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( ( Dai_c -Int ABI_bid ) +Int Bid ) , Dai_c , Junk_9 ) ) -Int Csstore( ISTANBUL , ( ( Dai_g +Int ABI_bid ) -Int Bid ) , Dai_g , Junk_10 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_3 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_7 ) ) +Int -28446 ) )
             #else   #gas ( ( ( ( ( ( ( VGas +Int #if Bid ==Int 0
               #then   -54
               #else   -106
-            #fi ) -Int Csstore( ISTANBUL , ( ( Dai_c -Int ABI_bid ) +Int Bid ) , Dai_c , Junk_9 ) ) -Int Csstore( ISTANBUL , ( ( Dai_g +Int ABI_bid ) -Int Bid ) , Dai_g , Junk_10 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_3 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_7 ) ) +Int -27445 ) )
+            #fi ) -Int Csstore( ISTANBUL , ( ( Dai_c -Int ABI_bid ) +Int Bid ) , Dai_c , Junk_9 ) ) -Int Csstore( ISTANBUL , ( ( Dai_g +Int ABI_bid ) -Int Bid ) , Dai_g , Junk_10 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_3 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_7 ) ) +Int -27445 ) )
           #fi
           #else   #if ( ABI_bid *Int 1000000000000000000 ) <Int ( Beg *Int Bid )
-            #then   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( ( Dai_c -Int ABI_bid ) +Int Bid ) , Dai_c , Junk_9 ) ) -Int Csstore( ISTANBUL , ( ( Dai_g +Int ABI_bid ) -Int Bid ) , Dai_g , Junk_10 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_3 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_7 ) ) +Int -29433 ) )
+            #then   #gas ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( ( Dai_c -Int ABI_bid ) +Int Bid ) , Dai_c , Junk_9 ) ) -Int Csstore( ISTANBUL , ( ( Dai_g +Int ABI_bid ) -Int Bid ) , Dai_g , Junk_10 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_3 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_7 ) ) +Int -29433 ) )
             #else   #gas ( ( ( ( ( ( ( VGas +Int #if Bid ==Int 0
               #then   -54
               #else   -106
-            #fi ) -Int Csstore( ISTANBUL , ( ( Dai_c -Int ABI_bid ) +Int Bid ) , Dai_c , Junk_9 ) ) -Int Csstore( ISTANBUL , ( ( Dai_g +Int ABI_bid ) -Int Bid ) , Dai_g , Junk_10 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_3 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_7 ) ) +Int -28432 ) )
+            #fi ) -Int Csstore( ISTANBUL , ( ( Dai_c -Int ABI_bid ) +Int Bid ) , Dai_c , Junk_9 ) ) -Int Csstore( ISTANBUL , ( ( Dai_g +Int ABI_bid ) -Int Bid ) , Dai_g , Junk_10 ) ) -Int Csstore( ISTANBUL , ABI_bid , Bid , Junk_3 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_7 ) ) +Int -28432 ) )
           #fi
         #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>

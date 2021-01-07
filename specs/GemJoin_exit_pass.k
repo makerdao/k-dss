@@ -1,18 +1,18 @@
 requires "verification.k"
 
-module 0A24DBFDA77E7B05C898AF43154060024F86EE537167CF48872E555D27C1CF25
+module C60094F116A72B418DF1D34E9EBFD77264DED0FE636081695BE2EA0249C46A7B
   imports VERIFICATION
 
 // GemJoin_exit
-claim [GemJoin.exit.fail.rough]:
+claim [GemJoin.exit.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
   <schedule> ISTANBUL </schedule>
   <ethereum>
     <evm>
-      <output> _ => ?_ </output>
-      <statusCode> _ => ?FAILURE:EndStatusCode </statusCode>
+      <output> .ByteArray </output>
+      <statusCode> _ => EVMC_SUCCESS </statusCode>
       <endPC> _ => ?_ </endPC>
       <callStack> VCallStack </callStack>
       <interimStates> _ </interimStates>
@@ -27,11 +27,14 @@ claim [GemJoin.exit.fail.rough]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => ?_ </gas>
+        <gas> #gas(VGas) => #if 0 <=Int ( 0 -Int ABI_wad )
+          #then   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Wad -Int ABI_wad ) , Wad , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Bal_adapter -Int ABI_wad ) , Bal_adapter , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Bal_usr +Int ABI_wad ) , Bal_usr , Junk_6 ) ) +Int -23777 ) )
+          #else   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Wad -Int ABI_wad ) , Wad , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Bal_adapter -Int ABI_wad ) , Bal_adapter , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Bal_usr +Int ABI_wad ) , Bal_usr , Junk_6 ) ) +Int -23791 ) )
+        #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
-        <callDepth> VCallDepth => ?_ </callDepth>
+        <callDepth> VCallDepth </callDepth>
       </callState>
       <substate>
         <selfDestruct> VSelfDestruct </selfDestruct>
@@ -79,7 +82,7 @@ claim [GemJoin.exit.fail.rough]:
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
           <code> GemJoin_bin_runtime </code>
-          <storage> ACCT_ID_STORAGE => ?_ACCT_ID_STORAGE </storage>
+          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE  </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
           <nonce> Nonce_GemJoin => ?_ </nonce>
         </account>
@@ -87,7 +90,7 @@ claim [GemJoin.exit.fail.rough]:
           <acctID> Vat </acctID>
           <balance> Vat_balance </balance>
           <code> Vat_bin_runtime </code>
-          <storage> Vat_STORAGE => ?_Vat_STORAGE </storage>
+          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.gem[Ilk][CALLER_ID] <- Wad -Int ABI_wad ] </storage>
           <origStorage> Vat_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vat => ?_ </nonce>
         </account>
@@ -95,7 +98,7 @@ claim [GemJoin.exit.fail.rough]:
           <acctID> DSToken </acctID>
           <balance> DSToken_balance </balance>
           <code> DSToken_bin_runtime </code>
-          <storage> DSToken_STORAGE => ?_DSToken_STORAGE </storage>
+          <storage> DSToken_STORAGE => DSToken_STORAGE [ #DSToken.balances[ACCT_ID] <- Bal_adapter -Int ABI_wad ] [ #DSToken.balances[ABI_usr] <- Bal_usr     +Int ABI_wad ] </storage>
           <origStorage> DSToken_ORIG_STORAGE </origStorage>
           <nonce> Nonce_DSToken => ?_ </nonce>
         </account>
@@ -227,7 +230,15 @@ andBool #rangeUInt(256, VChainId)
   andBool (#rangeUInt(256, Junk_4)
   andBool (#rangeUInt(256, Junk_5)
   andBool (#rangeUInt(256, Junk_6)
-  andBool (#rangeUInt(256, Junk_7)))))))))))))))))))))))))))))))
+  andBool (#rangeUInt(256, Junk_7)
+  andBool (((VCallValue ==Int 0))
+  andBool (((VCallDepth <Int 1024))
+  andBool (((Stopped ==Int 0))
+  andBool (((May ==Int 1))
+  andBool (((ABI_wad <=Int pow255))
+  andBool ((#rangeUInt(256, Wad         -Int ABI_wad))
+  andBool ((#rangeUInt(256, Bal_adapter -Int ABI_wad))
+  andBool ((#rangeUInt(256, Bal_usr     +Int ABI_wad))))))))))))))))))))))))))))))))))))))))
 
   andBool #lookup(ACCT_ID_STORAGE, #GemJoin.vat) ==Int Vat
   andBool #lookup(ACCT_ID_STORAGE, #GemJoin.ilk) ==Int Ilk
@@ -251,19 +262,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #lookup(DSToken_ORIG_STORAGE, #DSToken.owner_stopped) ==Int Junk_7
   andBool #DSToken.balances[ACCT_ID] =/=Int #DSToken.balances[ABI_usr]
   andBool #DSToken.balances[ACCT_ID] =/=Int #DSToken.owner_stopped
-  andBool #DSToken.balances[ABI_usr] =/=Int #DSToken.owner_stopped
-  andBool notBool (
-    (((VCallValue:Int ==Int 0))
-    andBool (((VCallDepth:Int <Int 1024))
-    andBool (((Stopped:Int ==Int 0))
-    andBool (((May:Int ==Int 1))
-    andBool (((ABI_wad:Int <=Int pow255))
-    andBool ((#rangeUInt(256, Wad:Int         -Int ABI_wad:Int))
-    andBool ((#rangeUInt(256, Bal_adapter:Int -Int ABI_wad:Int))
-    andBool ((#rangeUInt(256, Bal_usr:Int     +Int ABI_wad:Int))))))))))
-  ) 
-ensures
-?FAILURE =/=K EVMC_SUCCESS
+  andBool #DSToken.balances[ABI_usr] =/=Int #DSToken.owner_stopped 
 
 // Vat_slip
 claim [Vat.slip.pass]:
