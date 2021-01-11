@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 8AB3DAD3CECDBB180B378243DD1CD6BB81C6118BE7508644A9444AD64F653A34
+module FDF72EEFD407D2AFD5139DC29CDB2A6FEB4772D1C939E7A050C54F397DF09473
   imports VERIFICATION
 
 // Flopper_dent-guy-same
@@ -31,11 +31,11 @@ claim [Flopper.dent-guy-same.pass]:
           #then   #gas ( ( ( ( ( VGas +Int #if ABI_lot ==Int 0
             #then   -54
             #else   -106
-          #fi ) -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -15091 ) )
+          #fi ) -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -15091 ) )
           #else   #gas ( ( ( ( ( VGas +Int #if ABI_lot ==Int 0
             #then   -54
             #else   -106
-          #fi ) -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -16078 ) )
+          #fi ) -Int Csstore( ISTANBUL , ABI_lot , Lot , Junk_5 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( CALLER_ID , ( TIME +Int Ttl ) , End ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_6 ) ) +Int -16078 ) )
         #fi </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
