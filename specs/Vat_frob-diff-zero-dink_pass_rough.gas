@@ -1,0 +1,10 @@
+#if 0 <=Int ABI_dart
+  #then   #gas ( ( ( ( ( ( ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Debt +Int ( Ilk_rate *Int ABI_dart ) ) , Debt , Junk_8 ) ) -Int Csstore( ISTANBUL , Gem_iv , Gem_iv , Junk_9 ) ) -Int Csstore( ISTANBUL , ( Dai_w +Int ( Ilk_rate *Int ABI_dart ) ) , Dai_w , Junk_10 ) ) -Int Csstore( ISTANBUL , Urn_ink , Urn_ink , Junk_11 ) ) -Int Csstore( ISTANBUL , ( Urn_art +Int ABI_dart ) , Urn_art , Junk_12 ) ) -Int Csstore( ISTANBUL , ( Ilk_Art +Int ABI_dart ) , Ilk_Art , Junk_13 ) ) -Int Csstore( ISTANBUL , Ilk_rate , Ilk_rate , Junk_0 ) ) -Int Csstore( ISTANBUL , Ilk_spot , Ilk_spot , Junk_2 ) ) -Int Csstore( ISTANBUL , Ilk_line , Ilk_line , Junk_1 ) ) -Int Csstore( ISTANBUL , Ilk_dust , Ilk_dust , Junk_3 ) ) +Int -22629 ) )
+  #else   #gas ( ( ( ( ( ( ( ( ( ( ( ( ( ( VGas +Int #if ( Urn_art +Int ABI_dart ) ==Int 0
+    #then   -54
+    #else   -106
+  #fi ) -Int Csstore( ISTANBUL , ( Debt +Int ( Ilk_rate *Int ABI_dart ) ) , Debt , Junk_8 ) ) +Int #if Ilk_spot ==Int 0
+    #then   -54
+    #else   -106
+  #fi ) -Int Csstore( ISTANBUL , Gem_iv , Gem_iv , Junk_9 ) ) -Int Csstore( ISTANBUL , ( Dai_w +Int ( Ilk_rate *Int ABI_dart ) ) , Dai_w , Junk_10 ) ) -Int Csstore( ISTANBUL , Urn_ink , Urn_ink , Junk_11 ) ) -Int Csstore( ISTANBUL , ( Urn_art +Int ABI_dart ) , Urn_art , Junk_12 ) ) -Int Csstore( ISTANBUL , ( Ilk_Art +Int ABI_dart ) , Ilk_Art , Junk_13 ) ) -Int Csstore( ISTANBUL , Ilk_rate , Ilk_rate , Junk_0 ) ) -Int Csstore( ISTANBUL , Ilk_spot , Ilk_spot , Junk_2 ) ) -Int Csstore( ISTANBUL , Ilk_line , Ilk_line , Junk_1 ) ) -Int Csstore( ISTANBUL , Ilk_dust , Ilk_dust , Junk_3 ) ) +Int -22417 ) )
+#fi

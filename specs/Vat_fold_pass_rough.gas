@@ -1,0 +1,13 @@
+#if 0 <=Int ABI_rate
+  #then   #if ( ABI_rate <=Int 0 andBool Art_i <=Int maxSInt256 )
+    #then   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Rate_i +Int ABI_rate ) , Rate_i , Junk_3 ) ) -Int Csstore( ISTANBUL , ( Dai_u +Int ( Art_i *Int ABI_rate ) ) , Dai_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Debt +Int ( Art_i *Int ABI_rate ) ) , Debt , Junk_5 ) ) +Int -10532 ) )
+    #else   #if ( ABI_rate <=Int maxSInt256 andBool ( Art_i *Int ABI_rate ) <=Int 0 )
+      #then   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Rate_i +Int ABI_rate ) , Rate_i , Junk_3 ) ) -Int Csstore( ISTANBUL , ( Dai_u +Int ( Art_i *Int ABI_rate ) ) , Dai_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Debt +Int ( Art_i *Int ABI_rate ) ) , Debt , Junk_5 ) ) +Int -10582 ) )
+      #else   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Rate_i +Int ABI_rate ) , Rate_i , Junk_3 ) ) -Int Csstore( ISTANBUL , ( Dai_u +Int ( Art_i *Int ABI_rate ) ) , Dai_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Debt +Int ( Art_i *Int ABI_rate ) ) , Debt , Junk_5 ) ) +Int -10610 ) )
+    #fi
+  #fi
+  #else   #if 0 <=Int ( Art_i *Int ABI_rate )
+    #then   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Rate_i +Int ABI_rate ) , Rate_i , Junk_3 ) ) -Int Csstore( ISTANBUL , ( Dai_u +Int ( Art_i *Int ABI_rate ) ) , Dai_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Debt +Int ( Art_i *Int ABI_rate ) ) , Debt , Junk_5 ) ) +Int -10582 ) )
+    #else   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Rate_i +Int ABI_rate ) , Rate_i , Junk_3 ) ) -Int Csstore( ISTANBUL , ( Dai_u +Int ( Art_i *Int ABI_rate ) ) , Dai_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Debt +Int ( Art_i *Int ABI_rate ) ) , Debt , Junk_5 ) ) +Int -10610 ) )
+  #fi
+#fi
