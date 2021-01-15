@@ -4578,8 +4578,8 @@ storage Vat
     dai[Flapper] |-> Dai_f => 0
     dai[ACCT_ID] |-> Dai_v => 0
     sin[ACCT_ID] |-> Sin_v => Sin_v - (Dai_v + Dai_f)
-    vice |-> Vice => Vice - (Dai_v + Dai_f)
     debt |-> Debt => Debt - (Dai_v + Dai_f)
+    vice |-> Vice => Vice - (Dai_v + Dai_f)
 
 storage Flapper
 
@@ -4667,8 +4667,8 @@ storage Vat
     dai[Flapper] |-> Dai_f => 0
     dai[ACCT_ID] |-> Dai_v => 0
     sin[ACCT_ID] |-> Sin_v => 0
-    vice |-> Vice => Vice - Sin_v
     debt |-> Debt => Debt - (Dai_v + Dai_f)
+    vice |-> Vice => Vice - Sin_v
 
 storage Flapper
 
