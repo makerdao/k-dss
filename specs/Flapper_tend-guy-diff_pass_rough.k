@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 0D3E113F917B32C06DE4FC73095D3FA5E55E3BC280522C51838AD4C6FE03656A
+module 5E78EC9FA8F97CD50361F70EA528C721D0D37632C877049B1693025C2761DB67
   imports VERIFICATION
 
 // Flapper_tend-guy-diff
@@ -705,7 +705,7 @@ claim [DSToken.move.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 2 ) ) ) ==Int maxUInt256 andBool ( Allowance ==Int maxUInt256 andBool ( maxUInt256 ==Int maxUInt256 orBool ABI_wad <=Int maxUInt256 ) ) )
+        <gas> #gas(VGas) => #if Allowance ==Int maxUInt256
           #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_2 ) ) +Int -7281 ) )
           #else   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Allowance -Int ABI_wad ) , Allowance , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_2 ) ) +Int -9538 ) )
         #fi </gas>

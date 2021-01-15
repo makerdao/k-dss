@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module BD10BEF890A6B11C9196660BB3E27BF816AEF13CD8568B2B3C6AD7E3D9663F26
+module 959DDB6E1686BB40417674FA8812ED2799E5D1EEB17773E972B9F140F79AC249
   imports VERIFICATION
 
 // Cat_file-flip-same
@@ -27,7 +27,7 @@ claim [Cat.file-flip-same.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_4 ) ) -Int Csstore( ISTANBUL , ABI_data , ABI_data , Junk_2 ) ) -Int Csstore( ISTANBUL , 1 , 0 , Junk_4 ) ) +Int -22000 ) ) </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_4 ) ) -Int Csstore( ISTANBUL , Flip , Flip , Junk_2 ) ) -Int Csstore( ISTANBUL , 1 , 0 , Junk_4 ) ) +Int -22000 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>

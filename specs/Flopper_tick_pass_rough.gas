@@ -1,4 +1,4 @@
-#if ( #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 1 ) ) ==Int 0 andBool ( Lot ==Int 0 andBool ( Pad *Int 0 ) <Int pow256 ) )
-  #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , 0 , Junk_2 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , 0 , ( TIME +Int Tau ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_3 ) ) +Int -10526 ) )
+#if Lot ==Int 0
+  #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Lot , Junk_2 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , 0 , ( TIME +Int Tau ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_3 ) ) +Int -10526 ) )
   #else   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( ( Pad *Int Lot ) /Int 1000000000000000000 ) , Lot , Junk_2 ) ) -Int Csstore( ISTANBUL , #WordPackAddrUInt48UInt48 ( Guy , 0 , ( TIME +Int Tau ) ) , #lookup( ACCT_ID_STORAGE , ( hash2 ( ABI_id , 1 ) +Int 2 ) ) , Junk_3 ) ) +Int -10578 ) )
 #fi

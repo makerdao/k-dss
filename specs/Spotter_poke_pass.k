@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 5A0DD924E4EC95C646A799B40D1ACAFFC74C5474D0C859D2B00F2FAECCEBCA7E
+module 4317AECBD4DF1507A752D7D2776885235BA6234D9A7C8BF3EF61FC3937D05DD3
   imports VERIFICATION
 
 // Spotter_poke
@@ -27,7 +27,7 @@ claim [Spotter.poke.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if ( #lookup( Pip_STORAGE , 1 ) ==Int Owner andBool ( ( Owner /Int pow160 ) ==Int 0 andBool ( Has ==Int 0 andBool ( Owner <Int pow168 andBool ( ( 0 ==Int 0 orBool 0 ==Int 1 ) andBool ( 0 ==Int 0 orBool ( ( ( ( ( Price *Int 1000000000 ) *Int 1000000000000000000000000000 ) <Int pow256 andBool Par =/=Int 0 ) andBool Mat =/=Int 0 ) andBool ( ( ( ( Price *Int 1000000000 ) *Int 1000000000000000000000000000 ) /Int Par ) *Int 1000000000000000000000000000 ) <Int pow256 ) ) ) ) ) ) )
+        <gas> #gas(VGas) => #if ( #lookup( Pip_STORAGE , 1 ) ==Int Owner andBool ( ( Owner /Int pow160 ) ==Int Has andBool ( Has ==Int 0 andBool Owner <Int pow168 ) ) )
           #then   #gas ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Spot , Junk_7 ) ) +Int -15481 ) )
           #else   #gas ( ( ( VGas -Int Csstore( ISTANBUL , ( ( ( ( ( Price *Int 1000000000 ) *Int 1000000000000000000000000000 ) /Int Par ) *Int 1000000000000000000000000000 ) /Int Mat ) , Spot , Junk_7 ) ) +Int -17703 ) )
         #fi </gas>

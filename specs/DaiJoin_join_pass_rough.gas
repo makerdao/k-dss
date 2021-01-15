@@ -1,0 +1,10 @@
+#if Allowed ==Int maxUInt256
+  #then   #gas ( ( ( ( ( ( ( VGas +Int #if ABI_wad ==Int 0
+    #then   -54
+    #else   -106
+  #fi ) -Int Csstore( ISTANBUL , ( Dai_a -Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_a , Junk_3 ) ) -Int Csstore( ISTANBUL , ( Dai_u +Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Dai_c -Int ABI_wad ) , Dai_c , Junk_6 ) ) -Int Csstore( ISTANBUL , ( Supply -Int ABI_wad ) , Supply , Junk_7 ) ) +Int -23630 ) )
+  #else   #gas ( ( ( ( ( ( ( ( VGas +Int #if ABI_wad ==Int 0
+    #then   -54
+    #else   -106
+  #fi ) -Int Csstore( ISTANBUL , ( Dai_a -Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_a , Junk_3 ) ) -Int Csstore( ISTANBUL , ( Dai_u +Int ( 1000000000000000000000000000 *Int ABI_wad ) ) , Dai_u , Junk_4 ) ) -Int Csstore( ISTANBUL , ( Allowed -Int ABI_wad ) , Allowed , Junk_5 ) ) -Int Csstore( ISTANBUL , ( Dai_c -Int ABI_wad ) , Dai_c , Junk_6 ) ) -Int Csstore( ISTANBUL , ( Supply -Int ABI_wad ) , Supply , Junk_7 ) ) +Int -25887 ) )
+#fi

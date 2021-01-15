@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module 74F4EE4096FA0C455282F6605B9C34E84EDD41A8DE8349EF24B335AAA0B022F0
+module 08B4A6558B8A1A26D3B2D292CA684E88289A3A9FEFB231F01EAC11464E68ACCE
   imports VERIFICATION
 
 // Flapper_yank
@@ -283,7 +283,7 @@ claim [DSToken.move.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 2 ) ) ) ==Int maxUInt256 andBool ( Allowance ==Int maxUInt256 andBool ( maxUInt256 ==Int maxUInt256 orBool ABI_wad <=Int maxUInt256 ) ) )
+        <gas> #gas(VGas) => #if Allowance ==Int maxUInt256
           #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_2 ) ) +Int -7281 ) )
           #else   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Allowance -Int ABI_wad ) , Allowance , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Gem_d +Int ABI_wad ) , Gem_d , Junk_2 ) ) +Int -9538 ) )
         #fi </gas>

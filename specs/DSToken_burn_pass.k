@@ -1,6 +1,6 @@
 requires "verification.k"
 
-module F33398F7C488B240E8D72C87603FF11F939BA820048C68DC598389BBFC3EBEA7
+module 15B85DE8A5C74BBAFE87A6C0685B68BF3FC9FA9F1F24F2F18DD826863DC29AF9
   imports VERIFICATION
 
 // DSToken_burn
@@ -27,7 +27,7 @@ claim [DSToken.burn.pass]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => #if ( #lookup( ACCT_ID_STORAGE , hash2 ( CALLER_ID , hash2 ( ABI_src , 2 ) ) ) ==Int maxUInt256 andBool ( Allowance ==Int maxUInt256 andBool ( maxUInt256 ==Int maxUInt256 orBool ABI_wad <=Int maxUInt256 ) ) )
+        <gas> #gas(VGas) => #if Allowance ==Int maxUInt256
           #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Supply -Int ABI_wad ) , Supply , Junk_2 ) ) +Int -7641 ) )
           #else   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Allowance -Int ABI_wad ) , Allowance , Junk_0 ) ) -Int Csstore( ISTANBUL , ( Gem_s -Int ABI_wad ) , Gem_s , Junk_1 ) ) -Int Csstore( ISTANBUL , ( Supply -Int ABI_wad ) , Supply , Junk_2 ) ) +Int -9898 ) )
         #fi </gas>

@@ -1,0 +1,7 @@
+#if ( CALLER_ID ==Int ABI_src andBool ( hash2 ( ABI_src , hash2 ( ABI_src , 3 ) ) =/=Int hash2 ( ABI_src , 2 ) andBool ( hash2 ( ABI_src , hash2 ( ABI_src , 3 ) ) =/=Int hash2 ( ABI_dst , 2 ) andBool ( #lookup( ACCT_ID_STORAGE , hash2 ( ABI_src , hash2 ( ABI_src , 3 ) ) ) ==Int Allowed andBool #lookup( ACCT_ID_ORIG_STORAGE , hash2 ( ABI_src , hash2 ( ABI_src , 3 ) ) ) ==Int Junk_0 ) ) ) )
+  #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( DstBal +Int ABI_wad ) , DstBal , Junk_2 ) ) +Int -5381 ) )
+  #else   #if Allowed ==Int maxUInt256
+    #then   #gas ( ( ( ( VGas -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( DstBal +Int ABI_wad ) , DstBal , Junk_2 ) ) +Int -6374 ) )
+    #else   #gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , ( Allowed -Int ABI_wad ) , Allowed , Junk_0 ) ) -Int Csstore( ISTANBUL , ( SrcBal -Int ABI_wad ) , SrcBal , Junk_1 ) ) -Int Csstore( ISTANBUL , ( DstBal +Int ABI_wad ) , DstBal , Junk_2 ) ) +Int -8631 ) )
+  #fi
+#fi

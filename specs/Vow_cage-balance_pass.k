@@ -1,18 +1,18 @@
 requires "verification.k"
 
-module D237CFE7E8449E93426F2BA213AF8246B9F76B82C0A736459ABF01560DFF0AC2
+module EFBC6B00F1C706789A7362EA5D89F4AEC278FC0CBD60FA89F34B81B7F12C2F9B
   imports VERIFICATION
 
-// Vow_cage-deficit
-claim [Vow.cage-deficit.fail.rough]:
+// Vow_cage-balance
+claim [Vow.cage-balance.pass]:
   <k> #execute ~> CONTINUATION => #halt ~> CONTINUATION </k>
   <exit-code> 1 </exit-code>
   <mode> NORMAL </mode>
   <schedule> ISTANBUL </schedule>
   <ethereum>
     <evm>
-      <output> _ => ?_ </output>
-      <statusCode> _ => ?FAILURE:EndStatusCode </statusCode>
+      <output> .ByteArray </output>
+      <statusCode> _ => EVMC_SUCCESS </statusCode>
       <endPC> _ => ?_ </endPC>
       <callStack> VCallStack </callStack>
       <interimStates> _ </interimStates>
@@ -27,11 +27,11 @@ claim [Vow.cage-deficit.fail.rough]:
         <wordStack> .WordStack => ?_ </wordStack>
         <localMem> .Memory => ?_ </localMem>
         <pc> 0 => ?_ </pc>
-        <gas> #gas(VGas) => ?_ </gas>
+        <gas> #gas(VGas) => #gas ( ( ( ( ( ( ( ( ( ( ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , 1 , Junk_4 ) ) -Int Csstore( ISTANBUL , 0 , Sin , Junk_5 ) ) -Int Csstore( ISTANBUL , 0 , Ash , Junk_6 ) ) -Int Csstore( ISTANBUL , 0 , FlapLive , Junk_16 ) ) -Int Csstore( ISTANBUL , 0 , Dai_f , Junk_9 ) ) -Int Csstore( ISTANBUL , Sin_v , Dai_v , Junk_10 ) ) -Int Csstore( ISTANBUL , 0 , FlopLive , Junk_18 ) ) -Int Csstore( ISTANBUL , ACCT_ID , FlopVow , Junk_19 ) ) -Int Csstore( ISTANBUL , 0 , Sin_v , Junk_11 ) ) -Int Csstore( ISTANBUL , 0 , Sin_v , Junk_10 ) ) -Int Csstore( ISTANBUL , ( ( Vice -Int Dai_v ) -Int Dai_f ) , Vice , Junk_13 ) ) -Int Csstore( ISTANBUL , ( ( Debt -Int Dai_v ) -Int Dai_f ) , Debt , Junk_12 ) ) +Int -56545 ) ) </gas>
         <memoryUsed> 0 => ?_ </memoryUsed>
         <callGas> _ => ?_ </callGas>
         <static> false </static>
-        <callDepth> VCallDepth => ?_ </callDepth>
+        <callDepth> VCallDepth </callDepth>
       </callState>
       <substate>
         <selfDestruct> VSelfDestruct </selfDestruct>
@@ -80,7 +80,7 @@ claim [Vow.cage-deficit.fail.rough]:
           <acctID> ACCT_ID </acctID>
           <balance> ACCT_ID_balance </balance>
           <code> Vow_bin_runtime </code>
-          <storage> ACCT_ID_STORAGE => ?_ACCT_ID_STORAGE </storage>
+          <storage> ACCT_ID_STORAGE => ACCT_ID_STORAGE [ #Vow.live <- 0 ] [ #Vow.Sin <- 0 ] [ #Vow.Ash <- 0 ] </storage>
           <origStorage> ACCT_ID_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vow => ?_ </nonce>
         </account>
@@ -88,7 +88,7 @@ claim [Vow.cage-deficit.fail.rough]:
           <acctID> Vat </acctID>
           <balance> Vat_balance </balance>
           <code> Vat_bin_runtime </code>
-          <storage> Vat_STORAGE => ?_Vat_STORAGE </storage>
+          <storage> Vat_STORAGE => Vat_STORAGE [ #Vat.dai[Flapper] <- 0 ] [ #Vat.dai[ACCT_ID] <- 0 ] [ #Vat.sin[ACCT_ID] <- 0 ] [ #Vat.debt <- Debt -Int (Dai_v +Int Dai_f) ] [ #Vat.vice <- Vice -Int Sin_v ] </storage>
           <origStorage> Vat_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Vat => ?_ </nonce>
         </account>
@@ -96,7 +96,7 @@ claim [Vow.cage-deficit.fail.rough]:
           <acctID> Flapper </acctID>
           <balance> Flapper_balance </balance>
           <code> Flapper_bin_runtime </code>
-          <storage> Flapper_STORAGE => ?_Flapper_STORAGE </storage>
+          <storage> Flapper_STORAGE => Flapper_STORAGE [ #Flapper.live <- 0 ] </storage>
           <origStorage> Flapper_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Flapper => ?_ </nonce>
         </account>
@@ -104,7 +104,7 @@ claim [Vow.cage-deficit.fail.rough]:
           <acctID> Flopper </acctID>
           <balance> Flopper_balance </balance>
           <code> Flopper_bin_runtime </code>
-          <storage> Flopper_STORAGE => ?_Flopper_STORAGE </storage>
+          <storage> Flopper_STORAGE => Flopper_STORAGE [ #Flopper.live <- 0 ] [ #Flopper.vow <- ACCT_ID ] </storage>
           <origStorage> Flopper_ORIG_STORAGE </origStorage>
           <nonce> Nonce_Flopper => ?_ </nonce>
         </account>
@@ -236,7 +236,7 @@ andBool #rangeUInt(256, VChainId)
   andBool ((ACCT_ID =/=Int Vat)
   andBool ((ACCT_ID =/=Int Flapper)
   andBool ((ACCT_ID =/=Int Flopper)
-  andBool ((Dai_v +Int Dai_f <Int Sin_v)
+  andBool ((Dai_v +Int Dai_f ==Int Sin_v)
   andBool ((Flapper =/=Int ACCT_ID)
   andBool ((Flapper =/=Int Vat)
   andBool ((Flopper =/=Int ACCT_ID)
@@ -265,7 +265,16 @@ andBool #rangeUInt(256, VChainId)
   andBool (#rangeUInt(256, Junk_16)
   andBool (#rangeUInt(256, Junk_17)
   andBool (#rangeUInt(256, Junk_18)
-  andBool (#rangeUInt(256, Junk_19))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+  andBool (#rangeUInt(256, Junk_19)
+  andBool (((VCallValue ==Int 0))
+  andBool (((VCallDepth <Int 1023))
+  andBool (((Live ==Int 1))
+  andBool (((Can ==Int 1))
+  andBool (((MayFlap ==Int 1))
+  andBool (((MayFlop ==Int 1))
+  andBool ((#rangeUInt(256, Dai_v +Int Dai_f))
+  andBool ((#rangeUInt(256, Debt -Int (Dai_v +Int Dai_f)))
+  andBool ((#rangeUInt(256, Vice -Int Sin_v))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
   andBool #lookup(ACCT_ID_STORAGE, #Vow.wards[CALLER_ID]) ==Int Can
   andBool #lookup(ACCT_ID_STORAGE, #Vow.vat) ==Int Vat
@@ -346,19 +355,7 @@ andBool #rangeUInt(256, VChainId)
   andBool #lookup(Flopper_ORIG_STORAGE, #Flopper.vow) ==Int Junk_19
   andBool #Flopper.wards[ACCT_ID] =/=Int #Flopper.live
   andBool #Flopper.wards[ACCT_ID] =/=Int #Flopper.vow
-  andBool #Flopper.live =/=Int #Flopper.vow
-  andBool notBool (
-    (((VCallValue:Int ==Int 0))
-    andBool (((VCallDepth:Int <Int 1023))
-    andBool (((Live:Int ==Int 1))
-    andBool (((Can ==Int 1))
-    andBool (((MayFlap:Int ==Int 1))
-    andBool (((MayFlop:Int ==Int 1))
-    andBool ((#rangeUInt(256, Debt:Int -Int (Dai_v:Int +Int Dai_f:Int)))
-    andBool ((#rangeUInt(256, Vice:Int -Int (Dai_v:Int +Int Dai_f:Int)))))))))))
-  ) 
-ensures
-?FAILURE =/=K EVMC_SUCCESS
+  andBool #Flopper.live =/=Int #Flopper.vow 
 
 // Vow_minuu
 claim [Vow.minuu.pass]:

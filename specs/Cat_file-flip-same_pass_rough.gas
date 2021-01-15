@@ -1,1 +1,1 @@
-#gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_4 ) ) -Int Csstore( ISTANBUL , ABI_data , ABI_data , Junk_2 ) ) -Int Csstore( ISTANBUL , 1 , 0 , Junk_4 ) ) +Int -22000 ) )
+#gas ( ( ( ( ( VGas -Int Csstore( ISTANBUL , 0 , Junk_3 , Junk_4 ) ) -Int Csstore( ISTANBUL , Flip , Flip , Junk_2 ) ) -Int Csstore( ISTANBUL , 1 , 0 , Junk_4 ) ) +Int -22000 ) )
