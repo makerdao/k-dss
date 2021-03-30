@@ -33,6 +33,20 @@ If you want to build KEVM and KLab from source, you can:
     make kevm -j3
     ```
 
+### Setup Dapp Tools
+
+You need to install the [DappHub toolkit](https://dapp.tools/).
+This requires that you first install [Nix packager](https://nixos.org/download.html).
+For example, this may look like:
+
+```sh
+curl -L https://nixos.org/nix/install | sh
+source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+curl https://dapp.tools/install | sh
+```
+
+Notice the middle `source` line which sets up the Nix environment for local usage.
+
 ### Running the Proofs
 
 To run all the proofs, you can use the `prove` target in the `Makefile`:
