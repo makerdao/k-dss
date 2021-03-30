@@ -33,19 +33,25 @@ If you want to build KEVM and KLab from source, you can:
     make kevm -j3
     ```
 
-### Setup Dapp Tools
+### Setup Solidity Compiler and Dapp Tools
 
-You need to install the [DappHub toolkit](https://dapp.tools/).
-This requires that you first install [Nix packager](https://nixos.org/download.html).
-For example, this may look like:
+First you'll need to install the [Nix packager](https://nixos.org/download.html).
 
 ```sh
 curl -L https://nixos.org/nix/install | sh
-source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-curl https://dapp.tools/install | sh
 ```
 
-Notice the middle `source` line which sets up the Nix environment for local usage.
+Then you can install the Solidity compiler:
+
+```sh
+nix-env -f https://github.com/dapphub/dapptools/archive/master.tar.gz -iA solc-static-versions
+```
+
+And finally, install the [DappHub toolkit](https://dapp.tools/).
+
+```sh
+curl https://dapp.tools/install | sh
+```
 
 ### Running the Proofs
 
