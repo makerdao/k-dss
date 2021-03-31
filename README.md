@@ -8,31 +8,6 @@ These reachability claims are then tested against [KEVM](https://github.com/kfra
 Installation and Running
 ------------------------
 
-### Setup KLab and KEVM
-
-*Using external install of KLab/KEVM*:
-
--   Follow the install instructions of [KLab](https://github.com/makerdao/klab), including following the instructions for setting up KEVM included there.
--   Make sure that the `bin` directory inside the KLab repo is on `PATH` here.
--   Make sure that `KLAB_EVMS_PATH` is set as instructed if you are building KEVM from source (not needed if installed from package).
-
-*From-source builds in submodule*:
-
-If you want to build KEVM and KLab from source, you can:
-
--   Install the system dependencies of [KEVM](https://github.com/kframework/evm-semantics) and of [KLab](https://github.com/makerdao/klab).
--   Make sure that `PATH` is setup to include `$(pwd)/deps/klab/bin`.
--   Make sure that `KLAB_EVMS_PATH` is setup to include `$(pwd)/deps/evm-semanticss`.
--   Run the following:
-
-    ```sh
-    git submodule update --init --recursive
-    touch include.mak
-    make klab dapp
-    make include.mak -B
-    make kevm -j3
-    ```
-
 ### Setup Solidity Compiler and Dapp Tools
 
 First you'll need to install the [Nix packager](https://nixos.org/download.html).
@@ -52,6 +27,31 @@ And finally, install the [DappHub toolkit](https://dapp.tools/).
 ```sh
 curl https://dapp.tools/install | sh
 ```
+
+### Setup KLab and KEVM
+
+*Using external install of KLab/KEVM*:
+
+-   Follow the install instructions of [KLab](https://github.com/makerdao/klab), including following the instructions for setting up KEVM included there.
+-   Make sure that the `bin` directory inside the KLab repo is on `PATH` here.
+-   Make sure that `KLAB_EVMS_PATH` is set as instructed if you are building KEVM from source (not needed if installed from package).
+
+*From-source builds in submodule*:
+
+If you want to build KEVM and KLab from source, you can:
+
+-   Install the system dependencies of [KEVM](https://github.com/kframework/evm-semantics) and of [KLab](https://github.com/makerdao/klab).
+-   Make sure that `PATH` is setup to include `$(pwd)/deps/klab/bin`.
+-   Make sure that `KLAB_EVMS_PATH` is setup to include `$(pwd)/deps/evm-semantics`.
+-   Run the following:
+
+    ```sh
+    git submodule update --init --recursive
+    touch include.mak
+    make klab dapp
+    make include.mak -B
+    make kevm -j3
+    ```
 
 ### Running the Proofs
 
